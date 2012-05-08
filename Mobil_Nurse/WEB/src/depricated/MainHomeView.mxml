@@ -6,7 +6,7 @@
 		title="HomeView">
 	<fx:Script>
 		<![CDATA[
-			import views.View2;
+			import views.LoginSuccess;
 			import mx.events.FlexEvent;
 		
 			
@@ -64,7 +64,7 @@
 			
 			protected function gotoView2(event:MouseEvent):void
 			{
-				navigator.pushView(views.View2);				
+				navigator.pushView(views.LoginSuccess);				
 			}
 			
 		]]>

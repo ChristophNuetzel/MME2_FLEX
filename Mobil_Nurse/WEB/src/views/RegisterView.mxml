@@ -5,7 +5,7 @@
 		xmlns:views="views.*"
 		xmlns:services="services.*" 
 		xmlns:valueObjects="valueObjects.*"
-		backgroundColor="#B3B3B3">
+		backgroundColor= "#397373">
 	
 	<fx:Declarations>
 		<services:Employee1 id="myEmployees"/> 
@@ -20,8 +20,10 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import flash.sampler.NewObjectSample;
 			
 			import mx.events.FlexEvent;
+			
 			import valueObjects.MyStocks;
 			
 			protected function nursePass_creationCompleteHandler(event:FlexEvent):void
@@ -43,34 +45,38 @@
 					myNewEmployee.job = setJob.text;
 					myNewEmployee.prsnumber = parseInt(setPrsNummer.text);
 					createEmployee.token = myEmployees.createEmployee(myNewEmployee);
-					currentState='default';
-					getAllEmployeesResult2.token = myEmployees.getAllEmployees();
+					navigator.pushView(views.LoginSuccess, myEmployee);
 				}else{
 					setRegister.text = "Bitte alle Felder ausfüllen";
 				}
 			}
 		]]>
 	</fx:Script>
+	<s:HGroup x="0" y="45" width="416" height="173">
+		<s:VGroup height="174">
+			<s:Label fontSize="16" color="#FFFFFF" text="Set Name"/>
+			<s:TextInput id="setName" width="200" fontSize="16" text=""/>
+			<s:Label fontSize="16" color="#FFFFFF" text="Set Firstname"/>
+			<s:TextInput id="setFirstName" width="200" fontSize="16" text=""/>
+			<s:Label fontSize="16" color="#FFFFFF" text="Set Password"/>
+			<s:TextInput id="setPassword" width="200" displayAsPassword="true" fontSize="16" text=""/>
+			<s:Label id="check" visible="false" fontSize="18"
+					 text="Bitte alle Felder ausfüllen!" color="#ef181e" paddingTop="5"/>
+		</s:VGroup>	
+		<s:VGroup height="175" paddingRight="0">
+			<s:Label fontSize="16" color="#FFFFFF" text="Set Username"/>
+			<s:TextInput id="setUsername" width="200" fontSize="16" text=""/>
+			<s:Label fontSize="16" color="#FFFFFF" text="Set Job"/>
+			<s:TextInput id="setJob" width="200" fontSize="16" text=""/>
+			<s:Label fontSize="16" color="#FFFFFF" text="Set Personalnumber"/>
+			<s:TextInput id="setPrsNummer" width="200" fontSize="16" text=""/>
+			
+			
+		</s:VGroup>
+	</s:HGroup>
+	<s:Label id="setRegister" x="0" y="-4" color="#FFFFFF" fontSize="20" paddingTop="20" text="Please Register"/>
+	<s:Button id="registerButton" x="434" y="175" label="Register" click="registerButton_clickHandler(event)" fontSize="16"/>
 	
-	<s:VGroup >
-		<s:Label id="setRegister" fontSize="18" paddingTop="20" text="Please Register"/>
-		<s:Label fontSize="16" paddingTop="15" text="Set Name"/>
-		<s:TextInput id="setName" fontSize="16" text=""/>
-		<s:Label fontSize="16" text="Set Firstname"/>
-		<s:TextInput id="setFirstName" fontSize="16" text="" />
-		<s:Label fontSize="16" text="Set Password"/>
-		<s:TextInput id="setPassword" fontSize="16" text="" displayAsPassword="true" />
-		<s:Label fontSize="16" text="Set Username"/>
-		<s:TextInput id="setUsername" fontSize="16" text=""/>
-		<s:Label fontSize="16" text="Set Job"/>
-		<s:TextInput id="setJob" fontSize="16" text=""/>
-		<s:Label fontSize="16" text="Set Personalnumber"/>
-		<s:TextInput id="setPrsNummer" fontSize="16" text=""/>
-		
-		<s:Button id="registerButton" label="Register" fontSize="16" click="" />
-		
-		<s:Label id="check" visible="false" fontSize="16"
-				 text="Bitte alle Felder ausfüllen!" color="#ef181e" paddingTop="5"/>	
-	</s:VGroup>
+	
 	
 </s:View>

@@ -1,0 +1,11 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+
+
+global
+{
+	content-background-color: #7CD0D6;
+	content-background-alpha: 0.4;
+	chrome-color: #7CD0D6;
+}
+	

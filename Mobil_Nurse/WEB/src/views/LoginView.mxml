@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark" 
-		title="LoginView" xmlns:services="services.*" 
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:services="services.*"
 		xmlns:valueObjects="valueObjects.*"
-		creationComplete="nursePass_creationCompleteHandler(event)" xmlns:views="views.*">
+		xmlns:views="views.*"
+		creationComplete="nursePass_creationCompleteHandler(event)" 
+		title="Welcome - Please Login"
+		backgroundColor= "#E3F2F2">
 	
+	
+	<fx:Style source="style/style.css"/>
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
@@ -20,7 +25,7 @@
 			{
 				for each(var emp:Employee in getAllEmployeesResult2.lastResult) {
 					if(emp.username == nurseName.text && emp.password == nursePass.text ){
-						navigator.pushView(views.View2, emp);	
+						navigator.pushView(views.LoginSuccess, emp);	
 					}else{
 						errorText.text = "Wrong Username or Password";
 					}
@@ -42,32 +47,35 @@
 	</fx:Declarations>
 	
 	<s:states>
-		<s:State name="default"/>
+		<s:State name="login"/>
 		<s:State name="register"/>
 	</s:states>
 	
-	<s:BorderContainer width="361" height="223" backgroundColor="#B3B3B3" borderColor="0x000000"
-					   cornerRadius="7"
-					   y.default="10" height.default="200" horizontalCenter.default="1"
-					   y.register="10" height.register="653" horizontalCenter.register="1"
-					   textAlign.register="left">
-		<s:VGroup id="vgroup" x="30" y="20" width="305" height="191">
-			<s:Label id="errorText" color="#000000" fontSize="16" text="Please Login"
-					 fontSize.default="18"
-					 fontSize.register="18"/>
-			<s:TextInput id="nurseName" left="50%" fontSize="18" text="" textAlign="left"/>
-			<s:TextInput id="nursePass"  displayAsPassword="true" fontSize="18" textAlign="left"/>
-			<s:HGroup width="100%">
-				<s:Button id="login" width="100" label="Login" click="login_clickHandler(event)"
-						  color="#000000" fontSize="16"/>
-				<s:Button id="register" width="145" label="New Account" click="currentState='register';"
-						  fontSize="16"
-						  click.register="currentState='default'"/>
+	<s:Label id="welcome" y="220" width="767" height="59" text="Welcome on Mobile Nurse"
+			 x.login="1"
+			 horizontalCenter="0"/>
+	
+	<s:BorderContainer id="container" x="0" width="100%" height="140"
+					   y.login="320"
+					   y.register="320" height.register="384">
+		
+		<s:VGroup y="31" width="664" x="56" horizontalCenter="0">
+			<s:Label id="errorText" text="Please Login"/>
+			<s:HGroup id="vgroup" width="660" height="51"
+					  x="79" y="150">
+				<s:TextInput id="nurseName" left="50%" width="200" text=""/>
+				<s:TextInput id="nursePass" width="200" height="35" displayAsPassword="true"/>
+				<s:Button id="loginBtn" width="95" height="34" label="Login"
+						  click="login_clickHandler(event)"/>
+				<s:Button id="registerBtn" width="130" height="34"
+						  click="currentState='register'" label="New Account"
+						  click.register="currentState='login'"/>
 			</s:HGroup>
-			<s:VGroup includeIn="register">
-				<views:RegisterView></views:RegisterView>
-			</s:VGroup>
-		</s:VGroup>
+		</s:VGroup >	
+		
+		<views:RegisterView includeIn="register" y="120" horizontalCenter="-73">
+			
+		</views:RegisterView>
 	</s:BorderContainer>
 	
 </s:View>
