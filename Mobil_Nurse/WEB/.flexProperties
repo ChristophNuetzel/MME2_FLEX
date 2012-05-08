@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<flexProperties enableServiceManager="false" flexServerFeatures="4" flexServerType="2" fmlDataModelLocation=".model/WEB_INF.fml" serverContextRoot="/blazeds" serverRoot="C:/Users/Christoph/Documents/Studium/MME2/MME2/Mobil_Nurse/blazeds-turnkey-4.0.0.14931/tomcat/webapps/blazeds" serverRootURL="http://localhost:8400/blazeds" toolCompile="true" useServerFlexSDK="false" version="2"/>
+<flexProperties enableServiceManager="false" flexServerFeatures="4" flexServerType="2" fmlDataModelLocation=".model/WEB_INF.fml" serverContextRoot="/blazeds" serverRoot="C:/MME2_FLEX/Mobil_Nurse/backend/tomcat/webapps/blazeds" serverRootURL="http://localhost:8400/blazeds" toolCompile="true" useServerFlexSDK="false" version="2"/>
