@@ -872,3 +872,9 @@ java.lang.NullPointerException
 INFO: Stopping Coyote HTTP/1.1 on http-8400
 08.05.2012 14:21:16 org.apache.catalina.connector.Connector stop
 SCHWERWIEGEND: Coyote connector has not been started
+08.05.2012 22:30:05 org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8400
+08.05.2012 22:30:06 org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+08.05.2012 22:30:11 org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8400

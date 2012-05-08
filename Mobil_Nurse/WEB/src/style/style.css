@@ -1,0 +1,28 @@
+@namespace s "library://ns.adobe.com/flex/spark";
+
+#container{
+	backgroundColor: #397373;
+	borderColor: #000000;
+	shadowColor: "0xEEEEEE";
+}
+
+#errorText{
+	color: #FFFFFF;
+	font-size: 20px;
+}
+
+#nurseName, #nursePass{
+	fontSize: 18px;
+	textAlign: left;
+}
+
+#loginBtn, #registerBtn{
+	fontSize: 16px;
+}
+
+#welcome{
+	fontSize: 45px;
+	color: #000000;
+	textAlign: center;
+	paddingTop: 25px;
+}

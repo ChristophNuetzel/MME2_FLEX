@@ -18,7 +18,7 @@ public class Main {
 		 
 		 EmployeeDAO emplDAO = new EmployeeDAO();
 		 
-//		 Employee em = new Employee("Chris","Hansdampf", "Chris", "123", 0017, "01/05/1980", "Arzt");
+//		 Employee em = new Employee("DerA","ANachnachme", "a", "a", 0017, "01/05/1980", "Polizist");
 //		 emplDAO.createEmployee(em);
 		 emplDAO.getAllEmployees();
 		 
