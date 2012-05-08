@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* CSS file */
 @namespace s "library://ns.adobe.com/flex/spark";
 
@@ -6,4 +7,14 @@ global
 {
 	symbol-color: #7CD0D6;
 }
+=======
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+
+
+global
+{
+	symbol-color: #7CD0D6;
+}
+>>>>>>> e2c2498a71e632058764c38a83ec190c3087eb76
 	

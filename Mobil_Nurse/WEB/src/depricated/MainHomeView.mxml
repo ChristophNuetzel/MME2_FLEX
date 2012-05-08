@@ -6,7 +6,11 @@
 		title="HomeView">
 	<fx:Script>
 		<![CDATA[
+<<<<<<< HEAD
 			import view.components.View2;
+=======
+			import views.LoginSuccess;
+>>>>>>> e2c2498a71e632058764c38a83ec190c3087eb76
 			import mx.events.FlexEvent;
 		
 			
@@ -64,7 +68,11 @@
 			
 			protected function gotoView2(event:MouseEvent):void
 			{
+<<<<<<< HEAD
 				navigator.pushView(view.components.View2);				
+=======
+				navigator.pushView(views.LoginSuccess);				
+>>>>>>> e2c2498a71e632058764c38a83ec190c3087eb76
 			}
 			
 		]]>

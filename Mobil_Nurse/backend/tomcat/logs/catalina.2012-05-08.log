@@ -669,6 +669,7 @@ INFO: Server startup in 1242 ms
 INFO: Pausing Coyote HTTP/1.1 on http-8400
 08.05.2012 13:24:43 org.apache.catalina.core.StandardService stop
 INFO: Stopping service Catalina
+<<<<<<< HEAD
 08.05.2012 13:52:57 org.apache.catalina.core.AprLifecycleListener init
 INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.6.0_25\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\MiKTeX 2.9\miktex\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Windows Live\Shared;C:\Program Files\MySQL\MySQL Server 5.5\bin
 08.05.2012 13:52:57 org.apache.coyote.http11.Http11Protocol init
@@ -735,6 +736,44 @@ java.net.ConnectException: Connection refused: connect
 	at java.net.Socket.connect(Socket.java:478)
 	at java.net.Socket.<init>(Socket.java:375)
 	at java.net.Socket.<init>(Socket.java:189)
+=======
+08.05.2012 16:14:18 org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files (x86)\Java\jdk1.6.0\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\PC Connectivity Solution\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Maven\apache-maven-3.0.3\bin
+08.05.2012 16:14:18 org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8400
+08.05.2012 16:14:18 org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 485 ms
+08.05.2012 16:14:18 org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+08.05.2012 16:14:18 org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+08.05.2012 16:14:21 org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8400
+08.05.2012 16:14:21 org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+08.05.2012 16:14:21 org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/30  config=null
+08.05.2012 16:14:21 org.apache.catalina.startup.Catalina start
+INFO: Server startup in 3061 ms
+08.05.2012 16:15:12 org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8400
+08.05.2012 16:15:13 org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+08.05.2012 16:15:14 org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8400
+08.05.2012 16:15:27 org.apache.catalina.startup.Catalina stopServer
+SCHWERWIEGEND: Catalina.stop: 
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:519)
+	at java.net.Socket.connect(Socket.java:469)
+	at java.net.Socket.<init>(Socket.java:366)
+	at java.net.Socket.<init>(Socket.java:179)
+>>>>>>> e2c2498a71e632058764c38a83ec190c3087eb76
 	at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:409)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
@@ -742,6 +781,7 @@ java.net.ConnectException: Connection refused: connect
 	at java.lang.reflect.Method.invoke(Method.java:597)
 	at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:337)
 	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:415)
+<<<<<<< HEAD
 08.05.2012 13:54:59 org.apache.catalina.core.AprLifecycleListener init
 INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.6.0_25\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\MiKTeX 2.9\miktex\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Windows Live\Shared;C:\Program Files\MySQL\MySQL Server 5.5\bin
 08.05.2012 13:54:59 org.apache.coyote.http11.Http11Protocol init
@@ -877,4 +917,29 @@ INFO: Pausing Coyote HTTP/1.1 on http-8400
 08.05.2012 22:30:06 org.apache.catalina.core.StandardService stop
 INFO: Stopping service Catalina
 08.05.2012 22:30:11 org.apache.coyote.http11.Http11Protocol destroy
+=======
+08.05.2012 16:15:28 org.apache.catalina.core.AprLifecycleListener init
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files (x86)\Java\jdk1.6.0\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\PC Connectivity Solution\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Maven\apache-maven-3.0.3\bin
+08.05.2012 16:15:28 org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8400
+08.05.2012 16:15:28 org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 269 ms
+08.05.2012 16:15:28 org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+08.05.2012 16:15:28 org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.14
+08.05.2012 16:15:29 org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8400
+08.05.2012 16:15:29 org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+08.05.2012 16:15:29 org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/15  config=null
+08.05.2012 16:15:29 org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1229 ms
+08.05.2012 16:24:41 org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8400
+08.05.2012 16:24:42 org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+08.05.2012 16:24:43 org.apache.coyote.http11.Http11Protocol destroy
+>>>>>>> e2c2498a71e632058764c38a83ec190c3087eb76
 INFO: Stopping Coyote HTTP/1.1 on http-8400
