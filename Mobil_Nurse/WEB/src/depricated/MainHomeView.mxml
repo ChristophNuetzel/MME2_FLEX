@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:services="services.*"
+		xmlns:valueObjects="valueObjects.*"
+		title="HomeView">
+	<fx:Script>
+		<![CDATA[
+			import views.View2;
+			import mx.events.FlexEvent;
+		
+			
+			
+			protected function dataGrid_creationCompleteHandler(event:FlexEvent):void
+			{
+				getAllResult.token = bla.getAll();
+				getAllResult2.token = bla.getAll();
+			}
+			
+			
+			protected function update_clickHandler(event:MouseEvent):void
+			{
+				myStocks5.price = parseFloat(priceTextInput.text);
+				myStocks5.infoLInk = infoLInkTextInput.text;
+				myStocks5.name = nameTextInput.text;
+				myStocks5.qty = parseInt(qtyTextInput.text);
+				myStocks5.comment = commentTextInput.text;
+				myStocks5.isin = isinTextInput.text;
+				myStocks5.currency = currencyTextInput.text;
+				
+				getAllStocksResult.token = bla.update(myStocks5);
+				
+				
+			}
+			
+			
+			protected function create_clickHandler(event:MouseEvent):void
+			{
+				// Kommentieren Sie die folgende Zeile aus, wenn die Datenverwaltung für MyStocks aktiviert ist und createStock als „create“-Funktion verwendet wird.
+				// var myStocks3:MyStocks = new MyStocks();
+				if(priceTextInput2.text != null && priceTextInput2.text != "" &&
+					infoLInkTextInput2.text != null && infoLInkTextInput2.text != "" && nameTextInput2.text != null && nameTextInput2.text != "" &&
+					qtyTextInput2.text != null && qtyTextInput2.text != "" && commentTextInput2.text != null || commentTextInput2.text != "" &&
+					isinTextInput2.text != null && isinTextInput2.text != "" && currencyTextInput2.text != null && currencyTextInput2.text != "")
+				{
+					myStocks3.price = parseFloat(priceTextInput2.text);
+					myStocks3.infoLInk = infoLInkTextInput2.text;
+					myStocks3.name = nameTextInput2.text;
+					myStocks3.qty = parseInt(qtyTextInput2.text);
+					myStocks3.comment = commentTextInput2.text;
+					myStocks3.isin = isinTextInput2.text;
+					myStocks3.currency = currencyTextInput2.text;
+					createStockResult.token = bla.createStock(myStocks3);
+					
+					getAllResult.token = bla.getAll();
+					getAllResult2.token = bla.getAll();
+				
+				}else{
+					label.text = "Bitte alles ausfüllen";
+				}
+				
+				
+			}
+			
+			protected function gotoView2(event:MouseEvent):void
+			{
+				navigator.pushView(views.View2);				
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:CallResponder id="getAllStocksResult"/>
+		<valueObjects:MyStocks id="myStocks"/>
+		<s:CallResponder id="getAllResult"/>
+		
+		<services:Bla id="bla"/>
+		
+		
+		<s:CallResponder id="getAllResult2"/>
+		<valueObjects:MyStocks id="myStocks2"/>
+		<s:CallResponder id="updateResult"/>
+
+		<valueObjects:MyStocks id="myStocks5"/>
+		<valueObjects:MyStocks id="myStocks3"/>
+		<s:CallResponder id="createStockResult"/>
+		
+
+	</fx:Declarations>
+	<fx:Binding destination="myStocks" source="dataGrid.selectedItem as MyStocks"/>
+	<fx:Binding destination="myStocks2" source="dataGrid.selectedItem as MyStocks"/>
+	<fx:Binding destination="myStocks5" source="dataGrid.selectedItem as MyStocks"/>
+	
+	<s:DataGrid id="dataGrid" width="100%" height="289"
+				creationComplete="dataGrid_creationCompleteHandler(event)">
+		<s:columns>
+			<s:ArrayList>
+				<s:GridColumn dataField="isin" headerText="ISIN"/>
+				<s:GridColumn dataField="name" headerText="NAME"/>
+				<s:GridColumn dataField="qty" headerText="QTY"/>
+				<s:GridColumn dataField="price" headerText="PRICE"/>
+				<s:GridColumn dataField="currency" headerText="CURRENCY"/>
+				<s:GridColumn dataField="infoLInk" headerText="infoLInk"></s:GridColumn>
+				<s:GridColumn dataField="id" headerText="id"></s:GridColumn>
+				<s:GridColumn dataField="comment" headerText="comment"></s:GridColumn>
+			</s:ArrayList>
+		</s:columns>
+		<s:AsyncListView list="{getAllResult2.lastResult}"/>
+	</s:DataGrid>
+	<s:Form y="308" left="37" width="275" defaultButton="{button}">
+		<s:FormItem label="Price">
+			<s:TextInput id="priceTextInput" width="171" text="{myStocks5.price}"/>
+		</s:FormItem>
+		<s:FormItem label="InfoLInk">
+			<s:TextInput id="infoLInkTextInput" width="171" text="{myStocks5.infoLInk}"/>
+		</s:FormItem>
+		<s:FormItem label="Name">
+			<s:TextInput id="nameTextInput" width="171" text="{myStocks5.name}"/>
+		</s:FormItem>
+		<s:FormItem label="Qty">
+			<s:TextInput id="qtyTextInput" width="171" text="{myStocks5.qty}"/>
+			
+		</s:FormItem>
+		<s:FormItem label="Comment">
+			<s:TextInput id="commentTextInput" width="171" text="{myStocks5.comment}"/>
+		</s:FormItem>
+		<s:FormItem label="Isin">
+			<s:TextInput id="isinTextInput" width="171" text="{myStocks5.isin}"/>
+		</s:FormItem>
+		<s:FormItem label="Currency">
+			<s:TextInput id="currencyTextInput" width="171" text="{myStocks5.currency}"/>
+		</s:FormItem>
+		<s:Button id="button" label="Update Data" click="update_clickHandler(event)"/>
+	</s:Form>
+	<s:Form y="308" right="-5" defaultButton="{button2}">
+		<s:FormItem label="Price">
+			<s:TextInput id="priceTextInput2" text="{myStocks3.price}"/>
+		</s:FormItem>
+		<s:FormItem label="InfoLInk">
+			<s:TextInput id="infoLInkTextInput2" text="{myStocks3.infoLInk}"/>
+		</s:FormItem>
+		<s:FormItem label="Name">
+			<s:TextInput id="nameTextInput2" text="{myStocks3.name}"/>
+		</s:FormItem>
+		<s:FormItem label="Qty">
+			<s:TextInput id="qtyTextInput2" text="{myStocks3.qty}"/>
+		</s:FormItem>
+		<s:FormItem label="Comment">
+			<s:TextInput id="commentTextInput2" text="{myStocks3.comment}"/>
+		</s:FormItem>
+		<s:FormItem label="Isin">
+			<s:TextInput id="isinTextInput2" text="{myStocks3.isin}"/>
+		</s:FormItem>
+		<s:FormItem label="Currency">
+			<s:TextInput id="currencyTextInput2" text="{myStocks3.currency}"/>
+		</s:FormItem>
+		<s:Button id="button2" label="CreateStock" click="create_clickHandler(event)"/>
+	</s:Form>
+	<s:Button x="525" y="869" width="219" label="Go to View 2" click="gotoView2(event)"/>
+	<s:Label id="label" x="177" y="854"/>
+	
+</s:View>

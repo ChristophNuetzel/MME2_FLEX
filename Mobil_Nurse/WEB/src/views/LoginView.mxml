@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		title="LoginView" xmlns:services="services.*" 
+		xmlns:valueObjects="valueObjects.*"
+		creationComplete="nursePass_creationCompleteHandler(event)">
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			import valueObjects.MyStocks;
+			
+			protected function nursePass_creationCompleteHandler(event:FlexEvent):void
+			{
+				getAllEmployeesResult2.token = myEmployees.getAllEmployees();
+			}
+			
+			protected function login_clickHandler(event:MouseEvent):void
+			{
+				for each(var emp:Employee in getAllEmployeesResult2.lastResult) {
+					if(emp.username == nurseName.text && emp.password == nursePass.text ){
+						navigator.pushView(views.View2, emp);	
+					}else{
+						errorText.text = "Wrong Username or Password";
+					}
+				}
+			}
+			
+			protected function registerButton_clickHandler(event:MouseEvent):void
+			{
+				if(setName.text != null && setName.text != "" &&
+					setFirstName.text != null && setFirstName.text != "" && setPassword.text != null && setPassword.text != "" &&
+					setUsername.text != null && setUsername.text != "" && setJob.text != null || setJob.text != "" &&
+					setPrsNummer.text != null && setPrsNummer.text != "" ){
+					
+					myNewEmployee.name = setName.text;
+					myNewEmployee.firstname = setFirstName.text;
+					myNewEmployee.password = setPassword.text;
+					myNewEmployee.username = setUsername.text;
+					myNewEmployee.job = setJob.text;
+					myNewEmployee.prsnumber = parseInt(setPrsNummer.text);
+					createEmployee.token = myEmployees.createEmployee(myNewEmployee);
+					errorText.text = "Registrierung erfolgreich";
+					currentState='default';
+					getAllEmployeesResult2.token = myEmployees.getAllEmployees();
+				}else{
+					setRegister.text = "Bitte alle Felder ausfüllen";
+				}
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<services:Employee1 id="myEmployees"/> 
+		<s:CallResponder id="getAllResult"/>
+		
+		<valueObjects:Employee id="myNewEmployee"/>
+		<s:CallResponder id="createEmployee"/>
+		
+		<valueObjects:Employee id="myEmployee"/>
+		<s:CallResponder id="getAllEmployeesResult2"/>
+	</fx:Declarations>
+	
+	<s:states>
+		<s:State name="default"/>
+		<s:State name="register"/>
+	</s:states>
+	
+	<s:BorderContainer width="361" height="223" backgroundColor="#B3B3B3" borderColor="0x000000"
+					   cornerRadius="7"
+					   y.default="10" height.default="200" horizontalCenter.default="1"
+					   y.register="10" height.register="653" horizontalCenter.register="1"
+					   textAlign.register="left">
+		<s:VGroup id="vgroup" x="30" y="20" width="305" height="191">
+			<s:Label id="errorText" color="#000000" fontSize="16" text="Please Login"
+					 fontSize.default="18"
+					 fontSize.register="18"/>
+			<s:TextInput id="nurseName" left="50%" fontSize="18" text="" textAlign="left"/>
+			<s:TextInput id="nursePass"  displayAsPassword="true" fontSize="18" textAlign="left"/>
+			<s:HGroup width="100%">
+				<s:Button id="login" width="100" label="Login" click="login_clickHandler(event)"
+						  color="#000000" fontSize="16"/>
+				<s:Button id="register" width="145" label="New Account" click="currentState='register';"
+						  fontSize="16"
+						  click.register="currentState='default'"/>
+			</s:HGroup>
+			<s:VGroup includeIn="register">
+				<s:VGroup>
+					<s:Label id="setRegister" fontSize="18" paddingTop="20" text="Please Register"/>
+					<s:Label fontSize="16" paddingTop="15" text="Set Name"/>
+					<s:TextInput id="setName" fontSize="16" text=""/>
+					<s:Label fontSize="16" text="Set Firstname"/>
+					<s:TextInput id="setFirstName" fontSize="16" text="" />
+					<s:Label fontSize="16" text="Set Password"/>
+					<s:TextInput id="setPassword" fontSize="16" text="" displayAsPassword="true" />
+					<s:Label fontSize="16" text="Set Username"/>
+					<s:TextInput id="setUsername" fontSize="16" text=""/>
+					<s:Label fontSize="16" text="Set Job"/>
+					<s:TextInput id="setJob" fontSize="16" text=""/>
+					<s:Label fontSize="16" text="Set Personalnumber"/>
+					<s:TextInput id="setPrsNummer" fontSize="16" text=""/>
+					
+					<s:Button id="registerButton" label="Register" fontSize="16" click="registerButton_clickHandler(event)" />
+					
+					<s:Label id="check" visible="false" fontSize="16"
+							 text="Bitte alle Felder ausfüllen!" color="#ef181e" paddingTop="5"/>	
+				</s:VGroup>
+			</s:VGroup>
+		</s:VGroup>
+	</s:BorderContainer>
+	
+</s:View>
