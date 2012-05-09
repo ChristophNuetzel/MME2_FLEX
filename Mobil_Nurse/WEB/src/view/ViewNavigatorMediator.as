@@ -34,6 +34,7 @@ package view
 		}
 		
 		private function switchView(evt:ElementExistenceEvent):void {
+			trace("A view was switched by ViewNavigator" );
 			sendNotification(AppFacade.MEDIATE_VIEW, evt.element as View );
 		}
 	}

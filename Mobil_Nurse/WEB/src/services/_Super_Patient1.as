@@ -7,11 +7,11 @@ package services
 import com.adobe.fiber.core.model_internal;
 import com.adobe.fiber.services.wrapper.RemoteObjectServiceWrapper;
 import com.adobe.serializers.utility.TypeUtility;
+import model.vo.auto.Patient;
 import mx.rpc.AbstractOperation;
 import mx.rpc.AsyncToken;
 import mx.rpc.remoting.Operation;
 import mx.rpc.remoting.RemoteObject;
-import valueObjects.Patient;
 
 import mx.collections.ItemResponder;
 import com.adobe.fiber.valueobjects.AvailablePropertyIterator;
@@ -27,7 +27,7 @@ internal class _Super_Patient1 extends com.adobe.fiber.services.wrapper.RemoteOb
         _serviceControl = new mx.rpc.remoting.RemoteObject();
 
         // initialize RemoteClass alias for all entities returned by functions of this service
-        valueObjects.Patient._initRemoteClassAlias();
+        model.vo.auto.Patient._initRemoteClassAlias();
 
         var operations:Object = new Object();
         var operation:mx.rpc.remoting.Operation;
@@ -36,7 +36,7 @@ internal class _Super_Patient1 extends com.adobe.fiber.services.wrapper.RemoteOb
          operation.resultType = Boolean;
         operations["deletePatient"] = operation;
         operation = new mx.rpc.remoting.Operation(null, "getAllPatients");
-         operation.resultElementType = valueObjects.Patient;
+         operation.resultElementType = model.vo.auto.Patient;
         operations["getAllPatients"] = operation;
         operation = new mx.rpc.remoting.Operation(null, "createPatient");
         operations["createPatient"] = operation;
@@ -72,7 +72,7 @@ internal class _Super_Patient1 extends com.adobe.fiber.services.wrapper.RemoteOb
       *
       * @return an mx.rpc.AsyncToken whose result property will be populated with the result of the operation when the server response is received.
       */
-    public function deletePatient(arg0:valueObjects.Patient) : mx.rpc.AsyncToken
+    public function deletePatient(arg0:model.vo.auto.Patient) : mx.rpc.AsyncToken
     {
         var _internal_operation:mx.rpc.AbstractOperation = _serviceControl.getOperation("deletePatient");
 		var _internal_token:mx.rpc.AsyncToken = _internal_operation.send(arg0) ;
@@ -108,7 +108,7 @@ internal class _Super_Patient1 extends com.adobe.fiber.services.wrapper.RemoteOb
       *
       * @return an mx.rpc.AsyncToken whose result property will be populated with the result of the operation when the server response is received.
       */
-    public function createPatient(arg0:valueObjects.Patient) : mx.rpc.AsyncToken
+    public function createPatient(arg0:model.vo.auto.Patient) : mx.rpc.AsyncToken
     {
         var _internal_operation:mx.rpc.AbstractOperation = _serviceControl.getOperation("createPatient");
 		var _internal_token:mx.rpc.AsyncToken = _internal_operation.send(arg0) ;
@@ -126,7 +126,7 @@ internal class _Super_Patient1 extends com.adobe.fiber.services.wrapper.RemoteOb
       *
       * @return an mx.rpc.AsyncToken whose result property will be populated with the result of the operation when the server response is received.
       */
-    public function updatePatient(arg0:valueObjects.Patient) : mx.rpc.AsyncToken
+    public function updatePatient(arg0:model.vo.auto.Patient) : mx.rpc.AsyncToken
     {
         var _internal_operation:mx.rpc.AbstractOperation = _serviceControl.getOperation("updatePatient");
 		var _internal_token:mx.rpc.AsyncToken = _internal_operation.send(arg0) ;

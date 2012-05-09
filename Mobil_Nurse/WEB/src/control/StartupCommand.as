@@ -11,6 +11,8 @@ package control
 		public static const NAME:String = "StartupCommand" ;
 		
 		override public function execute(notification:INotification):void {
+			trace("**-- StartupCommand --**");
+			trace("**-- execute: register ViewNavigatorMediator --*"); 
 			facade.registerMediator(new ViewNavigatorMediator(notification.getBody() as ViewNavigator));
 		}
 	}

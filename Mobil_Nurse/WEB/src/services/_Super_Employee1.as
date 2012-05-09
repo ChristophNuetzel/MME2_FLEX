@@ -7,11 +7,11 @@ package services
 import com.adobe.fiber.core.model_internal;
 import com.adobe.fiber.services.wrapper.RemoteObjectServiceWrapper;
 import com.adobe.serializers.utility.TypeUtility;
+import model.vo.auto.Employee;
 import mx.rpc.AbstractOperation;
 import mx.rpc.AsyncToken;
 import mx.rpc.remoting.Operation;
 import mx.rpc.remoting.RemoteObject;
-import valueObjects.Employee;
 
 import mx.collections.ItemResponder;
 import com.adobe.fiber.valueobjects.AvailablePropertyIterator;
@@ -27,13 +27,13 @@ internal class _Super_Employee1 extends com.adobe.fiber.services.wrapper.RemoteO
         _serviceControl = new mx.rpc.remoting.RemoteObject();
 
         // initialize RemoteClass alias for all entities returned by functions of this service
-        valueObjects.Employee._initRemoteClassAlias();
+        model.vo.auto.Employee._initRemoteClassAlias();
 
         var operations:Object = new Object();
         var operation:mx.rpc.remoting.Operation;
 
         operation = new mx.rpc.remoting.Operation(null, "getAllEmployees");
-         operation.resultElementType = valueObjects.Employee;
+         operation.resultElementType = model.vo.auto.Employee;
         operations["getAllEmployees"] = operation;
         operation = new mx.rpc.remoting.Operation(null, "updateEmployee");
          operation.resultType = Boolean;
@@ -90,7 +90,7 @@ internal class _Super_Employee1 extends com.adobe.fiber.services.wrapper.RemoteO
       *
       * @return an mx.rpc.AsyncToken whose result property will be populated with the result of the operation when the server response is received.
       */
-    public function updateEmployee(arg0:valueObjects.Employee) : mx.rpc.AsyncToken
+    public function updateEmployee(arg0:model.vo.auto.Employee) : mx.rpc.AsyncToken
     {
         var _internal_operation:mx.rpc.AbstractOperation = _serviceControl.getOperation("updateEmployee");
 		var _internal_token:mx.rpc.AsyncToken = _internal_operation.send(arg0) ;
@@ -108,7 +108,7 @@ internal class _Super_Employee1 extends com.adobe.fiber.services.wrapper.RemoteO
       *
       * @return an mx.rpc.AsyncToken whose result property will be populated with the result of the operation when the server response is received.
       */
-    public function deleteEmployee(arg0:valueObjects.Employee) : mx.rpc.AsyncToken
+    public function deleteEmployee(arg0:model.vo.auto.Employee) : mx.rpc.AsyncToken
     {
         var _internal_operation:mx.rpc.AbstractOperation = _serviceControl.getOperation("deleteEmployee");
 		var _internal_token:mx.rpc.AsyncToken = _internal_operation.send(arg0) ;
@@ -126,7 +126,7 @@ internal class _Super_Employee1 extends com.adobe.fiber.services.wrapper.RemoteO
       *
       * @return an mx.rpc.AsyncToken whose result property will be populated with the result of the operation when the server response is received.
       */
-    public function createEmployee(arg0:valueObjects.Employee) : mx.rpc.AsyncToken
+    public function createEmployee(arg0:model.vo.auto.Employee) : mx.rpc.AsyncToken
     {
         var _internal_operation:mx.rpc.AbstractOperation = _serviceControl.getOperation("createEmployee");
 		var _internal_token:mx.rpc.AsyncToken = _internal_operation.send(arg0) ;

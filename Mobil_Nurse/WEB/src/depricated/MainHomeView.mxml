@@ -2,14 +2,14 @@
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		xmlns:services="services.*"
-		xmlns:valueObjects="valueObjects.*"
-		title="HomeView">
+		xmlns:vo="model.vo.*"
+		title="HomeView" xmlns:auto="model.vo.auto.*">
 	<fx:Script>
 		<![CDATA[
 <<<<<<< HEAD
 			import view.components.View2;
 =======
-			import views.LoginSuccess;
+			import view.components.LoginSuccess;
 >>>>>>> e2c2498a71e632058764c38a83ec190c3087eb76
 			import mx.events.FlexEvent;
 		
@@ -79,18 +79,18 @@
 	</fx:Script>
 	<fx:Declarations>
 		<s:CallResponder id="getAllStocksResult"/>
-		<valueObjects:MyStocks id="myStocks"/>
+		<auto:MyStocks id="myStocks"/>
 		<s:CallResponder id="getAllResult"/>
 		
 		<services:Bla id="bla"/>
 		
 		
 		<s:CallResponder id="getAllResult2"/>
-		<valueObjects:MyStocks id="myStocks2"/>
+		<auto:MyStocks id="myStocks2"/>
 		<s:CallResponder id="updateResult"/>
 
-		<valueObjects:MyStocks id="myStocks5"/>
-		<valueObjects:MyStocks id="myStocks3"/>
+		<auto:MyStocks id="myStocks5"/>
+		<auto:MyStocks id="myStocks3"/>
 		<s:CallResponder id="createStockResult"/>
 		
 

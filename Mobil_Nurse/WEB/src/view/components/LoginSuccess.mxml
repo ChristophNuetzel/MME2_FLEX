@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		title="Login Sucess"
+		backgroundColor= "#E3F2F2"
+		initialize="onInitialization(event)">
+	<fx:Declarations>
+		<!-- Platzieren Sie nichtvisuelle Elemente (z. B. Dienste, Wertobjekte) hier -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			/** PureMVC PART PureMVC Part  PureMVC PART **/
+			
+			public static const NAME:String = 'LoginSuccess';
+			public static const CLICKED:String = NAME + "Clicked";
+			
+			public function onInitialization(event:FlexEvent):void {
+				this.id = NAME;
+			}
+			
+			public function fireMVCLog():void {
+				trace("LoginSuccessView - ClickEvent - start");
+				dispatchEvent( new Event( CLICKED ) );
+			}
+			
+			/** PureMVC PART PureMVC Part  PureMVC PART **/
+			
+			public function logoutView():void {
+				navigator.popView();
+			}
+			
+			public function setLabelText(s:String):void {
+				this.logSucLabel.text = s;
+			}
+		]]>
+	</fx:Script>
+	
+	<s:navigationContent>
+		<s:Button click="fireMVCLog()" label="Logout"/>
+	</s:navigationContent>
+	<!--<s:Label y="78" width="748" fontSize="80" horizontalCenter="0" textAlign="center" text="Hallo: {data.firstname}"/>-->
+	<s:Label id="logSucLabel" y="78" width="748" fontSize="80" horizontalCenter="0" textAlign="center" text="still dummy text" />
+</s:View>

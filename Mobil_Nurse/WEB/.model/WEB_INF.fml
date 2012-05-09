@@ -11,7 +11,7 @@
       <item name="Destination">patient</item>
     </annotation>
     <annotation name="ServiceConfig">
-      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="DEFAULT_ENTITY_PACKAGE">model.vo.auto</item>
       <item name="contextRoot">/blazeds</item>
       <item name="rootUrl">http://localhost:8400/blazeds</item>
       <item name="LINKED_FILE"></item>
@@ -70,13 +70,90 @@
       <item name="service">Patient1</item>
     </annotation>
     <annotation name="ActionScriptGeneration">
-      <item name="Package">valueObjects</item>
+      <item name="Package">model.vo.auto</item>
     </annotation>
     <property name="id" type="long"/>
     <property name="username" type="string"/>
     <property name="illness" type="string"/>
     <property name="name" type="string"/>
     <property name="firstname" type="string"/>
+  </entity>
+  <service name="Employee1">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">RemoteObject</item>
+      <item name="Package">services</item>
+      <item name="Endpoint">http://localhost:8400/blazeds/messagebroker/amf</item>
+      <item name="Destination">employee</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">model.vo.auto</item>
+      <item name="contextRoot">/blazeds</item>
+      <item name="rootUrl">http://localhost:8400/blazeds</item>
+      <item name="ABSOLUTE_ENDPOINT">http://localhost:8400/blazeds/messagebroker/amf</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">BlazeDS</item>
+    </annotation>
+    <function name="getAllEmployees" return-type="Employee[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">Employee</item>
+      </annotation>
+    </function>
+    <function name="updateEmployee" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">Employee</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="Employee"/>
+    </function>
+    <function name="deleteEmployee" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">Employee</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="Employee"/>
+    </function>
+    <function name="createEmployee" return-type="void">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">Employee</item>
+      </annotation>
+      <parameter name="arg0" type="Employee"/>
+    </function>
+  </service>
+  <entity name="Employee">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Employee</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">Employee</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Employee1</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">model.vo.auto</item>
+    </annotation>
+    <property name="id" type="long"/>
+    <property name="birth" type="string"/>
+    <property name="username" type="string"/>
+    <property name="name" type="string"/>
+    <property name="job" type="string"/>
+    <property name="firstname" type="string"/>
+    <property name="password" type="string"/>
+    <property name="prsnumber" type="integer"/>
   </entity>
   <service name="Bla">
     <annotation name="ActionScriptGeneration">
@@ -86,10 +163,9 @@
       <item name="Destination">bla</item>
     </annotation>
     <annotation name="ServiceConfig">
-      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="DEFAULT_ENTITY_PACKAGE">model.vo.auto</item>
       <item name="contextRoot">/blazeds</item>
       <item name="rootUrl">http://localhost:8400/blazeds</item>
-      <item name="LINKED_FILE"></item>
       <item name="ABSOLUTE_ENDPOINT">http://localhost:8400/blazeds/messagebroker/amf</item>
     </annotation>
     <annotation name="ServiceTypeGroup">
@@ -135,9 +211,6 @@
       <annotation name="original signature">
         <item name="returnType">MyStocks</item>
       </annotation>
-      <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,price,infoLInk,name,qty,comment,isin,currency</item>
-      </annotation>
     </function>
   </service>
   <entity name="MyStocks">
@@ -149,13 +222,10 @@
       <item name="IncludeRemoteClass">nonempty</item>
     </annotation>
     <annotation name="service Group">
-      <item name="service">Dummy,Bla,BlaDummy</item>
+      <item name="service">Bla</item>
     </annotation>
     <annotation name="ActionScriptGeneration">
-      <item name="Package">valueObjects</item>
-    </annotation>
-    <annotation name="getAll">
-      <item name="propertySpecifier">id,price,infoLInk,name,qty,comment,isin,currency</item>
+      <item name="Package">model.vo.auto</item>
     </annotation>
     <property name="id" type="long"/>
     <property name="price" type="double"/>
@@ -165,89 +235,5 @@
     <property name="comment" type="string"/>
     <property name="isin" type="string"/>
     <property name="currency" type="string"/>
-  </entity>
-  <service name="Employee1">
-    <annotation name="ActionScriptGeneration">
-      <item name="ServiceType">RemoteObject</item>
-      <item name="Package">services</item>
-      <item name="Endpoint">http://localhost:8400/blazeds/messagebroker/amf</item>
-      <item name="Destination">employee</item>
-    </annotation>
-    <annotation name="ServiceConfig">
-      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
-      <item name="contextRoot">/blazeds</item>
-      <item name="rootUrl">http://localhost:8400/blazeds</item>
-      <item name="LINKED_FILE"></item>
-      <item name="ABSOLUTE_ENDPOINT">http://localhost:8400/blazeds/messagebroker/amf</item>
-    </annotation>
-    <annotation name="ServiceTypeGroup">
-      <item name="ServiceBackendType">BlazeDS</item>
-    </annotation>
-    <function name="getAllEmployees" return-type="Employee[]">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="returnType">Employee</item>
-      </annotation>
-      <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,birth,username,name,job,firstname,password,prsnumber</item>
-      </annotation>
-    </function>
-    <function name="updateEmployee" return-type="boolean">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="inputParams">Employee</item>
-        <item name="returnType">boolean</item>
-      </annotation>
-      <parameter name="arg0" type="Employee"/>
-    </function>
-    <function name="deleteEmployee" return-type="boolean">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="inputParams">Employee</item>
-        <item name="returnType">boolean</item>
-      </annotation>
-      <parameter name="arg0" type="Employee"/>
-    </function>
-    <function name="createEmployee" return-type="void">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="inputParams">Employee</item>
-      </annotation>
-      <parameter name="arg0" type="Employee"/>
-    </function>
-  </service>
-  <entity name="Employee">
-    <annotation name="EntityProperties">
-      <item name="EntityOriginalName">Employee</item>
-    </annotation>
-    <annotation name="ServerProperties">
-      <item name="RemoteClass">Employee</item>
-      <item name="IncludeRemoteClass">nonempty</item>
-    </annotation>
-    <annotation name="service Group">
-      <item name="service">Dummy,Employee1Dummy,Employee1</item>
-    </annotation>
-    <annotation name="ActionScriptGeneration">
-      <item name="Package">valueObjects</item>
-    </annotation>
-    <annotation name="getAllEmployees">
-      <item name="propertySpecifier">id,birth,username,name,job,firstname,password,prsnumber</item>
-    </annotation>
-    <property name="id" type="long"/>
-    <property name="birth" type="string"/>
-    <property name="username" type="string"/>
-    <property name="name" type="string"/>
-    <property name="job" type="string"/>
-    <property name="firstname" type="string"/>
-    <property name="password" type="string"/>
-    <property name="prsnumber" type="integer"/>
   </entity>
 </model>

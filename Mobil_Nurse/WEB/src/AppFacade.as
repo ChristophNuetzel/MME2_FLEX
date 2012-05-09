@@ -1,17 +1,26 @@
 package
 {
+	import control.LoginSucceedCommand;
+	import control.MediateViewCommand;
+	import control.StartupCommand;
+	
 	import org.puremvc.as3.interfaces.IFacade;
 	import org.puremvc.as3.patterns.facade.Facade;
 	
 	import spark.components.ViewNavigator;
-	import control.StartupCommand;
-	import control.MediateViewCommand;
 
 	public class AppFacade extends Facade implements IFacade {
 		
 		public static const NAME:String = "AppFacade";
+		
+		/** NOTIFICATIONS **/
+		
 		public static const STARTUP:String = NAME + "Startup" ;
 		public static const MEDIATE_VIEW:String = NAME + "MediateView";
+		public static const LOGIN_SUCCEED:String = NAME + "LoginSucceed";
+		public static const LOGIN_FAILED:String = NAME + "LoginFailed";
+		public static const LOGOUT_SUCCEED:String = NAME + "LogoutSucceed";
+		/** **/
 		
 		public static function getInstance():AppFacade {
 			if(instance == null) instance = new AppFacade();
@@ -23,8 +32,10 @@ package
 		 **/
 		override protected function initializeController():void {
 			super.initializeController();
+			trace("init controller");
 			registerCommand( STARTUP , StartupCommand ) ;
 			registerCommand( MEDIATE_VIEW, MediateViewCommand );
+			registerCommand( LOGOUT_SUCCEED , LoginSucceedCommand );
 		}
 		
 		public function startup( viewNavigator:ViewNavigator ):void {
