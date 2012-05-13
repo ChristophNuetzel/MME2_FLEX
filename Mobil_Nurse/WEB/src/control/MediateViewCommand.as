@@ -23,11 +23,12 @@ package control
 			switch(myview.id+"Mediator") {
 				case LoginViewMediator.NAME:
 					trace("LoginViewMediator registered");
+					facade.removeMediator(LoginViewMediator.NAME);					
 					facade.registerMediator(new LoginViewMediator(myview));
-					facade.registerProxy(new EmployeeRemoteProxy());
 					break;
 				case LoginSuccessMediator.NAME:
 					trace("LoginSuccessMediator registered");
+					facade.removeMediator( LoginSuccessMediator.NAME);
 					facade.registerMediator(new LoginSuccessMediator(myview));
 					break;
 			}

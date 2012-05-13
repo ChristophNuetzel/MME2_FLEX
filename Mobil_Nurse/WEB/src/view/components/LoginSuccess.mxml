@@ -3,13 +3,16 @@
 		xmlns:s="library://ns.adobe.com/flex/spark" 
 		title="Login Sucess"
 		backgroundColor= "#E3F2F2"
-		initialize="onInitialization(event)">
+		initialize="onInitialization(event)"
+		creationComplete="creationReady()">
 	<fx:Declarations>
 		<!-- Platzieren Sie nichtvisuelle Elemente (z. B. Dienste, Wertobjekte) hier -->
 	</fx:Declarations>
 	
 	<fx:Script>
 		<![CDATA[
+			import model.vo.auto.Employee;
+			
 			import mx.events.FlexEvent;
 			
 			/** PureMVC PART PureMVC Part  PureMVC PART **/
@@ -19,10 +22,11 @@
 			
 			public function onInitialization(event:FlexEvent):void {
 				this.id = NAME;
+				trace("** -- ON INITIALIZE LOGIN SUCCESS -- **")
 			}
 			
 			public function fireMVCLog():void {
-				trace("LoginSuccessView - ClickEvent - start");
+				trace("LoginSuccessView - ClickEvent - TRYLOGOUT");
 				dispatchEvent( new Event( CLICKED ) );
 			}
 			
@@ -35,6 +39,11 @@
 			public function setLabelText(s:String):void {
 				this.logSucLabel.text = s;
 			}
+			
+			public function creationReady():void {
+				trace("** -- CREATION COMPLETE LOGIN SUCCESS -- **");
+				logSucLabel.text = data.firstname;
+			}
 		]]>
 	</fx:Script>
 	
@@ -42,5 +51,5 @@
 		<s:Button click="fireMVCLog()" label="Logout"/>
 	</s:navigationContent>
 	<!--<s:Label y="78" width="748" fontSize="80" horizontalCenter="0" textAlign="center" text="Hallo: {data.firstname}"/>-->
-	<s:Label id="logSucLabel" y="78" width="748" fontSize="80" horizontalCenter="0" textAlign="center" text="still dummy text" />
+	<s:Label id="logSucLabel" y="78" width="748" fontSize="80" horizontalCenter="0" textAlign="center" text="" />
 </s:View>

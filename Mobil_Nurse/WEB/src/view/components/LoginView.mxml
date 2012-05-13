@@ -28,7 +28,7 @@
 			}
 			
 			public function fireMVCLog():void {
-				trace("LoginView() ClickEvent - start");
+				trace("LoginView() ClickEvent - dispatchEvent : CLICKED - TRYLOGIN");
 				dispatchEvent( new Event( CLICKED ) );
 			}
 			

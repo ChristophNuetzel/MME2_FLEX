@@ -12,7 +12,6 @@ package control
 		override public function execute(notification:INotification):void {
 			trace("**--  LoginSucceedCommand  --**");
 			trace("execute: ");
-			//facade.registerMediator( new LoginSuccessMediator(notification.getBody() as View));
 		}
 	}
 }

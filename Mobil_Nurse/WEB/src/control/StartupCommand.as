@@ -5,6 +5,7 @@ package control
 	import org.puremvc.as3.interfaces.INotification;
 	import spark.components.ViewNavigator;
 	import view.ViewNavigatorMediator;
+	import model.EmployeeRemoteProxy;
 	
 	public class StartupCommand extends SimpleCommand implements ICommand
 	{
@@ -14,6 +15,7 @@ package control
 			trace("**-- StartupCommand --**");
 			trace("**-- execute: register ViewNavigatorMediator --*"); 
 			facade.registerMediator(new ViewNavigatorMediator(notification.getBody() as ViewNavigator));
+			//facade.registerProxy(new EmployeeRemoteProxy());
 		}
 	}
 }

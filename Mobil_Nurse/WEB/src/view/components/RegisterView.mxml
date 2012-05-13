@@ -22,13 +22,17 @@
 		<![CDATA[
 			import flash.sampler.NewObjectSample;
 			
-			import mx.events.FlexEvent;
-			
 			import model.vo.auto.MyStocks;
+			
+			import mx.events.FlexEvent;
 			
 			protected function nursePass_creationCompleteHandler(event:FlexEvent):void
 			{
 				getAllEmployeesResult2.token = myEmployees.getAllEmployees();
+				var facade:AppFacade = AppFacade.getInstance();
+				//facade.removeMediator(RegisterViewMediator.NAME);
+				//facade.registerMediator(new bla(this));
+				
 			}
 			
 			protected function registerButton_clickHandler(event:MouseEvent):void

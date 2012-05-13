@@ -2,6 +2,7 @@ package view
 {
 	import flash.events.Event;
 	
+	import model.EmployeeRemoteProxy;
 	import model.vo.auto.Employee;
 	
 	import org.puremvc.as3.interfaces.IMediator;
@@ -18,10 +19,13 @@ package view
 		public static const NAME:String = "LoginSuccessMediator";
 		
 		private var loginSuccess:LoginSuccess;
+		private var empprox:EmployeeRemoteProxy;
 		public function LoginSuccessMediator(myview:View)
 		{
 			this.loginSuccess = myview as LoginSuccess;
 			super(NAME, myview );
+			empprox = facade.retrieveProxy( EmployeeRemoteProxy.NAME ) as EmployeeRemoteProxy;
+			getProxyData();
 		}
 		
 		override public function listNotificationInterests():Array {
@@ -29,12 +33,16 @@ package view
 		}
 		
 		override public function handleNotification(notification:INotification):void {
-			switch( notification.getName() ) {
-				case AppFacade.LOGIN_SUCCEED:
-					trace("loginSuccessMediator loginSucceed");
-					var e:Employee = notification.getBody() as Employee;
-					loginSuccess.setLabelText(e.firstname);
-			}
+			//switch( notification.getName() ) {
+				//case AppFacade.LOGIN_SUCCEED:
+					//trace("loginSuccessMediator loginSucceed");
+					//var e:Employee = notification.getBody() as Employee;
+					//loginSuccess.setLabelText(e.firstname);
+			//}
+		}
+		
+		public function getProxyData():void {
+			//trace(empprox.sentEmp.firstname);
 		}
 		
 		override public function onRegister():void {

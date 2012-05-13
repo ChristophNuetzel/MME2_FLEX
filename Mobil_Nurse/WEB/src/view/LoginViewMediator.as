@@ -4,6 +4,7 @@ package view
 	
 	import model.EmployeeRemoteProxy;
 	import model.vo.LoginVO;
+	import model.vo.auto.Employee;
 	
 	import org.puremvc.as3.interfaces.IMediator;
 	import org.puremvc.as3.interfaces.INotification;
@@ -24,12 +25,15 @@ package view
 		
 		public function LoginViewMediator(view:View)
 		{
+			trace("DER LOGIN-VIEW-MEDIATOR WIRD GESTARTET");
 			super(NAME);
 			this.loginView = view as LoginView;
 			employeeRemoteProxy = new EmployeeRemoteProxy( facade.retrieveProxy(EmployeeRemoteProxy.NAME));
+			//trace(employeeRemoteProxy.getData());
 		}
 		
 		override public function onRegister():void {
+			trace("DER LOGIN-VIEW-MEDIATOR WIRD REGISTRIERT");
 			loginView.addEventListener(LoginView.CLICKED, getLoggedIn );
 		}
 		
@@ -45,7 +49,11 @@ package view
 			
 			switch ( notification.getName() ) {
 				case AppFacade.LOGIN_SUCCEED:
-					loginView.navigator.pushView(view.components.LoginSuccess);
+					trace("** -- NOTIFICATION BODY : " + notification.getBody() + " -- ** ");
+					var emp:Employee = notification.getBody() as Employee;
+					trace(emp.birth);
+					loginView.navigator.pushView(view.components.LoginSuccess , emp);
+					//trace("** -- LOGINVIEW DATA: " + .data + " -- ** ");
 					break;
 				case AppFacade.LOGIN_FAILED:
 					loginView.setErrorMessage();

@@ -8,6 +8,7 @@ package
 	import org.puremvc.as3.patterns.facade.Facade;
 	
 	import spark.components.ViewNavigator;
+	import model.EmployeeRemoteProxy;
 
 	public class AppFacade extends Facade implements IFacade {
 		
@@ -20,6 +21,7 @@ package
 		public static const LOGIN_SUCCEED:String = NAME + "LoginSucceed";
 		public static const LOGIN_FAILED:String = NAME + "LoginFailed";
 		public static const LOGOUT_SUCCEED:String = NAME + "LogoutSucceed";
+		public static const SEND_EMPLOYEE:String = NAME + "SendEmployee";
 		/** **/
 		
 		public static function getInstance():AppFacade {
@@ -35,7 +37,12 @@ package
 			trace("init controller");
 			registerCommand( STARTUP , StartupCommand ) ;
 			registerCommand( MEDIATE_VIEW, MediateViewCommand );
-			registerCommand( LOGOUT_SUCCEED , LoginSucceedCommand );
+			//registerCommand( LOGIN_SUCCEED , LoginSucceedCommand );
+		}
+		
+		override protected function initializeModel():void {
+			super.initializeModel();
+			registerProxy( new EmployeeRemoteProxy() );
 		}
 		
 		public function startup( viewNavigator:ViewNavigator ):void {

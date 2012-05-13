@@ -21,7 +21,7 @@ package model
 		private var cr:CallResponder = new CallResponder();
 		private var loginVO:LoginVO;
 		private var checkEmployee:Boolean = false;
-		private var sentEmp:Employee;
+		public var sentEmp:Employee;
 		
 		public function EmployeeRemoteProxy( data:Object = null )
 		{

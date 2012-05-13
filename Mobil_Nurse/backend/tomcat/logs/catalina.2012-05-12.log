@@ -1,0 +1,6 @@
+12.05.2012 22:38:08 org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8400
+12.05.2012 22:38:11 org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+12.05.2012 22:39:20 org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8400
