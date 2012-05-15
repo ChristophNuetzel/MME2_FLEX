@@ -20,7 +20,7 @@ package control
 			trace("execute: ");
 			var myview:View = notification.getBody() as View;
 			trace("id: " + myview.id ); 
-			switch(myview.id+"Mediator") {
+			switch(myview.id + "Mediator") {
 				case LoginViewMediator.NAME:
 					trace("LoginViewMediator registered");
 					facade.removeMediator(LoginViewMediator.NAME);					

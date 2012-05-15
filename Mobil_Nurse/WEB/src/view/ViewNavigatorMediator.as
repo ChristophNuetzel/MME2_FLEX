@@ -24,17 +24,9 @@ package view
 		override public function onRegister():void {
 			viewNavigator.addEventListener(ElementExistenceEvent.ELEMENT_ADD , switchView );
 		}
-		
-		override public function handleNotification(notification:INotification):void {
-			var name:String = notification.getName();
-			
-			switch(name) {
-				// todo
-			}
-		}
-		
+	
 		private function switchView(evt:ElementExistenceEvent):void {
-			trace("A view was switched by ViewNavigator" );
+			trace("A view was switched by ViewNavigator");
 			sendNotification(AppFacade.MEDIATE_VIEW, evt.element as View );
 		}
 	}

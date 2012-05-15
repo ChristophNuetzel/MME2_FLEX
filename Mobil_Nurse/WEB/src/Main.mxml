@@ -3,7 +3,9 @@
 							xmlns:s="library://ns.adobe.com/flex/spark" 
 							firstView="view.components.LoginView" 
 							applicationDPI="160"
-							initialize="onInitalization(event)">
+							initialize="onInitalization(event)"
+							splashScreenImage="@Embed('assets/nurse.png')" 
+							splashScreenScaleMode="none">
 	
 	<fx:Script>
 		<![CDATA[
@@ -17,6 +19,5 @@
 		]]>
 	</fx:Script>
 	<fx:Declarations>
-		<!-- Platzieren Sie nichtvisuelle Elemente (z. B. Dienste, Wertobjekte) hier -->
 	</fx:Declarations>
 </s:ViewNavigatorApplication>

@@ -20,6 +20,7 @@ package view
 		
 		private var loginSuccess:LoginSuccess;
 		private var empprox:EmployeeRemoteProxy;
+		
 		public function LoginSuccessMediator(myview:View)
 		{
 			this.loginSuccess = myview as LoginSuccess;
@@ -28,6 +29,7 @@ package view
 			getProxyData();
 		}
 		
+		// lauscht auf Notifications
 		override public function listNotificationInterests():Array {
 			return [ AppFacade.LOGIN_SUCCEED ];
 		}

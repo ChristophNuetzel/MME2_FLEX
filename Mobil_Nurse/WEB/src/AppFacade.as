@@ -22,7 +22,7 @@ package
 		public static const LOGIN_FAILED:String = NAME + "LoginFailed";
 		public static const LOGOUT_SUCCEED:String = NAME + "LogoutSucceed";
 		public static const SEND_EMPLOYEE:String = NAME + "SendEmployee";
-		/** **/
+
 		
 		public static function getInstance():AppFacade {
 			if(instance == null) instance = new AppFacade();

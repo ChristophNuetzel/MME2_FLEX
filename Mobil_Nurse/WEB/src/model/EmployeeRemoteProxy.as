@@ -25,7 +25,7 @@ package model
 		
 		public function EmployeeRemoteProxy( data:Object = null )
 		{
-			super(NAME , data );
+			super(NAME, data);
 		}
 		
 		public function validateUserData(vo:LoginVO):void {
@@ -36,11 +36,9 @@ package model
 		}
 		
 		private function start():void {
-
 			/** add EventListener to listen on "databse-events" **/
 			cr.addEventListener(ResultEvent.RESULT , checkLog );
 			cr.token = es.getAllEmployees();			
-			
 		}
 		
 		protected function checkLog(event:ResultEvent):void

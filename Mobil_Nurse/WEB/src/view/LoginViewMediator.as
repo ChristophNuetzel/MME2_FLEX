@@ -28,8 +28,7 @@ package view
 			trace("DER LOGIN-VIEW-MEDIATOR WIRD GESTARTET");
 			super(NAME);
 			this.loginView = view as LoginView;
-			employeeRemoteProxy = new EmployeeRemoteProxy( facade.retrieveProxy(EmployeeRemoteProxy.NAME));
-			//trace(employeeRemoteProxy.getData());
+			employeeRemoteProxy = new EmployeeRemoteProxy(facade.retrieveProxy(EmployeeRemoteProxy.NAME));
 		}
 		
 		override public function onRegister():void {
@@ -41,6 +40,7 @@ package view
 			employeeRemoteProxy.validateUserData(new LoginVO(loginView.nurseName.text , loginView.nursePass.text ));
 		}
 		
+		// lauscht auf Notifications
 		override public function listNotificationInterests():Array {
 			return [ AppFacade.LOGIN_SUCCEED , AppFacade.LOGIN_FAILED ];
 		}
@@ -49,11 +49,8 @@ package view
 			
 			switch ( notification.getName() ) {
 				case AppFacade.LOGIN_SUCCEED:
-					trace("** -- NOTIFICATION BODY : " + notification.getBody() + " -- ** ");
 					var emp:Employee = notification.getBody() as Employee;
-					trace(emp.birth);
 					loginView.navigator.pushView(view.components.LoginSuccess , emp);
-					//trace("** -- LOGINVIEW DATA: " + .data + " -- ** ");
 					break;
 				case AppFacade.LOGIN_FAILED:
 					loginView.setErrorMessage();
