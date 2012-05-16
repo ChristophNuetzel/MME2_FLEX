@@ -1,8 +1,5 @@
 package control
 {
-	import model.EmployeeRemoteProxy;
-	import model.vo.auto.Employee;
-	
 	import org.puremvc.as3.interfaces.ICommand;
 	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.patterns.command.SimpleCommand;
@@ -11,7 +8,6 @@ package control
 	
 	import view.LoginSuccessMediator;
 	import view.LoginViewMediator;
-	import view.components.LoginSuccess;
 	
 	public class MediateViewCommand extends SimpleCommand implements ICommand
 	{

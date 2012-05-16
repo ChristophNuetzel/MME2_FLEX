@@ -3,7 +3,7 @@
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		xmlns:services="services.*"
 		xmlns:vo="model.vo.*"
-		title="HomeView" xmlns:auto="model.vo.auto.*">
+		title="HomeView" xmlns:auto="model.vo.auto.*" xmlns:depricated="services.depricated.*">
 	<fx:Script>
 		<![CDATA[
 <<<<<<< HEAD
@@ -82,7 +82,7 @@
 		<auto:MyStocks id="myStocks"/>
 		<s:CallResponder id="getAllResult"/>
 		
-		<services:Bla id="bla"/>
+		<depricated:Bla id="bla"/>
 		
 		
 		<s:CallResponder id="getAllResult2"/>

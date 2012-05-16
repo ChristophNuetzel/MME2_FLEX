@@ -7,7 +7,7 @@
 		title="Welcome - Please Login"
 		backgroundColor= "#E3F2F2"
 		initialize="onInitialization(event)" 
-		xmlns:components="view.components.*" xmlns:auto="model.vo.auto.*">
+		xmlns:components="view.components.*" xmlns:auto="model.vo.auto.*" xmlns:depricated="services.depricated.*">
 	
 	
 	<fx:Style source="style/style.css"/>
@@ -48,7 +48,7 @@
 	</fx:Script>
 	
 	<fx:Declarations>
-		<services:Employee1 id="myEmployees"/> 
+		<services:EmployeeDao id="myEmployees"/> 
 		<s:CallResponder id="getAllResult"/>
 		
 		<auto:Employee id="myNewEmployee"/>

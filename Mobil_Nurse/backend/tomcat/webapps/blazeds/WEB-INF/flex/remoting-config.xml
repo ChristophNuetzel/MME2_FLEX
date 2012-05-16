@@ -10,19 +10,13 @@
         <channel ref="my-amf"/>
     </default-channels>
     
-    <destination id="bla">
-    	<properties>
-    		<source>MyStockDAO</source>
-    	</properties>
-    </destination>
-    
-    <destination id="employee">
+    <destination id="employee-dao">
     	<properties>
     		<source>EmployeeDAO</source>
     	</properties>
     </destination>
     
-    <destination id="patient">
+    <destination id="patient-dao">
     	<properties>
     		<source>PatientDAO</source>
     	</properties>
