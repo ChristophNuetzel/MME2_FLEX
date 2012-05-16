@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:services="services.*"
+		title="Select a Patient"
+		initialize="onInitialization(event)">
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			public static const NAME:String = 'AllPatients';
+			public static const CLICKEDLOGOUT:String = NAME + "ClickedLogout";
+			
+			public function onInitialization(event:FlexEvent):void {
+				this.id = NAME;
+			}
+			
+			protected function dataGrid_creationCompleteHandler(event:FlexEvent):void
+			{
+				getAllPatientsResult.token = patient1.getAllPatients();
+			}
+			
+			public function fireMVCLog():void {
+				dispatchEvent( new Event( CLICKEDLOGOUT ) );
+				trace("fireMVCLOG");
+			}
+
+			/** PureMVC PART PureMVC Part PureMVC PART **/
+			
+			public function logoutView():void {
+				trace("go Back");
+				navigator.popView();
+			}
+		
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:CallResponder id="getAllPatientsResult"/>
+		<services:PatientDao id="patient1"/>
+		<!-- Platzieren Sie nichtvisuelle Elemente (z. B. Dienste, Wertobjekte) hier -->
+	</fx:Declarations>
+	
+	<s:navigationContent>
+		<s:Button label="Back" click="fireMVCLog()"/>
+	</s:navigationContent>
+	
+	
+	<s:DataGrid id="dataGrid" x="1" y="231" width="100%" height="363"
+				creationComplete="dataGrid_creationCompleteHandler(event)">
+		<s:columns>
+			<s:ArrayList>
+				<s:GridColumn dataField="id" headerText="ID"/>
+				<s:GridColumn dataField="firstname" headerText="Firstname"/>
+				<s:GridColumn dataField="name" headerText="Name"/>
+				<s:GridColumn dataField="username" headerText="Username"/>
+				<s:GridColumn dataField="illness" headerText="Illness"/>
+			</s:ArrayList>
+		</s:columns>
+		<s:AsyncListView list="{getAllPatientsResult.lastResult}"/>
+	</s:DataGrid>
+</s:View>

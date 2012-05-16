@@ -24,7 +24,7 @@ public class Main {
 		 
 //		 PatientDAO patientDAO = new PatientDAO();
 		 
-//		 Patient patient = new Patient("Hans", "Maier", "Maier", "Kopfschmerzen");
+//		 Patient patient = new Patient("Fritz", "Manheim", "Manheim", "Erblindet");
 //		 patientDAO.createPatient(patient);
 //		 patientDAO.getAllPatients();
 		 

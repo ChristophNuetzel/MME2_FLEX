@@ -1,7 +1,13 @@
 ----------------------------------------------------------------
+<<<<<<< HEAD
 Wed May 16 09:30:16 CEST 2012:
 Booten von Derby Version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): Instanz a816c00e-0137-548d-eb9d-000000abdf38
 für Datenbankverzeichnis C:\MME2_FLEX\Mobil_Nurse\backend\tomcat\webapps\blazeds\WEB-INF\db   mit Klassenladeprogrammn sun.misc.Launcher$AppClassLoader@35ce36
+=======
+Tue May 15 17:44:22 CEST 2012:
+Booten von Derby Version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): Instanz a816c00e-0137-512b-ec1e-000002760d68
+für Datenbankverzeichnis C:\MME2_FLEX\Mobil_Nurse\backend\tomcat\webapps\blazeds\WEB-INF\db   mit Klassenladeprogrammn sun.misc.Launcher$AppClassLoader@17c1e333
+>>>>>>> b87906feb9c1b21265dd41e983c6f1629245b3fa
 
 java.vendor=Sun Microsystems Inc.
 java.runtime.version=1.6.0_29-b11

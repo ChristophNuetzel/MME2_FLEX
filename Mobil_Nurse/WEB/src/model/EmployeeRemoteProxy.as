@@ -23,17 +23,17 @@ package model
 		
 		public function EmployeeRemoteProxy( data:Object = null )
 		{
-			super(NAME , data );
+			super(NAME, data);
 		}
 		
 		public function validateUserData(vo:LoginVO):void {
 			trace("EmployeeRemoteProxy - validateUserData");
 			loginVO = vo;
+			trace("Eingabe: " + loginVO.username + " Password: " + loginVO.password);
 			start();
 		}
 		
 		private function start():void {
-
 			/** add EventListener to listen on "databse-events" **/
 			cr.addEventListener(ResultEvent.RESULT , checkLog );
 			cr.token = es.checkEmployeeLogin(loginVO.username, loginVO.password);			

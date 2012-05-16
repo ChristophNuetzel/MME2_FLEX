@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="ATS">
+	
+	<fx:Script>
+		<![CDATA[
+			protected function list_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				
+			}
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Platzieren Sie nichtvisuelle Elemente (z. B. Dienste, Wertobjekte) hier -->
+	</fx:Declarations>
+	
+	<s:navigationContent>
+		<s:Button width="70" label="back"/>
+	</s:navigationContent>
+	
+	<s:List id="list" width="100%" height="100%" click="list_clickHandler(event)" >
+		<s:dataProvider>
+			<s:ArrayCollection>
+				<s:Label id="communication" text="Communication" />
+				<s:Label id="motion" text="Motion"/>
+				<s:Label id="hygiene" text="Hygiene"/>
+				<s:Label id="something" text="..."/>
+			</s:ArrayCollection>
+		</s:dataProvider>
+	</s:List>
+	
+</s:View>
