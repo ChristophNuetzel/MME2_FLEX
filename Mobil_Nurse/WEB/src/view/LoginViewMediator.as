@@ -32,12 +32,11 @@ package view
 		}
 		
 		override public function onRegister():void {
-			trace("DER LOGIN-VIEW-MEDIATOR WIRD REGISTRIERT");
 			loginView.addEventListener(LoginView.CLICKED, getLoggedIn );
 		}
 		
 		private function getLoggedIn(evt:Event):void {
-			employeeRemoteProxy.validateUserData(new LoginVO(loginView.nurseName.text , loginView.nursePass.text ));
+			employeeRemoteProxy.validateUserData(new LoginVO(loginView.nurseName.text, loginView.nursePass.text ));
 		}
 		
 		// lauscht auf Notifications

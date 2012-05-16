@@ -26,7 +26,6 @@ package view
 			this.loginSuccess = myview as LoginSuccess;
 			super(NAME, myview );
 			empprox = facade.retrieveProxy( EmployeeRemoteProxy.NAME ) as EmployeeRemoteProxy;
-			getProxyData();
 		}
 		
 		// lauscht auf Notifications
@@ -43,18 +42,21 @@ package view
 			//}
 		}
 		
-		public function getProxyData():void {
-			//trace(empprox.sentEmp.firstname);
-		}
-		
 		override public function onRegister():void {
 			loginSuccess.addEventListener(LoginSuccess.CLICKED, getLoggedOut );
+			loginSuccess.addEventListener(LoginSuccess.CLICKEDFORWARD, goForward );
 		}
 		
 		protected function getLoggedOut(event:Event):void
 		{
 			loginSuccess.logoutView();
 			sendNotification(AppFacade.LOGOUT_SUCCEED);
+		}
+		
+		protected function goForward(event:Event):void
+		{
+			loginSuccess.goForward();
+			sendNotification(AppFacade.GO_FORWARD);
 		}
 	}
 }

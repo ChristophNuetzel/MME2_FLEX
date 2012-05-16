@@ -17,7 +17,9 @@
 				facade.startup(this.navigator);
 			}
 		]]>
+		
 	</fx:Script>
+	<fx:Style source="style/style.css"/>
 	<fx:Declarations>
 	</fx:Declarations>
 </s:ViewNavigatorApplication>

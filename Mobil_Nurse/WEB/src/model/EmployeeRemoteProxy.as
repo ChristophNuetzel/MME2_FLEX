@@ -32,6 +32,7 @@ package model
 			//do Something :)
 			trace("EmployeeRemoteProxy - validateUserData");
 			loginVO = vo;
+			trace("Eingabe: " + loginVO.username + " Password: " + loginVO.password);
 			start();
 		}
 		
@@ -44,18 +45,18 @@ package model
 		protected function checkLog(event:ResultEvent):void
 		{
 			for each(var emp:Employee in cr.lastResult) {
+				
 				if(loginVO.username == emp.username && loginVO.password == emp.password) {
-					sentEmp = emp;
 					checkEmployee = true;
-				}else{
-					checkEmployee = false;
+					sentEmp = emp;
 				}
 			}
 			
-			if(checkEmployee){
+			if(checkEmployee == true){
 				trace("Sending AppFacade.LOGIN_SUCCEED");
 				sendNotification(AppFacade.LOGIN_SUCCEED, sentEmp);
 			}else{
+				trace("Sending AppFacade.LOGIN_FAILED");
 				sendNotification( AppFacade.LOGIN_FAILED );
 			}
 		}

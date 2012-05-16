@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark" 
-		title="Login Sucess"
+		title="Please check your personal Data"
 		backgroundColor= "#E3F2F2"
 		initialize="onInitialization(event)">
 	
@@ -9,72 +9,83 @@
 		<!-- Platzieren Sie nichtvisuelle Elemente (z. B. Dienste, Wertobjekte) hier -->
 	</fx:Declarations>
 	
-	<fx:Style source="style/style.css"/>
 	<fx:Script>
 		<![CDATA[
 			import model.vo.auto.Employee;
-			
 			import mx.events.FlexEvent;
 			
 			/** PureMVC PART PureMVC Part PureMVC PART **/
 			
 			public static const NAME:String = 'LoginSuccess';
 			public static const CLICKED:String = NAME + "Clicked";
+			public static const CLICKEDFORWARD:String = NAME + "ClickedFoward";
 			
 			public function onInitialization(event:FlexEvent):void {
 				this.id = NAME;
 				trace("** -- ON INITIALIZE LOGIN SUCCESS -- **")
 			}
 			
-			public function fireMVCLog():void {
+			public function fireMVCLogout():void {
 				trace("LoginSuccessView - ClickEvent - TRYLOGOUT");
 				dispatchEvent( new Event( CLICKED ) );
 			}
 			
-			/** PureMVC PART PureMVC Part  PureMVC PART **/
+			public function fireMVCGoForward():void {
+				trace("LoginSuccessView - ClickEvent - TRYLOGOUT");
+				dispatchEvent( new Event( CLICKEDFORWARD ) );
+			}
+			
+			/** PureMVC PART PureMVC Part PureMVC PART **/
 			
 			public function logoutView():void {
 				navigator.popView();
 			}
+			
+			public function goForward():void {
+				
+				navigator.pushView(AllPatients);
+			}
+			
+			
 		]]>
 	</fx:Script>
 	
 	<s:navigationContent>
-		<s:Button click="fireMVCLog()" label="Logout"/>
+		<s:Button click="fireMVCLogout()" label="Logout"/>
 	</s:navigationContent>
+	<s:actionContent>
+		<s:Button id="goForward1" width="121" height="32" label="Go Forward" click="fireMVCGoForward()"/>
+	</s:actionContent>
 	
-	<s:Form styleName="checkData" y="77" width="499" height="353" horizontalCenter="-2">
-		<s:FormHeading width="431" label="Please check your personal Data" fontFamily="Arial"
-					   fontSize="25" />
-		
-		<s:FormItem width="100%" label="Personalnumber: " fontSize="20" fontStyle="normal"
-					textAlign="center" >
-			<s:Label id="dataPrsNumber" width="260" color="#608785" fontSize="20"
-					 text="{data.prsnumber}" textAlign="center"/>
-		</s:FormItem>
-		
-		<s:FormItem width="100%" label="Username: " fontSize="20">
-			<s:Label id="dataUsername" width="260" color="#608785" fontSize="20" textAlign="center" text="{data.username}"/>
-		</s:FormItem>
-		
-		<s:FormItem label="Firstname: " fontSize="20" width="100%">
-			<s:Label id="dataFirstName" width="260" color="#608785" fontSize="20" textAlign="center" text="{data.firstname}"/>
-		</s:FormItem>
-		
-		<s:FormItem label="Lastname: " fontSize="20" width="100%">
-			<s:Label id="dataName" width="260" color="#608785" fontSize="20" textAlign="center" text="{data.name}"/>
-		</s:FormItem>
-		
-		<s:FormItem label="Your Job: " fontSize="20" width="100%">
-			<s:Label id="dataJob" width="260" color="#608785" fontSize="20" textAlign="center" text="{data.job}"/>
-		</s:FormItem>
-		
-		<s:FormItem label="Your Birth: " fontSize="20" width="100%">
-			<s:Label id="dataBirth" width="260" color="#608785" fontSize="20" textAlign="center" text="{data.birth}"/>
-		</s:FormItem>
-		
-	</s:Form>
-	<s:Button id="goForward" x="612" y="460" width="150" label="Go Forward"/>
-	<s:Button id="goBack" x="263" y="460" width="150" label="Go Back"/>
-	
+	<s:HGroup width="705" horizontalCenter="0" verticalCenter="0">
+		<s:Form x="89" width="400" height="300" styleName="checkData">
+			<s:FormItem width="100%" label="Personalnumber: " fontSize="22" fontStyle="normal"
+						textAlign="center" >
+				<s:Label id="dataPrsNumber" width="170" color="#608785" fontSize="22"
+						 text="{data.prsnumber}" textAlign="right"/>
+			</s:FormItem>
+			
+			<s:FormItem width="100%" label="Username: " fontSize="22">
+				<s:Label id="dataUsername" width="170" color="#608785" fontSize="22" textAlign="right" text="{data.username}"/>
+			</s:FormItem>
+			
+			<s:FormItem label="Firstname: " fontSize="22" width="100%">
+				<s:Label id="dataFirstName" width="170" color="#608785" fontSize="22" textAlign="right" text="{data.firstname}"/>
+			</s:FormItem>
+			
+			<s:FormItem label="Lastname: " fontSize="22" width="100%">
+				<s:Label id="dataName" width="170" color="#608785" fontSize="22" textAlign="right" text="{data.name}"/>
+			</s:FormItem>
+			
+			<s:FormItem label="Your Job: " fontSize="22" width="100%">
+				<s:Label id="dataJob" width="170" color="#608785" fontSize="22" textAlign="right" text="{data.job}"/>
+			</s:FormItem>
+			
+			<s:FormItem label="Your Birth: " fontSize="22" width="100%">
+				<s:Label id="dataBirth" width="170" color="#608785" fontSize="22" textAlign="right" text="{data.birth}"/>
+			</s:FormItem>
+		</s:Form>
+		<s:Image x="668" y="292" width="300" height="300" />
+	</s:HGroup>
+	<s:Label y="171" fontSize="22" horizontalCenter="236" text="Is it really you?"/>
 </s:View>

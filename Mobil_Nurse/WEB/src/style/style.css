@@ -1,7 +1,8 @@
-
 @namespace s "library://ns.adobe.com/flex/spark";
-s|Application{
-	shadowColor: "0xEEEEEE";
+
+s|ActionBar{
+	chromeColor: #397373;
+	defaultButtonAppearance: beveled;
 }
 
 #container{

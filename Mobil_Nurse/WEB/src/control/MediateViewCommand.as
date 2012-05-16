@@ -9,6 +9,7 @@ package control
 	
 	import spark.components.View;
 	
+	import view.AllPatientsMediator;
 	import view.LoginSuccessMediator;
 	import view.LoginViewMediator;
 	import view.components.LoginSuccess;
@@ -18,8 +19,9 @@ package control
 		override public function execute(notification:INotification):void {
 			trace("**--  MediateViewCommand  --**");
 			trace("execute: ");
+			
 			var myview:View = notification.getBody() as View;
-			trace("id: " + myview.id ); 
+			
 			switch(myview.id + "Mediator") {
 				case LoginViewMediator.NAME:
 					trace("LoginViewMediator registered");
@@ -31,6 +33,13 @@ package control
 					facade.removeMediator( LoginSuccessMediator.NAME);
 					facade.registerMediator(new LoginSuccessMediator(myview));
 					break;
+				case AllPatientsMediator.NAME:
+					trace("AllPatientsMediator registered");
+					facade.removeMediator( AllPatientsMediator.NAME);
+					facade.registerMediator(new AllPatientsMediator(myview));
+					break;
+				default:
+					trace("default");
 			}
 		}
 	}
