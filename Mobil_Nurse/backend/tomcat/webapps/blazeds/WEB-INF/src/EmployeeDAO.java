@@ -101,4 +101,22 @@ public class EmployeeDAO {
 		}
 		return true;
 	}
+	
+	public Employee checkEmployeeLogin(final String username , final String password ) {
+//		boolean isIn = false;
+		System.out.println("\n--------- CHECK RATHER EMPLOYEE RIGHT OR WRONG START ---------");
+		Employee empCurrent;
+		List<?> emplist = getAllEmployees();
+		for (Object emp : emplist) {
+			if(emp instanceof Employee){
+				empCurrent = (Employee) emp;
+				if(empCurrent.getUsername().equals(username) && empCurrent.getPassword().equals(password)){
+					System.out.println("\n-------- EMPLOYEE TRUE : " + empCurrent.getUsername());
+					return empCurrent;
+				}
+			}
+		}
+		System.out.println("\n ------------ EMPLOYEE NOT TRUE ");
+		return null;
+	}
 }

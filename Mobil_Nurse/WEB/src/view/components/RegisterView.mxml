@@ -5,10 +5,10 @@
 		xmlns:views="views.*"
 		xmlns:services="services.*" 
 		xmlns:vo="model.vo.*"
-		backgroundColor= "#397373" xmlns:auto="model.vo.auto.*">
+		backgroundColor= "#397373" xmlns:auto="model.vo.auto.*" xmlns:depricated="services.depricated.*">
 	
 	<fx:Declarations>
-		<services:Employee1 id="myEmployees"/> 
+		<services:EmployeeDao id="myEmployees"/> 
 		<s:CallResponder id="getAllResult"/>
 		
 		<auto:Employee id="myNewEmployee"/>
@@ -20,10 +20,6 @@
 	
 	<fx:Script>
 		<![CDATA[
-			import flash.sampler.NewObjectSample;
-			
-			import model.vo.auto.MyStocks;
-			
 			import mx.events.FlexEvent;
 			
 			protected function nursePass_creationCompleteHandler(event:FlexEvent):void

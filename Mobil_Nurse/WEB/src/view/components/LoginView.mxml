@@ -8,6 +8,7 @@
 		xmlns:auto="model.vo.auto.*"
 		backgroundColor="#E3F2F2" initialize="onInitialization(event)"
 		title="Welcome - Please Login">
+
 	
 	<fx:Script>
 		<![CDATA[
@@ -45,7 +46,7 @@
 	</fx:Script>
 	
 	<fx:Declarations>
-		<services:Employee1 id="myEmployees"/> 
+		<services:EmployeeDao id="myEmployees"/> 
 		<s:CallResponder id="getAllResult"/>
 		
 		<auto:Employee id="myNewEmployee"/>

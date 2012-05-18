@@ -3,12 +3,12 @@
   <annotation name="ActionScriptGeneration">
     <item name="FullyQualifyReferences">true</item>
   </annotation>
-  <service name="Patient1">
+  <service name="PatientDao">
     <annotation name="ActionScriptGeneration">
       <item name="ServiceType">RemoteObject</item>
       <item name="Package">services</item>
       <item name="Endpoint">http://localhost:8400/blazeds/messagebroker/amf</item>
-      <item name="Destination">patient</item>
+      <item name="Destination">patient-dao</item>
     </annotation>
     <annotation name="ServiceConfig">
       <item name="DEFAULT_ENTITY_PACKAGE">model.vo.auto</item>
@@ -67,7 +67,7 @@
       <item name="IncludeRemoteClass">nonempty</item>
     </annotation>
     <annotation name="service Group">
-      <item name="service">Patient1</item>
+      <item name="service">PatientDao</item>
     </annotation>
     <annotation name="ActionScriptGeneration">
       <item name="Package">model.vo.auto</item>
@@ -78,93 +78,12 @@
     <property name="name" type="string"/>
     <property name="firstname" type="string"/>
   </entity>
-  <service name="Bla">
+  <service name="EmployeeDao">
     <annotation name="ActionScriptGeneration">
       <item name="ServiceType">RemoteObject</item>
       <item name="Package">services</item>
       <item name="Endpoint">http://localhost:8400/blazeds/messagebroker/amf</item>
-      <item name="Destination">bla</item>
-    </annotation>
-    <annotation name="ServiceConfig">
-      <item name="DEFAULT_ENTITY_PACKAGE">model.vo.auto</item>
-      <item name="contextRoot">/blazeds</item>
-      <item name="rootUrl">http://localhost:8400/blazeds</item>
-      <item name="ABSOLUTE_ENDPOINT">http://localhost:8400/blazeds/messagebroker/amf</item>
-    </annotation>
-    <annotation name="ServiceTypeGroup">
-      <item name="ServiceBackendType">BlazeDS</item>
-    </annotation>
-    <function name="update" return-type="boolean">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="inputParams">MyStocks</item>
-        <item name="returnType">boolean</item>
-      </annotation>
-      <parameter name="arg0" type="MyStocks"/>
-    </function>
-    <function name="createStock" return-type="boolean">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="inputParams">MyStocks</item>
-        <item name="returnType">boolean</item>
-      </annotation>
-      <parameter name="arg0" type="MyStocks"/>
-    </function>
-    <function name="delete_method" return-type="boolean">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="inputParams">MyStocks</item>
-        <item name="returnType">boolean</item>
-      </annotation>
-      <annotation name="ActionScriptGeneration">
-        <item name="remoteFunction">delete</item>
-      </annotation>
-      <parameter name="arg0" type="MyStocks"/>
-    </function>
-    <function name="getAll" return-type="MyStocks[]">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="returnType">MyStocks</item>
-      </annotation>
-    </function>
-  </service>
-  <entity name="MyStocks">
-    <annotation name="EntityProperties">
-      <item name="EntityOriginalName">MyStocks</item>
-    </annotation>
-    <annotation name="ServerProperties">
-      <item name="RemoteClass">MyStocks</item>
-      <item name="IncludeRemoteClass">nonempty</item>
-    </annotation>
-    <annotation name="service Group">
-      <item name="service">Bla</item>
-    </annotation>
-    <annotation name="ActionScriptGeneration">
-      <item name="Package">model.vo.auto</item>
-    </annotation>
-    <property name="id" type="long"/>
-    <property name="price" type="double"/>
-    <property name="infoLInk" type="string"/>
-    <property name="name" type="string"/>
-    <property name="qty" type="integer"/>
-    <property name="comment" type="string"/>
-    <property name="isin" type="string"/>
-    <property name="currency" type="string"/>
-  </entity>
-  <service name="Employee1">
-    <annotation name="ActionScriptGeneration">
-      <item name="ServiceType">RemoteObject</item>
-      <item name="Package">services</item>
-      <item name="Endpoint">http://localhost:8400/blazeds/messagebroker/amf</item>
-      <item name="Destination">employee</item>
+      <item name="Destination">employee-dao</item>
     </annotation>
     <annotation name="ServiceConfig">
       <item name="DEFAULT_ENTITY_PACKAGE">model.vo.auto</item>
@@ -182,6 +101,9 @@
       <annotation name="original signature">
         <item name="returnType">Employee</item>
       </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,birth,username,name,job,firstname,password,prsnumber</item>
+      </annotation>
     </function>
     <function name="updateEmployee" return-type="boolean">
       <annotation name="analyze group">
@@ -192,6 +114,20 @@
         <item name="returnType">boolean</item>
       </annotation>
       <parameter name="arg0" type="Employee"/>
+    </function>
+    <function name="checkEmployeeLogin" return-type="Employee">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">string,string</item>
+        <item name="returnType">Employee</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,birth,username,name,job,firstname,password,prsnumber</item>
+      </annotation>
+      <parameter name="arg0" type="string"/>
+      <parameter name="arg1" type="string"/>
     </function>
     <function name="deleteEmployee" return-type="boolean">
       <annotation name="analyze group">
@@ -222,10 +158,16 @@
       <item name="IncludeRemoteClass">nonempty</item>
     </annotation>
     <annotation name="service Group">
-      <item name="service">Employee1</item>
+      <item name="service">EmployeeDao,Dummy</item>
     </annotation>
     <annotation name="ActionScriptGeneration">
       <item name="Package">model.vo.auto</item>
+    </annotation>
+    <annotation name="checkEmployeeLogin">
+      <item name="propertySpecifier">id,birth,username,name,job,firstname,password,prsnumber</item>
+    </annotation>
+    <annotation name="getAllEmployees">
+      <item name="propertySpecifier">id,birth,username,name,job,firstname,password,prsnumber</item>
     </annotation>
     <property name="id" type="long"/>
     <property name="birth" type="string"/>

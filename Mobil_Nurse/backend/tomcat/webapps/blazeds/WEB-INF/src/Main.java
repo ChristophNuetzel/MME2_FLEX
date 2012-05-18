@@ -20,13 +20,15 @@ public class Main {
 		 
 //		 Employee em = new Employee("DerA","ANachnachme", "a", "a", 0017, "01/05/1980", "Polizist");
 //		 emplDAO.createEmployee(em);
-		 emplDAO.getAllEmployees();
+//		 emplDAO.getAllEmployees();
 		 
-		 PatientDAO patientDAO = new PatientDAO();
+//		 PatientDAO patientDAO = new PatientDAO();
 		 
 //		 Patient patient = new Patient("Fritz", "Manheim", "Manheim", "Erblindet");
 //		 patientDAO.createPatient(patient);
-		 patientDAO.getAllPatients();
+//		 patientDAO.getAllPatients();
+		 
+		 System.out.println(emplDAO.checkEmployeeLogin("a", "a"));
 		 
 		 
 		 

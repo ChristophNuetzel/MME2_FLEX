@@ -38,7 +38,7 @@
 	</fx:Script>
 	<fx:Declarations>
 		<s:CallResponder id="getAllPatientsResult"/>
-		<services:Patient1 id="patient1"/>
+		<services:PatientDao id="patient1"/>
 		<!-- Platzieren Sie nichtvisuelle Elemente (z. B. Dienste, Wertobjekte) hier -->
 	</fx:Declarations>
 	
