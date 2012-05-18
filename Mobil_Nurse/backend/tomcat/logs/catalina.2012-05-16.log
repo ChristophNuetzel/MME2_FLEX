@@ -35,3 +35,9 @@ INFO: JK: ajp13 listening on /0.0.0.0:8009
 INFO: Jk running ID=0 time=0/40  config=null
 16.05.2012 10:23:05 org.apache.catalina.startup.Catalina start
 INFO: Server startup in 3249 ms
+16.05.2012 20:48:13 org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8400
+16.05.2012 20:48:14 org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+16.05.2012 20:48:19 org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8400
