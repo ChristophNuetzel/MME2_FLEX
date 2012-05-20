@@ -35,6 +35,7 @@
 			protected function login_clickHandler(event:MouseEvent):void
 			{
 				fireMVCLog();
+				
 			}
 						
 			public function setErrorMessage():void
@@ -64,9 +65,9 @@
 	<s:Label id="welcome" y="220" width="295" height="92" horizontalCenter="0"
 			 textAlign="left" text="Mobile Nurse"/>
 	
-	<s:BorderContainer id="container" x="0" width="100%" height="140"
+	<s:BorderContainer id="container" x="0" width="100%"
 					   y.login="320"
-					   y.register="320" height.register="384">
+					   y.register="320" height="384">
 		
 		<s:VGroup x="56" y="31" width="664" horizontalCenter="0">
 			<s:Label id="errorText" text="Please Login"/>
@@ -79,11 +80,24 @@
 						  click="currentState='register'"
 						  click.register="currentState='login'"/>
 			</s:HGroup>
-		</s:VGroup >	
+		</s:VGroup >
 		
-		<components:RegisterView includeIn="register" y="120" horizontalCenter="-73">
-			
-		</components:RegisterView>
+		
+		<s:Group id="busyIndicator" visible="false" color="#FFFFFF"
+				 y.login="187" horizontalCenter.login="0">
+			<s:Label text="Please wait for being logged in" />
+			<s:BusyIndicator rotationInterval="100" symbolColor="blue"
+							 x.login="95" y.login="19" width.login="27"/>
+		</s:Group>
+		
+		
+		<components:RegisterView includeIn="register" y="120" horizontalCenter="-73"/>
+		
+		
+		
 	</s:BorderContainer>
+	
+	
+	
 	
 </s:View>

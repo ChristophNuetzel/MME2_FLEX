@@ -13,14 +13,14 @@ public class EmployeeDAO {
 
 	EntityManagerFactory emf;
 	EntityManager em;
-	
-	public EmployeeDAO(){
+
+	public EmployeeDAO() {
 		emf = PersistenceManager.getInstance().createEntityManagerFactory();
 		em = emf.createEntityManager();
 	}
-	
-	public List<Employee> getAllEmployees(){
-		
+
+	public List<Employee> getAllEmployees() {
+
 		ArrayList<Employee> employees = new ArrayList<Employee>();
 
 		EntityManagerFactory emf = PersistenceManager.getInstance()
@@ -32,29 +32,31 @@ public class EmployeeDAO {
 
 		List<?> fetchedEmployees = em.createQuery("select a from Employee a")
 				.getResultList();
-		
-		System.out.println("\n---------  LIST OF ALL EMPLOYESS START ---------");
-		
+
+		System.out
+				.println("\n---------  LIST OF ALL EMPLOYESS START ---------");
 
 		for (Object fetchedEmployee : fetchedEmployees) {
 			if (fetchedEmployee instanceof Employee) {
 				Employee emp = (Employee) fetchedEmployee;
 				employees.add(emp);
-				System.out.println(" - Employee: " + " ID: " + emp.getId() + "  Name: " +  emp.getName() +
-						" Firstname: " + emp.getFirstname() + " Pass: " + emp.getPassword() + " User: " + emp.getUsername());
+				System.out.println(" - Employee: " + " ID: " + emp.getId()
+						+ "  Name: " + emp.getName() + " Firstname: "
+						+ emp.getFirstname() + " Pass: " + emp.getPassword()
+						+ " User: " + emp.getUsername());
 			}
 		}
-		
+
 		System.out.println("---------  LIST OF ALL EMPLOYESS END  ---------\n");
 
 		tx.commit();
 
 		return employees;
-		
+
 	}
-	
-	public void createEmployee(Employee employee){
-		
+
+	public void createEmployee(Employee employee) {
+
 		EntityTransaction tx = em.getTransaction();
 
 		tx.begin();
@@ -62,9 +64,9 @@ public class EmployeeDAO {
 		tx.commit();
 		System.out.println("Employee " + employee.getName() + " created!");
 	}
-	
-	public boolean updateEmployee(Employee employee){
-		
+
+	public boolean updateEmployee(Employee employee) {
+
 		try {
 			EntityManagerFactory emf = PersistenceManager.getInstance()
 					.createEntityManagerFactory();
@@ -75,15 +77,15 @@ public class EmployeeDAO {
 			em.merge(employee);
 			tx.commit();
 			System.out.println("Employee  " + employee.getName() + " updated!");
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
 		return true;
 	}
-	
-	public boolean deleteEmployee(Employee employee){
+
+	public boolean deleteEmployee(Employee employee) {
 		try {
 			EntityManagerFactory emf = PersistenceManager.getInstance()
 					.createEntityManagerFactory();
@@ -101,19 +103,19 @@ public class EmployeeDAO {
 		}
 		return true;
 	}
-	
-	public Employee checkEmployeeLogin(final String username , final String password ) {
-//		boolean isIn = false;
+
+	public Employee checkEmployeeLogin(final String username,
+			final String password) {
+		// boolean isIn = false;
 		System.out.println("\n--------- CHECK RATHER EMPLOYEE RIGHT OR WRONG START ---------");
 		Employee empCurrent;
 		List<?> emplist = getAllEmployees();
 		for (Object emp : emplist) {
-			if(emp instanceof Employee){
-				empCurrent = (Employee) emp;
-				if(empCurrent.getUsername().equals(username) && empCurrent.getPassword().equals(password)){
-					System.out.println("\n-------- EMPLOYEE TRUE : " + empCurrent.getUsername());
-					return empCurrent;
-				}
+			empCurrent = (Employee) emp;
+			if (empCurrent.getUsername().equals(username)
+					&& empCurrent.getPassword().equals(password)) {
+				System.out.println("\n-------- EMPLOYEE TRUE : " + empCurrent.getUsername());
+				return empCurrent;
 			}
 		}
 		System.out.println("\n ------------ EMPLOYEE NOT TRUE ");

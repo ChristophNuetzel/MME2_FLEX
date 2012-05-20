@@ -37,7 +37,6 @@ package model
 			/** add EventListener to listen on "databse-events" **/
 			cr.addEventListener(ResultEvent.RESULT , checkLog );
 			cr.token = es.checkEmployeeLogin(loginVO.username, loginVO.password);			
-			
 		}
 		
 		protected function checkLog(event:ResultEvent):void
