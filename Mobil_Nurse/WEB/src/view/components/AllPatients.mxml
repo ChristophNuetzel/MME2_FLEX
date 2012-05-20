@@ -15,12 +15,7 @@
 			public function onInitialization(event:FlexEvent):void {
 				this.id = NAME;
 			}
-			
-			protected function dataGrid_creationCompleteHandler(event:FlexEvent):void
-			{
-				getAllPatientsResult.token = patient1.getAllPatients();
-			}
-			
+
 			public function fireMVCLog():void {
 				dispatchEvent( new Event( CLICKEDLOGOUT ) );
 				trace("fireMVCLOG");
@@ -33,13 +28,9 @@
 				navigator.popView();
 			}
 		
-			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
-		<s:CallResponder id="getAllPatientsResult"/>
-		<services:PatientDao id="patient1"/>
-		<!-- Platzieren Sie nichtvisuelle Elemente (z. B. Dienste, Wertobjekte) hier -->
 	</fx:Declarations>
 	
 	<s:navigationContent>
@@ -47,8 +38,7 @@
 	</s:navigationContent>
 	
 	
-	<s:DataGrid id="dataGrid" x="1" y="231" width="100%" height="363"
-				creationComplete="dataGrid_creationCompleteHandler(event)">
+	<s:DataGrid id="dataGrid" x="1" y="231" width="100%" height="350" textAlign="left">
 		<s:columns>
 			<s:ArrayList>
 				<s:GridColumn dataField="id" headerText="ID"/>
@@ -58,6 +48,15 @@
 				<s:GridColumn dataField="illness" headerText="Illness"/>
 			</s:ArrayList>
 		</s:columns>
-		<s:AsyncListView list="{getAllPatientsResult.lastResult}"/>
+		<s:AsyncListView id="asyncList"/>
 	</s:DataGrid>
+	
+	<s:Group id="busyIndicatorAllPatients" x="0" y="{dataGrid.y+27}" width="100%" 
+			 height="{dataGrid.height-27}" alpha="0.7">
+			<s:Rect width="100%" height="100%">
+				<s:fill><s:SolidColor color="#C0C0C0" /></s:fill>
+			</s:Rect>
+			<s:BusyIndicator horizontalCenter="0" rotationInterval="150" symbolColor="blue" verticalCenter="0"/>
+	</s:Group>	
+	
 </s:View>

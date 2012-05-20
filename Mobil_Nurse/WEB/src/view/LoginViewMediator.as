@@ -36,7 +36,9 @@ package view
 		}
 		
 		private function getLoggedIn(evt:Event):void {
-			loginView.busyIndicator.visible = true;
+			loginView.errorText.setStyle('color', '#FFFFFF');
+			loginView.setErrorMessage("Please wait for being logged in");
+			loginView.busyIndicatorLogin.visible = true;
 			employeeRemoteProxy.validateUserData(new LoginVO(loginView.nurseName.text, loginView.nursePass.text ));
 		}
 		
@@ -53,8 +55,8 @@ package view
 					loginView.navigator.pushView(view.components.LoginSuccess , emp);
 					break;
 				case AppFacade.LOGIN_FAILED:
-					loginView.busyIndicator.visible = false;
-					loginView.setErrorMessage();
+					loginView.busyIndicatorLogin.visible = false;
+					loginView.setErrorMessage("Wrong Username or Password");
 					loginView.errorText.setStyle('color', '#FF0000');
 					break;
 			}

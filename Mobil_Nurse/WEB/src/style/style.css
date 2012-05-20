@@ -40,4 +40,6 @@ s|ActionBar{
 global
 {
 	text-align: center;
+	content-background-alpha: 1.0;
+	symbol-color: #FFFFFF;
 }

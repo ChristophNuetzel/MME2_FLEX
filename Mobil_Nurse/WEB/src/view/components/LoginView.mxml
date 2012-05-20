@@ -8,11 +8,11 @@
 		xmlns:auto="model.vo.auto.*"
 		backgroundColor="#E3F2F2" initialize="onInitialization(event)"
 		title="Welcome - Please Login">
-
 	
 	<fx:Script>
 		<![CDATA[
 			import model.vo.auto.Employee;
+			
 			import mx.events.FlexEvent;
 			
 			
@@ -38,23 +38,15 @@
 				
 			}
 						
-			public function setErrorMessage():void
+			public function setErrorMessage(msg:String):void
 			{
-				errorText.text = "Wrong Username or Password";
+				errorText.text = msg;
 			}
 			
 		]]>
 	</fx:Script>
 	
 	<fx:Declarations>
-		<services:EmployeeDao id="myEmployees"/> 
-		<s:CallResponder id="getAllResult"/>
-		
-		<auto:Employee id="myNewEmployee"/>
-		<s:CallResponder id="createEmployee"/>
-		
-		<auto:Employee id="myEmployee"/>
-		<s:CallResponder id="getAllEmployeesResult2"/>
 	</fx:Declarations>
 	
 	<s:states>
@@ -70,7 +62,12 @@
 					   y.register="320" height="384">
 		
 		<s:VGroup x="56" y="31" width="664" horizontalCenter="0">
-			<s:Label id="errorText" text="Please Login"/>
+			<s:HGroup>
+				<s:Label id="errorText" text="Please Login"/>
+				<s:BusyIndicator id="busyIndicatorLogin" rotationInterval="150" symbolColor="blue"
+								 width="21" height="21" visible="false"/>
+			</s:HGroup>
+			
 			<s:HGroup id="vgroup" x="79" y="150" width="660" height="51">
 				<s:TextInput id="nurseName" left="50%" width="200" text=""/>
 				<s:TextInput id="nursePass" width="200" height="35" displayAsPassword="true"/>
@@ -82,18 +79,7 @@
 			</s:HGroup>
 		</s:VGroup >
 		
-		
-		<s:Group id="busyIndicator" visible="false" color="#FFFFFF"
-				 y.login="187" horizontalCenter.login="0">
-			<s:Label text="Please wait for being logged in" />
-			<s:BusyIndicator rotationInterval="100" symbolColor="blue"
-							 x.login="95" y.login="19" width.login="27"/>
-		</s:Group>
-		
-		
 		<components:RegisterView includeIn="register" y="120" horizontalCenter="-73"/>
-		
-		
 		
 	</s:BorderContainer>
 	

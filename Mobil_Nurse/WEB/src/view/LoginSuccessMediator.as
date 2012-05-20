@@ -50,13 +50,11 @@ package view
 		protected function getLoggedOut(event:Event):void
 		{
 			loginSuccess.logoutView();
-			sendNotification(AppFacade.LOGOUT_SUCCEED);
 		}
 		
 		protected function goForward(event:Event):void
 		{
 			loginSuccess.goForward();
-			sendNotification(AppFacade.GO_FORWARD);
 		}
 	}
 }

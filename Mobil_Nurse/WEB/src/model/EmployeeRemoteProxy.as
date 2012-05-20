@@ -2,10 +2,8 @@ package model
 {
 	import model.vo.LoginVO;
 	import model.vo.auto.Employee;
-	
 	import mx.rpc.CallResponder;
 	import mx.rpc.events.ResultEvent;
-	
 	import org.puremvc.as3.interfaces.IProxy;
 	import org.puremvc.as3.patterns.proxy.Proxy;
 	
@@ -36,7 +34,7 @@ package model
 		private function start():void {
 			/** add EventListener to listen on "databse-events" **/
 			cr.addEventListener(ResultEvent.RESULT , checkLog );
-			cr.token = es.checkEmployeeLogin(loginVO.username, loginVO.password);			
+			cr.token = es.checkEmployeeLogin(loginVO.username, loginVO.password);		
 		}
 		
 		protected function checkLog(event:ResultEvent):void
