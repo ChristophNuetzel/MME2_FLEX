@@ -1,2 +1,3 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexProperties enableServiceManager="false" flexServerFeatures="4" flexServerType="2" fmlDataModelLocation=".model/WEB_INF.fml" serverContextRoot="/blazeds" serverRoot="C:/MME2_FLEX/Mobil_Nurse/backend/tomcat/webapps/blazeds" serverRootURL="http://localhost:8400/blazeds" toolCompile="true" useServerFlexSDK="false" version="2"/>
+

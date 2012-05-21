@@ -28,20 +28,6 @@ package view
 			empprox = facade.retrieveProxy( EmployeeRemoteProxy.NAME ) as EmployeeRemoteProxy;
 		}
 		
-		// lauscht auf Notifications
-		override public function listNotificationInterests():Array {
-			return [ AppFacade.LOGIN_SUCCEED ];
-		}
-		
-		override public function handleNotification(notification:INotification):void {
-			//switch( notification.getName() ) {
-				//case AppFacade.LOGIN_SUCCEED:
-					//trace("loginSuccessMediator loginSucceed");
-					//var e:Employee = notification.getBody() as Employee;
-					//loginSuccess.setLabelText(e.firstname);
-			//}
-		}
-		
 		override public function onRegister():void {
 			loginSuccess.addEventListener(LoginSuccess.CLICKED, getLoggedOut );
 			loginSuccess.addEventListener(LoginSuccess.CLICKEDFORWARD, goForward );

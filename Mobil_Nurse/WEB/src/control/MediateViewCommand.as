@@ -6,7 +6,7 @@ package control
 	
 	import spark.components.View;
 	
-	import view.AllPatientsMediator;
+	import view.AllPatientsTableMediator;
 	import view.LoginSuccessMediator;
 	import view.LoginViewMediator;
 	import view.components.LoginSuccess;
@@ -30,10 +30,10 @@ package control
 					facade.removeMediator( LoginSuccessMediator.NAME);
 					facade.registerMediator(new LoginSuccessMediator(myview));
 					break;
-				case AllPatientsMediator.NAME:
+				case AllPatientsTableMediator.NAME:
 					trace("AllPatientsMediator registered");
-					facade.removeMediator( AllPatientsMediator.NAME);
-					facade.registerMediator(new AllPatientsMediator(myview));
+					facade.removeMediator( AllPatientsTableMediator.NAME);
+					facade.registerMediator(new AllPatientsTableMediator(myview));
 					break;
 				default:
 					trace("default");

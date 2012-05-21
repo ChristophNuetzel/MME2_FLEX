@@ -43,7 +43,7 @@
 			
 			public function goForward():void {
 				
-				navigator.pushView(AllPatients);
+				navigator.pushView(AllPatientsTable);
 				
 			}
 			
@@ -55,7 +55,7 @@
 		<s:Button click="fireMVCLogout()" label="Logout"/>
 	</s:navigationContent>
 	<s:actionContent>
-		<s:Button id="goForward1" width="121" height="32" label="Go Forward" click="fireMVCGoForward()"/>
+		<s:Button id="showPatientsTable" width="121" height="32" label="Next" click="fireMVCGoForward()"/>
 	</s:actionContent>
 	
 	<s:HGroup width="705" horizontalCenter="0" verticalCenter="0">

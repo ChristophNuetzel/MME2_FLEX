@@ -1,6 +1,5 @@
 package
 {
-	import control.LoginSucceedCommand;
 	import control.MediateViewCommand;
 	import control.StartupCommand;
 	
