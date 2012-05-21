@@ -9,6 +9,7 @@ package control
 	import view.AllPatientsTableMediator;
 	import view.LoginSuccessMediator;
 	import view.LoginViewMediator;
+	import view.components.AllPatientsTable;
 	import view.components.LoginSuccess;
 	
 	public class MediateViewCommand extends SimpleCommand implements ICommand

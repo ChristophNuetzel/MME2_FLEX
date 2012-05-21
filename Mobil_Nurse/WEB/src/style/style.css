@@ -39,7 +39,7 @@ s|ActionBar{
 }
 global
 {
-	text-align: center;
+	text-align: left;
 	content-background-alpha: 1.0;
-	symbol-color: #FFFFFF;
+	font-size: 18;
 }

@@ -22,7 +22,7 @@ package view
 	public class AllPatientsTableMediator extends Mediator implements IMediator
 		
 	{
-		public static const NAME:String = "AllPatientsMediator";
+		public static const NAME:String = "AllPatientsTableMediator";
 		
 		private var allPatients:AllPatientsTable;
 		private var patientsRemoteProxy:PatientRemoteProxy;

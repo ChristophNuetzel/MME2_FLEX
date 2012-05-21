@@ -34,8 +34,17 @@
 			
 			protected function login_clickHandler(event:MouseEvent):void
 			{
-				fireMVCLog();
-				
+				if(inputValidator(nurseName.text, nursePass.text)){
+					fireMVCLog();
+				}else{
+					setErrorMessage("Please insert Name and Password");
+					errorText.setStyle('color', '#00FF00');
+				}
+			}
+			
+			public function inputValidator(name: String, pass: String):Boolean{
+				trace("check");
+				return(name != null && name.length > 0 && pass != null && pass.length > 0)
 			}
 						
 			public function setErrorMessage(msg:String):void
@@ -64,7 +73,7 @@
 		<s:VGroup x="56" y="31" width="664" horizontalCenter="0">
 			<s:HGroup>
 				<s:Label id="errorText" text="Please Login"/>
-				<s:BusyIndicator id="busyIndicatorLogin" rotationInterval="50" symbolColor="blue"
+				<s:BusyIndicator id="busyIndicatorLogin" rotationInterval="50" symbolColor="white"
 								 width="21" height="21" visible="false"/>
 			</s:HGroup>
 			

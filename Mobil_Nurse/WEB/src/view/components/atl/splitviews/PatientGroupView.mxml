@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
-		xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="view1_creationCompleteHandler(event)">
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		title="{data.name}">
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
 			
-			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			import view.components.AllPatientsTable;
+
+			protected function button1_clickHandler(event:MouseEvent):void
 			{
-				this.actionBarVisible = false;				
+				this.navigator.popView();
 			}
-			
 		]]>
 	</fx:Script>
 	
@@ -23,4 +25,9 @@
 						 firstView="view.components.atl.splitviews.PatientAtlDetailsView"/>
 			
 	</s:SplitViewNavigator>
+	
+	<s:navigationContent>
+		<s:Button click="button1_clickHandler(event)" label="Logout"/>
+	</s:navigationContent>
+	
 </s:View>

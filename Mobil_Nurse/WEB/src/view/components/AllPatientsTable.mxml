@@ -2,13 +2,16 @@
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		xmlns:services="services.*"
-		title="Select a Patient"
-		initialize="onInitialization(event)">
+		initialize="onInitialization(event)" title="Select a Patient">
 	
 	<fx:Script>
 		<![CDATA[
-			import view.components.atl.splitviews.PatientGroupView;
+			import model.vo.auto.Patient;
+			
 			import mx.events.FlexEvent;
+			
+			import view.components.atl.splitviews.PatientAtlDetailsView;
+			import view.components.atl.splitviews.PatientGroupView;
 			
 			public static const NAME:String = 'AllPatientsTable';
 			public static const VIEW_EMPLOYEE_DATA:String = NAME + "ViewEmployeeData";
@@ -28,11 +31,14 @@
 				trace("go Back");
 				navigator.popView();
 			}
-		
-			protected function showDetails(event:MouseEvent):void
+
+			protected function dataGrid_clickHandler(event:MouseEvent):void
 			{
-				//navigator.popView();
-				navigator.pushView(view.components.atl.splitviews.PatientGroupView);
+				if(dataGrid.selectedItem != null)
+				{
+					var patient:Patient = event.target.data as Patient;
+					navigator.pushView(PatientGroupView, patient);
+				}
 			}
 			
 		]]>
@@ -42,10 +48,10 @@
 	
 	<s:navigationContent>
 		<s:Button label="Back" click="fireMVCLog()"/>
-	</s:navigationContent>
+	</s:navigationContent>	
 	
-	
-	<s:DataGrid id="dataGrid" x="1" y="231" width="100%" height="350" textAlign="left">
+	<s:DataGrid id="dataGrid" x="0" y="231" width="100%" height="350"
+				click="dataGrid_clickHandler(event)" textAlign="left">
 		<s:columns>
 			<s:ArrayList>
 				<s:GridColumn dataField="id" headerText="ID"/>
@@ -58,13 +64,14 @@
 		<s:AsyncListView id="asyncList"/>
 	</s:DataGrid>
 	
-	<s:Group id="busyIndicatorAllPatients" x="0" y="{dataGrid.y+27}" width="100%" 
-			 height="{dataGrid.height-27}" >
+	
+	<s:Group id="busyIndicatorAllPatients" x="0" y="{dataGrid.y+27}" width="100%"
+			 height="{dataGrid.height-27}">
 		<s:Rect width="100%" height="100%" alpha="0.2">
-			<s:fill><s:SolidColor color="#C0C0C0" /></s:fill>
+			<s:fill><s:SolidColor color="#C0C0C0"/></s:fill>
 		</s:Rect>
-		<s:BusyIndicator horizontalCenter="0" rotationInterval="50" symbolColor="blue" verticalCenter="0"/>
+		<s:BusyIndicator horizontalCenter="0" rotationInterval="50" symbolColor="blue"
+						 verticalCenter="0"/>
 	</s:Group>	
-	<s:Button x="37" y="74" label="Schaltfläche" click="showDetails(event)"/>
 	
 </s:View>
