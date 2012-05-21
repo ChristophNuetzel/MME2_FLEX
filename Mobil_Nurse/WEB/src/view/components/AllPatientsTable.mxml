@@ -8,7 +8,10 @@
 		<![CDATA[
 			import model.vo.auto.Patient;
 			
+			import mx.collections.ArrayCollection;
 			import mx.events.FlexEvent;
+			
+			import spark.events.TextOperationEvent;
 			
 			import view.components.atl.splitviews.PatientAtlDetailsView;
 			import view.components.atl.splitviews.PatientGroupView;
@@ -40,6 +43,43 @@
 					navigator.pushView(PatientGroupView, patient);
 				}
 			}
+			
+			public function setDataGrid(ac:ArrayCollection){
+				asyncList.list = ac.list;
+			}
+			
+			protected function textinput1_changeHandler(event:TextOperationEvent):void
+			{
+				//asyncList.list.toArray().filter(filterMyArrayCollection, null)
+				//filterMyArrayCollection();
+				//asyncList.list = newList;
+				var listText:ArrayCollection = (asyncList.list) as ArrayCollection;
+				trace(asyncList.list);
+			}
+			
+			private function filterMyArrayCollection(item:Object):Boolean {
+				trace("in filterMyArrayCollection");
+				var searchString:String = searchString.toString().toLowerCase();
+				trace(asyncList.list.getItemIndex(1));
+				
+				for (var i:int = 0; i < asyncList.length; i++){
+					/*var listText:String = Patient (asyncList.list.getItemIndex(i).name);
+					
+					if(searchString.indexOf(listText) > -1 ){
+						trace("TRUE");
+						return true
+					}*/
+					
+				}
+				
+				var itemName:String = (item.name as String).toLowerCase();
+				if(itemName.indexOf(searchString) > -1){
+					trace("TRUE");
+					return true
+				}
+				return false;
+			}
+			
 			
 		]]>
 	</fx:Script>
@@ -73,5 +113,7 @@
 		<s:BusyIndicator horizontalCenter="0" rotationInterval="50" symbolColor="blue"
 						 verticalCenter="0"/>
 	</s:Group>	
+	<s:TextInput id="searchString" x="335" y="188" width="355"
+				 change="textinput1_changeHandler(event)"/>
 	
 </s:View>

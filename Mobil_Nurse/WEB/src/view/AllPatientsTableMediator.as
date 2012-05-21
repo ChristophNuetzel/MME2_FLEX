@@ -61,7 +61,7 @@ package view
 			switch ( notification.getName() ) {
 				case AppFacade.ALL_PATIENTS:
 					var ac:ArrayCollection = notification.getBody() as ArrayCollection;
-					allPatients.asyncList.list = ac.list;
+					allPatients.setDataGrid(ac);
 					allPatients.busyIndicatorAllPatients.visible = false;
 					trace("AllPatiensNotificationOK");
 					break;
