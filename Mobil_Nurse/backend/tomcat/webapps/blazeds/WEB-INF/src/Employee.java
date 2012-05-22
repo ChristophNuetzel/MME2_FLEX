@@ -21,7 +21,6 @@ public class Employee {
 	private int prsnumber;
 	private String birth;
 	private String job;
-
 	private byte[] picture;
 
 	public byte[] getPicture() {

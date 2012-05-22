@@ -44,7 +44,7 @@
 				}
 			}
 			
-			public function setDataGrid(ac:ArrayCollection){
+			public function setDataGrid(ac:ArrayCollection):void{
 				asyncList.list = ac.list;
 			}
 			

@@ -20,21 +20,22 @@ public class Main {
 		// dao.delete(m1);
 		// dao.getAll();
 
+		
+		
 //		BufferedImage bim = ImageIO
-//				.read(new File("D:/Ressourcen/PICS/lou.jpeg"));
-//		BufferedImage bim = ImageIO
-//				.read(new File("D:/Ressourcen/PICS/chris.jpeg"));
+//				.read(new File("C:/Users/Christoph/Documents/Studium/MME2/Archiv/me_300.png"));
+//		
 //		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 //		ImageIO.write(bim, "jpg", baos);
 //		byte[] bytepic = baos.toByteArray();
 
-//		EmployeeDAO emplDAO = new EmployeeDAO();
+		EmployeeDAO emplDAO = new EmployeeDAO();
 
-//		Employee em = new Employee("Louise", "Crap", "lou", "456", 006547,
-//				"01/05/1980", "High-Quality-Nurse", bytepic);
-//		Employee em = new Employee("Chris", "Wilds", "chris", "123", 007,
-//				"01/05/1980", "Google-Specialist", bytepic);
+//		Employee em = new Employee("Christoph", "Maiermüller", "a", "a", 815,
+//				"01/05/1989", "High-Quality-Bitch", bytepic);
+
 //		emplDAO.createEmployee(em);
+		emplDAO.getAllEmployees();
 
 //		byte[] bb = null;
 //		for (Employee e : emplDAO.getAllEmployees()) {
@@ -42,16 +43,19 @@ public class Main {
 //				bb = e.getPicture();
 //			}
 //		}
+		
+		
+//		emplDAO.getAllEmployees();
 //
 //		DbFrame df = new DbFrame(bb);
 		// emplDAO.getAllEmployees();
 
-//		 PatientDAO patientDAO = new PatientDAO();
+		 PatientDAO patientDAO = new PatientDAO();
 
 //		 Patient patient = new Patient("Fritz", "Manheim", "Manheim",
 //		 "Erblindet");
 //		 patientDAO.createPatient(patient);
-//		 patientDAO.getAllPatients();
+		 patientDAO.getAllPatients();
 
 		// System.out.println(emplDAO.checkEmployeeLogin("a", "a"));
 

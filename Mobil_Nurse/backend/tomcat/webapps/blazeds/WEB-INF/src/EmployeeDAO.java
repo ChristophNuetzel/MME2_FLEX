@@ -43,7 +43,7 @@ public class EmployeeDAO {
 				System.out.println(" - Employee: " + " ID: " + emp.getId()
 						+ "  Name: " + emp.getName() + " Firstname: "
 						+ emp.getFirstname() + " Pass: " + emp.getPassword()
-						+ " User: " + emp.getUsername());
+						+ " User: " + emp.getUsername() + " Picture: " + emp.getPicture());
 			}
 		}
 

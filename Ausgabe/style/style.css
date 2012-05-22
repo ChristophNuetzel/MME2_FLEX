@@ -11,6 +11,10 @@ s|ActionBar{
 	shadowColor: "0xEEEEEE";
 }
 
+.picture{
+	shadowColor:  "0xEEEEEE";
+}
+
 #errorText{
 	color: #FFFFFF;
 	font-size: 20px;
@@ -37,6 +41,7 @@ s|ActionBar{
 	borderColor: #E3F2F2;
 	shadowColor: "0xEEEEEE";
 }
+
 global
 {
 	text-align: left;
