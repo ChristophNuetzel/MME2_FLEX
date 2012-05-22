@@ -37,7 +37,13 @@ package view
 		
 		override public function onRegister():void {
 			allPatients.addEventListener(AllPatientsTable.VIEW_EMPLOYEE_DATA, getLoggedOut );
+			allPatients.addEventListener(AllPatientsTable.VIEW_EMPLOYEE_DETAILS, gotoDetailsView );
 			getAllPatients();
+		}
+		
+		protected function gotoDetailsView(event:Event):void
+		{
+			allPatients.detailView(event);
 		}
 		
 		private function getAllPatients():void
@@ -53,7 +59,6 @@ package view
 		protected function getLoggedOut(event:Event):void
 		{
 			allPatients.logoutView();
-			sendNotification(AppFacade.LOGOUT_SUCCEED);
 		}
 		
 		override public function handleNotification(notification:INotification):void {

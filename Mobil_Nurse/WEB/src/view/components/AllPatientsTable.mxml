@@ -6,9 +6,13 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import com.adobe.fiber.runtime.lib.CollectionFunc;
+			
 			import model.vo.auto.Patient;
 			
 			import mx.collections.ArrayCollection;
+			import mx.collections.IList;
+			import mx.events.CollectionEvent;
 			import mx.events.FlexEvent;
 			
 			import spark.events.TextOperationEvent;
@@ -18,6 +22,8 @@
 			
 			public static const NAME:String = 'AllPatientsTable';
 			public static const VIEW_EMPLOYEE_DATA:String = NAME + "ViewEmployeeData";
+			public static const VIEW_EMPLOYEE_DETAILS:String = NAME + "ViewEmployeeDetails";
+			public var coll:ArrayCollection = new ArrayCollection();
 			
 			public function onInitialization(event:FlexEvent):void {
 				this.id = NAME;
@@ -34,53 +40,59 @@
 				trace("go Back");
 				navigator.popView();
 			}
-
+			
 			protected function dataGrid_clickHandler(event:MouseEvent):void
 			{
 				if(dataGrid.selectedItem != null)
 				{
-					var patient:Patient = event.target.data as Patient;
-					navigator.pushView(PatientGroupView, patient);
+					dispatchEvent( new Event( VIEW_EMPLOYEE_DETAILS, event.target ) );
 				}
+			}
+			
+			public function detailView(event:Event):void{
+				var patient:Patient = event.currentTarget.dataGrid.selectedItem as Patient;
+				navigator.pushView(PatientGroupView, patient);
 			}
 			
 			public function setDataGrid(ac:ArrayCollection):void{
-				asyncList.list = ac.list;
+				coll.list = ac.list;
+			}
+
+			private function filterDemo():void{
+				/**
+				 * Soucrecode from:
+				 * http://www.boyzoid.com/blog/index.cfm/2006/10/19/Filtering-Data-in-Flex
+				 */								
+				coll.filterFunction = filter;
+				coll.refresh();
 			}
 			
-			protected function textinput1_changeHandler(event:TextOperationEvent):void
-			{
-				//asyncList.list.toArray().filter(filterMyArrayCollection, null)
-				//filterMyArrayCollection();
-				//asyncList.list = newList;
-				var listText:ArrayCollection = (asyncList.list) as ArrayCollection;
-				trace(asyncList.list);
-			}
-			
-			private function filterMyArrayCollection(item:Object):Boolean {
-				trace("in filterMyArrayCollection");
-				var searchString:String = searchString.toString().toLowerCase();
-				trace(asyncList.list.getItemIndex(1));
-				
-				for (var i:int = 0; i < asyncList.length; i++){
-					/*var listText:String = Patient (asyncList.list.getItemIndex(i).name);
+			public function filter(item:Object):Boolean{
+				/**
+				 * Soucrecode from:
+				 * http://www.boyzoid.com/blog/index.cfm/2006/10/19/Filtering-Data-in-Flex
+				 */		
+				var isMatch:Boolean = false
 					
-					if(searchString.indexOf(listText) > -1 ){
-						trace("TRUE");
-						return true
-					}*/
-					
+				if(Id.selected){
+					if(item.id == searchString.text){
+						trace("is true");
+						isMatch = true
+					}
+				}else if(Firstname.selected){
+					if(item.firstname.toLowerCase().search(searchString.text.toLowerCase()) != -1){
+						trace("is true");
+						isMatch = true
+					}
+				}else if(Name.selected){
+					if(item.name.toLowerCase().search(searchString.text.toLowerCase()) != -1){
+						trace("is true");
+						isMatch = true
+					}
 				}
-				
-				var itemName:String = (item.name as String).toLowerCase();
-				if(itemName.indexOf(searchString) > -1){
-					trace("TRUE");
-					return true
-				}
-				return false;
+				return isMatch;
 			}
-			
-			
+
 		]]>
 	</fx:Script>
 	<fx:Declarations>
@@ -90,8 +102,8 @@
 		<s:Button label="Back" click="fireMVCLog()"/>
 	</s:navigationContent>	
 	
-	<s:DataGrid id="dataGrid" x="0" y="231" width="100%" height="350"
-				click="dataGrid_clickHandler(event)" textAlign="left">
+	<s:DataGrid id="dataGrid" x="1" y="317" width="100%" height="350"
+				click="dataGrid_clickHandler(event)" textAlign="left" dataProvider="{coll}">
 		<s:columns>
 			<s:ArrayList>
 				<s:GridColumn dataField="id" headerText="ID"/>
@@ -101,7 +113,6 @@
 				<s:GridColumn dataField="illness" headerText="Illness"/>
 			</s:ArrayList>
 		</s:columns>
-		<s:AsyncListView id="asyncList"/>
 	</s:DataGrid>
 	
 	
@@ -112,8 +123,16 @@
 		</s:Rect>
 		<s:BusyIndicator horizontalCenter="0" rotationInterval="50" symbolColor="blue"
 						 verticalCenter="0"/>
-	</s:Group>	
-	<s:TextInput id="searchString" x="335" y="188" width="355"
-				 change="textinput1_changeHandler(event)"/>
+	</s:Group>
+	
+	<s:HGroup x="214" y="274">
+		<s:Label height="36" text="Search Patients by: " verticalAlign="middle"/>
+		<s:RadioButton id="Id"  label="Id"/>
+		<s:RadioButton id="Firstname" label="Firstname"/>
+		<s:RadioButton id="Name" label="Name" selected="true"/>
+		<s:TextInput id="searchString" width="355" change="filterDemo()"/>
+	</s:HGroup>
+
+		
 	
 </s:View>
