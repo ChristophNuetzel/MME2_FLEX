@@ -3,106 +3,6 @@
   <annotation name="ActionScriptGeneration">
     <item name="FullyQualifyReferences">true</item>
   </annotation>
-  <service name="EmployeeDao">
-    <annotation name="ActionScriptGeneration">
-      <item name="ServiceType">RemoteObject</item>
-      <item name="Package">services</item>
-      <item name="Endpoint">http://localhost:8400/blazeds/messagebroker/amf</item>
-      <item name="Destination">employee-dao</item>
-    </annotation>
-    <annotation name="ServiceConfig">
-      <item name="DEFAULT_ENTITY_PACKAGE">model.vo.auto</item>
-      <item name="contextRoot">/blazeds</item>
-      <item name="rootUrl">http://localhost:8400/blazeds</item>
-      <item name="ABSOLUTE_ENDPOINT">http://localhost:8400/blazeds/messagebroker/amf</item>
-    </annotation>
-    <annotation name="ServiceTypeGroup">
-      <item name="ServiceBackendType">BlazeDS</item>
-    </annotation>
-    <function name="getAllEmployees" return-type="Employee[]">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="returnType">Employee</item>
-      </annotation>
-      <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,birth,username,name,job,firstname,password,prsnumber</item>
-      </annotation>
-    </function>
-    <function name="updateEmployee" return-type="boolean">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="inputParams">Employee</item>
-        <item name="returnType">boolean</item>
-      </annotation>
-      <parameter name="arg0" type="Employee"/>
-    </function>
-    <function name="checkEmployeeLogin" return-type="Employee">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="inputParams">string,string</item>
-        <item name="returnType">Employee</item>
-      </annotation>
-      <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,birth,username,name,job,firstname,password,prsnumber</item>
-      </annotation>
-      <parameter name="arg0" type="string"/>
-      <parameter name="arg1" type="string"/>
-    </function>
-    <function name="deleteEmployee" return-type="boolean">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="inputParams">Employee</item>
-        <item name="returnType">boolean</item>
-      </annotation>
-      <parameter name="arg0" type="Employee"/>
-    </function>
-    <function name="createEmployee" return-type="void">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="inputParams">Employee</item>
-      </annotation>
-      <parameter name="arg0" type="Employee"/>
-    </function>
-  </service>
-  <entity name="Employee">
-    <annotation name="EntityProperties">
-      <item name="EntityOriginalName">Employee</item>
-    </annotation>
-    <annotation name="ServerProperties">
-      <item name="RemoteClass">Employee</item>
-      <item name="IncludeRemoteClass">nonempty</item>
-    </annotation>
-    <annotation name="service Group">
-      <item name="service">EmployeeDao,Dummy</item>
-    </annotation>
-    <annotation name="ActionScriptGeneration">
-      <item name="Package">model.vo.auto</item>
-    </annotation>
-    <annotation name="checkEmployeeLogin">
-      <item name="propertySpecifier">id,birth,username,name,job,firstname,password,prsnumber</item>
-    </annotation>
-    <annotation name="getAllEmployees">
-      <item name="propertySpecifier">id,birth,username,name,job,firstname,password,prsnumber</item>
-    </annotation>
-    <property name="id" type="long"/>
-    <property name="birth" type="string"/>
-    <property name="username" type="string"/>
-    <property name="name" type="string"/>
-    <property name="job" type="string"/>
-    <property name="firstname" type="string"/>
-    <property name="password" type="string"/>
-    <property name="prsnumber" type="integer"/>
-  </entity>
   <service name="PatientDao">
     <annotation name="ActionScriptGeneration">
       <item name="ServiceType">RemoteObject</item>
@@ -177,5 +77,95 @@
     <property name="illness" type="string"/>
     <property name="name" type="string"/>
     <property name="firstname" type="string"/>
+  </entity>
+  <service name="EmployeeDao">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">RemoteObject</item>
+      <item name="Package">services</item>
+      <item name="Endpoint">http://localhost:8400/blazeds/messagebroker/amf</item>
+      <item name="Destination">employee-dao</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">model.vo.auto</item>
+      <item name="contextRoot">/blazeds</item>
+      <item name="rootUrl">http://localhost:8400/blazeds</item>
+      <item name="LINKED_FILE"></item>
+      <item name="ABSOLUTE_ENDPOINT">http://localhost:8400/blazeds/messagebroker/amf</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">BlazeDS</item>
+    </annotation>
+    <function name="getAllEmployees" return-type="Employee[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">Employee</item>
+      </annotation>
+    </function>
+    <function name="updateEmployee" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">Employee</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="Employee"/>
+    </function>
+    <function name="checkEmployeeLogin" return-type="Employee">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">string,string</item>
+        <item name="returnType">Employee</item>
+      </annotation>
+      <parameter name="arg0" type="string"/>
+      <parameter name="arg1" type="string"/>
+    </function>
+    <function name="deleteEmployee" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">Employee</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="Employee"/>
+    </function>
+    <function name="createEmployee" return-type="void">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">Employee</item>
+      </annotation>
+      <parameter name="arg0" type="Employee"/>
+    </function>
+  </service>
+  <entity name="Employee">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Employee</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">Employee</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">EmployeeDao</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">model.vo.auto</item>
+    </annotation>
+    <property name="id" type="long"/>
+    <property name="picture" type="blob"/>
+    <property name="username" type="string"/>
+    <property name="birth" type="string"/>
+    <property name="name" type="string"/>
+    <property name="job" type="string"/>
+    <property name="firstname" type="string"/>
+    <property name="password" type="string"/>
+    <property name="prsnumber" type="integer"/>
   </entity>
 </model>

@@ -22,12 +22,22 @@ public class Employee {
 	private String birth;
 	private String job;
 
+	private byte[] picture;
+
+	public byte[] getPicture() {
+		return picture;
+	}
+
+	public void setPicture(byte[] picture) {
+		this.picture = picture;
+	}
+
 	public Employee(){
 	}
 
 	public Employee(String firstname, String name, String username,
 			String password, int prsnumber, String birth,
-			String job) {
+			String job , byte[] picture) {
 		super();
 		this.firstname = firstname;
 		this.name = name;
@@ -36,9 +46,11 @@ public class Employee {
 		this.prsnumber = prsnumber;
 		this.birth = birth;
 		this.job = job;
+		this.picture = picture;
 	}
 
 
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -8,6 +8,7 @@ package model.vo.auto
 import com.adobe.fiber.services.IFiberManagingService;
 import com.adobe.fiber.valueobjects.IValueObject;
 import flash.events.EventDispatcher;
+import flash.utils.ByteArray;
 import mx.collections.ArrayCollection;
 import mx.events.PropertyChangeEvent;
 
@@ -59,8 +60,9 @@ public class _Super_Employee extends flash.events.EventDispatcher implements com
      * properties
      */
     private var _internal_id : Number;
-    private var _internal_birth : String;
+    private var _internal_picture : ByteArray;
     private var _internal_username : String;
+    private var _internal_birth : String;
     private var _internal_name : String;
     private var _internal_job : String;
     private var _internal_firstname : String;
@@ -96,15 +98,21 @@ public class _Super_Employee extends flash.events.EventDispatcher implements com
     }
 
     [Bindable(event="propertyChange")]
-    public function get birth() : String
+    public function get picture() : ByteArray
     {
-        return _internal_birth;
+        return _internal_picture;
     }
 
     [Bindable(event="propertyChange")]
     public function get username() : String
     {
         return _internal_username;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get birth() : String
+    {
+        return _internal_birth;
     }
 
     [Bindable(event="propertyChange")]
@@ -155,13 +163,13 @@ public class _Super_Employee extends flash.events.EventDispatcher implements com
         }
     }
 
-    public function set birth(value:String) : void
+    public function set picture(value:ByteArray) : void
     {
-        var oldValue:String = _internal_birth;
+        var oldValue:ByteArray = _internal_picture;
         if (oldValue !== value)
         {
-            _internal_birth = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "birth", oldValue, _internal_birth));
+            _internal_picture = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "picture", oldValue, _internal_picture));
         }
     }
 
@@ -172,6 +180,16 @@ public class _Super_Employee extends flash.events.EventDispatcher implements com
         {
             _internal_username = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "username", oldValue, _internal_username));
+        }
+    }
+
+    public function set birth(value:String) : void
+    {
+        var oldValue:String = _internal_birth;
+        if (oldValue !== value)
+        {
+            _internal_birth = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "birth", oldValue, _internal_birth));
         }
     }
 
