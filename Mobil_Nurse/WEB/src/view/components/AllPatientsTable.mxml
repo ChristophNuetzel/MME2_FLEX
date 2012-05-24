@@ -74,21 +74,10 @@
 				 */		
 				var isMatch:Boolean = false
 					
-				if(Id.selected){
-					if(item.id == searchString.text){
-						trace("is true");
-						isMatch = true
-					}
-				}else if(Firstname.selected){
-					if(item.firstname.toLowerCase().search(searchString.text.toLowerCase()) != -1){
-						trace("is true");
-						isMatch = true
-					}
-				}else if(Name.selected){
-					if(item.name.toLowerCase().search(searchString.text.toLowerCase()) != -1){
-						trace("is true");
-						isMatch = true
-					}
+				if(Id.selected && item.id == searchString.text || 
+					(Firstname.selected && item.firstname.toLowerCase().search(searchString.text.toLowerCase()) != -1) || 
+					(Name.selected && item.name.toLowerCase().search(searchString.text.toLowerCase()) != -1)){
+					isMatch = true
 				}
 				return isMatch;
 			}
