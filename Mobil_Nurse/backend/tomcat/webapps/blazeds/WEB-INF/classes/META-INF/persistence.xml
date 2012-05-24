@@ -5,8 +5,9 @@
 	<persistence-unit name="todos" transaction-type="RESOURCE_LOCAL">
 	
 		<class>MyStocks</class>
-		<class>Employee</class>
-		<class>Patient</class>
+		<class>mobile.nurse.model.employee.Employee</class>
+		<class>mobile.nurse.model.patient.Patient</class>
+		<class>mobile.nurse.model.atl.Communication</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
