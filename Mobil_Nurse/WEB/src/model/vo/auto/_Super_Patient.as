@@ -8,8 +8,10 @@ package model.vo.auto
 import com.adobe.fiber.services.IFiberManagingService;
 import com.adobe.fiber.valueobjects.IValueObject;
 import flash.events.EventDispatcher;
+import flash.utils.ByteArray;
 import mx.collections.ArrayCollection;
 import mx.events.PropertyChangeEvent;
+import model.vo.auto.Communication;
 
 import flash.net.registerClassAlias;
 import flash.net.getClassByAlias;
@@ -26,19 +28,20 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
     {
         try
         {
-            if (flash.net.getClassByAlias("Patient") == null)
+            if (flash.net.getClassByAlias("mobile.nurse.model.patient.Patient") == null)
             {
-                flash.net.registerClassAlias("Patient", cz);
+                flash.net.registerClassAlias("mobile.nurse.model.patient.Patient", cz);
             }
         }
         catch (e:Error)
         {
-            flash.net.registerClassAlias("Patient", cz);
+            flash.net.registerClassAlias("mobile.nurse.model.patient.Patient", cz);
         }
     }
 
     model_internal static function initRemoteClassAliasAllRelated() : void
     {
+        model.vo.auto.Communication.initRemoteClassAliasSingleChild();
     }
 
     model_internal var _dminternal_model : _PatientEntityMetadata;
@@ -58,11 +61,19 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
     /**
      * properties
      */
-    private var _internal_id : Number;
-    private var _internal_username : String;
-    private var _internal_illness : String;
-    private var _internal_name : String;
+    private var _internal_birth : String;
+    private var _internal_communication : model.vo.auto.Communication;
     private var _internal_firstname : String;
+    private var _internal_roomNr : String;
+    private var _internal_nation : String;
+    private var _internal_history : String;
+    private var _internal_id : Number;
+    private var _internal_religion : String;
+    private var _internal_picture : ByteArray;
+    private var _internal_patNr : String;
+    private var _internal_name : String;
+    private var _internal_age : int;
+    private var _internal_gender : String;
 
     private static var emptyArray:Array = new Array();
 
@@ -87,21 +98,63 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
      */
 
     [Bindable(event="propertyChange")]
+    public function get birth() : String
+    {
+        return _internal_birth;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get communication() : model.vo.auto.Communication
+    {
+        return _internal_communication;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get firstname() : String
+    {
+        return _internal_firstname;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get roomNr() : String
+    {
+        return _internal_roomNr;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get nation() : String
+    {
+        return _internal_nation;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get history() : String
+    {
+        return _internal_history;
+    }
+
+    [Bindable(event="propertyChange")]
     public function get id() : Number
     {
         return _internal_id;
     }
 
     [Bindable(event="propertyChange")]
-    public function get username() : String
+    public function get religion() : String
     {
-        return _internal_username;
+        return _internal_religion;
     }
 
     [Bindable(event="propertyChange")]
-    public function get illness() : String
+    public function get picture() : ByteArray
     {
-        return _internal_illness;
+        return _internal_picture;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get patNr() : String
+    {
+        return _internal_patNr;
     }
 
     [Bindable(event="propertyChange")]
@@ -111,9 +164,15 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
     }
 
     [Bindable(event="propertyChange")]
-    public function get firstname() : String
+    public function get age() : int
     {
-        return _internal_firstname;
+        return _internal_age;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get gender() : String
+    {
+        return _internal_gender;
     }
 
     public function clearAssociations() : void
@@ -123,6 +182,66 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
     /**
      * data/source property setters
      */
+
+    public function set birth(value:String) : void
+    {
+        var oldValue:String = _internal_birth;
+        if (oldValue !== value)
+        {
+            _internal_birth = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "birth", oldValue, _internal_birth));
+        }
+    }
+
+    public function set communication(value:model.vo.auto.Communication) : void
+    {
+        var oldValue:model.vo.auto.Communication = _internal_communication;
+        if (oldValue !== value)
+        {
+            _internal_communication = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "communication", oldValue, _internal_communication));
+        }
+    }
+
+    public function set firstname(value:String) : void
+    {
+        var oldValue:String = _internal_firstname;
+        if (oldValue !== value)
+        {
+            _internal_firstname = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "firstname", oldValue, _internal_firstname));
+        }
+    }
+
+    public function set roomNr(value:String) : void
+    {
+        var oldValue:String = _internal_roomNr;
+        if (oldValue !== value)
+        {
+            _internal_roomNr = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "roomNr", oldValue, _internal_roomNr));
+        }
+    }
+
+    public function set nation(value:String) : void
+    {
+        var oldValue:String = _internal_nation;
+        if (oldValue !== value)
+        {
+            _internal_nation = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "nation", oldValue, _internal_nation));
+        }
+    }
+
+    public function set history(value:String) : void
+    {
+        var oldValue:String = _internal_history;
+        if (oldValue !== value)
+        {
+            _internal_history = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "history", oldValue, _internal_history));
+        }
+    }
 
     public function set id(value:Number) : void
     {
@@ -134,23 +253,33 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
         }
     }
 
-    public function set username(value:String) : void
+    public function set religion(value:String) : void
     {
-        var oldValue:String = _internal_username;
+        var oldValue:String = _internal_religion;
         if (oldValue !== value)
         {
-            _internal_username = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "username", oldValue, _internal_username));
+            _internal_religion = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "religion", oldValue, _internal_religion));
         }
     }
 
-    public function set illness(value:String) : void
+    public function set picture(value:ByteArray) : void
     {
-        var oldValue:String = _internal_illness;
+        var oldValue:ByteArray = _internal_picture;
         if (oldValue !== value)
         {
-            _internal_illness = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "illness", oldValue, _internal_illness));
+            _internal_picture = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "picture", oldValue, _internal_picture));
+        }
+    }
+
+    public function set patNr(value:String) : void
+    {
+        var oldValue:String = _internal_patNr;
+        if (oldValue !== value)
+        {
+            _internal_patNr = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "patNr", oldValue, _internal_patNr));
         }
     }
 
@@ -164,13 +293,23 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
         }
     }
 
-    public function set firstname(value:String) : void
+    public function set age(value:int) : void
     {
-        var oldValue:String = _internal_firstname;
+        var oldValue:int = _internal_age;
         if (oldValue !== value)
         {
-            _internal_firstname = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "firstname", oldValue, _internal_firstname));
+            _internal_age = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "age", oldValue, _internal_age));
+        }
+    }
+
+    public function set gender(value:String) : void
+    {
+        var oldValue:String = _internal_gender;
+        if (oldValue !== value)
+        {
+            _internal_gender = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "gender", oldValue, _internal_gender));
         }
     }
 

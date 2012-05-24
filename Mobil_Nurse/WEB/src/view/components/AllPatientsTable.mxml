@@ -56,6 +56,7 @@
 			
 			public function setDataGrid(ac:ArrayCollection):void{
 				coll.list = ac.list;
+				coll.refresh();
 			}
 
 			private function filterDemo():void{
@@ -95,11 +96,10 @@
 				click="dataGrid_clickHandler(event)" textAlign="left" dataProvider="{coll}">
 		<s:columns>
 			<s:ArrayList>
-				<s:GridColumn dataField="id" headerText="ID"/>
+				<s:GridColumn dataField="patNr" headerText="Number"/>
 				<s:GridColumn dataField="firstname" headerText="Firstname"/>
 				<s:GridColumn dataField="name" headerText="Name"/>
-				<s:GridColumn dataField="username" headerText="Username"/>
-				<s:GridColumn dataField="illness" headerText="Illness"/>
+				<s:GridColumn dataField="roomNr" headerText="Room"/>
 			</s:ArrayList>
 		</s:columns>
 	</s:DataGrid>
@@ -114,7 +114,7 @@
 						 verticalCenter="0"/>
 	</s:Group>
 	
-	<s:HGroup x="214" y="274">
+	<s:HGroup y="274" right="5">
 		<s:Label height="36" text="Search Patients by: " verticalAlign="middle"/>
 		<s:RadioButton id="Id"  label="Id"/>
 		<s:RadioButton id="Firstname" label="Firstname"/>

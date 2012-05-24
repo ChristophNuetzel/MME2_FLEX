@@ -1,14 +1,13 @@
 package model
 {
 	import flash.net.dns.PTRRecord;
-	import model.vo.auto.Patient;
 	import mx.collections.ArrayCollection;
 	import mx.rpc.CallResponder;
 	import mx.rpc.events.ResultEvent;
 	import org.puremvc.as3.interfaces.IProxy;
 	import org.puremvc.as3.patterns.proxy.Proxy;
-	
 	import services.PatientDao;
+	
 	
 	
 	public class PatientRemoteProxy extends Proxy implements IProxy
@@ -35,7 +34,7 @@ package model
 		{
 			trace("start");
 			cr.addEventListener(ResultEvent.RESULT , checkLog );	
-			cr.token = pt.getAllPatients();
+			cr.token = pt.getAllBasicPatients();
 		}
 		
 		protected function checkLog(event:ResultEvent):void

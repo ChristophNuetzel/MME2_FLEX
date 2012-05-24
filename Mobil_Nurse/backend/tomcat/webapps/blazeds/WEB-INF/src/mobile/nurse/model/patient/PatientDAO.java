@@ -56,6 +56,18 @@ public class PatientDAO {
 
 	}
 
+	public List<BasicPatient> getAllBasics(){
+		
+		ArrayList<Patient> patients = (ArrayList<Patient>) getAllPatients();
+		List<BasicPatient> basicPatients = new ArrayList<BasicPatient>();
+		
+		for (Patient patient : patients) {
+			BasicPatient bpat = new BasicPatient(patient);
+			basicPatients.add(bpat);
+		}
+		return basicPatients;
+	}
+
 	public List<Patient> getAllPatients() {
 
 		ArrayList<Patient> patients = new ArrayList<Patient>();
@@ -88,7 +100,7 @@ public class PatientDAO {
 		return patients;
 
 	}
-
+	
 	public void createPatient(Patient patient) {
 
 		EntityTransaction tx = em.getTransaction();

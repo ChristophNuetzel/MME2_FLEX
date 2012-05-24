@@ -3,7 +3,7 @@ package view
 	import flash.events.Event;
 	
 	import model.EmployeeRemoteProxy;
-	import model.vo.LoginVO;
+	import model.vo.auto.LoginVO;
 	import model.vo.auto.Employee;
 	
 	import org.puremvc.as3.interfaces.IMediator;
