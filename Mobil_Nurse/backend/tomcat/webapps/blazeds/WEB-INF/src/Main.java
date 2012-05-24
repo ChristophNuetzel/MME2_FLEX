@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import mobile.nurse.model.employee.EmployeeDAO;
 import mobile.nurse.model.patient.Patient;
 import mobile.nurse.model.patient.PatientDAO;
 
@@ -54,10 +55,10 @@ public class Main {
 //		DbFrame df = new DbFrame(bb);
 		// emplDAO.getAllEmployees();
 
-		 PatientDAO patientDAO = new PatientDAO();
-//		 Patient p = new Patient("Fritz", "Musterman", "E107", "00123432", "evangelic", 55, "20.05.1960", "German", "masculine", "no history", bytepic);
+//		 PatientDAO patientDAO = new PatientDAO();
+//		 Patient p = new Patient("Leopold", "Musterman", "E107", "00123432", "evangelic", 55, "20.05.1960", "German", "masculine", "no history", bytepic);
 //		 patientDAO.createPatient(p);
-		 patientDAO.getAllBasicPatients();
+//		 patientDAO.getAllBasicPatients();
 
 		// System.out.println(emplDAO.checkEmployeeLogin("a", "a"));
 
