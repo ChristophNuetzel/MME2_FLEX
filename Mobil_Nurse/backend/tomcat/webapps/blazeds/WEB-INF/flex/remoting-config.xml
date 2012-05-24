@@ -12,13 +12,13 @@
     
     <destination id="employee-dao">
     	<properties>
-    		<source>EmployeeDAO</source>
+    		<source>mobile.nurse.model.employee.EmployeeDAO</source>
     	</properties>
     </destination>
     
     <destination id="patient-dao">
     	<properties>
-    		<source>PatientDAO</source>
+    		<source>mobile.nurse.model.patient.PatientDAO</source>
     	</properties>
     </destination>
 
