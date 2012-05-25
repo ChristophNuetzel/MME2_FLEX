@@ -59,8 +59,8 @@ public class _Super_Employee extends flash.events.EventDispatcher implements com
     /**
      * properties
      */
-    private var _internal_picture : ByteArray;
     private var _internal_id : Number;
+    private var _internal_picture : ByteArray;
     private var _internal_username : String;
     private var _internal_birth : String;
     private var _internal_name : String;
@@ -92,15 +92,15 @@ public class _Super_Employee extends flash.events.EventDispatcher implements com
      */
 
     [Bindable(event="propertyChange")]
-    public function get picture() : ByteArray
-    {
-        return _internal_picture;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get id() : Number
     {
         return _internal_id;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get picture() : ByteArray
+    {
+        return _internal_picture;
     }
 
     [Bindable(event="propertyChange")]
@@ -153,16 +153,6 @@ public class _Super_Employee extends flash.events.EventDispatcher implements com
      * data/source property setters
      */
 
-    public function set picture(value:ByteArray) : void
-    {
-        var oldValue:ByteArray = _internal_picture;
-        if (oldValue !== value)
-        {
-            _internal_picture = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "picture", oldValue, _internal_picture));
-        }
-    }
-
     public function set id(value:Number) : void
     {
         var oldValue:Number = _internal_id;
@@ -170,6 +160,16 @@ public class _Super_Employee extends flash.events.EventDispatcher implements com
         {
             _internal_id = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "id", oldValue, _internal_id));
+        }
+    }
+
+    public function set picture(value:ByteArray) : void
+    {
+        var oldValue:ByteArray = _internal_picture;
+        if (oldValue !== value)
+        {
+            _internal_picture = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "picture", oldValue, _internal_picture));
         }
     }
 

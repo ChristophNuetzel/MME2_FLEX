@@ -55,6 +55,27 @@ public class PatientDAO {
 		return patients;
 
 	}
+	
+	public String[][] getBasicPatientStrings(){
+		List<BasicPatient> patl = getAllBasics();
+		String[][] s = new String[patl.size()][5];
+		for(int i = 0; i < patl.size() ; i++){
+			for(int j = 0; j < 5 ; j++){
+				if(j==0){
+					s[i][j] = patl.get(i).getId().toString();
+				}else if(j==1){
+					s[i][j] = patl.get(i).getFirstname();
+				}else if(j==2){
+					s[i][j] = patl.get(i).getName();
+				}else if(j==3){
+					s[i][j]=patl.get(i).getRoomNr();
+				}else{
+					s[i][j] = patl.get(i).getPatNr();
+				}
+			}
+		}
+		return s;
+	}
 
 	public List<BasicPatient> getAllBasics(){
 		

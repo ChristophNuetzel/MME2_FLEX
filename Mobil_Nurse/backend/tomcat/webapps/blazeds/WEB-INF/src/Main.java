@@ -27,12 +27,12 @@ public class Main {
 
 		
 		
-		BufferedImage bim = ImageIO
-				.read(new File("C:/Users/Christoph/Pictures/MyAvatar_Southpark.png"));
+//		BufferedImage bim = ImageIO
+//				.read(new File("C:/Users/Christoph/Pictures/MyAvatar_Southpark.png"));
 //				.read(new File("D:/Ressourcen/PICS/chris.jpeg"));
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		ImageIO.write(bim, "jpg", baos);
-		byte[] bytepic = baos.toByteArray();
+//		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//		ImageIO.write(bim, "jpg", baos);
+//		byte[] bytepic = baos.toByteArray();
 
 		EmployeeDAO emplDAO = new EmployeeDAO();
 
@@ -40,7 +40,7 @@ public class Main {
 //				"01/05/1989", "High-Quality-Bitch", bytepic);
 
 //		emplDAO.createEmployee(em);
-		emplDAO.getAllEmployees();
+//		emplDAO.getAllEmployees();
 
 //		byte[] bb = null;
 //		for (Employee e : emplDAO.getAllEmployees()) {
@@ -56,7 +56,7 @@ public class Main {
 		// emplDAO.getAllEmployees();
 
 		 PatientDAO patientDAO = new PatientDAO();
-		 patientDAO.getAllBasics();
+		 patientDAO.getAllBasicPatients();
 //		 Patient p = new Patient("Harald", "Bergmann", "E108", "00158432", "evangelic", 55, "20.05.1968", "Irish", "w", "no history", bytepic);
 //		 patientDAO.createPatient(p);
 
