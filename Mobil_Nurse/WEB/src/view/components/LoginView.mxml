@@ -63,14 +63,13 @@
 		<s:State name="register"/>
 	</s:states>
 	
-	<s:Label id="welcome" y="220" width="295" height="92" horizontalCenter="0"
-			 textAlign="left" text="Mobile Nurse"/>
-	
-	<s:BorderContainer id="container" x="0" width="100%"
-					   y.login="320"
-					   y.register="320" height="384">
+	<s:BorderContainer id="container" x="0" y="243" width="100%" height="518" borderVisible="false"
+					   >
+		<s:filters>
+			<s:DropShadowFilter angle="180" strength="0.5" quality="9"/>
+		</s:filters>
 		
-		<s:VGroup x="56" y="31" width="664" horizontalCenter="0">
+		<s:VGroup y="37" width="664" horizontalCenter="176">
 			<s:HGroup>
 				<s:Label id="errorText" text="Please Login"/>
 				<s:BusyIndicator id="busyIndicatorLogin" rotationInterval="50" symbolColor="white"
@@ -88,11 +87,19 @@
 			</s:HGroup>
 		</s:VGroup >
 		
-		<components:RegisterView includeIn="register" y="120" horizontalCenter="-73"/>
+		<components:RegisterView includeIn="register" x="356" y="121"/>
+		
+		
+		<s:Rect x="-36" y="37" width="372" height="302" radiusX="4">
+			<s:fill>
+				<s:SolidColor color="#E3F2F2"/>
+			</s:fill>
+		</s:Rect>
+		<s:Label id="welcome" x="40" y="47" text="Mobile Nurse"/>
+		<s:Label id="welcome2" x="45" y="139" width="261" height="186" fontSize="21"
+				 text="Eine Medizinische Software zur Ersterfassung und Aufnahme von Patientendaten. &#xd;&#xd;Viel Spaß!"
+				 textAlign="left"/>
 		
 	</s:BorderContainer>
-	
-	
-	
 	
 </s:View>
