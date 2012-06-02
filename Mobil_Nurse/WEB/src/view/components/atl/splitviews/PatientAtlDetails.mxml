@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		creationComplete="view1_creationCompleteHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			import mx.states.State;
+			
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{
+				this.actionBarVisible = false;				
+			}
+			
+			public function setState(stateString:String):void{
+				
+				this.currentState = stateString;
+			}
+			
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+	</fx:Declarations>
+	
+		<s:states>
+			<s:State name="default"/>
+			<s:State name="communication"/>
+			<s:State name="move"/>
+			<s:State name="vital"/>
+			<s:State name="feeding"/>
+			<s:State name="excrements"/>
+			<s:State name="dressUp"/>
+			<s:State name="hygiene"/>
+			<s:State name="safety"/>
+			<s:State name="religion"/>
+			<s:State name="sozialize"/>
+		</s:states>
+	
+	<s:Label includeIn="default" x="55" y="36" text="default"/>
+	<s:Label includeIn="communication" x="55" y="36" text="communication"/>
+	<s:Label includeIn="move" x="55" y="36" text="move"/>
+	<s:Label includeIn="vital" x="55" y="36" text="vital"/>
+	<s:Label includeIn="feeding" x="55" y="36" text="feeding"/>
+	<s:Label includeIn="excrements" x="55" y="36" text="excrements"/>
+	<s:Label includeIn="dressUp" x="55" y="36" text="dressUp"/>
+	<s:Label includeIn="hygiene" x="55" y="36" text="hygiene"/>
+	<s:Label includeIn="safety" x="55" y="36" text="safety"/>
+	<s:Label includeIn="religion" x="55" y="36" text="religion"/>
+	<s:Label includeIn="sozialize" x="55" y="36" text="sozialize"/>
+	
+</s:View>

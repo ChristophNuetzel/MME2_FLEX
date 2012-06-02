@@ -9,7 +9,7 @@
 		<![CDATA[
 			import mx.events.FlexEvent;
 			
-			import view.components.atl.splitviews.PatientGroupView;
+			import view.components.atl.splitviews.PatientGroup;
 			
 			public static const NAME:String = 'PatientSelected';	
 			private var loader:Loader = new Loader();
@@ -47,7 +47,6 @@
 				bitmapdata.draw(content, matrix, null, null, null, true);
 				if(bitmapdata != null){
 					patient_picture.source = new Bitmap(bitmapdata);
-					
 				}				
 			}
 			
@@ -56,7 +55,7 @@
 			}
 			
 			public function goToPatientDatail():void {
-				navigator.pushView(PatientGroupView, data);
+				navigator.pushView(PatientGroup, data);
 			}
 			
 		]]>

@@ -12,6 +12,9 @@ package control
 	import view.PatientSelectedMediator;
 	import view.components.AllPatientsTable;
 	import view.components.LoginSuccess;
+	import view.components.atl.splitviews.PatientGroup;
+	import view.components.atl.splitviews.PatientGroupMediator;
+	import view.components.atl.splitviews.PatientsAtlListMediator;
 	
 	public class MediateViewCommand extends SimpleCommand implements ICommand
 	{
@@ -41,6 +44,16 @@ package control
 					trace("PatientSelectedMediator registered");
 					facade.removeMediator( PatientSelectedMediator.NAME);
 					facade.registerMediator(new PatientSelectedMediator(myview));
+					break;
+				case PatientGroupMediator.NAME:
+					trace("PatientGroupMediator registered");
+					facade.removeMediator( PatientGroupMediator.NAME);
+					facade.registerMediator(new PatientGroupMediator(myview));
+					break;
+				case PatientsAtlListMediator.NAME:
+					trace("PatientsAtlListMediator registered");
+					facade.removeMediator( PatientsAtlListMediator.NAME);
+					facade.registerMediator(new PatientsAtlListMediator(myview));
 					break;
 				default:
 					trace("default");

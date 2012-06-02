@@ -17,8 +17,8 @@
 			
 			import spark.events.TextOperationEvent;
 			
-			import view.components.atl.splitviews.PatientAtlDetailsView;
-			import view.components.atl.splitviews.PatientGroupView;
+			import view.components.atl.splitviews.PatientAtlDetails;
+			import view.components.atl.splitviews.PatientGroup;
 			
 			public static const NAME:String = 'AllPatientsTable';
 			public static const VIEW_EMPLOYEE_DATA:String = NAME + "ViewEmployeeData";
