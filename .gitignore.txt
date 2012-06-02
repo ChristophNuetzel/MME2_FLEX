@@ -1,4 +1,0 @@
-*/.settings/* 
-derby.log 
-*/logs/* 
-*/db/*

@@ -47,12 +47,8 @@ package model
 			start();
 		}
 		
-		public function askForEmployeePicture():void{
-			if(bitmap != null){
-			sendNotification(AppFacade.SEND_EMPLOYEE_PICTURE , bitmap );
-			}else{
-				trace("no employee-picture was send");
-			}
+		public function askForEmployeePicture(data:ByteArray):void{
+			getBitmapFromByteArray(data);
 		}
 		
 		private function start():void {
@@ -65,19 +61,17 @@ package model
 		{
 			if(cr.lastResult != null){
 				var e:Employee = cr.lastResult as Employee;
-				getBitmapFromByteArray(e.picture);
 				sendNotification(AppFacade.LOGIN_SUCCEED, cr.lastResult as Employee);
 			}else{
 				sendNotification(AppFacade.LOGIN_FAILED );
 			}
 		}
 		
-		private function getBitmapFromByteArray(picture:ByteArray):Bitmap
+		private function getBitmapFromByteArray(picture:ByteArray):void
 		{			
 			var bta:ByteArray = picture as ByteArray;
 			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, getBitmapData);
 			loader.loadBytes(bta);
-			return this._bitmap;
 		}
 		
 		protected function getBitmapData(event:Event):void
@@ -88,6 +82,7 @@ package model
 			bitmapdata.draw(content, matrix, null, null, null, true);
 			if(bitmapdata != null){
 				this._bitmap = new Bitmap(bitmapdata);
+				sendNotification(AppFacade.SEND_EMPLOYEE_PICTURE , _bitmap as Bitmap);
 			}
 		}
 	}

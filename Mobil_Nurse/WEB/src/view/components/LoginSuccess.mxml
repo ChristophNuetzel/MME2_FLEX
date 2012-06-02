@@ -12,6 +12,8 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import control.events.ByteArEvent;
+			
 			import model.vo.auto.Employee;
 			
 			import mx.events.FlexEvent;
@@ -51,7 +53,7 @@
 			}
 			
 			public function init():void{
-				dispatchEvent( new Event( ASK_FOR_PICTURE ) );
+				dispatchEvent( new ByteArEvent( ASK_FOR_PICTURE , data.picture as ByteArray ) );
 			}
 			
 			/** for the picture 
