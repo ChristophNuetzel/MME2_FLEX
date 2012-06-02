@@ -4,13 +4,10 @@ package view
 	
 	import model.EmployeeRemoteProxy;
 	import model.vo.auto.Employee;
-	
 	import org.puremvc.as3.interfaces.IMediator;
 	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.patterns.mediator.Mediator;
-	
 	import spark.components.View;
-	
 	import view.components.LoginSuccess;
 	
 	public class LoginSuccessMediator extends Mediator implements IMediator

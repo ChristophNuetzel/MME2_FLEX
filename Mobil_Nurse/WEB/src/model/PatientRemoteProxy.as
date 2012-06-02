@@ -34,7 +34,7 @@ package model
 		{
 			trace("start");
 			cr.addEventListener(ResultEvent.RESULT , checkLog );	
-			cr.token = pt.getAllBasicPatients();
+			cr.token = pt.getAllPatients();
 		}
 		
 		protected function checkLog(event:ResultEvent):void

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		backgroundColor="#E3F2F2"
+		title="Please check the Patient Data"
+		initialize="onInitializeHandler(event)"
+		creationComplete="creationCompleteHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			import view.components.atl.splitviews.PatientGroupView;
+			
+			public static const NAME:String = 'PatientSelected';	
+			private var loader:Loader = new Loader();
+			private var bitmapdata:BitmapData;
+			
+			public static const CLICKED:String = NAME + "Clicked";
+			public static const CLICKEDFORWARD:String = NAME + "ClickedFoward";
+			
+			protected function onInitializeHandler(event:FlexEvent):void
+			{
+				this.id = NAME;
+			}
+			
+			public function fireMVCGoBack():void {
+				dispatchEvent( new Event( CLICKED ) );
+			}
+			
+			public function fireMVCGoToSplitScreen():void {
+				trace("fireMVCGoToSplitScreen");
+				dispatchEvent( new Event( CLICKEDFORWARD ) );
+			}
+			
+			protected function creationCompleteHandler(event:FlexEvent):void
+			{
+				var bta:ByteArray = data.picture as ByteArray;
+				loader.contentLoaderInfo.addEventListener(Event.COMPLETE, getBitmapData);
+				loader.loadBytes(bta);				
+			}
+			
+			private function getBitmapData(event:Event):void
+			{
+				var content:* = loader.content;
+				var bitmapdata:BitmapData = new BitmapData(content.width, content.height ,true,0x00000000);
+				var matrix:Matrix = new Matrix();
+				bitmapdata.draw(content, matrix, null, null, null, true);
+				if(bitmapdata != null){
+					patient_picture.source = new Bitmap(bitmapdata);
+					
+				}				
+			}
+			
+			public function goBack():void {
+				navigator.popView();
+			}
+			
+			public function goToPatientDatail():void {
+				navigator.pushView(PatientGroupView, data);
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+	</fx:Declarations>
+	
+	<s:navigationContent>
+		<s:Button label="Back" click="fireMVCGoBack()"/>
+	</s:navigationContent>
+	<s:actionContent>
+		<s:Button id="showPatientsTable" width="121" height="32" label="Next"
+				  click="fireMVCGoToSplitScreen()"/>
+	</s:actionContent>
+	
+	<s:VGroup width="318" height="318" horizontalCenter="-190" verticalCenter="-130">
+		<s:Label y="159" width="100%" fontSize="18" horizontalCenter="0"
+				 text="Is this the Patient you searching for?" textAlign="center"/>
+		<s:Image id="patient_picture" maxHeight="300" maxWidth="300" styleName="picture">
+			<s:filters>
+				<s:DropShadowFilter distance="6" quality="4"/>
+			</s:filters>
+		</s:Image>
+	</s:VGroup>
+	<s:Form width="400" height="514" horizontalCenter="180" styleName="checkData" verticalCenter="-25">
+		
+		<s:FormItem width="100%" label="Patientennumber:" fontSize="22" fontStyle="normal"
+					textAlign="center">
+			<s:Label id="pNumber" width="170" color="#608785" fontSize="20"
+					 text="{data.patNr}" textAlign="right"/>
+		</s:FormItem>
+		<s:FormItem width="100%" label="Roomnumber:" fontSize="22">
+			<s:Label id="rNumber" width="170" color="#608785" fontSize="20" text="{data.roomNr}"
+					 textAlign="right"/>
+		</s:FormItem>
+		<s:FormItem width="100%" label="Name:" fontSize="22">
+			<s:Label id="pName" width="170" color="#608785" fontSize="20"
+					 text="{data.name}" textAlign="right"/>
+		</s:FormItem>
+		
+		<s:FormItem width="100%" label="Firstname: " fontSize="22">
+			<s:Label id="pFirstname" width="170" color="#608785" fontSize="20"
+					 text="{data.firstname}" textAlign="right"/>
+		</s:FormItem>
+		
+		<s:FormItem width="100%" label="Gender" fontSize="22" >
+			<s:Label id="pGender" width="170" color="#608785" fontSize="20" text="{data.gender}"
+					 textAlign="right"/>
+		</s:FormItem>
+		
+		<s:FormItem width="100%" label="Birth" fontSize="22">
+			<s:Label id="pBirth" width="170" color="#608785" fontSize="20" text="{data.birth}"
+					 textAlign="right"/>
+		</s:FormItem>
+		
+		<s:FormItem width="100%" label="Nation" fontSize="22">
+			<s:Label id="pNation" width="170" color="#608785" fontSize="20" text="{data.nation}"
+					 textAlign="right"/>
+		</s:FormItem>
+		<s:FormItem width="100%" label="Religion" fontSize="22">
+			<s:Label id="pReligion" width="170" color="#608785" fontSize="20" text="{data.religion}"
+					 textAlign="right"/>
+		</s:FormItem>
+		<s:FormItem width="388" height="106" label="History" fontSize="22">
+			<s:TextArea id="pHistory" width="169" height="85" color="#608785" fontSize="20"
+						text="{data.history}" textAlign="right"/>
+		</s:FormItem>
+	</s:Form>
+</s:View>
