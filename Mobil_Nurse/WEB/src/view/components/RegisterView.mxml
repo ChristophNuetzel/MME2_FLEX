@@ -75,7 +75,8 @@
 		</s:VGroup>
 	</s:HGroup>
 	<s:Label id="setRegister" x="0" y="-4" color="#FFFFFF" fontSize="20" paddingTop="20" text="Please Register"/>
-	<s:Button id="registerButton" x="434" y="175" label="Register" click="registerButton_clickHandler(event)" fontSize="16"/>
+	<s:Button id="registerButton" x="434" y="175" width="143" label="Create Account"
+			  click="registerButton_clickHandler(event)" fontSize="16"/>
 	
 	
 	

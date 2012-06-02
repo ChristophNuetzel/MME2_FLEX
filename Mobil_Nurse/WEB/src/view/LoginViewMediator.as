@@ -3,18 +3,14 @@ package view
 	import flash.events.Event;
 	
 	import model.EmployeeRemoteProxy;
-	import model.vo.LoginVO;
-	import model.vo.auto.Employee;
-	
-	import org.puremvc.as3.interfaces.IMediator;
-	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.patterns.mediator.Mediator;
-	
-	import spark.components.View;
-	
-	import view.components.LoginSuccess;
+	import org.puremvc.as3.interfaces.IMediator;
 	import view.components.LoginView;
+	import spark.components.View;
 	import model.vo.LoginVO;
+	import org.puremvc.as3.interfaces.INotification;
+	import model.vo.auto.Employee;
+
 	
 	public class LoginViewMediator extends Mediator implements IMediator
 	{

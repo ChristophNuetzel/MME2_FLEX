@@ -41,7 +41,7 @@ package model
 		{
 			trace("start");
 			cr.addEventListener(ResultEvent.RESULT , checkLog );	
-			cr.token = pt.getBasicPatientStrings();
+			cr.token = pt.getAllPatients();
 		}
 		
 		protected function checkLog(event:ResultEvent):void
@@ -60,6 +60,7 @@ package model
 				
 				//die klasse BasicPatientVO habe ich selbst angelegt, deshalb ist sie auch nicht im auto-paket
 				
+				/**
 				var patList:ArrayCollection = new ArrayCollection();
 				var stringList:ArrayCollection = cr.lastResult as ArrayCollection;
 				
@@ -68,8 +69,9 @@ package model
 					var p:BasicPatientVO = new BasicPatientVO(stringList.getItemAt(i) as ArrayCollection);
 					patList.addItem(p);
 				}
+				 * **/
 				
-				sendNotification(AppFacade.ALL_PATIENTS, patList);
+				sendNotification(AppFacade.ALL_PATIENTS, cr.lastResult as ArrayCollection);
 			}else{
 				sendNotification(AppFacade.ALL_PATIENTS_FAILED );
 			}

@@ -2,7 +2,7 @@
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		backgroundColor="#E3F2F2" 
-		creationComplete="shitHappens(event)"
+		creationComplete="init()"
 		initialize="onInitialization(event)" 
 		title="Please check your personal Data" >
 	
@@ -23,6 +23,7 @@
 			public static const NAME:String = 'LoginSuccess';
 			public static const CLICKED:String = NAME + "Clicked";
 			public static const CLICKEDFORWARD:String = NAME + "ClickedFoward";
+			public static const ASK_FOR_PICTURE:String = NAME + "AskForPicture";
 			
 			public function onInitialization(event:FlexEvent):void {
 				this.id = NAME;
@@ -49,7 +50,11 @@
 				navigator.pushView(AllPatientsTable);
 			}
 			
-			/** for the picture **/
+			public function init():void{
+				dispatchEvent( new Event( ASK_FOR_PICTURE ) );
+			}
+			
+			/** for the picture 
 			
 			private var loader:Loader = new Loader();
 			private var bitmapdata:BitmapData;
@@ -72,6 +77,7 @@
 					
 				}
 			}
+			 * **/
 			
 		]]>
 	</fx:Script>

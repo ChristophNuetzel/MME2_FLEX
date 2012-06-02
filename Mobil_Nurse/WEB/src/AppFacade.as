@@ -22,6 +22,7 @@ package
 		public static const LOGIN_FAILED:String = NAME + "LoginFailed";
 		public static const LOGOUT_SUCCEED:String = NAME + "LogoutSucceed";
 		public static const SEND_EMPLOYEE:String = NAME + "SendEmployee";
+		public static const SEND_EMPLOYEE_PICTURE:String = NAME + "SendEmployeePicture";
 		public static const GO_FORWARD:String = NAME + "GoForward";
 		public static const ALL_PATIENTS:String = NAME + "AllPatients";
 		public static const ALL_PATIENTS_FAILED:String = NAME + "AllPatientsFailed";
