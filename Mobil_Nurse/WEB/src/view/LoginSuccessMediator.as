@@ -1,6 +1,10 @@
 package view
 {
+	import control.events.ByteArEvent;
+	
+	import flash.display.Bitmap;
 	import flash.events.Event;
+	import flash.utils.ByteArray;
 	
 	import model.EmployeeRemoteProxy;
 	import model.vo.auto.Employee;
@@ -28,6 +32,25 @@ package view
 		override public function onRegister():void {
 			loginSuccess.addEventListener(LoginSuccess.CLICKED, getLoggedOut );
 			loginSuccess.addEventListener(LoginSuccess.CLICKEDFORWARD, goForward );
+			loginSuccess.addEventListener(LoginSuccess.ASK_FOR_PICTURE, askForPic );
+		}
+		
+		override public function listNotificationInterests():Array{
+			return [ AppFacade.SEND_EMPLOYEE_PICTURE ];
+		}
+		
+		override public function handleNotification(notification:INotification):void{
+			switch(notification.getName()){
+				case AppFacade.SEND_EMPLOYEE_PICTURE:
+					if(notification.getBody() as Bitmap != null){
+						loginSuccess.employee_picture.source = notification.getBody() as Bitmap;
+					}
+				}
+		}
+		
+		protected function askForPic(event:ByteArEvent):void
+		{
+			empprox.askForEmployeePicture(event.data as ByteArray);
 		}
 		
 		protected function getLoggedOut(event:Event):void
