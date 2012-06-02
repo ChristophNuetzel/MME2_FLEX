@@ -220,7 +220,7 @@
       <item name="IncludeRemoteClass">nonempty</item>
     </annotation>
     <annotation name="service Group">
-      <item name="service">EmployeeDao</item>
+      <item name="service">EmployeeDao,EmployeeDaoDummy</item>
     </annotation>
     <annotation name="ActionScriptGeneration">
       <item name="Package">model.vo.auto</item>
