@@ -37,7 +37,6 @@
 			/** PureMVC PART PureMVC Part PureMVC PART **/
 			
 			public function logoutView():void {
-				trace("go Back");
 				navigator.popView();
 			}
 			
@@ -51,7 +50,7 @@
 			
 			public function detailView(event:Event):void{
 				var patient:Patient = event.currentTarget.dataGrid.selectedItem as Patient;
-				navigator.pushView(PatientGroupView, patient);
+				navigator.pushView(PatientSelected, patient);
 			}
 			
 			public function setDataGrid(ac:ArrayCollection):void{
