@@ -7,7 +7,8 @@
 		<class>MyStocks</class>
 		<class>mobile.nurse.model.employee.Employee</class>
 		<class>mobile.nurse.model.patient.Patient</class>
-		<class>mobile.nurse.model.atl.Communication</class>
+		<class>mobile.nurse.model.atl.communication.Communication</class>
+		<class>mobile.nurse.model.atl.communication.ComProblem</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />

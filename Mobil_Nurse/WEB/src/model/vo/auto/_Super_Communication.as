@@ -8,6 +8,7 @@ package model.vo.auto
 import com.adobe.fiber.services.IFiberManagingService;
 import com.adobe.fiber.valueobjects.IValueObject;
 import flash.events.EventDispatcher;
+import model.vo.auto.ComProblem;
 import mx.collections.ArrayCollection;
 import mx.events.PropertyChangeEvent;
 
@@ -26,19 +27,20 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
     {
         try
         {
-            if (flash.net.getClassByAlias("mobile.nurse.model.atl.Communication") == null)
+            if (flash.net.getClassByAlias("mobile.nurse.model.atl.communication.Communication") == null)
             {
-                flash.net.registerClassAlias("mobile.nurse.model.atl.Communication", cz);
+                flash.net.registerClassAlias("mobile.nurse.model.atl.communication.Communication", cz);
             }
         }
         catch (e:Error)
         {
-            flash.net.registerClassAlias("mobile.nurse.model.atl.Communication", cz);
+            flash.net.registerClassAlias("mobile.nurse.model.atl.communication.Communication", cz);
         }
     }
 
     model_internal static function initRemoteClassAliasAllRelated() : void
     {
+        model.vo.auto.ComProblem.initRemoteClassAliasSingleChild();
     }
 
     model_internal var _dminternal_model : _CommunicationEntityMetadata;
@@ -58,7 +60,8 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
     /**
      * properties
      */
-    private var _internal_problems : ArrayCollection;
+    private var _internal_id : Number;
+    private var _internal_communicationProblems : model.vo.auto.ComProblem;
 
     private static var emptyArray:Array = new Array();
 
@@ -83,9 +86,15 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
      */
 
     [Bindable(event="propertyChange")]
-    public function get problems() : ArrayCollection
+    public function get id() : Number
     {
-        return _internal_problems;
+        return _internal_id;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get communicationProblems() : model.vo.auto.ComProblem
+    {
+        return _internal_communicationProblems;
     }
 
     public function clearAssociations() : void
@@ -96,28 +105,23 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
      * data/source property setters
      */
 
-    public function set problems(value:*) : void
+    public function set id(value:Number) : void
     {
-        var oldValue:ArrayCollection = _internal_problems;
+        var oldValue:Number = _internal_id;
         if (oldValue !== value)
         {
-            if (value is ArrayCollection)
-            {
-                _internal_problems = value;
-            }
-            else if (value is Array)
-            {
-                _internal_problems = new ArrayCollection(value);
-            }
-            else if (value == null)
-            {
-                _internal_problems = null;
-            }
-            else
-            {
-                throw new Error("value of problems must be a collection");
-            }
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "problems", oldValue, _internal_problems));
+            _internal_id = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "id", oldValue, _internal_id));
+        }
+    }
+
+    public function set communicationProblems(value:model.vo.auto.ComProblem) : void
+    {
+        var oldValue:model.vo.auto.ComProblem = _internal_communicationProblems;
+        if (oldValue !== value)
+        {
+            _internal_communicationProblems = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "communicationProblems", oldValue, _internal_communicationProblems));
         }
     }
 

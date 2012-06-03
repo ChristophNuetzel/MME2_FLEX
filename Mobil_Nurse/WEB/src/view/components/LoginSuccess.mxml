@@ -53,33 +53,13 @@
 			}
 			
 			public function init():void{
+				getEmployeePicture();
+			}
+			
+			private function getEmployeePicture():void
+			{
 				dispatchEvent( new ByteArEvent( ASK_FOR_PICTURE , data.picture as ByteArray ) );
 			}
-			
-			/** for the picture 
-			
-			private var loader:Loader = new Loader();
-			private var bitmapdata:BitmapData;
-			
-			protected function shitHappens(event:FlexEvent):void
-			{
-				var bta:ByteArray = data.picture as ByteArray;
-				loader.contentLoaderInfo.addEventListener(Event.COMPLETE, getBitmapData);
-				loader.loadBytes(bta);
-			}
-			
-			protected function getBitmapData(event:Event):void
-			{
-				var content:* = loader.content;
-				var bitmapdata:BitmapData = new BitmapData(content.width, content.height ,true,0x00000000);
-				var matrix:Matrix = new Matrix();
-				bitmapdata.draw(content, matrix, null, null, null, true);
-				if(bitmapdata != null){
-					employee_picture.source = new Bitmap(bitmapdata);
-					
-				}
-			}
-			 * **/
 			
 		]]>
 	</fx:Script>

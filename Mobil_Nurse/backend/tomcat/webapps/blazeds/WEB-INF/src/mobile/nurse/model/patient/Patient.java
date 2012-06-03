@@ -5,7 +5,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-import mobile.nurse.model.atl.Communication;
+import mobile.nurse.model.atl.communication.Communication;
 
 /*
  * @author Christoph Nützel
