@@ -2,12 +2,14 @@
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark" 
 		title="ATS"
-		creationComplete="view1_creationCompleteHandler(event)"
+		creationComplete="creationCompleteHandler(event)"
 		initialize="initializeHandler(event)">
 	
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
+			
+			import spark.components.ViewNavigator;
 			
 			public static const NAME:String = 'PatientsAtlList';
 			
@@ -17,7 +19,7 @@
 				dispatchEvent( new Event( CHANGE_STATE, event.target ) );
 			}
 			
-			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			protected function creationCompleteHandler(event:FlexEvent):void
 			{
 				this.actionBarVisible = false;
 			}
@@ -25,6 +27,37 @@
 			protected function initializeHandler(event:FlexEvent):void
 			{
 				this.id = NAME;
+				//AppFacade.getInstance().registerMediator(new PatientsAtlListMediator(this));
+				
+			}
+			
+			public function getSelectedState():void
+			{
+				trace("getSelectedState##########################");
+				/*
+				switch(list.selectedItem){
+				case communication:
+				break;
+				case move:
+				trace("move");
+				break;
+				case vital:
+				break;
+				case feeding:
+				break;
+				case excrements:
+				break;
+				case dressUp:
+				break;
+				case hygiene:
+				break;
+				case safety:
+				break;
+				case religion:
+				break;
+				case sozialize:
+				break;
+				}*/
 				
 			}
 			

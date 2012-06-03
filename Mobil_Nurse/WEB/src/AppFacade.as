@@ -9,6 +9,8 @@ package
 	import org.puremvc.as3.patterns.facade.Facade;
 	
 	import spark.components.ViewNavigator;
+	
+	import view.components.atl.splitviews.PatientsAtlListMediator;
 
 	public class AppFacade extends Facade implements IFacade {
 		
@@ -26,6 +28,8 @@ package
 		public static const GO_FORWARD:String = NAME + "GoForward";
 		public static const ALL_PATIENTS:String = NAME + "AllPatients";
 		public static const ALL_PATIENTS_FAILED:String = NAME + "AllPatientsFailed";
+		
+		public static const REGISTER_ATL_LIST:String = NAME + "RegisterAtlList";
 		
 		public static function getInstance():AppFacade {
 			if(instance == null) instance = new AppFacade();

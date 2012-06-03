@@ -6,6 +6,7 @@
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
+			
 			import view.components.AllPatientsTable;
 			
 			public static const NAME:String = 'PatientGroup';
@@ -31,7 +32,7 @@
 	<fx:Declarations>
 	</fx:Declarations>
 	
-	<s:SplitViewNavigator x="0" y="0" width="100%" height="100%">
+	<s:SplitViewNavigator id="splitNavigator" x="0" y="0" width="100%" height="100%">
 		<s:ViewNavigator id="leftNav" width="30%" height="100%"
 						 firstView="view.components.atl.splitviews.PatientsAtlList"/>
 		<s:ViewNavigator id="rightNav" width="70%" height="100%"

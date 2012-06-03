@@ -27,6 +27,9 @@ package view
 			this.patientSelected = myview as PatientSelected;
 			super(NAME, myview );
 			empprox = facade.retrieveProxy( EmployeeRemoteProxy.NAME ) as EmployeeRemoteProxy;
+			
+			trace("SEND NOTIFACTION");
+			sendNotification( AppFacade.REGISTER_ATL_LIST, myview );
 		}
 		
 		override public function onRegister():void {

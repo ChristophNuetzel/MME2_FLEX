@@ -9,6 +9,7 @@ package view.components.atl.splitviews
 	
 	import mx.collections.ArrayCollection;
 	
+	import org.puremvc.as3.interfaces.ICommand;
 	import org.puremvc.as3.interfaces.IMediator;
 	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.interfaces.IProxy;
@@ -20,6 +21,7 @@ package view.components.atl.splitviews
 	{
 		public static const NAME:String = "PatientsAtlListMediator";
 		private var patientsAtlList:PatientsAtlList;
+		
 		
 		public function PatientsAtlListMediator(myView:View)
 		{
