@@ -7,29 +7,24 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Communication {
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+
 	@OneToOne
-	private CommunicationProblem communication_problems;
+	private ComProblem problems;
 
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public ComProblem getCommunicationProblems() {
+		return problems;
 	}
 
-	public CommunicationProblem getCommunication_problems() {
-		return communication_problems;
-	}
-
-	public void setCommunication_problems(
-			CommunicationProblem communication_problems) {
-		this.communication_problems = communication_problems;
+	public void setCommunicationProblems(ComProblem problems) {
+		this.problems = problems;
 	}
 
 }

@@ -9,6 +9,7 @@ import com.adobe.fiber.styles.Style;
 import com.adobe.fiber.valueobjects.AbstractEntityMetadata;
 import com.adobe.fiber.valueobjects.AvailablePropertyIterator;
 import com.adobe.fiber.valueobjects.IPropertyIterator;
+import model.vo.auto.ComProblem;
 import com.adobe.fiber.core.model_internal;
 import com.adobe.fiber.valueobjects.IModelType;
 import mx.events.PropertyChangeEvent;
@@ -20,14 +21,14 @@ internal class _CommunicationEntityMetadata extends com.adobe.fiber.valueobjects
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array();
+    model_internal static var allProperties:Array = new Array("id", "communicationProblems");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array();
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "communicationProblems");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array();
+    model_internal static var dataProperties:Array = new Array("id", "communicationProblems");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array();
+    model_internal static var nonDerivedProperties:Array = new Array("id", "communicationProblems");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array();
     model_internal static var collectionBaseMap:Object;
@@ -47,6 +48,8 @@ internal class _CommunicationEntityMetadata extends com.adobe.fiber.valueobjects
         {
             // dependents map
             model_internal::dependentsOnMap = new Object();
+            model_internal::dependentsOnMap["id"] = new Array();
+            model_internal::dependentsOnMap["communicationProblems"] = new Array();
 
             // collection base map
             model_internal::collectionBaseMap = new Object();
@@ -54,6 +57,8 @@ internal class _CommunicationEntityMetadata extends com.adobe.fiber.valueobjects
 
         // Property type Map
         model_internal::propertyTypeMap = new Object();
+        model_internal::propertyTypeMap["id"] = "Number";
+        model_internal::propertyTypeMap["communicationProblems"] = "model.vo.auto.ComProblem";
 
         model_internal::_instance = value;
     }
@@ -282,6 +287,18 @@ internal class _CommunicationEntityMetadata extends com.adobe.fiber.valueobjects
         }
     }
 
+    [Bindable(event="propertyChange")]
+    public function get isIdAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isCommunicationProblemsAvailable():Boolean
+    {
+        return true;
+    }
+
 
     /**
      * derived property recalculation
@@ -290,6 +307,18 @@ internal class _CommunicationEntityMetadata extends com.adobe.fiber.valueobjects
     model_internal function fireChangeEvent(propertyName:String, oldValue:Object, newValue:Object):void
     {
         this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, propertyName, oldValue, newValue));
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get idStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get communicationProblemsStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
     }
 
 

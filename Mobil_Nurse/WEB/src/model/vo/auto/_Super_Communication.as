@@ -8,6 +8,7 @@ package model.vo.auto
 import com.adobe.fiber.services.IFiberManagingService;
 import com.adobe.fiber.valueobjects.IValueObject;
 import flash.events.EventDispatcher;
+import model.vo.auto.ComProblem;
 import mx.collections.ArrayCollection;
 import mx.events.PropertyChangeEvent;
 
@@ -39,6 +40,7 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
 
     model_internal static function initRemoteClassAliasAllRelated() : void
     {
+        model.vo.auto.ComProblem.initRemoteClassAliasSingleChild();
     }
 
     model_internal var _dminternal_model : _CommunicationEntityMetadata;
@@ -58,6 +60,8 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
     /**
      * properties
      */
+    private var _internal_id : Number;
+    private var _internal_communicationProblems : model.vo.auto.ComProblem;
 
     private static var emptyArray:Array = new Array();
 
@@ -81,6 +85,18 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
      * data/source property getters
      */
 
+    [Bindable(event="propertyChange")]
+    public function get id() : Number
+    {
+        return _internal_id;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get communicationProblems() : model.vo.auto.ComProblem
+    {
+        return _internal_communicationProblems;
+    }
+
     public function clearAssociations() : void
     {
     }
@@ -88,6 +104,26 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
     /**
      * data/source property setters
      */
+
+    public function set id(value:Number) : void
+    {
+        var oldValue:Number = _internal_id;
+        if (oldValue !== value)
+        {
+            _internal_id = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "id", oldValue, _internal_id));
+        }
+    }
+
+    public function set communicationProblems(value:model.vo.auto.ComProblem) : void
+    {
+        var oldValue:model.vo.auto.ComProblem = _internal_communicationProblems;
+        if (oldValue !== value)
+        {
+            _internal_communicationProblems = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "communicationProblems", oldValue, _internal_communicationProblems));
+        }
+    }
 
     /**
      * Data/source property setter listeners

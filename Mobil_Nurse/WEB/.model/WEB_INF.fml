@@ -109,14 +109,6 @@
     <annotation name="ServiceTypeGroup">
       <item name="ServiceBackendType">BlazeDS</item>
     </annotation>
-    <function name="getAllBasics" return-type="BasicPatient[]">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="returnType">BasicPatient</item>
-      </annotation>
-    </function>
     <function name="getAllPatients" return-type="Patient[]">
       <annotation name="analyze group">
         <item name="analyzed">true</item>
@@ -125,7 +117,7 @@
         <item name="returnType">Patient</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">birth,communication,firstname,roomNr,nation,picture,religion,id,history,patNr,age,name,gender</item>
+        <item name="propertySpecifier">birth,communication,firstname,roomNr,nation,religion,history,id,picture,patNr,name,age,gender</item>
       </annotation>
     </function>
     <function name="deletePatient" return-type="boolean">
@@ -155,14 +147,6 @@
       </annotation>
       <parameter name="arg0" type="Patient"/>
     </function>
-    <function name="getAllBasicPatients" return-type="BasicPatient[]">
-      <annotation name="analyze group">
-        <item name="analyzed">true</item>
-      </annotation>
-      <annotation name="original signature">
-        <item name="returnType">BasicPatient</item>
-      </annotation>
-    </function>
     <function name="updatePatient" return-type="boolean">
       <annotation name="analyze group">
         <item name="analyzed">true</item>
@@ -172,6 +156,30 @@
         <item name="returnType">boolean</item>
       </annotation>
       <parameter name="arg0" type="Patient"/>
+    </function>
+    <function name="getPatientById" return-type="Patient">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParamNames">arg0</item>
+        <item name="inputParams">long</item>
+        <item name="returnType">Patient</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">birth,communication,firstname,roomNr,nation,religion,history,id,picture,patNr,name,age,gender</item>
+      </annotation>
+      <parameter name="arg0" type="long"/>
+    </function>
+    <function name="updateCommunicationATL" return-type="void">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">long,Communication</item>
+      </annotation>
+      <parameter name="arg0" type="long"/>
+      <parameter name="arg1" type="Communication"/>
     </function>
   </service>
   <entity name="Communication">
@@ -183,11 +191,13 @@
       <item name="IncludeRemoteClass">nonempty</item>
     </annotation>
     <annotation name="service Group">
-      <item name="service">PatientDao</item>
+      <item name="service">PatientDao,Dummy</item>
     </annotation>
     <annotation name="ActionScriptGeneration">
       <item name="Package">model.vo.auto</item>
     </annotation>
+    <property name="id" type="long"/>
+    <property name="communicationProblems" type="ComProblem"/>
   </entity>
   <entity name="Patient">
     <annotation name="EntityProperties">
@@ -198,26 +208,29 @@
       <item name="IncludeRemoteClass">nonempty</item>
     </annotation>
     <annotation name="service Group">
-      <item name="service">PatientDao,Dummy</item>
+      <item name="service">PatientDao,Dummy,PatientDaoDummy</item>
     </annotation>
     <annotation name="ActionScriptGeneration">
       <item name="Package">model.vo.auto</item>
     </annotation>
     <annotation name="getAllPatients">
-      <item name="propertySpecifier">birth,communication,firstname,roomNr,nation,picture,religion,id,history,patNr,age,name,gender</item>
+      <item name="propertySpecifier">birth,communication,firstname,roomNr,nation,religion,history,id,picture,patNr,name,age,gender</item>
+    </annotation>
+    <annotation name="getPatientById">
+      <item name="propertySpecifier">birth,communication,firstname,roomNr,nation,religion,history,id,picture,patNr,name,age,gender</item>
     </annotation>
     <property name="birth" type="string"/>
     <property name="communication" type="Communication"/>
     <property name="firstname" type="string"/>
     <property name="roomNr" type="string"/>
     <property name="nation" type="string"/>
-    <property name="picture" type="blob"/>
     <property name="religion" type="string"/>
-    <property name="id" type="long"/>
     <property name="history" type="string"/>
+    <property name="id" type="long"/>
+    <property name="picture" type="blob"/>
     <property name="patNr" type="string"/>
-    <property name="age" type="integer"/>
     <property name="name" type="string"/>
+    <property name="age" type="integer"/>
     <property name="gender" type="string"/>
   </entity>
   <entity name="BasicPatient">
@@ -239,5 +252,21 @@
     <property name="name" type="string"/>
     <property name="roomNr" type="string"/>
     <property name="firstname" type="string"/>
+  </entity>
+  <entity name="ComProblem">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">ComProblem</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">mobile.nurse.model.atl.communication.ComProblem</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PatientDao</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">model.vo.auto</item>
+    </annotation>
+    <property name="id" type="long"/>
   </entity>
 </model>

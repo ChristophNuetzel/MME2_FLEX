@@ -8,6 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
 import mobile.nurse.database.PersistenceManager;
+import mobile.nurse.model.atl.communication.Communication;
 
 /*
  * @author Christoph Nützel
@@ -22,54 +23,21 @@ public class PatientDAO {
 		emf = PersistenceManager.getInstance().createEntityManagerFactory();
 		em = emf.createEntityManager();
 	}
-	
-	public List<BasicPatient> getAllBasicPatients() {
 
-		ArrayList<BasicPatient> patients = new ArrayList<BasicPatient>();
-
-		EntityManagerFactory emf = PersistenceManager.getInstance()
-				.createEntityManagerFactory();
-		EntityManager em = emf.createEntityManager();
-
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-
-		List<?> fetchedPatients = em.createQuery("select a from Patient a")
-				.getResultList();
-
-		System.out.println("---------  LIST OF ALL BASICPATIENTS START ---------");
-
-		for (Object fetchedPatient : fetchedPatients) {
-			if (fetchedPatient instanceof Patient) {
-				BasicPatient bpat = new BasicPatient((Patient) fetchedPatient);
-				patients.add(bpat);
-				System.out.println(" -BASIC Patient:  " + " ID: " + bpat.getId()
-						+ "  Name: " + bpat.getName() + " Firstname: " + bpat.getFirstname() + ""  );
-			}
-		}
-
-		System.out.println("---------  LIST OF ALL BASICPATIENTS END  ---------");
-
-		tx.commit();
-
-		return patients;
-
-	}
-	
-	public String[][] getBasicPatientStrings(){
+	public String[][] getBasicPatientStrings() {
 		List<BasicPatient> patl = getAllBasics();
 		String[][] s = new String[patl.size()][5];
-		for(int i = 0; i < patl.size() ; i++){
-			for(int j = 0; j < 5 ; j++){
-				if(j==0){
+		for (int i = 0; i < patl.size(); i++) {
+			for (int j = 0; j < 5; j++) {
+				if (j == 0) {
 					s[i][j] = patl.get(i).getId().toString();
-				}else if(j==1){
+				} else if (j == 1) {
 					s[i][j] = patl.get(i).getFirstname();
-				}else if(j==2){
+				} else if (j == 2) {
 					s[i][j] = patl.get(i).getName();
-				}else if(j==3){
-					s[i][j]=patl.get(i).getRoomNr();
-				}else{
+				} else if (j == 3) {
+					s[i][j] = patl.get(i).getRoomNr();
+				} else {
 					s[i][j] = patl.get(i).getPatNr();
 				}
 			}
@@ -77,11 +45,11 @@ public class PatientDAO {
 		return s;
 	}
 
-	public List<BasicPatient> getAllBasics(){
-		
+	private List<BasicPatient> getAllBasics() {
+
 		ArrayList<Patient> patients = (ArrayList<Patient>) getAllPatients();
 		List<BasicPatient> basicPatients = new ArrayList<BasicPatient>();
-		
+
 		for (Patient patient : patients) {
 			BasicPatient bpat = new BasicPatient(patient);
 			basicPatients.add(bpat);
@@ -103,25 +71,27 @@ public class PatientDAO {
 		List<?> fetchedPatients = em.createQuery("select a from Patient a")
 				.getResultList();
 
-//		System.out.println("---------  LIST OF ALL PATIENTS START ---------");
+		// System.out.println("---------  LIST OF ALL PATIENTS START ---------");
 
 		for (Object fetchedPatient : fetchedPatients) {
 			if (fetchedPatient instanceof Patient) {
 				Patient pat = (Patient) fetchedPatient;
 				patients.add(pat);
-//				System.out.println(" - Patient:  " + " ID: " + pat.getId()
-//						+ "  Name: " + pat.getName() + " Firstname: " + pat.getFirstname() + "Room: " + pat.getRoomNr() + " Gender: "   + pat.getGender());
+				System.out.println(" - Patient:  " + " ID: " + pat.getId()
+						+ "  Name: " + pat.getName() + " Firstname: "
+						+ pat.getFirstname() + "Room: " + pat.getRoomNr()
+						+ " Gender: " + pat.getGender());
 			}
 		}
 
-//		System.out.println("---------  LIST OF ALL PATIENTS END  ---------");
+		// System.out.println("---------  LIST OF ALL PATIENTS END  ---------");
 
 		tx.commit();
 
 		return patients;
 
 	}
-	
+
 	public void createPatient(Patient patient) {
 
 		EntityTransaction tx = em.getTransaction();
@@ -169,6 +139,45 @@ public class PatientDAO {
 			return false;
 		}
 		return true;
+	}
+
+	public Patient getPatientById(long id) {
+
+		EntityManagerFactory emf = PersistenceManager.getInstance()
+				.createEntityManagerFactory();
+		EntityManager em = emf.createEntityManager();
+
+		Patient p = null;
+
+		try {
+			EntityTransaction tx = em.getTransaction();
+			tx.begin();
+
+			p = (Patient) em.find(Patient.class, id);
+
+			tx.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return p;
+	}
+
+	public void updateCommunicationATL(long id, Communication c) {
+		EntityManagerFactory emf = PersistenceManager.getInstance()
+				.createEntityManagerFactory();
+		EntityManager em = emf.createEntityManager();
+
+		try {
+			EntityTransaction tx = em.getTransaction();
+			tx.begin();
+			em.find(Patient.class, id).setCommunication(c);
+			tx.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+
 	}
 
 }

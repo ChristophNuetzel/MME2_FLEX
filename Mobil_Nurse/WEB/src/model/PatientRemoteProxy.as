@@ -63,5 +63,9 @@ package model
 				sendNotification(AppFacade.ALL_PATIENTS_FAILED);
 			}
 		}
+		
+		public function askForPatient(id:String):void{
+			
+		}
 	}
 }

@@ -49,7 +49,9 @@ public class Main {
 		// emplDAO.getAllEmployees();
 
 		 PatientDAO patientDAO = new PatientDAO();
-		 patientDAO.getAllBasicPatients();
+		 patientDAO.getAllPatients();
+		 
+		 System.out.println(patientDAO.getPatientById(1l).getFirstname());
 //		 Patient p = new Patient("Harald", "Bergmann", "E108", "00158432", "evangelic", 55, "20.05.1968", "Irish", "w", "no history", bytepic);
 //		 patientDAO.createPatient(p);
 
