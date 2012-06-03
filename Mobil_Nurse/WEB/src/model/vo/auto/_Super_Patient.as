@@ -63,13 +63,13 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
      */
     private var _internal_birth : String;
     private var _internal_communication : model.vo.auto.Communication;
-    private var _internal_roomNr : String;
     private var _internal_firstname : String;
+    private var _internal_roomNr : String;
     private var _internal_nation : String;
     private var _internal_picture : ByteArray;
-    private var _internal_history : String;
-    private var _internal_id : Number;
     private var _internal_religion : String;
+    private var _internal_id : Number;
+    private var _internal_history : String;
     private var _internal_patNr : String;
     private var _internal_age : int;
     private var _internal_name : String;
@@ -110,15 +110,15 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
     }
 
     [Bindable(event="propertyChange")]
-    public function get roomNr() : String
-    {
-        return _internal_roomNr;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get firstname() : String
     {
         return _internal_firstname;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get roomNr() : String
+    {
+        return _internal_roomNr;
     }
 
     [Bindable(event="propertyChange")]
@@ -134,9 +134,9 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
     }
 
     [Bindable(event="propertyChange")]
-    public function get history() : String
+    public function get religion() : String
     {
-        return _internal_history;
+        return _internal_religion;
     }
 
     [Bindable(event="propertyChange")]
@@ -146,9 +146,9 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
     }
 
     [Bindable(event="propertyChange")]
-    public function get religion() : String
+    public function get history() : String
     {
-        return _internal_religion;
+        return _internal_history;
     }
 
     [Bindable(event="propertyChange")]
@@ -203,16 +203,6 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
         }
     }
 
-    public function set roomNr(value:String) : void
-    {
-        var oldValue:String = _internal_roomNr;
-        if (oldValue !== value)
-        {
-            _internal_roomNr = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "roomNr", oldValue, _internal_roomNr));
-        }
-    }
-
     public function set firstname(value:String) : void
     {
         var oldValue:String = _internal_firstname;
@@ -220,6 +210,16 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
         {
             _internal_firstname = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "firstname", oldValue, _internal_firstname));
+        }
+    }
+
+    public function set roomNr(value:String) : void
+    {
+        var oldValue:String = _internal_roomNr;
+        if (oldValue !== value)
+        {
+            _internal_roomNr = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "roomNr", oldValue, _internal_roomNr));
         }
     }
 
@@ -243,13 +243,13 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
         }
     }
 
-    public function set history(value:String) : void
+    public function set religion(value:String) : void
     {
-        var oldValue:String = _internal_history;
+        var oldValue:String = _internal_religion;
         if (oldValue !== value)
         {
-            _internal_history = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "history", oldValue, _internal_history));
+            _internal_religion = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "religion", oldValue, _internal_religion));
         }
     }
 
@@ -263,13 +263,13 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
         }
     }
 
-    public function set religion(value:String) : void
+    public function set history(value:String) : void
     {
-        var oldValue:String = _internal_religion;
+        var oldValue:String = _internal_history;
         if (oldValue !== value)
         {
-            _internal_religion = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "religion", oldValue, _internal_religion));
+            _internal_history = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "history", oldValue, _internal_history));
         }
     }
 

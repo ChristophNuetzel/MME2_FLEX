@@ -26,14 +26,14 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
     {
         try
         {
-            if (flash.net.getClassByAlias("mobile.nurse.model.atl.Communication") == null)
+            if (flash.net.getClassByAlias("mobile.nurse.model.atl.communication.Communication") == null)
             {
-                flash.net.registerClassAlias("mobile.nurse.model.atl.Communication", cz);
+                flash.net.registerClassAlias("mobile.nurse.model.atl.communication.Communication", cz);
             }
         }
         catch (e:Error)
         {
-            flash.net.registerClassAlias("mobile.nurse.model.atl.Communication", cz);
+            flash.net.registerClassAlias("mobile.nurse.model.atl.communication.Communication", cz);
         }
     }
 
@@ -58,7 +58,6 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
     /**
      * properties
      */
-    private var _internal_problems : ArrayCollection;
 
     private static var emptyArray:Array = new Array();
 
@@ -82,12 +81,6 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
      * data/source property getters
      */
 
-    [Bindable(event="propertyChange")]
-    public function get problems() : ArrayCollection
-    {
-        return _internal_problems;
-    }
-
     public function clearAssociations() : void
     {
     }
@@ -95,31 +88,6 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
     /**
      * data/source property setters
      */
-
-    public function set problems(value:*) : void
-    {
-        var oldValue:ArrayCollection = _internal_problems;
-        if (oldValue !== value)
-        {
-            if (value is ArrayCollection)
-            {
-                _internal_problems = value;
-            }
-            else if (value is Array)
-            {
-                _internal_problems = new ArrayCollection(value);
-            }
-            else if (value == null)
-            {
-                _internal_problems = null;
-            }
-            else
-            {
-                throw new Error("value of problems must be a collection");
-            }
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "problems", oldValue, _internal_problems));
-        }
-    }
 
     /**
      * Data/source property setter listeners

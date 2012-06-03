@@ -1,13 +1,6 @@
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
-
-import mobile.nurse.model.employee.Employee;
 import mobile.nurse.model.employee.EmployeeDAO;
-import mobile.nurse.model.patient.Patient;
 import mobile.nurse.model.patient.PatientDAO;
 
 public class Main {
@@ -35,7 +28,7 @@ public class Main {
 //		byte[] bytepic = baos.toByteArray();
 
 		EmployeeDAO emplDAO = new EmployeeDAO();
-
+		emplDAO.getAllEmployees();
 //		Employee em = new Employee("Christoph", "Maiermüller", "a", "a", 815,
 //				"01/05/1989", "High-Quality-Bitch", bytepic);
 

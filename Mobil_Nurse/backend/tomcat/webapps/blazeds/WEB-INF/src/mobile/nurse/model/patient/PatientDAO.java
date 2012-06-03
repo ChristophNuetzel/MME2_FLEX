@@ -43,7 +43,7 @@ public class PatientDAO {
 			if (fetchedPatient instanceof Patient) {
 				BasicPatient bpat = new BasicPatient((Patient) fetchedPatient);
 				patients.add(bpat);
-				System.out.println(" - Patient:  " + " ID: " + bpat.getId()
+				System.out.println(" -BASIC Patient:  " + " ID: " + bpat.getId()
 						+ "  Name: " + bpat.getName() + " Firstname: " + bpat.getFirstname() + ""  );
 			}
 		}
@@ -103,18 +103,18 @@ public class PatientDAO {
 		List<?> fetchedPatients = em.createQuery("select a from Patient a")
 				.getResultList();
 
-		System.out.println("---------  LIST OF ALL PATIENTS START ---------");
+//		System.out.println("---------  LIST OF ALL PATIENTS START ---------");
 
 		for (Object fetchedPatient : fetchedPatients) {
 			if (fetchedPatient instanceof Patient) {
 				Patient pat = (Patient) fetchedPatient;
 				patients.add(pat);
-				System.out.println(" - Patient:  " + " ID: " + pat.getId()
-						+ "  Name: " + pat.getName() + " Firstname: " + pat.getFirstname() + "Room: " + pat.getRoomNr() + " Gender: "   + pat.getGender());
+//				System.out.println(" - Patient:  " + " ID: " + pat.getId()
+//						+ "  Name: " + pat.getName() + " Firstname: " + pat.getFirstname() + "Room: " + pat.getRoomNr() + " Gender: "   + pat.getGender());
 			}
 		}
 
-		System.out.println("---------  LIST OF ALL PATIENTS END  ---------");
+//		System.out.println("---------  LIST OF ALL PATIENTS END  ---------");
 
 		tx.commit();
 

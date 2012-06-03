@@ -9,7 +9,6 @@ import com.adobe.fiber.styles.Style;
 import com.adobe.fiber.valueobjects.AbstractEntityMetadata;
 import com.adobe.fiber.valueobjects.AvailablePropertyIterator;
 import com.adobe.fiber.valueobjects.IPropertyIterator;
-import mx.collections.ArrayCollection;
 import com.adobe.fiber.core.model_internal;
 import com.adobe.fiber.valueobjects.IModelType;
 import mx.events.PropertyChangeEvent;
@@ -21,16 +20,16 @@ internal class _CommunicationEntityMetadata extends com.adobe.fiber.valueobjects
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("problems");
+    model_internal static var allProperties:Array = new Array();
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("problems");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array();
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("problems");
+    model_internal static var dataProperties:Array = new Array();
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("problems");
+    model_internal static var nonDerivedProperties:Array = new Array();
     model_internal static var derivedProperties:Array = new Array();
-    model_internal static var collectionProperties:Array = new Array("problems");
+    model_internal static var collectionProperties:Array = new Array();
     model_internal static var collectionBaseMap:Object;
     model_internal static var entityName:String = "Communication";
     model_internal static var dependentsOnMap:Object;
@@ -48,16 +47,13 @@ internal class _CommunicationEntityMetadata extends com.adobe.fiber.valueobjects
         {
             // dependents map
             model_internal::dependentsOnMap = new Object();
-            model_internal::dependentsOnMap["problems"] = new Array();
 
             // collection base map
             model_internal::collectionBaseMap = new Object();
-            model_internal::collectionBaseMap["problems"] = "String";
         }
 
         // Property type Map
         model_internal::propertyTypeMap = new Object();
-        model_internal::propertyTypeMap["problems"] = "ArrayCollection";
 
         model_internal::_instance = value;
     }
@@ -286,12 +282,6 @@ internal class _CommunicationEntityMetadata extends com.adobe.fiber.valueobjects
         }
     }
 
-    [Bindable(event="propertyChange")]
-    public function get isProblemsAvailable():Boolean
-    {
-        return true;
-    }
-
 
     /**
      * derived property recalculation
@@ -300,12 +290,6 @@ internal class _CommunicationEntityMetadata extends com.adobe.fiber.valueobjects
     model_internal function fireChangeEvent(propertyName:String, oldValue:Object, newValue:Object):void
     {
         this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, propertyName, oldValue, newValue));
-    }
-
-    [Bindable(event="propertyChange")]   
-    public function get problemsStyle():com.adobe.fiber.styles.Style
-    {
-        return model_internal::_nullStyle;
     }
 
 
