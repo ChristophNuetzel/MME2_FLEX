@@ -26,7 +26,8 @@ package view.components.atl.splitviews
 		{
 			super(NAME);
 			this.patientGroup = myView as PatientGroup;
-			this.patientLIst = myView as PatientsAtlList; 
+//			var view:View = patientGroup.leftNav.firstView as View;
+//			this.patientLIst = myView as PatientsAtlList; 
 			
 			
 		}
@@ -47,7 +48,7 @@ package view.components.atl.splitviews
 		override public function onRegister():void {
 			patientGroup.addEventListener(PatientGroup.CLICKED, goBack );	
 			
-			patientLIst.getSelectedState();
+//			patientLIst.getSelectedState();
 		}
 		
 		protected function goBack(event:Event):void

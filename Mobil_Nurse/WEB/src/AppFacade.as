@@ -1,5 +1,6 @@
 package
 {
+	import control.MediateLeftSplitViewCommand;
 	import control.MediateViewCommand;
 	import control.StartupCommand;
 	
@@ -28,6 +29,11 @@ package
 		public static const GO_FORWARD:String = NAME + "GoForward";
 		public static const ALL_PATIENTS:String = NAME + "AllPatients";
 		public static const ALL_PATIENTS_FAILED:String = NAME + "AllPatientsFailed";
+		public static const GET_FULL_PATIENT_SUCCESS:String = NAME + "GetFullPatientSuccess";
+		public static const GET_FULL_PATIENT_FAILED:String = NAME + "GetFullPatientFailed";
+		
+		//SplitView
+		public static const MEDIATE_LEFT_SPLITVIEW:String = NAME + "MediateLeftSplitView";
 		
 		public static const REGISTER_ATL_LIST:String = NAME + "RegisterAtlList";
 		
@@ -44,7 +50,7 @@ package
 			trace("init controller");
 			registerCommand( STARTUP , StartupCommand ) ;
 			registerCommand( MEDIATE_VIEW, MediateViewCommand );
-			//registerCommand( LOGIN_SUCCEED , LoginSucceedCommand );
+			registerCommand( MEDIATE_LEFT_SPLITVIEW , MediateLeftSplitViewCommand );
 		}
 		
 		override protected function initializeModel():void {

@@ -4,6 +4,7 @@ package model
 	
 	import model.vo.BasicPatientVO;
 	import model.vo.auto.BasicPatient;
+	import model.vo.auto.Patient;
 	
 	import mx.collections.ArrayCollection;
 	import mx.collections.ArrayList;
@@ -49,23 +50,42 @@ package model
 			
 				var patList:Array = new Array;
 				var stringArrayCollection:ArrayCollection = cr.lastResult as ArrayCollection;
-				var stringArray:Array = stringArrayCollection.source;		
+				
+				/**
+				 * TODO: find out, why the application goes inside this code 
+				 * when getting an event from the allpatientlist-table
+				 * **/
+				
+				if(stringArrayCollection != null){
+					var stringArray:Array = stringArrayCollection.source;	
+				
 
-				 for(var i:int = 0 ; i < stringArray.length ; i++ ){
-			 		 var p:BasicPatientVO = new BasicPatientVO(stringArray[i] as Array);
-					 patList[i] = p;
-				 }
+					 for(var i:int = 0 ; i < stringArray.length ; i++ ){
+			 			 var p:BasicPatientVO = new BasicPatientVO(stringArray[i] as Array);
+						 patList[i] = p;
+					 }
 				 
-				 var patArCol:ArrayCollection = new ArrayCollection(patList);
+					 var patArCol:ArrayCollection = new ArrayCollection(patList);
 				 
-				 sendNotification(AppFacade.ALL_PATIENTS, patArCol)
-			}else{
-				sendNotification(AppFacade.ALL_PATIENTS_FAILED);
+					 sendNotification(AppFacade.ALL_PATIENTS, patArCol)
+				}else{
+					 sendNotification(AppFacade.ALL_PATIENTS_FAILED);
+				}
 			}
 		}
 		
-		public function askForPatient(id:String):void{
-			
+		public function askForPatient(id:Number):void{
+			cr.addEventListener(ResultEvent.RESULT , getfullPatient );
+			cr.token = pt.getPatientById(id);
+		}
+		
+		protected function getfullPatient(event:ResultEvent):void
+		{
+			if(cr.lastResult != null){
+				sendNotification(AppFacade.GET_FULL_PATIENT_SUCCESS , cr.lastResult as Patient);
+			}else{
+				sendNotification(AppFacade.GET_FULL_PATIENT_FAILED);
+			}
 		}
 	}
 }

@@ -30,7 +30,7 @@ package view.components.atl.splitviews
 		}
 		
 		override public function onRegister():void {
-			patientsAtlList.addEventListener(PatientsAtlList.CHANGE_STATE, getSelectedState);
+//			patientsAtlList.addEventListener(PatientsAtlList.CHANGE_STATE, getSelectedState);
 		}
 		
 		protected function getSelectedState(event:Event):void

@@ -23,7 +23,15 @@
 			
 			protected function initializeHandler(event:FlexEvent):void
 			{
-				this.id = NAME;				
+				this.id = NAME;		
+				/** 
+				 * vorläufig werden die neuen viewnavigators hier registriert
+				 * aufgrunddessen, dass ich nicht weiß, ob der erste push,
+				 * der ersten view, welcher automatisch abläuft, 
+				 * auch beim registrieren im PatientGroupMediator geschehen würde
+				 * **/
+				AppFacade.getInstance().registerMediator(new LeftSplitViewNavigatorMediator(this.leftNav));
+				//RightSplitViewNavigator registrieren
 			}
 			
 		]]>

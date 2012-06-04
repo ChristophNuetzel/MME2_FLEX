@@ -61,6 +61,10 @@
 				
 			}
 			
+			public static function getBla():void{
+				trace("schiess mich tot");
+			}
+			
 		]]>
 	</fx:Script>
 	

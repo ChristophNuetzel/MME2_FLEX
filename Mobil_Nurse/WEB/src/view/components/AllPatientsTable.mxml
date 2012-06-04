@@ -8,6 +8,9 @@
 		<![CDATA[
 			import com.adobe.fiber.runtime.lib.CollectionFunc;
 			
+			import control.events.GetPatientEvent;
+			
+			import model.vo.BasicPatientVO;
 			import model.vo.auto.Patient;
 			
 			import mx.collections.ArrayCollection;
@@ -23,6 +26,7 @@
 			public static const NAME:String = 'AllPatientsTable';
 			public static const VIEW_EMPLOYEE_DATA:String = NAME + "ViewEmployeeData";
 			public static const VIEW_EMPLOYEE_DETAILS:String = NAME + "ViewEmployeeDetails";
+			public static const GET_FULL_PATIENT:String = NAME + "GetFullPatient";
 			public var coll:ArrayCollection = new ArrayCollection();
 			
 			public function onInitialization(event:FlexEvent):void {
@@ -49,8 +53,11 @@
 			}
 			
 			public function detailView(event:Event):void{
-				var patient:Patient = event.currentTarget.dataGrid.selectedItem as Patient;
-				navigator.pushView(PatientSelected, patient);
+				var b:BasicPatientVO = event.currentTarget.dataGrid.selectedItem as BasicPatientVO;
+				dispatchEvent( new GetPatientEvent( GET_FULL_PATIENT , b.id ) );
+				
+				//var patient:Patient = event.currentTarget.dataGrid.selectedItem as Patient;
+				//navigator.pushView(PatientSelected, patient);
 			}
 			
 			public function setDataGrid(ac:ArrayCollection):void{

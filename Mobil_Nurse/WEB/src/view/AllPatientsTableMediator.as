@@ -1,6 +1,8 @@
 package view
 {
 	
+	import control.events.GetPatientEvent;
+	
 	import flash.events.Event;
 	
 	import model.EmployeeRemoteProxy;
@@ -17,6 +19,7 @@ package view
 	import spark.components.View;
 	
 	import view.components.AllPatientsTable;
+	import view.components.PatientSelected;
 	
 	
 	public class AllPatientsTableMediator extends Mediator implements IMediator
@@ -38,7 +41,13 @@ package view
 		override public function onRegister():void {
 			allPatients.addEventListener(AllPatientsTable.VIEW_EMPLOYEE_DATA, getLoggedOut );
 			allPatients.addEventListener(AllPatientsTable.VIEW_EMPLOYEE_DETAILS, gotoDetailsView );
+			allPatients.addEventListener(AllPatientsTable.GET_FULL_PATIENT, getfullPatient );
 			getAllPatients();
+		}
+		
+		protected function getfullPatient(event:GetPatientEvent):void
+		{
+			patientsRemoteProxy.askForPatient(event.patientID);
 		}
 		
 		protected function gotoDetailsView(event:Event):void
@@ -53,7 +62,7 @@ package view
 		
 		// lauscht auf Notifications
 		override public function listNotificationInterests():Array {
-			return [ AppFacade.ALL_PATIENTS , AppFacade.ALL_PATIENTS_FAILED ];
+			return [ AppFacade.ALL_PATIENTS , AppFacade.ALL_PATIENTS_FAILED, AppFacade.GET_FULL_PATIENT_SUCCESS , AppFacade.GET_FULL_PATIENT_FAILED ];
 		}
 		
 		protected function getLoggedOut(event:Event):void
@@ -73,6 +82,13 @@ package view
 				case AppFacade.ALL_PATIENTS_FAILED:
 					allPatients.title = "Sorry - no Patient-Data in Database"
 					trace("AllPatiensNotificationFailed");
+					break;
+				case AppFacade.GET_FULL_PATIENT_SUCCESS:
+					allPatients.navigator.pushView(view.components.PatientSelected, notification.getBody() as Patient);
+					trace("get the full patient for selected view");
+					break;
+				case AppFacade.GET_FULL_PATIENT_FAILED:
+					trace("get full patient for selected view FAILED");
 					break;
 			}
 		}
