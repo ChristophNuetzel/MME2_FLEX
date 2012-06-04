@@ -27,43 +27,8 @@
 			protected function initializeHandler(event:FlexEvent):void
 			{
 				this.id = NAME;
-				//AppFacade.getInstance().registerMediator(new PatientsAtlListMediator(this));
-				
 			}
-			
-			public function getSelectedState():void
-			{
-				trace("getSelectedState##########################");
-				/*
-				switch(list.selectedItem){
-				case communication:
-				break;
-				case move:
-				trace("move");
-				break;
-				case vital:
-				break;
-				case feeding:
-				break;
-				case excrements:
-				break;
-				case dressUp:
-				break;
-				case hygiene:
-				break;
-				case safety:
-				break;
-				case religion:
-				break;
-				case sozialize:
-				break;
-				}*/
-				
-			}
-			
-			public static function getBla():void{
-				trace("schiess mich tot");
-			}
+
 			
 		]]>
 	</fx:Script>
@@ -76,7 +41,7 @@
 		<s:dataProvider>
 			<s:ArrayCollection>
 				<s:Label id="communication" text="Communication" />
-				<s:Label id="motion" text="Motion"/>
+				<s:Label id="mov" text="Move"/>
 				<s:Label id="vital" text="Hygiene"/>
 				<s:Label id="feeding" text="Feeding"/>
 				<s:Label id="excrements" text="Exrements"/>

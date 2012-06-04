@@ -5,6 +5,8 @@
 		initialize="initializeHandler(event)">
 	<fx:Script>
 		<![CDATA[
+			import view.components.atl.splitviews.mediators.LeftSplitViewNavigatorMediator;
+			import view.components.atl.splitviews.mediators.RightSplitViewNavigatorMediator;
 			import mx.events.FlexEvent;
 			
 			import view.components.AllPatientsTable;
@@ -30,8 +32,8 @@
 				 * der ersten view, welcher automatisch abläuft, 
 				 * auch beim registrieren im PatientGroupMediator geschehen würde
 				 * **/
-				AppFacade.getInstance().registerMediator(new LeftSplitViewNavigatorMediator(this.leftNav));
-				//RightSplitViewNavigator registrieren
+//				AppFacade.getInstance().registerMediator(new LeftSplitViewNavigatorMediator(this.leftNav));
+//				AppFacade.getInstance().registerMediator(new RightSplitViewNavigatorMediator(this.rightNav));
 			}
 			
 		]]>
@@ -49,7 +51,7 @@
 	</s:SplitViewNavigator>
 	
 	<s:navigationContent>
-		<s:Button click="fireMVCgoBack(event)" label="Logout"/>
+		<s:Button click="fireMVCgoBack(event)" label="Back"/>
 	</s:navigationContent>
 	
 </s:View>

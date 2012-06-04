@@ -6,15 +6,15 @@ package control
 	
 	import spark.components.View;
 	
-	import view.AllPatientsTableMediator;
-	import view.LoginSuccessMediator;
-	import view.LoginViewMediator;
-	import view.PatientSelectedMediator;
+	import view.mediators.AllPatientsTableMediator;
+	import view.mediators.LoginSuccessMediator;
+	import view.mediators.LoginViewMediator;
+	import view.mediators.PatientSelectedMediator;
 	import view.components.AllPatientsTable;
 	import view.components.LoginSuccess;
 	import view.components.atl.splitviews.PatientGroup;
-	import view.components.atl.splitviews.PatientGroupMediator;
-	import view.components.atl.splitviews.PatientsAtlListMediator;
+	import view.components.atl.splitviews.mediators.PatientGroupMediator;
+	import view.components.atl.splitviews.mediators.PatientsAtlListMediator;
 	
 	public class MediateViewCommand extends SimpleCommand implements ICommand
 	{
@@ -49,11 +49,6 @@ package control
 					trace("PatientGroupMediator registered");
 					facade.removeMediator( PatientGroupMediator.NAME);
 					facade.registerMediator(new PatientGroupMediator(myview));
-					break;
-				case PatientsAtlListMediator.NAME:
-					trace("PatientsAtlListMediator registered");
-					facade.removeMediator( PatientsAtlListMediator.NAME);
-					facade.registerMediator(new PatientsAtlListMediator(myview));
 					break;
 				default:
 					trace("default");

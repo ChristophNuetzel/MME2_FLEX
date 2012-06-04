@@ -89,7 +89,6 @@
 		
 		<components:RegisterView includeIn="register" x="356" y="121"/>
 		
-		
 		<s:Rect x="-36" y="37" width="372" height="302" radiusX="4">
 			<s:fill>
 				<s:SolidColor color="#E3F2F2"/>

@@ -1,6 +1,7 @@
 package
 {
 	import control.MediateLeftSplitViewCommand;
+	import control.MediateRightSplitViewCommand;
 	import control.MediateViewCommand;
 	import control.StartupCommand;
 	
@@ -11,7 +12,7 @@ package
 	
 	import spark.components.ViewNavigator;
 	
-	import view.components.atl.splitviews.PatientsAtlListMediator;
+	import view.components.atl.splitviews.mediators.PatientsAtlListMediator;
 
 	public class AppFacade extends Facade implements IFacade {
 		
@@ -32,8 +33,11 @@ package
 		public static const GET_FULL_PATIENT_SUCCESS:String = NAME + "GetFullPatientSuccess";
 		public static const GET_FULL_PATIENT_FAILED:String = NAME + "GetFullPatientFailed";
 		
+		public static const CHANGE_STATE:String = NAME + "ChangeState";
+		
 		//SplitView
 		public static const MEDIATE_LEFT_SPLITVIEW:String = NAME + "MediateLeftSplitView";
+		public static const MEDIATE_RIGHT_SPLITVIEW:String = NAME + "MediateRightSplitView";
 		
 		public static const REGISTER_ATL_LIST:String = NAME + "RegisterAtlList";
 		
@@ -47,10 +51,10 @@ package
 		 **/
 		override protected function initializeController():void {
 			super.initializeController();
-			trace("init controller");
 			registerCommand( STARTUP , StartupCommand ) ;
 			registerCommand( MEDIATE_VIEW, MediateViewCommand );
 			registerCommand( MEDIATE_LEFT_SPLITVIEW , MediateLeftSplitViewCommand );
+			registerCommand( MEDIATE_RIGHT_SPLITVIEW , MediateRightSplitViewCommand );
 		}
 		
 		override protected function initializeModel():void {

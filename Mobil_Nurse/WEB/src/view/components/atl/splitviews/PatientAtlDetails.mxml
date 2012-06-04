@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark" 
-		creationComplete="view1_creationCompleteHandler(event)">
+		creationComplete="view1_creationCompleteHandler(event)"
+		initialize="view1_initializeHandler(event)">
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
 			import mx.states.State;
+			
+			public static const NAME:String = 'PatientAtlDetails';
 			
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
@@ -18,6 +21,11 @@
 			}
 			
 			
+			protected function view1_initializeHandler(event:FlexEvent):void
+			{
+				this.id = NAME;		
+			}
+			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
@@ -26,7 +34,7 @@
 		<s:states>
 			<s:State name="default"/>
 			<s:State name="communication"/>
-			<s:State name="move"/>
+			<s:State name="mov"/>
 			<s:State name="vital"/>
 			<s:State name="feeding"/>
 			<s:State name="excrements"/>
@@ -37,9 +45,11 @@
 			<s:State name="sozialize"/>
 		</s:states>
 	
+	
+	
 	<s:Label includeIn="default" x="55" y="36" text="default"/>
 	<s:Label includeIn="communication" x="55" y="36" text="communication"/>
-	<s:Label includeIn="move" x="55" y="36" text="move"/>
+	<s:Label includeIn="mov" x="55" y="36" text="move"/>
 	<s:Label includeIn="vital" x="55" y="36" text="vital"/>
 	<s:Label includeIn="feeding" x="55" y="36" text="feeding"/>
 	<s:Label includeIn="excrements" x="55" y="36" text="excrements"/>
