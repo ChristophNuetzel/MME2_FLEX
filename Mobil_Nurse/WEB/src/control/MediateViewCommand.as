@@ -9,7 +9,6 @@ package control
 	import view.mediators.AllPatientsTableMediator;
 	import view.mediators.LoginSuccessMediator;
 	import view.mediators.LoginViewMediator;
-	import view.mediators.PatientSelectedMediator;
 	import view.components.AllPatientsTable;
 	import view.components.LoginSuccess;
 	import view.components.atl.splitviews.PatientGroup;
@@ -39,11 +38,6 @@ package control
 					trace("AllPatientsMediator registered");
 					facade.removeMediator( AllPatientsTableMediator.NAME);
 					facade.registerMediator(new AllPatientsTableMediator(myview));
-					break;
-				case PatientSelectedMediator.NAME:
-					trace("PatientSelectedMediator registered");
-					facade.removeMediator( PatientSelectedMediator.NAME);
-					facade.registerMediator(new PatientSelectedMediator(myview));
 					break;
 				case PatientGroupMediator.NAME:
 					trace("PatientGroupMediator registered");

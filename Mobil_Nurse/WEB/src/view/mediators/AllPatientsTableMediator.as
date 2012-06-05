@@ -15,7 +15,7 @@ package view.mediators
 	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.interfaces.IProxy;
 	import org.puremvc.as3.patterns.mediator.Mediator;
-	
+	import view.components.atl.splitviews.PatientGroup;
 	import spark.components.View;
 	
 	import view.components.AllPatientsTable;
@@ -84,7 +84,7 @@ package view.mediators
 					trace("AllPatiensNotificationFailed");
 					break;
 				case AppFacade.GET_FULL_PATIENT_SUCCESS:
-					allPatients.navigator.pushView(view.components.PatientSelected, notification.getBody() as Patient);
+					allPatients.navigator.pushView(view.components.atl.splitviews.PatientGroup, notification.getBody() as Patient);
 					trace("get the full patient for selected view");
 					break;
 				case AppFacade.GET_FULL_PATIENT_FAILED:

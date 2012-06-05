@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark" 
-		creationComplete="view1_creationCompleteHandler(event)"
-		initialize="view1_initializeHandler(event)">
+		creationComplete="creationCompleteHandler(event)"
+		initialize="view1_initializeHandler(event)" 
+		xmlns:components="view.components.*"
+		backgroundColor="#E3F2F2">
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
 			import mx.states.State;
 			
 			public static const NAME:String = 'PatientAtlDetails';
-			
-			protected function view1_creationCompleteHandler(event:FlexEvent):void
-			{
-				this.actionBarVisible = false;				
-			}
+			private var loader:Loader = new Loader();
 			
 			public function setState(stateString:String):void{
 				
 				this.currentState = stateString;
 			}
 			
-			
 			protected function view1_initializeHandler(event:FlexEvent):void
 			{
 				this.id = NAME;		
 			}
 			
+			protected function creationCompleteHandler(event:FlexEvent):void
+			{
+				this.actionBarVisible = false;
+				/*var bta:ByteArray = data.picture as ByteArray;
+				loader.contentLoaderInfo.addEventListener(Event.COMPLETE, getBitmapData);
+				loader.loadBytes(bta);	*/			
+			}
+			
+			private function getBitmapData(event:Event):void
+			{
+				var content:* = loader.content;
+				var bitmapdata:BitmapData = new BitmapData(content.width, content.height ,true,0x00000000);
+				var matrix:Matrix = new Matrix();
+				bitmapdata.draw(content, matrix, null, null, null, true);
+				if(bitmapdata != null){
+					patientSelected.patient_picture.source = new Bitmap(bitmapdata);
+				}				
+			}
 		]]>
 	</fx:Script>
 	<fx:Declarations>
@@ -45,9 +60,9 @@
 			<s:State name="sozialize"/>
 		</s:states>
 	
+	<components:PatientSelected id="patientSelected" includeIn="default" x="0" y="0" width="1024"
+								height="703"/>
 	
-	
-	<s:Label includeIn="default" x="55" y="36" text="default"/>
 	<s:Label includeIn="communication" x="55" y="36" text="communication"/>
 	<s:Label includeIn="mov" x="55" y="36" text="move"/>
 	<s:Label includeIn="vital" x="55" y="36" text="vital"/>

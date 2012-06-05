@@ -58,7 +58,6 @@ package model
 				
 				if(stringArrayCollection != null){
 					var stringArray:Array = stringArrayCollection.source;	
-				
 
 					 for(var i:int = 0 ; i < stringArray.length ; i++ ){
 			 			 var p:BasicPatientVO = new BasicPatientVO(stringArray[i] as Array);

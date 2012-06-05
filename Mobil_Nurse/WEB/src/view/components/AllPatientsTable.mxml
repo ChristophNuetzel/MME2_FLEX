@@ -45,9 +45,6 @@
 			public function detailView(event:Event):void{
 				var b:BasicPatientVO = event.currentTarget.dataGrid.selectedItem as BasicPatientVO;
 				dispatchEvent( new GetPatientEvent( GET_FULL_PATIENT , b.id ) );
-				
-				//var patient:Patient = event.currentTarget.dataGrid.selectedItem as Patient;
-				//navigator.pushView(PatientSelected, patient);
 			}
 			
 			public function setDataGrid(ac:ArrayCollection):void{
@@ -99,7 +96,6 @@
 			</s:ArrayList>
 		</s:columns>
 	</s:DataGrid>
-	
 	
 	<s:Group id="busyIndicatorAllPatients" x="0" y="{dataGrid.y+27}" width="100%"
 			 height="{dataGrid.height-27}">

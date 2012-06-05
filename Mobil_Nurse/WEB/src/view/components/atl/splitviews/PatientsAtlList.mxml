@@ -3,7 +3,8 @@
 		xmlns:s="library://ns.adobe.com/flex/spark" 
 		title="ATS"
 		creationComplete="creationCompleteHandler(event)"
-		initialize="initializeHandler(event)">
+		initialize="initializeHandler(event)"
+		backgroundColor="#E3F2F2">
 	
 	<fx:Script>
 		<![CDATA[
