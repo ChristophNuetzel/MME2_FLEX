@@ -44,7 +44,7 @@ s|ActionBar{
 
 global
 {
-	text-align: left;
 	content-background-alpha: 1.0;
 	font-size: 18;
+	vertical-align: middle;
 }

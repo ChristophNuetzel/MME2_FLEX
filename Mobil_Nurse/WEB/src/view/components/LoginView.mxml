@@ -89,7 +89,8 @@
 		
 		<components:RegisterView includeIn="register" x="356" y="121"/>
 		
-		<s:Rect x="-36" y="37" width="372" height="302" radiusX="4">
+		<s:Rect x="-36" y="37" width="372" height="302" radiusX="4"
+				height.login="274">
 			<s:fill>
 				<s:SolidColor color="#E3F2F2"/>
 			</s:fill>
@@ -97,7 +98,8 @@
 		<s:Label id="welcome" x="40" y="47" text="Mobile Nurse"/>
 		<s:Label id="welcome2" x="45" y="139" width="261" height="186" fontSize="21"
 				 text="Eine Medizinische Software zur Ersterfassung und Aufnahme von Patientendaten. &#xd;&#xd;Viel Spaß!"
-				 textAlign="left"/>
+				 textAlign="left"
+				 text.login="Eine Software zur Ersterfassung und Aufnahme von Patientendaten. &#xd;&#xd;Viel Spaß!"/>
 		
 	</s:BorderContainer>
 	

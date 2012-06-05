@@ -19,8 +19,8 @@
 	<fx:Declarations>
 	</fx:Declarations>
 	
-	<s:VGroup width="262" height="262" horizontalCenter="-353" verticalCenter="-163">
-		<s:Label y="159" width="100%" fontSize="18" horizontalCenter="0"
+	<s:VGroup width="276" height="276" horizontalCenter="-337" verticalCenter="-138">
+		<s:Label y="159" width="100%" fontSize="17" horizontalCenter="0"
 				 text="Is this the Patient you searching for?" textAlign="center"/>
 		<s:Image id="patient_picture" maxHeight="300" maxWidth="300" styleName="picture">
 			<s:filters>
@@ -28,10 +28,10 @@
 			</s:filters>
 		</s:Image>
 	</s:VGroup>
-	<s:Form x="318" width="370" height="514" styleName="checkData" verticalCenter="5">
+	<s:Form x="318" width="370" height="514" styleName="checkData" verticalCenter="5"  backgroundColor="0xEEEEEE">
 		
 		<s:FormItem width="350" label="Patientennumber:" fontSize="20" fontStyle="normal"
-					textAlign="center">
+					textAlign="center" backgroundColor="0xEEEEEE">
 			<s:Label id="pNumber" width="150" color="#608785" fontSize="20"
 					 text="{data.patNr}" textAlign="right"/>
 		</s:FormItem>
@@ -39,7 +39,7 @@
 			<s:Label id="rNumber" width="150" color="#608785" fontSize="20" text="{data.roomNr}"
 					 textAlign="right"/>
 		</s:FormItem>
-		<s:FormItem width="350" label="Name:" fontSize="20">
+		<s:FormItem width="350" label="Name:" fontSize="20" backgroundColor="0xEEEEEE">
 			<s:Label id="pName" width="150" color="#608785" fontSize="20"
 					 text="{data.name}" textAlign="right"/>
 		</s:FormItem>
@@ -49,7 +49,7 @@
 					 text="{data.firstname}" textAlign="right"/>
 		</s:FormItem>
 		
-		<s:FormItem width="350" label="Gender" fontSize="20" >
+		<s:FormItem width="350" label="Gender" fontSize="20" backgroundColor="0xEEEEEE" >
 			<s:Label id="pGender" width="150" color="#608785" fontSize="20" text="{data.gender}"
 					 textAlign="right"/>
 		</s:FormItem>
@@ -59,7 +59,7 @@
 					 textAlign="right"/>
 		</s:FormItem>
 		
-		<s:FormItem width="350" label="Nation" fontSize="20">
+		<s:FormItem width="350" label="Nation" fontSize="20" backgroundColor="0xEEEEEE">
 			<s:Label id="pNation" width="150" color="#608785" fontSize="20" text="{data.nation}"
 					 textAlign="right"/>
 		</s:FormItem>
@@ -67,8 +67,8 @@
 			<s:Label id="pReligion" width="150" color="#608785" fontSize="20" text="{data.religion}"
 					 textAlign="right"/>
 		</s:FormItem>
-		<s:FormItem width="350" height="106" label="History" fontSize="20">
-			<s:Label id="pHistory" width="150" height="85" color="#608785" fontSize="20"
+		<s:FormItem width="350" height="127" label="History" fontSize="20" backgroundColor="0xEEEEEE">
+			<s:Label id="pHistory" width="150" height="115" color="#608785" fontSize="20"
 						text="{data.history}" textAlign="right"/>
 		</s:FormItem>
 	</s:Form>

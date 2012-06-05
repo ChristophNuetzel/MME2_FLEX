@@ -68,7 +68,7 @@
 		<s:Button label="Logout" click="fireMVCLogout()"/>
 	</s:navigationContent>
 	<s:actionContent>
-		<s:Button id="showPatientsTable" width="121" height="32" label="Next"
+		<s:Button id="showPatientsTable" width="121" height="32" label="Go Ahead"
 				  click="fireMVCGoForward()"/>
 	</s:actionContent>
 	
