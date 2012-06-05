@@ -11,6 +11,7 @@
 			import mx.states.State;
 			
 			public static const NAME:String = 'PatientAtlDetails';
+			public static const SET_SELECTED_PATIENT:String = "Hallo";
 			private var loader:Loader = new Loader();
 			
 			public function setState(stateString:String):void{
@@ -26,6 +27,7 @@
 			protected function creationCompleteHandler(event:FlexEvent):void
 			{
 				this.actionBarVisible = false;
+				dispatchEvent( new Event( SET_SELECTED_PATIENT ) );
 				/*var bta:ByteArray = data.picture as ByteArray;
 				loader.contentLoaderInfo.addEventListener(Event.COMPLETE, getBitmapData);
 				loader.loadBytes(bta);	*/			

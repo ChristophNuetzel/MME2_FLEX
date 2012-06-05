@@ -15,6 +15,7 @@ package view.components.atl.splitviews.mediators
 	
 	import spark.components.View;
 	import spark.components.ViewNavigator;
+	
 	import view.components.atl.splitviews.PatientGroup;
 	import view.components.atl.splitviews.PatientsAtlList;
 	
@@ -37,7 +38,7 @@ package view.components.atl.splitviews.mediators
 			facade.registerMediator(new LeftSplitViewNavigatorMediator(patientGroup.leftNav));
 			
 			facade.removeMediator(RightSplitViewNavigatorMediator.NAME);
-			facade.registerMediator(new RightSplitViewNavigatorMediator(patientGroup.rightNav));
+			facade.registerMediator(new RightSplitViewNavigatorMediator(patientGroup.rightNav , patientGroup.data as Patient));
 		}
 		
 		protected function goBack(event:Event):void

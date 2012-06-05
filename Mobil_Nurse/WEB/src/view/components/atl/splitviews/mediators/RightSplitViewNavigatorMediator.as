@@ -1,8 +1,12 @@
 package view.components.atl.splitviews.mediators
 {
 	import flash.events.Event;
+	
+	import model.vo.auto.Patient;
+	
 	import org.puremvc.as3.interfaces.IMediator;
 	import org.puremvc.as3.patterns.mediator.Mediator;
+	
 	import spark.components.View;
 	import spark.components.ViewNavigator;
 	import spark.events.ElementExistenceEvent;
@@ -11,10 +15,12 @@ package view.components.atl.splitviews.mediators
 	{
 		public static const NAME:String = "RightSplitViewNavigatorMediator";
 		private var splitViewNavigator:ViewNavigator;
+		private var patient:Patient;
 		
-		public function RightSplitViewNavigatorMediator(splitViewNavigator:ViewNavigator)
+		public function RightSplitViewNavigatorMediator(splitViewNavigator:ViewNavigator , data:Patient)
 		{
 			this.splitViewNavigator = splitViewNavigator;
+			patient = data;
 			super( NAME );
 		}
 		
@@ -24,7 +30,11 @@ package view.components.atl.splitviews.mediators
 		
 		protected function switchView(event:ElementExistenceEvent):void
 		{
-			sendNotification(AppFacade.MEDIATE_RIGHT_SPLITVIEW , event.element as View);
+			var myView:Object = new Object();
+			myView.view = event.element as View;
+			myView.data = patient;
+			
+			sendNotification(AppFacade.MEDIATE_RIGHT_SPLITVIEW , myView);
 		}
 	}
 }

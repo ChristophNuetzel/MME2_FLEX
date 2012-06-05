@@ -38,13 +38,9 @@
 			{
 				if(dataGrid.selectedItem != null)
 				{
-					dispatchEvent( new Event( VIEW_EMPLOYEE_DETAILS, event.target ) );
+					var b:BasicPatientVO = event.currentTarget.grid.dataGrid.selectedItem as BasicPatientVO;
+					dispatchEvent( new GetPatientEvent( GET_FULL_PATIENT , b.id ) );
 				}
-			}
-			
-			public function detailView(event:Event):void{
-				var b:BasicPatientVO = event.currentTarget.dataGrid.selectedItem as BasicPatientVO;
-				dispatchEvent( new GetPatientEvent( GET_FULL_PATIENT , b.id ) );
 			}
 			
 			public function setDataGrid(ac:ArrayCollection):void{
@@ -85,8 +81,7 @@
 	</s:navigationContent>	
 	
 	<s:DataGrid id="dataGrid" x="1" y="72" width="100%" height="631"
-				click="dataGrid_clickHandler(event)" textAlign="center" dataProvider="{coll}" 
-				alternatingRowColorsBackground="[0xEEEEEE, 0xFFFFFF]" >
+				click="dataGrid_clickHandler(event)" textAlign="center" dataProvider="{coll}"  >
 		<s:columns>
 			<s:ArrayList>
 				<s:GridColumn dataField="patNr" headerText="Number" width="150"/>

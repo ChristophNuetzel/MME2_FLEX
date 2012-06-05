@@ -6,11 +6,25 @@
 		creationComplete="view1_creationCompleteHandler(event)">
 	<fx:Script>
 		<![CDATA[
+			import model.vo.auto.Patient;
+			
 			import mx.events.FlexEvent;
 			
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
 				this.actionBarVisible = false;
+			}
+			
+			public function setPatient(pat:Patient):void{
+				this.pNumber.text = pat.patNr;
+				this.pFirstname.text = pat.firstname;
+				this.pBirth.text = pat.birth;
+				this.pGender.text = pat.gender;
+				this.pName.text = pat.name;
+				this.pNation.text = pat.nation;
+				this.pReligion.text = pat.religion;
+				this.pHistory.text = pat.history;
+				this.rNumber.text = pat.roomNr;
 			}
 			
 		]]>

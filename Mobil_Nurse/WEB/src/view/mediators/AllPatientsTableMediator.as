@@ -40,19 +40,15 @@ package view.mediators
 		
 		override public function onRegister():void {
 			allPatients.addEventListener(AllPatientsTable.VIEW_EMPLOYEE_DATA, getLoggedOut );
-			allPatients.addEventListener(AllPatientsTable.VIEW_EMPLOYEE_DETAILS, gotoDetailsView );
+			//allPatients.addEventListener(AllPatientsTable.VIEW_EMPLOYEE_DETAILS, gotoDetailsView );
 			allPatients.addEventListener(AllPatientsTable.GET_FULL_PATIENT, getfullPatient );
 			getAllPatients();
 		}
 		
 		protected function getfullPatient(event:GetPatientEvent):void
 		{
+			trace("daflsdöfl");
 			patientsRemoteProxy.askForPatient(event.patientID);
-		}
-		
-		protected function gotoDetailsView(event:Event):void
-		{
-			allPatients.detailView(event);
 		}
 		
 		private function getAllPatients():void
