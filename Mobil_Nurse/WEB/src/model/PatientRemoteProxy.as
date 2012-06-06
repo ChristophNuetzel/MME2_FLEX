@@ -1,6 +1,12 @@
 package model
 {
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
+	import flash.display.Loader;
+	import flash.events.Event;
+	import flash.geom.Matrix;
 	import flash.net.dns.PTRRecord;
+	import flash.utils.ByteArray;
 	
 	import model.vo.BasicPatientVO;
 	import model.vo.auto.BasicPatient;
@@ -26,6 +32,7 @@ package model
 		/** Objects for the database-Request **/
 		public var pt:PatientDao = new PatientDao();
 		public var cr:CallResponder = new CallResponder();
+		private var loader:Loader = new Loader();
 		
 		public function PatientRemoteProxy (data:Object = null)
 		{
@@ -33,18 +40,26 @@ package model
 		}
 		
 		public function getAllPatients():void {
-			trace("getAllPatients");
 			start();
 		}
 		
+		public function askForPatient(id:Number):void{
+			cr.addEventListener(ResultEvent.RESULT , getfullPatient );
+			cr.token = pt.getPatientById(id);
+		}
+		
+		public function setPicture(bytear:ByteArray):void{
+			getBitmapFromByteArray(bytear);
+		}
+		
+		
 		private function start():void
 		{
-			trace("start");
 			cr.addEventListener(ResultEvent.RESULT , checkStringlog );
 			cr.token = pt.getBasicPatientStrings();
 		}
 		
-		protected function checkStringlog(event:ResultEvent):void
+		private function checkStringlog(event:ResultEvent):void
 		{
 			if(cr.lastResult != null){
 			
@@ -73,17 +88,32 @@ package model
 			}
 		}
 		
-		public function askForPatient(id:Number):void{
-			cr.addEventListener(ResultEvent.RESULT , getfullPatient );
-			cr.token = pt.getPatientById(id);
-		}
-		
-		protected function getfullPatient(event:ResultEvent):void
+		private function getfullPatient(event:ResultEvent):void
 		{
 			if(cr.lastResult != null){
 				sendNotification(AppFacade.GET_FULL_PATIENT_SUCCESS , cr.lastResult as Patient);
 			}else{
 				sendNotification(AppFacade.GET_FULL_PATIENT_FAILED);
+			}
+		}
+		
+		private function getBitmapFromByteArray(picture:ByteArray):void
+		{			
+			var bta:ByteArray = picture as ByteArray;
+			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, getBitmapData);
+			loader.loadBytes(bta);
+		}
+		
+		private function getBitmapData(event:Event):void
+		{
+			var _bitmap:Bitmap;
+			var content:* = loader.content;
+			var bitmapdata:BitmapData = new BitmapData(content.width, content.height ,true,0x00000000);
+			var matrix:Matrix = new Matrix();
+			bitmapdata.draw(content, matrix, null, null, null, true);
+			if(bitmapdata != null){
+				_bitmap = new Bitmap(bitmapdata);
+				sendNotification(AppFacade.SEND_PATIENT_PICTURE , _bitmap as Bitmap);
 			}
 		}
 	}

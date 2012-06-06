@@ -27,6 +27,10 @@
 				this.rNumber.text = pat.roomNr;
 			}
 			
+			public function setPicture(map:Bitmap):void {
+				this.patient_picture.source = map;
+			}
+			
 		]]>
 	</fx:Script>
 

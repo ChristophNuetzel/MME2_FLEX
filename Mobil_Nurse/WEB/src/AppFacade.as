@@ -28,10 +28,13 @@ package
 		public static const SEND_EMPLOYEE:String = NAME + "SendEmployee";
 		public static const SEND_EMPLOYEE_PICTURE:String = NAME + "SendEmployeePicture";
 		public static const GO_FORWARD:String = NAME + "GoForward";
+		
+		//PATIENT
 		public static const ALL_PATIENTS:String = NAME + "AllPatients";
 		public static const ALL_PATIENTS_FAILED:String = NAME + "AllPatientsFailed";
 		public static const GET_FULL_PATIENT_SUCCESS:String = NAME + "GetFullPatientSuccess";
 		public static const GET_FULL_PATIENT_FAILED:String = NAME + "GetFullPatientFailed";
+		public static const SEND_PATIENT_PICTURE:String = NAME + "SendPatientPicture";
 		
 		public static const CHANGE_STATE:String = NAME + "ChangeState";
 		
