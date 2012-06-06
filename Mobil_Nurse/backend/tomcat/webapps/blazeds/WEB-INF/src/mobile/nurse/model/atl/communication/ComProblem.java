@@ -2,14 +2,15 @@ package mobile.nurse.model.atl.communication;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class ComProblem {
 	
 	@Id
-	@GeneratedValue
-	private long id;
+	@GeneratedValue()
+	private Long id;
 	
 	private boolean see = false;
 	private boolean speak = false;

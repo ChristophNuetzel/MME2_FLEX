@@ -1,4 +1,5 @@
 package mobile.nurse.model.patient;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,13 +27,15 @@ public class Patient {
 	private String nation;
 	private String gender;
 	private String history;
+
 	
 	private int age;
 	
 	private byte[] picture;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Communication communication;
+
 
 	public Patient(){
 	}
