@@ -6,6 +6,9 @@ package
 	import control.StartupCommand;
 	
 	import model.EmployeeRemoteProxy;
+	import model.PatientRemoteProxy;
+	import model.PersistATLProxy;
+	import model.vo.auto.Patient;
 	
 	import org.puremvc.as3.interfaces.IFacade;
 	import org.puremvc.as3.patterns.facade.Facade;
@@ -63,6 +66,8 @@ package
 		override protected function initializeModel():void {
 			super.initializeModel();
 			registerProxy( new EmployeeRemoteProxy() );
+			registerProxy( new PatientRemoteProxy() );
+			registerProxy( new PersistATLProxy() );
 		}
 		
 		public function startup( viewNavigator:ViewNavigator ):void {

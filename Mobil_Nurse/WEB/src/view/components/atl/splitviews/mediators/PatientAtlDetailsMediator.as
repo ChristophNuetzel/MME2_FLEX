@@ -17,6 +17,7 @@ package view.components.atl.splitviews.mediators
 	import spark.components.ViewNavigator;
 	import spark.events.ElementExistenceEvent;
 	
+	import view.components.atl.splitviews.CommunicationATL;
 	import view.components.atl.splitviews.PatientAtlDetails;
 
 
@@ -45,8 +46,14 @@ package view.components.atl.splitviews.mediators
 		{
 			patientAtlDetails.patientSelected.setPatient(patient);
 			patientsRemoteProxy.setPicture(patient.picture as ByteArray);
+			
+			//patientAtlDetails.communicationATL.addEventListener( CommunicationATL.VERIFY , verify );
 		}
 		
+		private function verify():void
+		{
+			trace("VERIFY VERIFY VERIFY VERIFY");
+		}		
 		
 		
 		override public function listNotificationInterests():Array {

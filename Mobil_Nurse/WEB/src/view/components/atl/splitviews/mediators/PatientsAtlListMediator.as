@@ -40,7 +40,7 @@ package view.components.atl.splitviews.mediators
 		
 		protected function getSelectedState(event:Event):void
 		{
-			var state:String = event.currentTarget.list.selectedItem.id
+			var state:String = event.currentTarget.list.selectedItem.id;
 			sendNotification(AppFacade.CHANGE_STATE, state);
 		}
 	}

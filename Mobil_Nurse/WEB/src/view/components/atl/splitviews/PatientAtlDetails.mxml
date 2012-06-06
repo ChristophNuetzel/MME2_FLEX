@@ -4,7 +4,7 @@
 		creationComplete="creationCompleteHandler(event)"
 		initialize="view1_initializeHandler(event)" 
 		xmlns:components="view.components.*"
-		backgroundColor="#E3F2F2">
+		backgroundColor="#E3F2F2" xmlns:auto="model.vo.auto.*" xmlns:splitviews="view.components.atl.splitviews.*">
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
@@ -28,21 +28,8 @@
 			{
 				this.actionBarVisible = false;
 				dispatchEvent( new Event( SET_SELECTED_PATIENT ) );
-				/*var bta:ByteArray = data.picture as ByteArray;
-				loader.contentLoaderInfo.addEventListener(Event.COMPLETE, getBitmapData);
-				loader.loadBytes(bta);	*/			
 			}
 			
-			private function getBitmapData(event:Event):void
-			{
-				var content:* = loader.content;
-				var bitmapdata:BitmapData = new BitmapData(content.width, content.height ,true,0x00000000);
-				var matrix:Matrix = new Matrix();
-				bitmapdata.draw(content, matrix, null, null, null, true);
-				if(bitmapdata != null){
-					patientSelected.patient_picture.source = new Bitmap(bitmapdata);
-				}				
-			}
 		]]>
 	</fx:Script>
 	<fx:Declarations>
@@ -65,7 +52,7 @@
 	<components:PatientSelected id="patientSelected" includeIn="default" x="0" y="0" width="1024"
 								height="703"/>
 	
-	<s:Label includeIn="communication" x="55" y="36" text="communication"/>
+	<splitviews:CommunicationATL includeIn="communication" x="55" y="36" id="communicationATL"/>
 	<s:Label includeIn="mov" x="55" y="36" text="move"/>
 	<s:Label includeIn="vital" x="55" y="36" text="vital"/>
 	<s:Label includeIn="feeding" x="55" y="36" text="feeding"/>

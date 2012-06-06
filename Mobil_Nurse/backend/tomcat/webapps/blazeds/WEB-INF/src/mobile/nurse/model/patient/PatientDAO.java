@@ -8,6 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
 import mobile.nurse.database.PersistenceManager;
+import mobile.nurse.model.atl.communication.ComProblem;
 import mobile.nurse.model.atl.communication.Communication;
 
 /*
@@ -80,7 +81,7 @@ public class PatientDAO {
 				System.out.println(" - Patient:  " + " ID: " + pat.getId()
 						+ "  Name: " + pat.getName() + " Firstname: "
 						+ pat.getFirstname() + "Room: " + pat.getRoomNr()
-						+ " Gender: " + pat.getGender());
+						+ " Gender: " + pat.getGender() + "ATL com-see:" + pat.getCommunication().getProblems().canSee());
 			}
 		}
 
@@ -163,6 +164,10 @@ public class PatientDAO {
 	}
 
 	public void updateCommunicationATL(long id, Communication c) {
+		System.out.println("ALL PATIENTS: " + getAllPatients()); 
+		System.out.println("UPDATING THE COMMUNICATION ATL");
+		System.out.println("CA: " + c);
+		
 		EntityManagerFactory emf = PersistenceManager.getInstance()
 				.createEntityManagerFactory();
 		EntityManager em = emf.createEntityManager();
@@ -177,7 +182,38 @@ public class PatientDAO {
 		} finally {
 			em.close();
 		}
-
+		System.out.println("END OF UPDATING");
+		System.out.println("ALL PATIENTS: " + getAllPatients()); 
 	}
+	
+	public void updateCommunicationATLBool(long id, boolean b) {
+		System.out.println("ALL PATIENTS: " + getAllPatients()); 
+		System.out.println("UPDATING THE COMMUNICATION ATL");
+		
+		Communication c = new Communication();
+		ComProblem cp = new ComProblem();
+		cp.setSee(b);
+		cp.setSpeak(true);
+		c.setProblems(cp);
+		System.out.println("CA: " + c );
+		
+		EntityManagerFactory emf = PersistenceManager.getInstance()
+				.createEntityManagerFactory();
+		EntityManager em = emf.createEntityManager();
+
+		try {
+			EntityTransaction tx = em.getTransaction();
+			tx.begin();
+			em.find(Patient.class, id).setCommunication(c);
+			tx.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		System.out.println("END OF UPDATING");
+		System.out.println("ALL PATIENTS: " + getAllPatients()); 
+	}
+
 
 }

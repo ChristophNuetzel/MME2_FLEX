@@ -29,20 +29,20 @@ public class Main {
 
 		
 		
-		BufferedImage bim = ImageIO
-				.read(new File("C:/Users/Christoph/Pictures/MyAvatar_Southpark.png"));
-////				.read(new File("D:/Ressourcen/PICS/chris.jpeg"));
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		ImageIO.write(bim, "jpg", baos);
-		byte[] bytepic = baos.toByteArray();
-//
-		EmployeeDAO emplDAO = new EmployeeDAO();
+//		BufferedImage bim = ImageIO
+//				.read(new File("C:/Users/Christoph/Pictures/MyAvatar_Southpark.png"));
+//////				.read(new File("D:/Ressourcen/PICS/chris.jpeg"));
+//		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//		ImageIO.write(bim, "jpg", baos);
+//		byte[] bytepic = baos.toByteArray();
+////
+//		EmployeeDAO emplDAO = new EmployeeDAO();
 //		
-		Employee em = new Employee("Petra", "Kuhmann", "a", "a", 789456,
-				"01/02/1985", "Nurse", bytepic);
+//		Employee em = new Employee("Petra", "Kuhmann", "a", "a", 789456,
+//				"01/02/1985", "Nurse", bytepic);
 
 //		emplDAO.createEmployee(em);
-		emplDAO.getAllEmployees();
+//		emplDAO.getAllEmployees();
 //		emplDAO.getAllEmployees();
 
 //		byte[] bb = null;
@@ -58,18 +58,20 @@ public class Main {
 //		DbFrame df = new DbFrame(bb);
 		// emplDAO.getAllEmployees();
 		
-		Communication com  = new Communication();
-		ComProblem comP = new ComProblem();
-		comP.setSee(true);
-		comP.setSpeak(false);
-		com.setCommunicationProblems(comP);
+//		Communication com  = new Communication();
+//		ComProblem comP = new ComProblem();
+//		comP.setSee(false);
+//		comP.setSpeak(false);
+//		com.setCommunicationProblems(comP);
 
 		PatientDAO patientDAO = new PatientDAO();
+//		long l = 2;
+//		 patientDAO.updateCommunicationATL(2, com);
 		 
-		 
-		 Patient p = new Patient("Jens", "Maiermüller", "E114", "135786", "Moslem", 59, "20.05.1963", "German", "w", "She can´t eat", bytepic);
-		 p.setCommunication(com);
-		 patientDAO.createPatient(p);
+//		 Patient p = new Patient("Jens", "Maiermüller", "E114", "135786", "Moslem", 59, "20.05.1963", "German", "w", "She can´t eat", bytepic);
+//		 p.setCommunication(com);
+//		 patientDAO.createPatient(p);
+		
 		 patientDAO.getAllPatients();
 		 
 		// System.out.println(emplDAO.checkEmployeeLogin("a", "a"));

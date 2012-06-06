@@ -67,13 +67,13 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
     private var _internal_firstname : String;
     private var _internal_roomNr : String;
     private var _internal_nation : String;
-    private var _internal_religion : String;
+    private var _internal_picture : ByteArray;
     private var _internal_history : String;
     private var _internal_id : Number;
-    private var _internal_picture : ByteArray;
+    private var _internal_religion : String;
     private var _internal_patNr : String;
-    private var _internal_name : String;
     private var _internal_age : int;
+    private var _internal_name : String;
     private var _internal_gender : String;
 
     private static var emptyArray:Array = new Array();
@@ -129,9 +129,9 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
     }
 
     [Bindable(event="propertyChange")]
-    public function get religion() : String
+    public function get picture() : ByteArray
     {
-        return _internal_religion;
+        return _internal_picture;
     }
 
     [Bindable(event="propertyChange")]
@@ -147,9 +147,9 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
     }
 
     [Bindable(event="propertyChange")]
-    public function get picture() : ByteArray
+    public function get religion() : String
     {
-        return _internal_picture;
+        return _internal_religion;
     }
 
     [Bindable(event="propertyChange")]
@@ -159,15 +159,15 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
     }
 
     [Bindable(event="propertyChange")]
-    public function get name() : String
-    {
-        return _internal_name;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get age() : int
     {
         return _internal_age;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get name() : String
+    {
+        return _internal_name;
     }
 
     [Bindable(event="propertyChange")]
@@ -234,13 +234,13 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
         }
     }
 
-    public function set religion(value:String) : void
+    public function set picture(value:ByteArray) : void
     {
-        var oldValue:String = _internal_religion;
+        var oldValue:ByteArray = _internal_picture;
         if (oldValue !== value)
         {
-            _internal_religion = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "religion", oldValue, _internal_religion));
+            _internal_picture = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "picture", oldValue, _internal_picture));
         }
     }
 
@@ -264,13 +264,13 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
         }
     }
 
-    public function set picture(value:ByteArray) : void
+    public function set religion(value:String) : void
     {
-        var oldValue:ByteArray = _internal_picture;
+        var oldValue:String = _internal_religion;
         if (oldValue !== value)
         {
-            _internal_picture = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "picture", oldValue, _internal_picture));
+            _internal_religion = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "religion", oldValue, _internal_religion));
         }
     }
 
@@ -284,16 +284,6 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
         }
     }
 
-    public function set name(value:String) : void
-    {
-        var oldValue:String = _internal_name;
-        if (oldValue !== value)
-        {
-            _internal_name = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "name", oldValue, _internal_name));
-        }
-    }
-
     public function set age(value:int) : void
     {
         var oldValue:int = _internal_age;
@@ -301,6 +291,16 @@ public class _Super_Patient extends flash.events.EventDispatcher implements com.
         {
             _internal_age = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "age", oldValue, _internal_age));
+        }
+    }
+
+    public function set name(value:String) : void
+    {
+        var oldValue:String = _internal_name;
+        if (oldValue !== value)
+        {
+            _internal_name = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "name", oldValue, _internal_name));
         }
     }
 

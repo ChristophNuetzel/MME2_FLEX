@@ -61,8 +61,8 @@ public class _Super_Employee extends flash.events.EventDispatcher implements com
      */
     private var _internal_picture : ByteArray;
     private var _internal_id : Number;
-    private var _internal_username : String;
     private var _internal_birth : String;
+    private var _internal_username : String;
     private var _internal_name : String;
     private var _internal_job : String;
     private var _internal_firstname : String;
@@ -104,15 +104,15 @@ public class _Super_Employee extends flash.events.EventDispatcher implements com
     }
 
     [Bindable(event="propertyChange")]
-    public function get username() : String
-    {
-        return _internal_username;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get birth() : String
     {
         return _internal_birth;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get username() : String
+    {
+        return _internal_username;
     }
 
     [Bindable(event="propertyChange")]
@@ -173,16 +173,6 @@ public class _Super_Employee extends flash.events.EventDispatcher implements com
         }
     }
 
-    public function set username(value:String) : void
-    {
-        var oldValue:String = _internal_username;
-        if (oldValue !== value)
-        {
-            _internal_username = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "username", oldValue, _internal_username));
-        }
-    }
-
     public function set birth(value:String) : void
     {
         var oldValue:String = _internal_birth;
@@ -190,6 +180,16 @@ public class _Super_Employee extends flash.events.EventDispatcher implements com
         {
             _internal_birth = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "birth", oldValue, _internal_birth));
+        }
+    }
+
+    public function set username(value:String) : void
+    {
+        var oldValue:String = _internal_username;
+        if (oldValue !== value)
+        {
+            _internal_username = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "username", oldValue, _internal_username));
         }
     }
 

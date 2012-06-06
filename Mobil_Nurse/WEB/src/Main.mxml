@@ -5,7 +5,8 @@
 							applicationDPI="160"
 							initialize="onInitalization(event)"
 							splashScreenImage="@Embed('assets/nurse.png')" 
-							splashScreenScaleMode="none">
+							splashScreenScaleMode="none"
+							>
 	
 	<fx:Script>
 		<![CDATA[

@@ -36,6 +36,9 @@ internal class _Super_PatientDao extends com.adobe.fiber.services.wrapper.Remote
         operation = new mx.rpc.remoting.Operation(null, "getAllPatients");
          operation.resultElementType = model.vo.auto.Patient;
         operations["getAllPatients"] = operation;
+        operation = new mx.rpc.remoting.Operation(null, "getPatientById");
+         operation.resultType = model.vo.auto.Patient;
+        operations["getPatientById"] = operation;
         operation = new mx.rpc.remoting.Operation(null, "deletePatient");
          operation.resultType = Boolean;
         operations["deletePatient"] = operation;
@@ -44,14 +47,13 @@ internal class _Super_PatientDao extends com.adobe.fiber.services.wrapper.Remote
         operations["getBasicPatientStrings"] = operation;
         operation = new mx.rpc.remoting.Operation(null, "createPatient");
         operations["createPatient"] = operation;
+        operation = new mx.rpc.remoting.Operation(null, "updateCommunicationATLBool");
+        operations["updateCommunicationATLBool"] = operation;
+        operation = new mx.rpc.remoting.Operation(null, "updateCommunicationATL");
+        operations["updateCommunicationATL"] = operation;
         operation = new mx.rpc.remoting.Operation(null, "updatePatient");
          operation.resultType = Boolean;
         operations["updatePatient"] = operation;
-        operation = new mx.rpc.remoting.Operation(null, "getPatientById");
-         operation.resultType = model.vo.auto.Patient;
-        operations["getPatientById"] = operation;
-        operation = new mx.rpc.remoting.Operation(null, "updateCommunicationATL");
-        operations["updateCommunicationATL"] = operation;
 
         _serviceControl.operations = operations;
         _serviceControl.convertResultHandler = com.adobe.serializers.utility.TypeUtility.convertResultHandler;
@@ -85,6 +87,24 @@ internal class _Super_PatientDao extends com.adobe.fiber.services.wrapper.Remote
     {
         var _internal_operation:mx.rpc.AbstractOperation = _serviceControl.getOperation("getAllPatients");
 		var _internal_token:mx.rpc.AsyncToken = _internal_operation.send() ;
+        return _internal_token;
+    }
+     
+    /**
+      * This method is a generated wrapper used to call the 'getPatientById' operation. It returns an mx.rpc.AsyncToken whose 
+      * result property will be populated with the result of the operation when the server response is received. 
+      * To use this result from MXML code, define a CallResponder component and assign its token property to this method's return value. 
+      * You can then bind to CallResponder.lastResult or listen for the CallResponder.result or fault events.
+      *
+      * @see mx.rpc.AsyncToken
+      * @see mx.rpc.CallResponder 
+      *
+      * @return an mx.rpc.AsyncToken whose result property will be populated with the result of the operation when the server response is received.
+      */
+    public function getPatientById(arg0:Number) : mx.rpc.AsyncToken
+    {
+        var _internal_operation:mx.rpc.AbstractOperation = _serviceControl.getOperation("getPatientById");
+		var _internal_token:mx.rpc.AsyncToken = _internal_operation.send(arg0) ;
         return _internal_token;
     }
      
@@ -143,7 +163,7 @@ internal class _Super_PatientDao extends com.adobe.fiber.services.wrapper.Remote
     }
      
     /**
-      * This method is a generated wrapper used to call the 'updatePatient' operation. It returns an mx.rpc.AsyncToken whose 
+      * This method is a generated wrapper used to call the 'updateCommunicationATLBool' operation. It returns an mx.rpc.AsyncToken whose 
       * result property will be populated with the result of the operation when the server response is received. 
       * To use this result from MXML code, define a CallResponder component and assign its token property to this method's return value. 
       * You can then bind to CallResponder.lastResult or listen for the CallResponder.result or fault events.
@@ -153,28 +173,10 @@ internal class _Super_PatientDao extends com.adobe.fiber.services.wrapper.Remote
       *
       * @return an mx.rpc.AsyncToken whose result property will be populated with the result of the operation when the server response is received.
       */
-    public function updatePatient(arg0:model.vo.auto.Patient) : mx.rpc.AsyncToken
+    public function updateCommunicationATLBool(arg0:Number, arg1:Boolean) : mx.rpc.AsyncToken
     {
-        var _internal_operation:mx.rpc.AbstractOperation = _serviceControl.getOperation("updatePatient");
-		var _internal_token:mx.rpc.AsyncToken = _internal_operation.send(arg0) ;
-        return _internal_token;
-    }
-     
-    /**
-      * This method is a generated wrapper used to call the 'getPatientById' operation. It returns an mx.rpc.AsyncToken whose 
-      * result property will be populated with the result of the operation when the server response is received. 
-      * To use this result from MXML code, define a CallResponder component and assign its token property to this method's return value. 
-      * You can then bind to CallResponder.lastResult or listen for the CallResponder.result or fault events.
-      *
-      * @see mx.rpc.AsyncToken
-      * @see mx.rpc.CallResponder 
-      *
-      * @return an mx.rpc.AsyncToken whose result property will be populated with the result of the operation when the server response is received.
-      */
-    public function getPatientById(arg0:Number) : mx.rpc.AsyncToken
-    {
-        var _internal_operation:mx.rpc.AbstractOperation = _serviceControl.getOperation("getPatientById");
-		var _internal_token:mx.rpc.AsyncToken = _internal_operation.send(arg0) ;
+        var _internal_operation:mx.rpc.AbstractOperation = _serviceControl.getOperation("updateCommunicationATLBool");
+		var _internal_token:mx.rpc.AsyncToken = _internal_operation.send(arg0,arg1) ;
         return _internal_token;
     }
      
@@ -193,6 +195,24 @@ internal class _Super_PatientDao extends com.adobe.fiber.services.wrapper.Remote
     {
         var _internal_operation:mx.rpc.AbstractOperation = _serviceControl.getOperation("updateCommunicationATL");
 		var _internal_token:mx.rpc.AsyncToken = _internal_operation.send(arg0,arg1) ;
+        return _internal_token;
+    }
+     
+    /**
+      * This method is a generated wrapper used to call the 'updatePatient' operation. It returns an mx.rpc.AsyncToken whose 
+      * result property will be populated with the result of the operation when the server response is received. 
+      * To use this result from MXML code, define a CallResponder component and assign its token property to this method's return value. 
+      * You can then bind to CallResponder.lastResult or listen for the CallResponder.result or fault events.
+      *
+      * @see mx.rpc.AsyncToken
+      * @see mx.rpc.CallResponder 
+      *
+      * @return an mx.rpc.AsyncToken whose result property will be populated with the result of the operation when the server response is received.
+      */
+    public function updatePatient(arg0:model.vo.auto.Patient) : mx.rpc.AsyncToken
+    {
+        var _internal_operation:mx.rpc.AbstractOperation = _serviceControl.getOperation("updatePatient");
+		var _internal_token:mx.rpc.AsyncToken = _internal_operation.send(arg0) ;
         return _internal_token;
     }
      

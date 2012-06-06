@@ -61,6 +61,7 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
      * properties
      */
     private var _internal_id : Number;
+    private var _internal_problems : model.vo.auto.ComProblem;
     private var _internal_communicationProblems : model.vo.auto.ComProblem;
 
     private static var emptyArray:Array = new Array();
@@ -92,6 +93,12 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
     }
 
     [Bindable(event="propertyChange")]
+    public function get problems() : model.vo.auto.ComProblem
+    {
+        return _internal_problems;
+    }
+
+    [Bindable(event="propertyChange")]
     public function get communicationProblems() : model.vo.auto.ComProblem
     {
         return _internal_communicationProblems;
@@ -112,6 +119,16 @@ public class _Super_Communication extends flash.events.EventDispatcher implement
         {
             _internal_id = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "id", oldValue, _internal_id));
+        }
+    }
+
+    public function set problems(value:model.vo.auto.ComProblem) : void
+    {
+        var oldValue:model.vo.auto.ComProblem = _internal_problems;
+        if (oldValue !== value)
+        {
+            _internal_problems = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "problems", oldValue, _internal_problems));
         }
     }
 
