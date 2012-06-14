@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		backgroundColor="#E3F2F2"
+		title="Please check the Patient Data"
+		creationComplete="view1_creationCompleteHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import model.vo.auto.Patient;
+			
+			import mx.events.FlexEvent;
+			
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{
+				this.actionBarVisible = false;
+			}
+			
+			public function setPatient(pat:Patient):void{
+				this.pNumber.text = pat.patNr;
+				this.pFirstname.text = pat.firstname;
+				this.pBirth.text = pat.birth;
+				this.pGender.text = pat.gender;
+				this.pName.text = pat.name;
+				this.pNation.text = pat.nation;
+				this.pReligion.text = pat.religion;
+				this.pHistory.text = pat.history;
+				this.rNumber.text = pat.roomNr;
+			}
+			
+			public function setPicture(map:Bitmap):void {
+				this.patient_picture.source = map;
+			}
+			
+		]]>
+	</fx:Script>
+
+	<fx:Declarations>
+	</fx:Declarations>
+	
+	<s:VGroup width="276" height="276" horizontalCenter="-337" verticalCenter="-138">
+		<s:Label y="159" width="100%" fontSize="17" horizontalCenter="0"
+				 text="Is this the Patient you searching for?" textAlign="center"/>
+		<s:Image id="patient_picture" maxHeight="300" maxWidth="300" styleName="picture">
+			<s:filters>
+				<s:DropShadowFilter distance="6" quality="4"/>
+			</s:filters>
+		</s:Image>
+	</s:VGroup>
+	<s:Form x="318" width="370" height="514" styleName="checkData" verticalCenter="5"  backgroundColor="0xEEEEEE">
+		
+		<s:FormItem width="350" label="Patientennumber:" fontSize="20" fontStyle="normal"
+					textAlign="center" backgroundColor="0xEEEEEE">
+			<s:Label id="pNumber" width="150" color="#608785" fontSize="20"
+					 text="{data.patNr}" textAlign="right"/>
+		</s:FormItem>
+		<s:FormItem width="350" label="Roomnumber:" fontSize="20">
+			<s:Label id="rNumber" width="150" color="#608785" fontSize="20" text="{data.roomNr}"
+					 textAlign="right"/>
+		</s:FormItem>
+		<s:FormItem width="350" label="Name:" fontSize="20" backgroundColor="0xEEEEEE">
+			<s:Label id="pName" width="150" color="#608785" fontSize="20"
+					 text="{data.name}" textAlign="right"/>
+		</s:FormItem>
+		
+		<s:FormItem width="350" label="Firstname: " fontSize="20">
+			<s:Label id="pFirstname" width="150" color="#608785" fontSize="20"
+					 text="{data.firstname}" textAlign="right"/>
+		</s:FormItem>
+		
+		<s:FormItem width="350" label="Gender" fontSize="20" backgroundColor="0xEEEEEE" >
+			<s:Label id="pGender" width="150" color="#608785" fontSize="20" text="{data.gender}"
+					 textAlign="right"/>
+		</s:FormItem>
+		
+		<s:FormItem width="350" label="Birth" fontSize="20">
+			<s:Label id="pBirth" width="150" color="#608785" fontSize="20" text="{data.birth}"
+					 textAlign="right"/>
+		</s:FormItem>
+		
+		<s:FormItem width="350" label="Nation" fontSize="20" backgroundColor="0xEEEEEE">
+			<s:Label id="pNation" width="150" color="#608785" fontSize="20" text="{data.nation}"
+					 textAlign="right"/>
+		</s:FormItem>
+		<s:FormItem width="350" label="Religion" fontSize="20">
+			<s:Label id="pReligion" width="150" color="#608785" fontSize="20" text="{data.religion}"
+					 textAlign="right"/>
+		</s:FormItem>
+		<s:FormItem width="350" height="127" label="History" fontSize="20" backgroundColor="0xEEEEEE">
+			<s:Label id="pHistory" width="150" height="115" color="#608785" fontSize="20"
+						text="{data.history}" textAlign="right"/>
+		</s:FormItem>
+	</s:Form>
+</s:View>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:assets="assets.*"
+		backgroundColor="#E3F2F2" 
+		creationComplete="register()" 
+		title="Communication"
+		xmlns:mx="http://www.adobe.com/2009/mxml">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import control.events.ATLEvent;
+			
+			
+			public static const VERIFY:String = "Verify" ;
+			
+			private function verify():void{		
+				dispatchEvent(new ATLEvent( VERIFY, null) );
+			}
+			
+			private function register():void {
+				AppFacade.getInstance().removeMediator( CommunicationMediator.NAME );
+				AppFacade.getInstance().registerMediator( new CommunicationMediator(this) );
+			}
+			
+			protected function button1_clickHandler(event:MouseEvent):void
+			{
+				if(descritonEye.visible){
+					descritonEye.visible = false;
+				}else{
+					descritonEye.visible = true;
+				}
+			}
+			
+			protected function button2_clickHandler(event:MouseEvent):void
+			{
+				if(descritonEar.visible){
+					descritonEar.visible = false;
+				}else{
+					descritonEar.visible = true;
+				}
+			}
+			
+			protected function button3_clickHandler(event:MouseEvent):void
+			{
+				if(descritonNose.visible){
+					descritonNose.visible = false;
+				}else{
+					descritonNose.visible = true;
+				}				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<s:states>
+		<s:State name="problem"/>
+		<s:State name="solution"/>
+		<s:State name="penis"/>
+	</s:states>
+	
+	<s:HGroup  width="500" height="26" y="78" horizontalCenter="-100">
+		<s:Label fontSize="30" text="Problems "
+				 click="currentState='problem'" textDecoration.problem="underline" />
+		<s:Label fontSize="30" text=" Solutions"
+				 click="currentState='solution'" textDecoration.solution="underline"/>
+		<s:Label fontSize="30" text=" Penis"
+				 click="currentState='penis'" textDecoration.penis="underline"/>
+	</s:HGroup>
+
+	<s:Group includeIn="problem" x="0" y="0" width="100%" height="100%">
+		
+		<s:VGroup x="64" y="210">
+			<s:Image width="209" height="143" source="@Embed(source='assets/eye.png')"/>
+			<s:Button label="Descripton" click="button1_clickHandler(event)"/>
+			<s:TextArea id="descritonEye" visible="false" width="214" height="141"/>
+		</s:VGroup>	
+		
+		<s:VGroup x="558" y="210" height="339">
+			<s:Image x="287" y="189" width="161" height="128" source="@Embed(source='assets/ear.png')"/>
+			<s:Button label="Description" click="button2_clickHandler(event)"/>
+			<s:TextArea id="descritonEar" visible="false" width="214" height="141"/>
+		</s:VGroup>
+		
+		<s:VGroup x="314" y="205" height="344">
+			<s:Image x="499" y="191" width="158" height="126" source="@Embed(source='assets/nose.png')"/>
+			<s:Button label="Description" click="button3_clickHandler(event)"/>
+			<s:TextArea id="descritonNose" visible="false" width="214" height="141"/>
+		</s:VGroup>
+		
+	</s:Group>
+	
+	<s:Group includeIn="solution">
+		<s:Label x="224" y="208" text="Solution"/>
+	</s:Group>
+	
+	<s:Group includeIn="penis">
+		<s:Label includeIn="penis" x="290" y="290" text="Penis"/>
+	</s:Group>
+		
+
+</s:View>

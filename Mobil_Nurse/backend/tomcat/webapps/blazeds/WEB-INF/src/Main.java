@@ -5,8 +5,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import mobile.nurse.model.atl.communication.ComProblem;
-import mobile.nurse.model.atl.communication.Communication;
 import mobile.nurse.model.employee.Employee;
 import mobile.nurse.model.employee.EmployeeDAO;
 import mobile.nurse.model.patient.Patient;

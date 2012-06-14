@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:ViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
 							xmlns:s="library://ns.adobe.com/flex/spark" 
-							firstView="view.components.LoginView" 
+							firstView="view.components.login.LoginView" 
 							applicationDPI="160"
 							initialize="onInitalization(event)"
 							splashScreenImage="@Embed('assets/nurse.png')" 

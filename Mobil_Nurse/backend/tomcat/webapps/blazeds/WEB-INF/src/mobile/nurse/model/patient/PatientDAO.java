@@ -81,7 +81,7 @@ public class PatientDAO {
 				System.out.println(" - Patient:  " + " ID: " + pat.getId()
 						+ "  Name: " + pat.getName() + " Firstname: "
 						+ pat.getFirstname() + "Room: " + pat.getRoomNr()
-						+ " Gender: " + pat.getGender() + "ATL com-see:" + pat.getCommunication().getProblems().canSee());
+						+ " Gender: " + pat.getGender());
 			}
 		}
 

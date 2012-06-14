@@ -4,7 +4,7 @@ package control
 	import org.puremvc.as3.patterns.command.SimpleCommand;
 	import org.puremvc.as3.interfaces.INotification;
 	import spark.components.ViewNavigator;
-	import view.mediators.ViewNavigatorMediator;
+	import view.components.splitview.ViewNavigatorMediator;
 	import model.EmployeeRemoteProxy;
 	
 	public class StartupCommand extends SimpleCommand implements ICommand

@@ -7,8 +7,8 @@ package control
 	import org.puremvc.as3.patterns.command.MacroCommand;
 	import org.puremvc.as3.patterns.command.SimpleCommand;
 	import spark.components.View;
-	import view.components.atl.splitviews.mediators.PatientsAtlListMediator;
-	import view.components.atl.splitviews.mediators.PatientAtlDetailsMediator;
+	import view.components.splitview.list.PatientListMediator;
+	import view.components.splitview.details.PatientDetailsMediator;
 	
 	public class MediateLeftSplitViewCommand extends SimpleCommand implements ICommand
 	{
@@ -17,10 +17,10 @@ package control
 			var myview:View = notification.getBody() as View;
 			
 			switch(myview.id + "Mediator") {
-				case PatientsAtlListMediator.NAME:
+				case PatientListMediator.NAME:
 					trace("PatientsAtlListMediator registered");
-					facade.removeMediator( PatientsAtlListMediator.NAME);
-					facade.registerMediator(new PatientsAtlListMediator(myview));
+					facade.removeMediator( PatientListMediator.NAME);
+					facade.registerMediator(new PatientListMediator(myview));
 					break;
 				default: trace("default");
 			}

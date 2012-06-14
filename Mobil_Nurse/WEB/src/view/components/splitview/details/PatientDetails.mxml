@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		creationComplete="creationCompleteHandler(event)"
+		initialize="view1_initializeHandler(event)" 
+		xmlns:components="view.components.*"
+		backgroundColor="#E3F2F2" xmlns:auto="model.vo.auto.*" xmlns:splitview="view.components.atl.splitview.*" xmlns:mediators="view.mediators.*" xmlns:states="view.components.splitview.states.*">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			import mx.states.State;
+			
+			public static const NAME:String = 'PatientAtlDetails';
+			public static const SET_SELECTED_PATIENT:String = "Hallo";
+			private var loader:Loader = new Loader();
+			
+			public function setState(stateString:String):void{
+				
+				this.currentState = stateString;
+			}
+			
+			protected function view1_initializeHandler(event:FlexEvent):void
+			{
+				this.id = NAME;		
+			}
+			
+			protected function creationCompleteHandler(event:FlexEvent):void
+			{
+				this.actionBarVisible = false;
+				dispatchEvent( new Event( SET_SELECTED_PATIENT ) );
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+	</fx:Declarations>
+	
+		<s:states>
+			<s:State name="default"/>
+			<s:State name="communication"/>
+			<s:State name="mov"/>
+			<s:State name="vital"/>
+			<s:State name="feeding"/>
+			<s:State name="excrements"/>
+			<s:State name="dressUp"/>
+			<s:State name="hygiene"/>
+			<s:State name="safety"/>
+			<s:State name="religion"/>
+			<s:State name="sozialize"/>
+		</s:states>
+	
+	<states:PatientSelected id="patientSelected" includeIn="default" x="0" y="-47" width="1024"
+								height="750"/>
+	
+	<states:Communication includeIn="communication" x="0" y="-45" id="communicationATL" width="1024" height="748"/>
+	
+	<s:Label includeIn="mov" x="55" y="36" text="move"/>
+	<s:Label includeIn="vital" x="55" y="36" text="vital"/>
+	<s:Label includeIn="feeding" x="55" y="36" text="feeding"/>
+	<s:Label includeIn="excrements" x="55" y="36" text="excrements"/>
+	<s:Label includeIn="dressUp" x="55" y="36" text="dressUp"/>
+	<s:Label includeIn="hygiene" x="55" y="36" text="hygiene"/>
+	<s:Label includeIn="safety" x="55" y="36" text="safety"/>
+	<s:Label includeIn="religion" x="55" y="36" text="religion"/>
+	<s:Label includeIn="sozialize" x="55" y="36" text="sozialize"/>
+	
+</s:View>

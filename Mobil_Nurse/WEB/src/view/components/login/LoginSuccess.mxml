@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		backgroundColor="#E3F2F2" 
+		creationComplete="init()"
+		initialize="onInitialization(event)" 
+		title="Please check your personal Data" >
+	
+	<fx:Declarations>
+		<!-- Platzieren Sie nichtvisuelle Elemente (z. B. Dienste, Wertobjekte) hier -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import view.components.table.PatientsTable;
+			import control.events.ByteArEvent;
+			
+			import model.vo.auto.Employee;
+			
+			import mx.events.FlexEvent;
+			
+			import spark.primitives.BitmapImage;
+			
+			/** PureMVC PART PureMVC Part PureMVC PART **/
+			
+			public static const NAME:String = 'LoginSuccess';
+			public static const CLICKED:String = NAME + "Clicked";
+			public static const CLICKEDFORWARD:String = NAME + "ClickedFoward";
+			public static const ASK_FOR_PICTURE:String = NAME + "AskForPicture";
+			
+			public function onInitialization(event:FlexEvent):void {
+				this.id = NAME;
+				trace("** -- ON INITIALIZE LOGIN SUCCESS -- **")
+			}
+			
+			public function fireMVCLogout():void {
+				trace("LoginSuccessView - ClickEvent - TRYLOGOUT");
+				dispatchEvent( new Event( CLICKED ) );
+			}
+			
+			public function fireMVCGoForward():void {
+				trace("LoginSuccessView - ClickEvent - TRYLOGOUT");
+				dispatchEvent( new Event( CLICKEDFORWARD ) );
+			}
+			
+			/** PureMVC PART PureMVC Part PureMVC PART **/
+			
+			public function logoutView():void {
+				navigator.popView();
+			}
+			
+			public function goForward():void {
+				navigator.pushView(PatientsTable);
+			}
+			
+			public function init():void{
+				getEmployeePicture();
+			}
+			
+			private function getEmployeePicture():void
+			{
+				dispatchEvent( new ByteArEvent( ASK_FOR_PICTURE , data.picture as ByteArray ) );
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<s:navigationContent>
+		<s:Button label="Logout" click="fireMVCLogout()"/>
+	</s:navigationContent>
+	<s:actionContent>
+		<s:Button id="showPatientsTable" width="121" height="32" label="Go Ahead"
+				  click="fireMVCGoForward()"/>
+	</s:actionContent>
+	
+	<s:HGroup x="143" width="400" verticalCenter="-196">
+	</s:HGroup>
+		<s:VGroup width="318" height="318" horizontalCenter="-170" verticalCenter="0">
+			<s:Label y="159" width="299" fontSize="18" horizontalCenter="-1"
+					 text="Is it really you?" textAlign="center"/>
+			<s:Image id="employee_picture" maxHeight="300" maxWidth="300" styleName="picture">
+				<s:filters>
+					<s:DropShadowFilter distance="6" quality="4"/>
+				</s:filters>
+			</s:Image>
+		</s:VGroup>
+	<s:Form width="400" height="300" horizontalCenter="200" styleName="checkData" verticalCenter="0">
+		<s:FormItem width="100%" label="Personalnumber: " fontSize="22" fontStyle="normal"
+					textAlign="center">
+			<s:Label id="dataPrsNumber" width="170" color="#608785" fontSize="20"
+					 text="{data.prsnumber}" textAlign="right"/>
+		</s:FormItem>
+		
+		<s:FormItem width="100%" label="Username: " fontSize="22">
+			<s:Label id="dataUsername" width="170" color="#608785" fontSize="20"
+					 text="{data.username}" textAlign="right"/>
+		</s:FormItem>
+		
+		<s:FormItem width="100%" label="Firstname: " fontSize="22">
+			<s:Label id="dataFirstName" width="170" color="#608785" fontSize="20"
+					 text="{data.firstname}" textAlign="right"/>
+		</s:FormItem>
+		
+		<s:FormItem width="100%" label="Lastname: " fontSize="22" >
+			<s:Label id="dataName" width="170" color="#608785" fontSize="20" text="{data.name}"
+					 textAlign="right"/>
+		</s:FormItem>
+		
+		<s:FormItem width="100%" label="Your Job: " fontSize="22">
+			<s:Label id="dataJob" width="170" color="#608785" fontSize="20" text="{data.job}"
+					 textAlign="right"/>
+		</s:FormItem>
+		
+		<s:FormItem width="100%" label="Your Birth: " fontSize="22">
+			<s:Label id="dataBirth" width="170" color="#608785" fontSize="20" text="{data.birth}"
+					 textAlign="right"/>
+		</s:FormItem>
+	</s:Form>
+	
+</s:View>

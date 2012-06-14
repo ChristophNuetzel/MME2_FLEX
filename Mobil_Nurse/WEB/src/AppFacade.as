@@ -15,7 +15,7 @@ package
 	
 	import spark.components.ViewNavigator;
 	
-	import view.components.atl.splitviews.mediators.PatientsAtlListMediator;
+	import view.components.splitview.list.PatientListMediator;
 
 	public class AppFacade extends Facade implements IFacade {
 		

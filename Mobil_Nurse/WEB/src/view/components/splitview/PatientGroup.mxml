@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		title="{data.name}"
+		initialize="initializeHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			import view.components.table.PatientsTable;
+			private var loader:Loader = new Loader();
+			
+			public static const NAME:String = 'PatientGroup';
+			public static const CLICKED:String = NAME + "Clicked";
+
+			protected function fireMVCgoBack(event:MouseEvent):void
+			{
+				dispatchEvent( new Event( CLICKED ) );
+			}
+			
+			public function goBack():void{
+				this.navigator.popView();
+			}
+			
+			protected function initializeHandler(event:FlexEvent):void
+			{
+				this.id = NAME;		
+			}
+			
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+	</fx:Declarations>
+	<s:actionContent>
+		<s:Button x="-45" width="137" label="Save Patient"/>
+	</s:actionContent>
+	
+	<s:SplitViewNavigator id="splitNavigator" x="0" y="0" width="100%" height="100%">
+		<s:ViewNavigator id="leftNav" width="30%" height="100%"
+						 firstView="view.components.splitview.list.PatientList"/>
+		<s:ViewNavigator id="rightNav" width="70%" height="100%"
+						 firstView="view.components.splitview.details.PatientDetails"/>
+			
+	</s:SplitViewNavigator>
+	
+	<s:navigationContent>
+		<s:Button click="fireMVCgoBack(event)" label="Back"/>
+	</s:navigationContent>
+	
+</s:View>

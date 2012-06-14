@@ -9,7 +9,7 @@ package control
 	
 	import spark.components.View;
 	
-	import view.components.atl.splitviews.mediators.PatientAtlDetailsMediator;
+	import view.components.splitview.details.PatientDetailsMediator;
 	
 	public class MediateRightSplitViewCommand extends SimpleCommand implements ICommand
 	{
@@ -22,10 +22,10 @@ package control
 			}
 			
 			switch(myview.id + "Mediator") {
-				case PatientAtlDetailsMediator.NAME:
+				case PatientDetailsMediator.NAME:
 					trace("PatientsAtlListMediator registered");
-					facade.removeMediator( PatientAtlDetailsMediator.NAME);
-					facade.registerMediator(new PatientAtlDetailsMediator(myview , data));
+					facade.removeMediator( PatientDetailsMediator.NAME);
+					facade.registerMediator(new PatientDetailsMediator(myview , data));
 					break;
 				default: trace("default");
 			}

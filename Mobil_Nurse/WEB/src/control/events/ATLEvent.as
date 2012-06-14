@@ -12,7 +12,11 @@ package control.events
 		public function ATLEvent(type:String, data:Object, bubbles:Boolean=false, cancelable:Boolean=false)
 		{
 			super(type , bubbles , cancelable );
-			this.data = data;
+			if(data != null){
+				this.data = data;
+			}else{
+				throw new Error("the data is null");
+			}
 		}
 		
 		override public function clone():Event

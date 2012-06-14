@@ -9,7 +9,7 @@
 <<<<<<< HEAD
 			import view.components.View2;
 =======
-			import view.components.LoginSuccess;
+			import view.components.login.LoginSuccess;
 >>>>>>> e2c2498a71e632058764c38a83ec190c3087eb76
 			import mx.events.FlexEvent;
 		

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:services="services.*"
+		xmlns:vo="model.vo.*"
+		xmlns:views="views.*"
+		xmlns:components="view.components.*"
+		xmlns:auto="model.vo.auto.*"
+		backgroundColor="#E3F2F2" initialize="onInitialization(event)"
+		title="Welcome - Please Login" xmlns:register="view.components.register.*">
+	
+	<fx:Script>
+		<![CDATA[
+			import model.vo.auto.Employee;
+			
+			import mx.events.FlexEvent;
+			
+			import skins.Appskin;
+			
+			
+			/** PureMVC PART PureMVC Part PureMVC PART **/
+			
+			public static const NAME:String = 'LoginView';
+			public static const CLICKED:String = NAME + "Clicked";
+			
+			public function onInitialization(event:FlexEvent):void {
+				this.id = NAME;
+				this.actionBarVisible = false;
+			}
+			
+			public function fireMVCLog():void {
+				trace("LoginView() ClickEvent - dispatchEvent : CLICKED - TRYLOGIN");
+				dispatchEvent( new Event( CLICKED ) );
+			}
+			
+			/** PureMVC PART PureMVC Part  PureMVC PART **/
+			
+			protected function login_clickHandler(event:MouseEvent):void
+			{
+				if(inputValidator(nurseName.text, nursePass.text)){
+					fireMVCLog();
+				}else{
+					setErrorMessage("Please insert Name and Password");
+					errorText.setStyle('color', '#00FF00');
+				}
+			}
+			
+			public function inputValidator(name: String, pass: String):Boolean{
+				trace("check");
+				return(name != null && name.length > 0 && pass != null && pass.length > 0)
+			}
+						
+			public function setErrorMessage(msg:String):void
+			{
+				errorText.text = msg;
+			}
+			
+			protected function btn_click(event:Event):void{
+				this.setStyle("skinClass", skins.Appskin);
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+	</fx:Declarations>
+	
+	<s:states>
+		<s:State name="login"/>
+		<s:State name="register"/>
+	</s:states>
+	
+	<s:BorderContainer id="container" x="0" y="243" width="100%" height="518" borderVisible="false"
+					   >
+		<s:filters>
+			<s:DropShadowFilter angle="180" strength="0.5" quality="9"/>
+		</s:filters>
+		<s:Button label="Change Back Ground Image" click="btn_click(event);"/>
+		<s:VGroup y="37" width="664" horizontalCenter="176">
+			<s:HGroup>
+				<s:Label id="errorText" text="Please Login"/>
+				<s:BusyIndicator id="busyIndicatorLogin" rotationInterval="50" symbolColor="white"
+								 width="21" height="21" visible="false"/>
+			</s:HGroup>
+			
+			<s:HGroup id="vgroup" x="79" y="150" width="660" height="51">
+				<s:TextInput id="nurseName" left="50%" width="200" text=""/>
+				<s:TextInput id="nursePass" width="200" height="35" displayAsPassword="true"/>
+				<s:Button id="loginBtn" width="95" height="34" label="Login"
+						  click="login_clickHandler(event)"/>
+				<s:Button id="registerBtn" width="130" height="34" label="New Account"
+						  click="currentState='register'"
+						  click.register="currentState='login'"/>
+			</s:HGroup>
+		</s:VGroup >
+		
+		<register:RegisterView includeIn="register" x="356" y="121"/>
+		
+		<s:Rect x="-36" y="37" width="372" height="302" radiusX="4"
+				height.login="274">
+			<s:fill>
+				<s:SolidColor color="#E3F2F2"/>
+			</s:fill>
+		</s:Rect>
+		<s:Label id="welcome" x="40" y="47" text="Mobile Nurse"/>
+		<s:Label id="welcome2" x="45" y="139" width="261" height="186" fontSize="21"
+				 text="Eine Medizinische Software zur Ersterfassung und Aufnahme von Patientendaten. &#xd;&#xd;Viel Spaß!"
+				 textAlign="left"
+				 text.login="Eine Software zur Ersterfassung und Aufnahme von Patientendaten. &#xd;&#xd;Viel Spaß!"/>
+		
+	</s:BorderContainer>
+	
+</s:View>
