@@ -5,6 +5,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import mobile.nurse.model.atl.communication.ComProblem;
+import mobile.nurse.model.atl.communication.Communication;
 import mobile.nurse.model.employee.Employee;
 import mobile.nurse.model.employee.EmployeeDAO;
 import mobile.nurse.model.patient.Patient;
@@ -28,17 +30,17 @@ public class Main {
 		
 		
 //		BufferedImage bim = ImageIO
-//				.read(new File("C:/Users/Christoph/Pictures/MyAvatar_Southpark.png"));
-//////				.read(new File("D:/Ressourcen/PICS/chris.jpeg"));
+////////				.read(new File("C:/Users/Christoph/Pictures/MyAvatar_Southpark.png"));
+//				.read(new File("C:/Users/Chris/Pictures/Lou/IMG_0098.JPG"));
 //		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 //		ImageIO.write(bim, "jpg", baos);
 //		byte[] bytepic = baos.toByteArray();
-////
-//		EmployeeDAO emplDAO = new EmployeeDAO();
-//		
+//////
+		EmployeeDAO emplDAO = new EmployeeDAO();
+////		
 //		Employee em = new Employee("Petra", "Kuhmann", "a", "a", 789456,
 //				"01/02/1985", "Nurse", bytepic);
-
+//
 //		emplDAO.createEmployee(em);
 //		emplDAO.getAllEmployees();
 //		emplDAO.getAllEmployees();
@@ -51,17 +53,16 @@ public class Main {
 //		}
 		
 		
-//		emplDAO.getAllEmployees();
+		emplDAO.getAllEmployees();
 //
 //		DbFrame df = new DbFrame(bb);
 		// emplDAO.getAllEmployees();
 		
 //		Communication com  = new Communication();
 //		ComProblem comP = new ComProblem();
-//		comP.setSee(false);
-//		comP.setSpeak(false);
-//		com.setCommunicationProblems(comP);
 
+//		com.setCommunicationProblems(comP);
+//
 		PatientDAO patientDAO = new PatientDAO();
 //		long l = 2;
 //		 patientDAO.updateCommunicationATL(2, com);

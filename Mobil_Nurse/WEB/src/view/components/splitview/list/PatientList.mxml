@@ -41,6 +41,7 @@
 			contentBackgroundColor="#E3F2F2" alternatingItemColors="[0xEEEEEE, 0xFFFFFF]">
 		<s:dataProvider>
 			<s:ArrayCollection>
+				<s:Label id="patient" text="Patient" />
 				<s:Label id="communication" text="Communication" />
 				<s:Label id="mov" text="Move"/>
 				<s:Label id="vital" text="Hygiene"/>

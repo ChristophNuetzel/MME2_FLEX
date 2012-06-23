@@ -14,8 +14,7 @@
 			import model.vo.auto.Employee;
 			
 			import mx.events.FlexEvent;
-			
-			import skins.Appskin;
+		
 			
 			
 			/** PureMVC PART PureMVC Part PureMVC PART **/
@@ -54,10 +53,7 @@
 			{
 				errorText.text = msg;
 			}
-			
-			protected function btn_click(event:Event):void{
-				this.setStyle("skinClass", skins.Appskin);
-			}
+
 			
 		]]>
 	</fx:Script>
@@ -75,7 +71,6 @@
 		<s:filters>
 			<s:DropShadowFilter angle="180" strength="0.5" quality="9"/>
 		</s:filters>
-		<s:Button label="Change Back Ground Image" click="btn_click(event);"/>
 		<s:VGroup y="37" width="664" horizontalCenter="176">
 			<s:HGroup>
 				<s:Label id="errorText" text="Please Login"/>

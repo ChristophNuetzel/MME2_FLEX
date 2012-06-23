@@ -39,6 +39,17 @@ package model
 			super(NAME, data);
 		}
 		
+		public function updatePatientDatabase():void{
+			cr.addEventListener(ResultEvent.RESULT, setPatient );
+			var patient:Patient = PatientLocalProxy.patient as Patient;
+			cr.token = pt.updatePatient( patient ); 
+		}
+		
+		protected function setPatient(event:ResultEvent):void
+		{
+			trace("setpatient bla bla bla deine mutter");			
+		}
+		
 		public function getAllPatients():void {
 			start();
 		}

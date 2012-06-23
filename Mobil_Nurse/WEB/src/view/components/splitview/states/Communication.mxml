@@ -13,9 +13,17 @@
 	<fx:Script>
 		<![CDATA[
 			import control.events.ATLEvent;
+			import control.events.CheckBoxEvent;
 			
 			
 			public static const VERIFY:String = "Verify" ;
+			
+			public static const CHECK_EYE:String = "CheckEye";
+			public static const CHECK_EAR:String = "CheckEar";
+			public static const CHECK_SPEAK:String = "CheckSpeak";
+			public var testProblem:String = "";
+			
+			public static const DESCRIPTION_EYE:String = "DescritionEye";
 			
 			private function verify():void{		
 				dispatchEvent(new ATLEvent( VERIFY, null) );
@@ -26,80 +34,145 @@
 				AppFacade.getInstance().registerMediator( new CommunicationMediator(this) );
 			}
 			
-			protected function button1_clickHandler(event:MouseEvent):void
+			
+			protected function checkEye(event:MouseEvent):void
 			{
-				if(descritonEye.visible){
-					descritonEye.visible = false;
-				}else{
-					descritonEye.visible = true;
-				}
+				dispatchEvent( new CheckBoxEvent( CHECK_EYE , this.check_eye.selected));
 			}
 			
-			protected function button2_clickHandler(event:MouseEvent):void
+			protected function checkEar(event:MouseEvent):void
 			{
-				if(descritonEar.visible){
-					descritonEar.visible = false;
-				}else{
-					descritonEar.visible = true;
-				}
+				dispatchEvent( new CheckBoxEvent( CHECK_EAR , this.check_ear.selected ));
 			}
 			
-			protected function button3_clickHandler(event:MouseEvent):void
+			protected function checkNose(event:MouseEvent):void
 			{
-				if(descritonNose.visible){
-					descritonNose.visible = false;
-				}else{
-					descritonNose.visible = true;
-				}				
+				dispatchEvent( new CheckBoxEvent( CHECK_SPEAK, this.check_nose.selected));	
+			}
+			
+			protected function descritonEyeEvent(event:KeyboardEvent):void
+			{
+				dispatchEvent( new Event( DESCRIPTION_EYE, this.problemsEye));	
 			}
 			
 		]]>
 	</fx:Script>
 	
 	<s:states>
-		<s:State name="problem"/>
-		<s:State name="solution"/>
-		<s:State name="penis"/>
+		<s:State name="ressourcen" id="ressourcen"/>
+		<s:State name="problems" id="problems"/>
+		<s:State name="solutions" id="solutions"/>
+		<s:State name="tools" id="tools"/>
+		
 	</s:states>
 	
-	<s:HGroup  width="500" height="26" y="78" horizontalCenter="-100">
-		<s:Label fontSize="30" text="Problems "
-				 click="currentState='problem'" textDecoration.problem="underline" />
-		<s:Label fontSize="30" text=" Solutions"
-				 click="currentState='solution'" textDecoration.solution="underline"/>
-		<s:Label fontSize="30" text=" Penis"
-				 click="currentState='penis'" textDecoration.penis="underline"/>
+	<s:HGroup y="78" width="550" height="26">
+		<s:Label fontSize="30" text=" Ressourcen "
+				 click="currentState='ressourcen'" textDecoration.ressourcen="underline" />
+		
+		<s:Label fontSize="30" text=" Problems "
+				 click="currentState='problems'" textDecoration.problems="underline" />
+		
+		<s:Label fontSize="30" text=" Solutions "
+				 click="currentState='solutions'" textDecoration.solutions="underline"/>
+		<s:Label fontSize="30" text=" Tools "
+				 click="currentState='tools'" textDecoration.tools="underline"/>
 	</s:HGroup>
 
-	<s:Group includeIn="problem" x="0" y="0" width="100%" height="100%">
+	<s:Group includeIn="ressourcen" x="0" y="0" width="100%" height="100%">
 		
 		<s:VGroup x="64" y="210">
+			<s:CheckBox click="checkEye(event)" id="check_eye"/>
 			<s:Image width="209" height="143" source="@Embed(source='assets/eye.png')"/>
-			<s:Button label="Descripton" click="button1_clickHandler(event)"/>
-			<s:TextArea id="descritonEye" visible="false" width="214" height="141"/>
 		</s:VGroup>	
 		
 		<s:VGroup x="558" y="210" height="339">
+			<s:CheckBox click="checkEar(event)" id="check_ear"/>
 			<s:Image x="287" y="189" width="161" height="128" source="@Embed(source='assets/ear.png')"/>
-			<s:Button label="Description" click="button2_clickHandler(event)"/>
-			<s:TextArea id="descritonEar" visible="false" width="214" height="141"/>
 		</s:VGroup>
 		
 		<s:VGroup x="314" y="205" height="344">
+			<s:CheckBox click="checkNose(event)" id="check_nose"/>
 			<s:Image x="499" y="191" width="158" height="126" source="@Embed(source='assets/nose.png')"/>
-			<s:Button label="Description" click="button3_clickHandler(event)"/>
-			<s:TextArea id="descritonNose" visible="false" width="214" height="141"/>
 		</s:VGroup>
+		<s:TextArea id="resstext" x="71" y="467"/>
 		
 	</s:Group>
 	
-	<s:Group includeIn="solution">
-		<s:Label x="224" y="208" text="Solution"/>
-	</s:Group>
-	
-	<s:Group includeIn="penis">
-		<s:Label includeIn="penis" x="290" y="290" text="Penis"/>
-	</s:Group>
+	<s:VGroup includeIn="problems" x="16" y="132" width="478">
+		<s:HGroup width="479">
+			<s:Image width="156" height="103" source="@Embed(source='assets/eye.png')"/>
+			<s:TextArea id="problemsEye" width="214" height="55" keyUp="descritonEyeEvent(event)"/>
+		</s:HGroup>
 		
+		<s:HGroup width="479">
+			<s:Image x="287" y="189" width="128" height="88" source="@Embed(source='assets/ear.png')"/>
+			<s:TextArea id="problemsEar" width="214" height="51" text="&#xd;"/>
+		</s:HGroup>
+		
+		<s:HGroup width="478">
+			<s:Image x="499" y="191" width="113" height="73" source="@Embed(source='assets/nose.png')"/>
+			<s:TextArea id="problemsSpeak" width="214" height="51"/>
+		</s:HGroup>
+		
+		<s:HGroup width="478">
+			<s:TextArea id="problemsHand" width="214" height="51"/>
+		</s:HGroup>
+		
+		<s:HGroup width="478">
+			<s:TextArea id="problemsPencil" width="214" height="51"/>
+		</s:HGroup>
+	</s:VGroup>
+	
+	<s:VGroup includeIn="solutions" x="16" y="132" width="478">
+		<s:HGroup width="479">
+			<s:Image width="156" height="103" source="@Embed(source='assets/eye.png')"/>
+			<s:TextArea id="solutionEye" width="214" height="55"/>
+		</s:HGroup>
+		
+		<s:HGroup width="479">
+			<s:Image x="287" y="189" width="128" height="88" source="@Embed(source='assets/ear.png')"/>
+			<s:TextArea id="solutionEar" width="214" height="51"/>
+		</s:HGroup>
+		
+		<s:HGroup width="478">
+			<s:Image x="499" y="191" width="113" height="73" source="@Embed(source='assets/nose.png')"/>
+			<s:TextArea id="solutionSpeak" width="214" height="51"/>
+		</s:HGroup>
+		
+		<s:HGroup width="478">
+			<s:TextArea id="solutionHand" width="214" height="51"/>
+		</s:HGroup>
+		
+		<s:HGroup width="478">
+			<s:TextArea id="solutionPencil" width="214" height="51"/>
+		</s:HGroup>
+	</s:VGroup>
+	
+	<s:VGroup includeIn="tools" x="16" y="132" width="478">
+		<s:HGroup width="479">
+			<s:Image width="156" height="103" source="@Embed(source='assets/eye.png')"/>
+			<s:TextArea id="toolsEye" width="214" height="55"/>
+		</s:HGroup>
+		
+		<s:HGroup width="479">
+			<s:Image x="287" y="189" width="128" height="88" source="@Embed(source='assets/ear.png')"/>
+			<s:TextArea id="toolsEar" width="214" height="51"/>
+		</s:HGroup>
+		
+		<s:HGroup width="478">
+			<s:Image x="499" y="191" width="113" height="73" source="@Embed(source='assets/nose.png')"/>
+			<s:TextArea id="toolsSpeak" width="214" height="51"/>
+		</s:HGroup>
+		
+		<s:HGroup width="478">
+			<s:TextArea id="toolsHand" width="214" height="51"/>
+		</s:HGroup>
+		
+		<s:HGroup width="478">
+			<s:TextArea id="toolsPencil" width="214" height="51"/>
+		</s:HGroup>
+	</s:VGroup>
+	
 
 </s:View>

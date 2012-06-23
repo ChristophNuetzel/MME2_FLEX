@@ -20,14 +20,14 @@ internal class _ComProblemEntityMetadata extends com.adobe.fiber.valueobjects.Ab
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("id");
+    model_internal static var allProperties:Array = new Array("problemsSee", "solutionSpeak", "id", "solutionsSee", "toolsSee", "toolsEar", "problemsEar", "ear", "see", "toolsSpeak", "problemsSpeak", "solutionEar", "nose");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("id");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("problemsSee", "solutionSpeak", "id", "solutionsSee", "toolsSee", "toolsEar", "problemsEar", "ear", "see", "toolsSpeak", "problemsSpeak", "solutionEar", "nose");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("id");
+    model_internal static var dataProperties:Array = new Array("problemsSee", "solutionSpeak", "id", "solutionsSee", "toolsSee", "toolsEar", "problemsEar", "ear", "see", "toolsSpeak", "problemsSpeak", "solutionEar", "nose");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("id");
+    model_internal static var nonDerivedProperties:Array = new Array("problemsSee", "solutionSpeak", "id", "solutionsSee", "toolsSee", "toolsEar", "problemsEar", "ear", "see", "toolsSpeak", "problemsSpeak", "solutionEar", "nose");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array();
     model_internal static var collectionBaseMap:Object;
@@ -47,7 +47,19 @@ internal class _ComProblemEntityMetadata extends com.adobe.fiber.valueobjects.Ab
         {
             // dependents map
             model_internal::dependentsOnMap = new Object();
+            model_internal::dependentsOnMap["problemsSee"] = new Array();
+            model_internal::dependentsOnMap["solutionSpeak"] = new Array();
             model_internal::dependentsOnMap["id"] = new Array();
+            model_internal::dependentsOnMap["solutionsSee"] = new Array();
+            model_internal::dependentsOnMap["toolsSee"] = new Array();
+            model_internal::dependentsOnMap["toolsEar"] = new Array();
+            model_internal::dependentsOnMap["problemsEar"] = new Array();
+            model_internal::dependentsOnMap["ear"] = new Array();
+            model_internal::dependentsOnMap["see"] = new Array();
+            model_internal::dependentsOnMap["toolsSpeak"] = new Array();
+            model_internal::dependentsOnMap["problemsSpeak"] = new Array();
+            model_internal::dependentsOnMap["solutionEar"] = new Array();
+            model_internal::dependentsOnMap["nose"] = new Array();
 
             // collection base map
             model_internal::collectionBaseMap = new Object();
@@ -55,7 +67,19 @@ internal class _ComProblemEntityMetadata extends com.adobe.fiber.valueobjects.Ab
 
         // Property type Map
         model_internal::propertyTypeMap = new Object();
+        model_internal::propertyTypeMap["problemsSee"] = "String";
+        model_internal::propertyTypeMap["solutionSpeak"] = "String";
         model_internal::propertyTypeMap["id"] = "Number";
+        model_internal::propertyTypeMap["solutionsSee"] = "String";
+        model_internal::propertyTypeMap["toolsSee"] = "String";
+        model_internal::propertyTypeMap["toolsEar"] = "String";
+        model_internal::propertyTypeMap["problemsEar"] = "String";
+        model_internal::propertyTypeMap["ear"] = "Boolean";
+        model_internal::propertyTypeMap["see"] = "Boolean";
+        model_internal::propertyTypeMap["toolsSpeak"] = "String";
+        model_internal::propertyTypeMap["problemsSpeak"] = "String";
+        model_internal::propertyTypeMap["solutionEar"] = "String";
+        model_internal::propertyTypeMap["nose"] = "Boolean";
 
         model_internal::_instance = value;
     }
@@ -285,7 +309,79 @@ internal class _ComProblemEntityMetadata extends com.adobe.fiber.valueobjects.Ab
     }
 
     [Bindable(event="propertyChange")]
+    public function get isProblemsSeeAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isSolutionSpeakAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
     public function get isIdAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isSolutionsSeeAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isToolsSeeAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isToolsEarAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isProblemsEarAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isEarAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isSeeAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isToolsSpeakAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isProblemsSpeakAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isSolutionEarAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isNoseAvailable():Boolean
     {
         return true;
     }
@@ -301,7 +397,79 @@ internal class _ComProblemEntityMetadata extends com.adobe.fiber.valueobjects.Ab
     }
 
     [Bindable(event="propertyChange")]   
+    public function get problemsSeeStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get solutionSpeakStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
     public function get idStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get solutionsSeeStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get toolsSeeStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get toolsEarStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get problemsEarStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get earStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get seeStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get toolsSpeakStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get problemsSpeakStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get solutionEarStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get noseStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

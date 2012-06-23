@@ -6,7 +6,9 @@ package view.components.table
 	import flash.events.Event;
 	
 	import model.EmployeeRemoteProxy;
+	import model.PatientLocalProxy;
 	import model.PatientRemoteProxy;
+	import model.vo.auto.Communication;
 	import model.vo.auto.Patient;
 	
 	import mx.collections.ArrayCollection;
@@ -15,9 +17,10 @@ package view.components.table
 	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.interfaces.IProxy;
 	import org.puremvc.as3.patterns.mediator.Mediator;
-	import view.components.splitview.PatientGroup;
+	
 	import spark.components.View;
 	
+	import view.components.splitview.PatientGroup;
 	import view.components.splitview.states.PatientSelected;
 	
 	
@@ -39,14 +42,12 @@ package view.components.table
 		
 		override public function onRegister():void {
 			allPatients.addEventListener(PatientsTable.VIEW_EMPLOYEE_DATA, getLoggedOut );
-			//allPatients.addEventListener(AllPatientsTable.VIEW_EMPLOYEE_DETAILS, gotoDetailsView );
 			allPatients.addEventListener(PatientsTable.GET_FULL_PATIENT, getfullPatient );
 			getAllPatients();
 		}
 		
 		protected function getfullPatient(event:GetPatientEvent):void
 		{
-			trace("daflsdöfl");
 			patientsRemoteProxy.askForPatient(event.patientID);
 		}
 		
@@ -55,7 +56,6 @@ package view.components.table
 			this.patientsRemoteProxy.getAllPatients();	
 		}
 		
-		// lauscht auf Notifications
 		override public function listNotificationInterests():Array {
 			return [ AppFacade.ALL_PATIENTS , AppFacade.ALL_PATIENTS_FAILED, AppFacade.GET_FULL_PATIENT_SUCCESS , AppFacade.GET_FULL_PATIENT_FAILED ];
 		}
@@ -80,6 +80,7 @@ package view.components.table
 					break;
 				case AppFacade.GET_FULL_PATIENT_SUCCESS:
 					allPatients.navigator.pushView(view.components.splitview.PatientGroup, notification.getBody() as Patient);
+					PatientLocalProxy.setPatient(notification.getBody() as Patient);
 					trace("get the full patient for selected view");
 					break;
 				case AppFacade.GET_FULL_PATIENT_FAILED:

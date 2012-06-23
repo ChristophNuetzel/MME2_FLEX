@@ -81,7 +81,7 @@ public class PatientDAO {
 				System.out.println(" - Patient:  " + " ID: " + pat.getId()
 						+ "  Name: " + pat.getName() + " Firstname: "
 						+ pat.getFirstname() + "Room: " + pat.getRoomNr()
-						+ " Gender: " + pat.getGender());
+						+ " Gender: " + pat.getGender() + " See: " + pat.getCommunication().getProblems().see + " Ear: " + pat.getCommunication().getProblems().ear + " Nose: " + pat.getCommunication().getProblems().nose);
 			}
 		}
 
@@ -105,6 +105,7 @@ public class PatientDAO {
 
 	public boolean updatePatient(Patient patient) {
 
+		System.out.println("DATABASE UPDATE PATIENT: " + patient);
 		try {
 			EntityManagerFactory emf = PersistenceManager.getInstance()
 					.createEntityManagerFactory();
@@ -192,8 +193,8 @@ public class PatientDAO {
 		
 		Communication c = new Communication();
 		ComProblem cp = new ComProblem();
-		cp.setSee(b);
-		cp.setSpeak(true);
+		cp.see = (b);
+		cp.ear = (true);
 		c.setProblems(cp);
 		System.out.println("CA: " + c );
 		

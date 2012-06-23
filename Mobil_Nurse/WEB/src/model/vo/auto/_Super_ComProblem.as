@@ -58,7 +58,19 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
     /**
      * properties
      */
+    private var _internal_problemsSee : String;
+    private var _internal_solutionSpeak : String;
     private var _internal_id : Number;
+    private var _internal_solutionsSee : String;
+    private var _internal_toolsSee : String;
+    private var _internal_toolsEar : String;
+    private var _internal_problemsEar : String;
+    private var _internal_ear : Boolean;
+    private var _internal_see : Boolean;
+    private var _internal_toolsSpeak : String;
+    private var _internal_problemsSpeak : String;
+    private var _internal_solutionEar : String;
+    private var _internal_nose : Boolean;
 
     private static var emptyArray:Array = new Array();
 
@@ -83,9 +95,81 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
      */
 
     [Bindable(event="propertyChange")]
+    public function get problemsSee() : String
+    {
+        return _internal_problemsSee;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get solutionSpeak() : String
+    {
+        return _internal_solutionSpeak;
+    }
+
+    [Bindable(event="propertyChange")]
     public function get id() : Number
     {
         return _internal_id;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get solutionsSee() : String
+    {
+        return _internal_solutionsSee;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get toolsSee() : String
+    {
+        return _internal_toolsSee;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get toolsEar() : String
+    {
+        return _internal_toolsEar;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get problemsEar() : String
+    {
+        return _internal_problemsEar;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get ear() : Boolean
+    {
+        return _internal_ear;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get see() : Boolean
+    {
+        return _internal_see;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get toolsSpeak() : String
+    {
+        return _internal_toolsSpeak;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get problemsSpeak() : String
+    {
+        return _internal_problemsSpeak;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get solutionEar() : String
+    {
+        return _internal_solutionEar;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get nose() : Boolean
+    {
+        return _internal_nose;
     }
 
     public function clearAssociations() : void
@@ -96,6 +180,26 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
      * data/source property setters
      */
 
+    public function set problemsSee(value:String) : void
+    {
+        var oldValue:String = _internal_problemsSee;
+        if (oldValue !== value)
+        {
+            _internal_problemsSee = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "problemsSee", oldValue, _internal_problemsSee));
+        }
+    }
+
+    public function set solutionSpeak(value:String) : void
+    {
+        var oldValue:String = _internal_solutionSpeak;
+        if (oldValue !== value)
+        {
+            _internal_solutionSpeak = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "solutionSpeak", oldValue, _internal_solutionSpeak));
+        }
+    }
+
     public function set id(value:Number) : void
     {
         var oldValue:Number = _internal_id;
@@ -103,6 +207,106 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
         {
             _internal_id = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "id", oldValue, _internal_id));
+        }
+    }
+
+    public function set solutionsSee(value:String) : void
+    {
+        var oldValue:String = _internal_solutionsSee;
+        if (oldValue !== value)
+        {
+            _internal_solutionsSee = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "solutionsSee", oldValue, _internal_solutionsSee));
+        }
+    }
+
+    public function set toolsSee(value:String) : void
+    {
+        var oldValue:String = _internal_toolsSee;
+        if (oldValue !== value)
+        {
+            _internal_toolsSee = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "toolsSee", oldValue, _internal_toolsSee));
+        }
+    }
+
+    public function set toolsEar(value:String) : void
+    {
+        var oldValue:String = _internal_toolsEar;
+        if (oldValue !== value)
+        {
+            _internal_toolsEar = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "toolsEar", oldValue, _internal_toolsEar));
+        }
+    }
+
+    public function set problemsEar(value:String) : void
+    {
+        var oldValue:String = _internal_problemsEar;
+        if (oldValue !== value)
+        {
+            _internal_problemsEar = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "problemsEar", oldValue, _internal_problemsEar));
+        }
+    }
+
+    public function set ear(value:Boolean) : void
+    {
+        var oldValue:Boolean = _internal_ear;
+        if (oldValue !== value)
+        {
+            _internal_ear = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "ear", oldValue, _internal_ear));
+        }
+    }
+
+    public function set see(value:Boolean) : void
+    {
+        var oldValue:Boolean = _internal_see;
+        if (oldValue !== value)
+        {
+            _internal_see = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "see", oldValue, _internal_see));
+        }
+    }
+
+    public function set toolsSpeak(value:String) : void
+    {
+        var oldValue:String = _internal_toolsSpeak;
+        if (oldValue !== value)
+        {
+            _internal_toolsSpeak = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "toolsSpeak", oldValue, _internal_toolsSpeak));
+        }
+    }
+
+    public function set problemsSpeak(value:String) : void
+    {
+        var oldValue:String = _internal_problemsSpeak;
+        if (oldValue !== value)
+        {
+            _internal_problemsSpeak = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "problemsSpeak", oldValue, _internal_problemsSpeak));
+        }
+    }
+
+    public function set solutionEar(value:String) : void
+    {
+        var oldValue:String = _internal_solutionEar;
+        if (oldValue !== value)
+        {
+            _internal_solutionEar = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "solutionEar", oldValue, _internal_solutionEar));
+        }
+    }
+
+    public function set nose(value:Boolean) : void
+    {
+        var oldValue:Boolean = _internal_nose;
+        if (oldValue !== value)
+        {
+            _internal_nose = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "nose", oldValue, _internal_nose));
         }
     }
 

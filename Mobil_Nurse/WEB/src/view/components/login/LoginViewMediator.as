@@ -25,6 +25,7 @@ package view.components.login
 			super(NAME);
 			this.loginView = view as LoginView;
 			employeeRemoteProxy = new EmployeeRemoteProxy(facade.retrieveProxy(EmployeeRemoteProxy.NAME));
+			
 		}
 		
 		override public function onRegister():void {

@@ -51,6 +51,7 @@ package view.components.splitview.details
 		
 		private function verify():void
 		{
+			
 			trace("VERIFY VERIFY VERIFY VERIFY");
 		}		
 		
@@ -60,6 +61,7 @@ package view.components.splitview.details
 		}
 		
 		private function setState(stateName:String):void{
+			
 			patientAtlDetails.currentState = stateName;
 		}
 		

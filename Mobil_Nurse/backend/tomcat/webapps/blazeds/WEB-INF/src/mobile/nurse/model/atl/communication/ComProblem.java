@@ -2,7 +2,6 @@ package mobile.nurse.model.atl.communication;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -12,21 +11,23 @@ public class ComProblem {
 	@GeneratedValue()
 	private Long id;
 	
-	private boolean see = false;
-	private boolean speak = false;
+	public boolean see = false;
+	public boolean ear = false;
+	public boolean nose = false;
 	
-	public boolean canSee() {
-		return see;
-	}
-	public void setSee(boolean see) {
-		this.see = see;
-	}
-	public boolean canSpeak() {
-		return speak;
-	}
-	public void setSpeak(boolean speak) {
-		this.speak = speak;
-	}
+	public String problemsSee = "";
+	public String problemsEar = "";
+	public String problemsSpeak = "";
+	
+	public String solutionsSee = "";
+	public String solutionEar = "";
+	public String solutionSpeak = "";
+	
+	public String toolsSee = "";
+	public String toolsEar = "";
+	public String toolsSpeak = "";
+	
+
 	public long getId() {
 		return id;
 	}
