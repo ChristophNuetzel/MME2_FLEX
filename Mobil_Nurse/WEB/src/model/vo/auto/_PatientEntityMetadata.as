@@ -22,14 +22,14 @@ internal class _PatientEntityMetadata extends com.adobe.fiber.valueobjects.Abstr
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("birth", "communication", "roomNr", "firstname", "nation", "id", "religion", "history", "picture", "patNr", "age", "name", "gender");
+    model_internal static var allProperties:Array = new Array("birth", "communication", "firstname", "roomNr", "nation", "picture", "id", "religion", "history", "patNr", "name", "age", "gender");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("birth", "communication", "roomNr", "firstname", "nation", "id", "religion", "history", "picture", "patNr", "age", "name", "gender");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("birth", "communication", "firstname", "roomNr", "nation", "picture", "id", "religion", "history", "patNr", "name", "age", "gender");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("birth", "communication", "roomNr", "firstname", "nation", "id", "religion", "history", "picture", "patNr", "age", "name", "gender");
+    model_internal static var dataProperties:Array = new Array("birth", "communication", "firstname", "roomNr", "nation", "picture", "id", "religion", "history", "patNr", "name", "age", "gender");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("birth", "communication", "roomNr", "firstname", "nation", "id", "religion", "history", "picture", "patNr", "age", "name", "gender");
+    model_internal static var nonDerivedProperties:Array = new Array("birth", "communication", "firstname", "roomNr", "nation", "picture", "id", "religion", "history", "patNr", "name", "age", "gender");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array();
     model_internal static var collectionBaseMap:Object;
@@ -51,16 +51,16 @@ internal class _PatientEntityMetadata extends com.adobe.fiber.valueobjects.Abstr
             model_internal::dependentsOnMap = new Object();
             model_internal::dependentsOnMap["birth"] = new Array();
             model_internal::dependentsOnMap["communication"] = new Array();
-            model_internal::dependentsOnMap["roomNr"] = new Array();
             model_internal::dependentsOnMap["firstname"] = new Array();
+            model_internal::dependentsOnMap["roomNr"] = new Array();
             model_internal::dependentsOnMap["nation"] = new Array();
+            model_internal::dependentsOnMap["picture"] = new Array();
             model_internal::dependentsOnMap["id"] = new Array();
             model_internal::dependentsOnMap["religion"] = new Array();
             model_internal::dependentsOnMap["history"] = new Array();
-            model_internal::dependentsOnMap["picture"] = new Array();
             model_internal::dependentsOnMap["patNr"] = new Array();
-            model_internal::dependentsOnMap["age"] = new Array();
             model_internal::dependentsOnMap["name"] = new Array();
+            model_internal::dependentsOnMap["age"] = new Array();
             model_internal::dependentsOnMap["gender"] = new Array();
 
             // collection base map
@@ -71,16 +71,16 @@ internal class _PatientEntityMetadata extends com.adobe.fiber.valueobjects.Abstr
         model_internal::propertyTypeMap = new Object();
         model_internal::propertyTypeMap["birth"] = "String";
         model_internal::propertyTypeMap["communication"] = "model.vo.auto.Communication";
-        model_internal::propertyTypeMap["roomNr"] = "String";
         model_internal::propertyTypeMap["firstname"] = "String";
+        model_internal::propertyTypeMap["roomNr"] = "String";
         model_internal::propertyTypeMap["nation"] = "String";
+        model_internal::propertyTypeMap["picture"] = "ByteArray";
         model_internal::propertyTypeMap["id"] = "Number";
         model_internal::propertyTypeMap["religion"] = "String";
         model_internal::propertyTypeMap["history"] = "String";
-        model_internal::propertyTypeMap["picture"] = "ByteArray";
         model_internal::propertyTypeMap["patNr"] = "String";
-        model_internal::propertyTypeMap["age"] = "int";
         model_internal::propertyTypeMap["name"] = "String";
+        model_internal::propertyTypeMap["age"] = "int";
         model_internal::propertyTypeMap["gender"] = "String";
 
         model_internal::_instance = value;
@@ -323,19 +323,25 @@ internal class _PatientEntityMetadata extends com.adobe.fiber.valueobjects.Abstr
     }
 
     [Bindable(event="propertyChange")]
-    public function get isRoomNrAvailable():Boolean
-    {
-        return true;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get isFirstnameAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
+    public function get isRoomNrAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
     public function get isNationAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isPictureAvailable():Boolean
     {
         return true;
     }
@@ -359,25 +365,19 @@ internal class _PatientEntityMetadata extends com.adobe.fiber.valueobjects.Abstr
     }
 
     [Bindable(event="propertyChange")]
-    public function get isPictureAvailable():Boolean
-    {
-        return true;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get isPatNrAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isAgeAvailable():Boolean
+    public function get isNameAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isNameAvailable():Boolean
+    public function get isAgeAvailable():Boolean
     {
         return true;
     }
@@ -411,19 +411,25 @@ internal class _PatientEntityMetadata extends com.adobe.fiber.valueobjects.Abstr
     }
 
     [Bindable(event="propertyChange")]   
-    public function get roomNrStyle():com.adobe.fiber.styles.Style
-    {
-        return model_internal::_nullStyle;
-    }
-
-    [Bindable(event="propertyChange")]   
     public function get firstnameStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
+    public function get roomNrStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
     public function get nationStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get pictureStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
@@ -447,25 +453,19 @@ internal class _PatientEntityMetadata extends com.adobe.fiber.valueobjects.Abstr
     }
 
     [Bindable(event="propertyChange")]   
-    public function get pictureStyle():com.adobe.fiber.styles.Style
-    {
-        return model_internal::_nullStyle;
-    }
-
-    [Bindable(event="propertyChange")]   
     public function get patNrStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get ageStyle():com.adobe.fiber.styles.Style
+    public function get nameStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get nameStyle():com.adobe.fiber.styles.Style
+    public function get ageStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

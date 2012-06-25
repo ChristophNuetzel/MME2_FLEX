@@ -58,8 +58,14 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
     /**
      * properties
      */
+    private var _internal_problemsPencil : String;
+    private var _internal_speak : Boolean;
+    private var _internal_toolsPencil : String;
     private var _internal_problemsSee : String;
     private var _internal_solutionSpeak : String;
+    private var _internal_solutionPencil : String;
+    private var _internal_pencil : Boolean;
+    private var _internal_hand : Boolean;
     private var _internal_id : Number;
     private var _internal_solutionsSee : String;
     private var _internal_toolsSee : String;
@@ -67,10 +73,12 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
     private var _internal_problemsEar : String;
     private var _internal_ear : Boolean;
     private var _internal_see : Boolean;
+    private var _internal_problemsHand : String;
+    private var _internal_toolsHand : String;
     private var _internal_toolsSpeak : String;
     private var _internal_problemsSpeak : String;
+    private var _internal_solutionHand : String;
     private var _internal_solutionEar : String;
-    private var _internal_nose : Boolean;
 
     private static var emptyArray:Array = new Array();
 
@@ -95,6 +103,24 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
      */
 
     [Bindable(event="propertyChange")]
+    public function get problemsPencil() : String
+    {
+        return _internal_problemsPencil;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get speak() : Boolean
+    {
+        return _internal_speak;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get toolsPencil() : String
+    {
+        return _internal_toolsPencil;
+    }
+
+    [Bindable(event="propertyChange")]
     public function get problemsSee() : String
     {
         return _internal_problemsSee;
@@ -104,6 +130,24 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
     public function get solutionSpeak() : String
     {
         return _internal_solutionSpeak;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get solutionPencil() : String
+    {
+        return _internal_solutionPencil;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get pencil() : Boolean
+    {
+        return _internal_pencil;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get hand() : Boolean
+    {
+        return _internal_hand;
     }
 
     [Bindable(event="propertyChange")]
@@ -149,6 +193,18 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
     }
 
     [Bindable(event="propertyChange")]
+    public function get problemsHand() : String
+    {
+        return _internal_problemsHand;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get toolsHand() : String
+    {
+        return _internal_toolsHand;
+    }
+
+    [Bindable(event="propertyChange")]
     public function get toolsSpeak() : String
     {
         return _internal_toolsSpeak;
@@ -161,15 +217,15 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
     }
 
     [Bindable(event="propertyChange")]
-    public function get solutionEar() : String
+    public function get solutionHand() : String
     {
-        return _internal_solutionEar;
+        return _internal_solutionHand;
     }
 
     [Bindable(event="propertyChange")]
-    public function get nose() : Boolean
+    public function get solutionEar() : String
     {
-        return _internal_nose;
+        return _internal_solutionEar;
     }
 
     public function clearAssociations() : void
@@ -179,6 +235,36 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
     /**
      * data/source property setters
      */
+
+    public function set problemsPencil(value:String) : void
+    {
+        var oldValue:String = _internal_problemsPencil;
+        if (oldValue !== value)
+        {
+            _internal_problemsPencil = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "problemsPencil", oldValue, _internal_problemsPencil));
+        }
+    }
+
+    public function set speak(value:Boolean) : void
+    {
+        var oldValue:Boolean = _internal_speak;
+        if (oldValue !== value)
+        {
+            _internal_speak = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "speak", oldValue, _internal_speak));
+        }
+    }
+
+    public function set toolsPencil(value:String) : void
+    {
+        var oldValue:String = _internal_toolsPencil;
+        if (oldValue !== value)
+        {
+            _internal_toolsPencil = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "toolsPencil", oldValue, _internal_toolsPencil));
+        }
+    }
 
     public function set problemsSee(value:String) : void
     {
@@ -197,6 +283,36 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
         {
             _internal_solutionSpeak = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "solutionSpeak", oldValue, _internal_solutionSpeak));
+        }
+    }
+
+    public function set solutionPencil(value:String) : void
+    {
+        var oldValue:String = _internal_solutionPencil;
+        if (oldValue !== value)
+        {
+            _internal_solutionPencil = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "solutionPencil", oldValue, _internal_solutionPencil));
+        }
+    }
+
+    public function set pencil(value:Boolean) : void
+    {
+        var oldValue:Boolean = _internal_pencil;
+        if (oldValue !== value)
+        {
+            _internal_pencil = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "pencil", oldValue, _internal_pencil));
+        }
+    }
+
+    public function set hand(value:Boolean) : void
+    {
+        var oldValue:Boolean = _internal_hand;
+        if (oldValue !== value)
+        {
+            _internal_hand = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "hand", oldValue, _internal_hand));
         }
     }
 
@@ -270,6 +386,26 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
         }
     }
 
+    public function set problemsHand(value:String) : void
+    {
+        var oldValue:String = _internal_problemsHand;
+        if (oldValue !== value)
+        {
+            _internal_problemsHand = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "problemsHand", oldValue, _internal_problemsHand));
+        }
+    }
+
+    public function set toolsHand(value:String) : void
+    {
+        var oldValue:String = _internal_toolsHand;
+        if (oldValue !== value)
+        {
+            _internal_toolsHand = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "toolsHand", oldValue, _internal_toolsHand));
+        }
+    }
+
     public function set toolsSpeak(value:String) : void
     {
         var oldValue:String = _internal_toolsSpeak;
@@ -290,6 +426,16 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
         }
     }
 
+    public function set solutionHand(value:String) : void
+    {
+        var oldValue:String = _internal_solutionHand;
+        if (oldValue !== value)
+        {
+            _internal_solutionHand = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "solutionHand", oldValue, _internal_solutionHand));
+        }
+    }
+
     public function set solutionEar(value:String) : void
     {
         var oldValue:String = _internal_solutionEar;
@@ -297,16 +443,6 @@ public class _Super_ComProblem extends flash.events.EventDispatcher implements c
         {
             _internal_solutionEar = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "solutionEar", oldValue, _internal_solutionEar));
-        }
-    }
-
-    public function set nose(value:Boolean) : void
-    {
-        var oldValue:Boolean = _internal_nose;
-        if (oldValue !== value)
-        {
-            _internal_nose = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "nose", oldValue, _internal_nose));
         }
     }
 

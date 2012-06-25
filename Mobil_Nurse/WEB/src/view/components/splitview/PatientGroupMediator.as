@@ -47,7 +47,6 @@ package view.components.splitview
 		
 		protected function updatePatient(event:Event):void
 		{
-			trace("we update the patient");
 			patientRemProx.updatePatientDatabase();
 			
 		}

@@ -29,23 +29,23 @@ public class Main {
 
 		
 		
-//		BufferedImage bim = ImageIO
-////////				.read(new File("C:/Users/Christoph/Pictures/MyAvatar_Southpark.png"));
-//				.read(new File("C:/Users/Chris/Pictures/Lou/IMG_0098.JPG"));
-//		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//		ImageIO.write(bim, "jpg", baos);
-//		byte[] bytepic = baos.toByteArray();
+		BufferedImage bim = ImageIO
+//////				.read(new File("C:/Users/Christoph/Pictures/MyAvatar_Southpark.png"));
+				.read(new File("C:/Users/Chris/Pictures/Lou/IMG_0098.JPG"));
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		ImageIO.write(bim, "jpg", baos);
+		byte[] bytepic = baos.toByteArray();
 //////
 		EmployeeDAO emplDAO = new EmployeeDAO();
 ////		
-//		Employee em = new Employee("Petra", "Kuhmann", "a", "a", 789456,
-//				"01/02/1985", "Nurse", bytepic);
+		Employee em = new Employee("Petra", "Kuhmann", "a", "a", 789456,
+				"01/02/1985", "Nurse", bytepic);
 //
-//		emplDAO.createEmployee(em);
+		emplDAO.createEmployee(em);
 //		emplDAO.getAllEmployees();
 //		emplDAO.getAllEmployees();
 
-//		byte[] bb = null;
+		byte[] bb = null;
 //		for (Employee e : emplDAO.getAllEmployees()) {
 //			if (e.getFirstname().equals("Chris")) {
 //				bb = e.getPicture();
@@ -58,18 +58,18 @@ public class Main {
 //		DbFrame df = new DbFrame(bb);
 		// emplDAO.getAllEmployees();
 		
-//		Communication com  = new Communication();
-//		ComProblem comP = new ComProblem();
+		Communication com  = new Communication();
+		ComProblem comP = new ComProblem();
 
-//		com.setCommunicationProblems(comP);
+		com.setCommunicationProblems(comP);
 //
 		PatientDAO patientDAO = new PatientDAO();
 //		long l = 2;
 //		 patientDAO.updateCommunicationATL(2, com);
 		 
-//		 Patient p = new Patient("Jens", "Maiermüller", "E114", "135786", "Moslem", 59, "20.05.1963", "German", "w", "She can´t eat", bytepic);
-//		 p.setCommunication(com);
-//		 patientDAO.createPatient(p);
+		 Patient p = new Patient("Jens", "Maiermüller", "E114", "135786", "Moslem", 59, "20.05.1963", "German", "w", "She can´t eat", bytepic);
+		 p.setCommunication(com);
+		 patientDAO.createPatient(p);
 		
 		 patientDAO.getAllPatients();
 		 

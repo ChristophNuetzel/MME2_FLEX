@@ -12,22 +12,26 @@
 	
 	<fx:Script>
 		<![CDATA[
-			import control.events.ATLEvent;
 			import control.events.CheckBoxEvent;
+			import control.events.StateTextFieldEvent;
 			
-			
-			public static const VERIFY:String = "Verify" ;
+			import mx.events.FlexEvent;
 			
 			public static const CHECK_EYE:String = "CheckEye";
 			public static const CHECK_EAR:String = "CheckEar";
 			public static const CHECK_SPEAK:String = "CheckSpeak";
-			public var testProblem:String = "";
+			public static const CHECK_HAND:String = "CheckHand";
+			public static const CHECK_PENCIL:String = "CheckPencil";
 			
-			public static const DESCRIPTION_EYE:String = "DescritionEye";
+			public static const SET_PROBLEMS_EYE:String = "SetProbemsEye";
+			public static const SET_PROBLEMS_EAR:String = "SetProbemsEar";
+			public static const SET_PROBLEMS_SPEAK:String = "SetProbemsSpeak";
+			public static const SET_PROBLEMS_HAND:String = "SetProbemsHand";
+			public static const SET_PROBLEMS_PENCIL:String = "SetProbemsPencil";
 			
-			private function verify():void{		
-				dispatchEvent(new ATLEvent( VERIFY, null) );
-			}
+			public static const GET_PROBLEM_FIELDS:String = "GetProblemFields";
+			public static const GET_SOLUTION_FIELDS:String = "GetSolutionFields";
+			public static const GET_TOOL_FIELDS:String = "GetToolFields";
 			
 			private function register():void {
 				AppFacade.getInstance().removeMediator( CommunicationMediator.NAME );
@@ -45,14 +49,61 @@
 				dispatchEvent( new CheckBoxEvent( CHECK_EAR , this.check_ear.selected ));
 			}
 			
-			protected function checkNose(event:MouseEvent):void
+			protected function checkSpeak(event:MouseEvent):void
 			{
-				dispatchEvent( new CheckBoxEvent( CHECK_SPEAK, this.check_nose.selected));	
+				dispatchEvent( new CheckBoxEvent( CHECK_SPEAK, this.check_speak.selected));	
 			}
 			
-			protected function descritonEyeEvent(event:KeyboardEvent):void
+			protected function checkHand(event:MouseEvent):void
 			{
-				dispatchEvent( new Event( DESCRIPTION_EYE, this.problemsEye));	
+				dispatchEvent( new CheckBoxEvent( CHECK_HAND, this.check_hand.selected));				
+			}
+			
+			protected function checkPencil(event:MouseEvent):void
+			{
+				dispatchEvent( new CheckBoxEvent( CHECK_PENCIL, this.check_pencil.selected ));
+			}
+			
+			//init
+			protected function initProblemTextFields(event:FlexEvent):void
+			{
+				dispatchEvent( new Event( GET_PROBLEM_FIELDS ) );
+			}
+			
+			protected function initSolutionTextFields(event:FlexEvent):void
+			{
+				dispatchEvent( new Event( GET_SOLUTION_FIELDS ) );	
+			}
+			
+			protected function initToolTextFields(event:FlexEvent):void
+			{
+				dispatchEvent( new Event( GET_TOOL_FIELDS ) );
+			}
+			
+			// setter
+			protected function setProblemsEye(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_PROBLEMS_EYE, this.problemsEye));	
+			}
+			
+			protected function setProblemsEar(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_PROBLEMS_EAR, this.problemsEar));
+			}
+			
+			protected function setProblemsSpeak(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_PROBLEMS_SPEAK, this.problemsSpeak));				
+			}
+			
+			protected function setProblemsHand(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_PROBLEMS_HAND, this.problemsHand));				
+			}
+			
+			protected function setProblemsPencil(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_PROBLEMS_PENCIL, this.problemsPencil));
 			}
 			
 		]]>
@@ -60,9 +111,9 @@
 	
 	<s:states>
 		<s:State name="ressourcen" id="ressourcen"/>
-		<s:State name="problems" id="problems"/>
-		<s:State name="solutions" id="solutions"/>
-		<s:State name="tools" id="tools"/>
+		<s:State name="problems" id="problems" enterState="initProblemTextFields(event)"/>
+		<s:State name="solutions" id="solutions" enterState="initSolutionTextFields(event)"/>
+		<s:State name="tools" id="tools" enterState="initToolTextFields(event)"/>
 		
 	</s:states>
 	
@@ -81,46 +132,47 @@
 
 	<s:Group includeIn="ressourcen" x="0" y="0" width="100%" height="100%">
 		
-		<s:VGroup x="64" y="210">
+		<s:VGroup x="62" y="112" width="63" height="73">
 			<s:CheckBox click="checkEye(event)" id="check_eye"/>
-			<s:Image width="209" height="143" source="@Embed(source='assets/eye.png')"/>
+			<s:Image width="61" height="42" source="@Embed(source='assets/eye.png')"/>
 		</s:VGroup>	
 		
-		<s:VGroup x="558" y="210" height="339">
+		<s:VGroup x="61" y="292" height="104">
 			<s:CheckBox click="checkEar(event)" id="check_ear"/>
-			<s:Image x="287" y="189" width="161" height="128" source="@Embed(source='assets/ear.png')"/>
+			<s:Image x="287" y="189" width="79" height="63" source="@Embed(source='assets/ear.png')"/>
 		</s:VGroup>
 		
-		<s:VGroup x="314" y="205" height="344">
-			<s:CheckBox click="checkNose(event)" id="check_nose"/>
-			<s:Image x="499" y="191" width="158" height="126" source="@Embed(source='assets/nose.png')"/>
+		<s:VGroup x="62" y="198" height="90">
+			<s:CheckBox click="checkSpeak(event)" id="check_speak"/>
+			<s:Image x="499" y="191" width="68" height="54" source="@Embed(source='assets/nose.png')"/>
 		</s:VGroup>
-		<s:TextArea id="resstext" x="71" y="467"/>
+		<s:CheckBox id="check_hand" x="71" y="431" label="hand" click="checkHand(event)"/>
+		<s:CheckBox id="check_pencil" x="67" y="488" label="pencil" click="checkPencil(event)"/>
 		
 	</s:Group>
 	
-	<s:VGroup includeIn="problems" x="16" y="132" width="478">
-		<s:HGroup width="479">
+	<s:VGroup includeIn="problems" x="16" y="132" width="690">
+		<s:HGroup width="669">
 			<s:Image width="156" height="103" source="@Embed(source='assets/eye.png')"/>
-			<s:TextArea id="problemsEye" width="214" height="55" keyUp="descritonEyeEvent(event)"/>
+			<s:TextArea id="problemsEye" width="294" height="55" keyUp="setProblemsEye(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="479">
 			<s:Image x="287" y="189" width="128" height="88" source="@Embed(source='assets/ear.png')"/>
-			<s:TextArea id="problemsEar" width="214" height="51" text="&#xd;"/>
+			<s:TextArea id="problemsEar" width="214" height="51" keyUp="setProblemsEar(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="478">
 			<s:Image x="499" y="191" width="113" height="73" source="@Embed(source='assets/nose.png')"/>
-			<s:TextArea id="problemsSpeak" width="214" height="51"/>
+			<s:TextArea id="problemsSpeak" width="214" height="51" keyUp="setProblemsSpeak(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="478">
-			<s:TextArea id="problemsHand" width="214" height="51"/>
+			<s:TextArea id="problemsHand" width="214" height="51" keyUp="setProblemsHand(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="478">
-			<s:TextArea id="problemsPencil" width="214" height="51"/>
+			<s:TextArea id="problemsPencil" width="214" height="51" keyUp="setProblemsPencil(event)"/>
 		</s:HGroup>
 	</s:VGroup>
 	

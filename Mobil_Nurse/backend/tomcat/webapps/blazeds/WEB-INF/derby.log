@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Tue Jun 12 00:11:11 CEST 2012:
-Booten von Derby Version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): Instanz a816c00e-0137-dd99-c47b-0000026ad6d0
-für Datenbankverzeichnis C:\MME2_FLEX\Mobil_Nurse\backend\tomcat\webapps\blazeds\WEB-INF\db   mit Klassenladeprogrammn sun.misc.Launcher$AppClassLoader@12f53870
+Mon Jun 25 01:31:54 CEST 2012:
+Booten von Derby Version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): Instanz a816c00e-0138-20d6-5677-000006ae8308
+für Datenbankverzeichnis C:\MME2_FLEX\Mobil_Nurse\backend\tomcat\webapps\blazeds\WEB-INF\db   mit Klassenladeprogrammn sun.misc.Launcher$AppClassLoader@53372a1a
 
-java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_01-b08
+java.vendor=Sun Microsystems Inc.
+java.runtime.version=1.6.0_32-b05
 user.dir=C:\MME2_FLEX\Mobil_Nurse\backend\tomcat\webapps\blazeds\WEB-INF
 derby.system.home=null
 Das Ladeprogramm für Datenbankklassen wurde gestartet - derby.database.classpath=''
