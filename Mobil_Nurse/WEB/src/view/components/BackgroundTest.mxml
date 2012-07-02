@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		title="BackgroundTest" 
+		creationComplete="view1_creationCompleteHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{
+				this.actionBarVisible = false;
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Platzieren Sie nichtvisuelle Elemente (z. B. Dienste, Wertobjekte) hier -->
+	</fx:Declarations>
+	
+		
+	<s:Image x="0" y="0" width="100%" source="@Embed(source='assets/background.png')" />
+	<s:Button x="214" y="398" label="Schaltfläche"/>
+	
+</s:View>

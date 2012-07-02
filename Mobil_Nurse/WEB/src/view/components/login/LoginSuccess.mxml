@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
-		xmlns:s="library://ns.adobe.com/flex/spark"
-		backgroundColor="#E3F2F2" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
 		creationComplete="init()"
 		initialize="onInitialization(event)" 
-		title="Please check your personal Data" >
+		title="Please check your personal Data" xmlns:styles="com.adobe.fiber.styles.*" >
 	
 	<fx:Declarations>
 		<!-- Platzieren Sie nichtvisuelle Elemente (z. B. Dienste, Wertobjekte) hier -->
@@ -12,7 +11,6 @@
 	
 	<fx:Script>
 		<![CDATA[
-			import view.components.table.PatientsTable;
 			import control.events.ByteArEvent;
 			
 			import model.vo.auto.Employee;
@@ -20,6 +18,8 @@
 			import mx.events.FlexEvent;
 			
 			import spark.primitives.BitmapImage;
+			
+			import view.components.table.PatientsTable;
 			
 			/** PureMVC PART PureMVC Part PureMVC PART **/
 			
@@ -55,6 +55,8 @@
 			
 			public function init():void{
 				getEmployeePicture();
+				backgroundImage.visible = true;
+				this.setElementIndex(back, 0);	
 			}
 			
 			private function getEmployeePicture():void
@@ -62,29 +64,26 @@
 				dispatchEvent( new ByteArEvent( ASK_FOR_PICTURE , data.picture as ByteArray ) );
 			}
 			
+			
 		]]>
 	</fx:Script>
 	
-	<s:navigationContent>
-		<s:Button label="Logout" click="fireMVCLogout()"/>
+	<s:navigationContent >
+		<s:Button id="asdf" label="Logout" click="fireMVCLogout()"/>
 	</s:navigationContent>
 	<s:actionContent>
 		<s:Button id="showPatientsTable" width="121" height="32" label="Go Ahead"
 				  click="fireMVCGoForward()"/>
 	</s:actionContent>
 	
-	<s:HGroup x="143" width="400" verticalCenter="-196">
-	</s:HGroup>
 		<s:VGroup width="318" height="318" horizontalCenter="-170" verticalCenter="0">
-			<s:Label y="159" width="299" fontSize="18" horizontalCenter="-1"
-					 text="Is it really you?" textAlign="center"/>
 			<s:Image id="employee_picture" maxHeight="300" maxWidth="300" styleName="picture">
 				<s:filters>
 					<s:DropShadowFilter distance="6" quality="4"/>
 				</s:filters>
 			</s:Image>
 		</s:VGroup>
-	<s:Form width="400" height="300" horizontalCenter="200" styleName="checkData" verticalCenter="0">
+	<s:Form width="400" height="300" horizontalCenter="200" verticalCenter="-8">
 		<s:FormItem width="100%" label="Personalnumber: " fontSize="22" fontStyle="normal"
 					textAlign="center">
 			<s:Label id="dataPrsNumber" width="170" color="#608785" fontSize="20"
@@ -116,5 +115,10 @@
 					 textAlign="right"/>
 		</s:FormItem>
 	</s:Form>
+	
+	<s:Group id="back">
+		<s:BitmapImage id="backgroundImage" visible="false" left="0" right="0" top="0" bottom="0"
+					   depth="0" smooth="true" source="@Embed('assets/background.png')"/>
+	</s:Group>
 	
 </s:View>

@@ -2,7 +2,8 @@
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		xmlns:services="services.*"
-		initialize="onInitialization(event)" title="Select a Patient">
+		initialize="onInitialization(event)" title="Select a Patient"
+		creationComplete="view1_creationCompleteHandler(event)">
 	
 	<fx:Script>
 		<![CDATA[
@@ -71,6 +72,12 @@
 				return isMatch;
 			}
 
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{
+				backgroundImage.visible = true;
+				this.setElementIndex(back, 0);				
+			}
+			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
@@ -102,12 +109,15 @@
 	</s:Group>
 	
 	<s:HGroup y="17" horizontalCenter="0">
-		<s:Label height="36" text="Search Patients by: " verticalAlign="middle"/>
-		<s:RadioButton id="Firstname" label="Firstname" width="126"/>
-		<s:RadioButton id="Name" label="Name" selected="true"/>
-		<s:TextInput id="searchString" width="355" change="filterDemo()"/>
+		<s:Label height="36" text="Search Patients by: " verticalAlign="middle" color="#FFFFFF"/>
+		<s:RadioButton id="Firstname" label="Firstname" width="126" color="#FFFFFF"/>
+		<s:RadioButton id="Name" label="Name" selected="true" color="#FFFFFF"/>
+		<s:TextInput id="searchString" width="355" change="filterDemo()" color="#000000"/>
 	</s:HGroup>
 
-		
+	<s:Group id="back">
+		<s:BitmapImage id="backgroundImage" visible="false" left="0" right="0" top="0" bottom="0"
+					   depth="0" smooth="true" source="@Embed('assets/background.png')"/>
+	</s:Group>
 	
 </s:View>

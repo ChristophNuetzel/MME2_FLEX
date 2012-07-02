@@ -3,7 +3,6 @@
   <Library/>
   <Group ai:artboardActive="1" ai:artboardIndex="0" ai:seqID="1" d:layerType="page" d:pageHeight="3000" d:pageWidth="3000" d:type="layer" d:userLabel="Artboard 1">
     <Group ai:objID="8563200" ai:seqID="2" d:id="2" d:type="layer" d:userLabel="Layer 1">
-      <BitmapImage scaleX="0.999875" scaleY="0.999875" x="988" y="1116" source="@Embed('background3.assets/images/background.png')" fillMode="clip" ai:embed="1" ai:objID="dec3b80" ai:seqID="3"/>
       <Group x="988" y="1116" ai:objID="855f800" ai:seqID="4" flm:knockout="false">
         <Rect x="921.601" y="672" width="102.399" height="96" ai:objID="e4dfb80" ai:seqID="5">
           <fill>

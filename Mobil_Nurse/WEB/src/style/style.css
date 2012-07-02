@@ -1,16 +1,19 @@
 @namespace s "library://ns.adobe.com/flex/spark";
 
 s|ActionBar{
-	chromeColor: #397373;
 	defaultButtonAppearance: beveled;
+	skinClass: ClassReference("skins.CustomActionBarSkin");
 }
 
-#container{
-	backgroundColor: #397373;
-	borderColor: #000000;
-	shadowColor: "0xEEEEEE";
+s|ActionBar #titleDisplay {
+	fontWeight:normal;
+	color: #FFFFFF;
 }
 
+s|ActionBar #titleGroup {
+	fontWeight:normal;
+	color: #FFFFFF;
+}
 .picture{
 	shadowColor:  "0xDDDDDD";
 }
@@ -36,12 +39,6 @@ s|ActionBar{
 	paddingTop: 25px;
 }
 
-.checkData{
-	backgroundColor: #E3F2F2;
-	borderColor: #E3F2F2;
-	shadowColor: "0xEEEEEE";
-}
-
 
 global
 {
@@ -49,4 +46,7 @@ global
 	font-size: 18;
 	vertical-align: middle;
 	text-align: left;
+	chrome-color: #686868;
+	content-background-color: #FFFFFF;
+	color: #000000;
 }

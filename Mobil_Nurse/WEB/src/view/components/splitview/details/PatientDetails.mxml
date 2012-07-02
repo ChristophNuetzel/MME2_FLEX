@@ -4,7 +4,11 @@
 		creationComplete="creationCompleteHandler(event)"
 		initialize="view1_initializeHandler(event)" 
 		xmlns:components="view.components.*"
-		backgroundColor="#E3F2F2" xmlns:auto="model.vo.auto.*" xmlns:splitview="view.components.atl.splitview.*" xmlns:mediators="view.mediators.*" xmlns:states="view.components.splitview.states.*">
+		backgroundColor="#E3F2F2" 
+		xmlns:auto="model.vo.auto.*" 
+		xmlns:splitview="view.components.atl.splitview.*" 
+		xmlns:mediators="view.mediators.*" 
+		xmlns:states="view.components.splitview.states.*">
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;

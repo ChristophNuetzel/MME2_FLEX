@@ -37,16 +37,14 @@
 	<fx:Declarations>
 	</fx:Declarations>
 	
-	<s:VGroup width="276" height="276" horizontalCenter="-337" verticalCenter="-138">
-		<s:Label y="159" width="100%" fontSize="17" horizontalCenter="0"
-				 text="Is this the Patient you searching for?" textAlign="center"/>
+	<s:VGroup width="276" height="276" horizontalCenter="-337" verticalCenter="-126">
 		<s:Image id="patient_picture" maxHeight="300" maxWidth="300" styleName="picture">
 			<s:filters>
 				<s:DropShadowFilter distance="6" quality="4"/>
 			</s:filters>
 		</s:Image>
 	</s:VGroup>
-	<s:Form x="318" width="370" height="514" styleName="checkData" verticalCenter="5"  backgroundColor="0xEEEEEE">
+	<s:Form x="383" width="370" height="514" styleName="checkData" verticalCenter="-9"  backgroundColor="0xEEEEEE">
 		
 		<s:FormItem width="350" label="Patientennumber:" fontSize="20" fontStyle="normal"
 					textAlign="center" backgroundColor="0xEEEEEE">

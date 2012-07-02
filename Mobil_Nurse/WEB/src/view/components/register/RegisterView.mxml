@@ -5,7 +5,8 @@
 		xmlns:views="views.*"
 		xmlns:services="services.*" 
 		xmlns:vo="model.vo.*"
-		backgroundColor= "#397373" xmlns:auto="model.vo.auto.*" xmlns:depricated="services.depricated.*">
+		xmlns:auto="model.vo.auto.*" xmlns:depricated="services.depricated.*"
+		backgroundAlpha="0">
 	
 	<fx:Declarations>
 		<services:EmployeeDao id="myEmployees"/> 
@@ -55,28 +56,29 @@
 	</fx:Script>
 	<s:HGroup x="0" y="45" width="416" height="173">
 		<s:VGroup height="174">
-			<s:Label fontSize="16" color="#FFFFFF" text="Set Name"/>
+			<s:Label fontSize="16" color="#FFFFFF" text="Insert Name"/>
 			<s:TextInput id="setName" width="200" fontSize="16" text=""/>
-			<s:Label fontSize="16" color="#FFFFFF" text="Set Firstname"/>
+			<s:Label fontSize="16" color="#FFFFFF" text="Insert Firstname"/>
 			<s:TextInput id="setFirstName" width="200" fontSize="16" text=""/>
-			<s:Label fontSize="16" color="#FFFFFF" text="Set Password"/>
+			<s:Label fontSize="16" color="#FFFFFF" text="Insert Password"/>
 			<s:TextInput id="setPassword" width="200" displayAsPassword="true" fontSize="16" text=""/>
 			<s:Label id="check" visible="false" fontSize="18"
 					 text="Bitte alle Felder ausfüllen!" color="#ef181e" paddingTop="5"/>
 		</s:VGroup>	
 		<s:VGroup height="175" paddingRight="0">
-			<s:Label fontSize="16" color="#FFFFFF" text="Set Username"/>
+			<s:Label fontSize="16" color="#FFFFFF" text="Insert Username"/>
 			<s:TextInput id="setUsername" width="200" fontSize="16" text=""/>
-			<s:Label fontSize="16" color="#FFFFFF" text="Set Job"/>
+			<s:Label fontSize="16" color="#FFFFFF" text="Insert Job"/>
 			<s:TextInput id="setJob" width="200" fontSize="16" text=""/>
-			<s:Label fontSize="16" color="#FFFFFF" text="Set Personalnumber"/>
+			<s:Label fontSize="16" color="#FFFFFF" text="Insert Personalnumber"/>
 			<s:TextInput id="setPrsNummer" width="200" fontSize="16" text=""/>
+			
 			
 			
 		</s:VGroup>
 	</s:HGroup>
 	<s:Label id="setRegister" x="0" y="-4" color="#FFFFFF" fontSize="20" paddingTop="20" text="Please Register"/>
-	<s:Button id="registerButton" x="434" y="175" width="143" label="Create Account"
+	<s:Button id="registerButton" x="434" y="184" width="143" height="34" label="Create Account"
 			  click="registerButton_clickHandler(event)" fontSize="16"/>
 	
 	

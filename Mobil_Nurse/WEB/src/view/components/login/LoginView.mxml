@@ -6,16 +6,15 @@
 		xmlns:views="views.*"
 		xmlns:components="view.components.*"
 		xmlns:auto="model.vo.auto.*"
-		backgroundColor="#E3F2F2" initialize="onInitialization(event)"
-		title="Welcome - Please Login" xmlns:register="view.components.register.*">
+		initialize="onInitialization(event)"
+		title="Welcome - Please Login" xmlns:register="view.components.register.*"
+		creationComplete="view1_creationCompleteHandler(event)">
 	
 	<fx:Script>
 		<![CDATA[
 			import model.vo.auto.Employee;
 			
-			import mx.events.FlexEvent;
-		
-			
+			import mx.events.FlexEvent;		
 			
 			/** PureMVC PART PureMVC Part PureMVC PART **/
 			
@@ -39,7 +38,7 @@
 				if(inputValidator(nurseName.text, nursePass.text)){
 					fireMVCLog();
 				}else{
-					setErrorMessage("Please insert Name and Password");
+					setErrorMessage("Fill all fields!");
 					errorText.setStyle('color', '#00FF00');
 				}
 			}
@@ -55,6 +54,12 @@
 			}
 
 			
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{
+				backgroundImage.visible = true;
+				this.setElementIndex(back, 0);
+			}
+			
 		]]>
 	</fx:Script>
 	
@@ -66,43 +71,54 @@
 		<s:State name="register"/>
 	</s:states>
 	
-	<s:BorderContainer id="container" x="0" y="243" width="100%" height="518" borderVisible="false"
-					   >
-		<s:filters>
-			<s:DropShadowFilter angle="180" strength="0.5" quality="9"/>
-		</s:filters>
-		<s:VGroup y="37" width="664" horizontalCenter="176">
-			<s:HGroup>
-				<s:Label id="errorText" text="Please Login"/>
-				<s:BusyIndicator id="busyIndicatorLogin" rotationInterval="50" symbolColor="white"
-								 width="21" height="21" visible="false"/>
-			</s:HGroup>
-			
-			<s:HGroup id="vgroup" x="79" y="150" width="660" height="51">
-				<s:TextInput id="nurseName" left="50%" width="200" text=""/>
-				<s:TextInput id="nursePass" width="200" height="35" displayAsPassword="true"/>
-				<s:Button id="loginBtn" width="95" height="34" label="Login"
-						  click="login_clickHandler(event)"/>
-				<s:Button id="registerBtn" width="130" height="34" label="New Account"
-						  click="currentState='register'"
-						  click.register="currentState='login'"/>
-			</s:HGroup>
+		<s:VGroup y="37" horizontalCenter="0" verticalCenter="-30">
+
+				<s:VGroup>
+					<s:HGroup>
+						<s:filters>
+							<s:DropShadowFilter angle="30" strength="0.2" color="#000000"/>
+						</s:filters>
+						<s:Label id="errorText" text="name" color="#FFFFFF"/>
+						<s:BusyIndicator id="busyIndicatorLogin" rotationInterval="50" symbolColor="black"
+										 width="21" height="21" visible="false" />
+					</s:HGroup>					
+					<s:TextInput id="nurseName" left="50%" width="230" color="#000000"  />
+					<s:Group>
+						<s:filters>
+							<s:DropShadowFilter angle="30" strength="0.2" color="#000000"/>
+						</s:filters>
+						<s:Label text="password" color="#FFFFFF"/>
+					</s:Group>
+					<s:Group height="40">
+						<s:TextInput id="nursePass" width="230" height="35" displayAsPassword="true" color="#000000"/>
+					</s:Group>
+					
+					<s:VGroup width="230">
+						<s:Button width="100%" height="34" label="Login"
+								  click="login_clickHandler(event)"/>
+						<s:Button width="100%" height="34" label="New Account"
+								  click="currentState='register'"
+								  click.register="currentState='login'"
+								  visible="false"/>						
+					</s:VGroup>
+				</s:VGroup>
+		
 		</s:VGroup >
 		
-		<register:RegisterView includeIn="register" x="356" y="121"/>
+		<register:RegisterView includeIn="register" verticalCenter="140" horizontalCenter="0"/>		
+	
+	
+	<s:Group id="back">
+		<s:BitmapImage id="backgroundImage" visible="false" left="0" right="0" top="0" bottom="0"
+					   depth="0" smooth="true" source="@Embed('assets/background.png')"/>
+	</s:Group>
+	
+	<s:VGroup width="1024" x="0" y="60">
 		
-		<s:Rect x="-36" y="37" width="372" height="302" radiusX="4"
-				height.login="274">
-			<s:fill>
-				<s:SolidColor color="#E3F2F2"/>
-			</s:fill>
-		</s:Rect>
-		<s:Label id="welcome" x="40" y="47" text="Mobile Nurse"/>
-		<s:Label id="welcome2" x="45" y="139" width="261" height="186" fontSize="21"
-				 text="Eine Medizinische Software zur Ersterfassung und Aufnahme von Patientendaten. &#xd;&#xd;Viel Spaß!"
-				 textAlign="left"
-				 text.login="Eine Software zur Ersterfassung und Aufnahme von Patientendaten. &#xd;&#xd;Viel Spaß!"/>
-		
-	</s:BorderContainer>
+		<s:Label id="welcome" text="Mobile Nurse" textAlign="center" width="100%" color="#CCCCCC"/>
+		<s:Label id="welcome2" x="45" y="139" width="100%" height="58" fontSize="21" color="#FFFFFF"
+				 text="Eine Software zur Ersterfassung und Aufnahme von Patientendaten."
+				 textAlign="center"/>
+	</s:VGroup>
 	
 </s:View>

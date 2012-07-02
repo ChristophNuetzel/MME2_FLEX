@@ -4,7 +4,7 @@
 							firstView="view.components.login.LoginView" 
 							applicationDPI="160"
 							initialize="onInitalization(event)"
-							splashScreenImage="@Embed('assets/nurse.png')" 
+							splashScreenImage="@Embed('assets/splash3.png')" 
 							splashScreenScaleMode="none"
 							>
 	
