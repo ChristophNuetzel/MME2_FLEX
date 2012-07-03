@@ -123,27 +123,33 @@
 			 height.tools="660">
 		<s:BitmapImage id="backgroundImage" visible="false" left="0" right="0" top="0" bottom="0"
 					   depth="0" smooth="true" source="@Embed('assets/ruledpaperwithheader.png')"/>
-		<s:VGroup includeIn="problems" x="-1" y="134" width="690" contentBackgroundAlpha="0">
-			<s:HGroup width="669">
-				<s:Image width="156" height="103" source="@Embed(source='assets/eye.png')"/>
-				<s:TextArea id="problemsEye" width="294" height="55" keyUp="setProblemsEye(event)"/>
+		<s:VGroup includeIn="problems" x="30" y="116" width="690" height="356"
+				  contentBackgroundAlpha="0">
+			<s:HGroup width="690">
+				<s:Image source="assets/eye.png"/>
+				<s:Spacer width="70" height="10"/>
+				<s:TextArea
+					verticalCenter="0" horizontalCenter="0" verticalAlign="top"
+					id="problemsEye" width="573" height="78" keyUp="setProblemsEye(event)" skinClass="skins.CustomTextAreaSkin" 
+							/>
 			</s:HGroup>
 			
+			<s:HGroup width="478">
+				<s:Image source="assets/mouth.png"/>
+				<s:TextArea id="problemsSpeak" width="214" height="51" keyUp="setProblemsSpeak(event)"/>
+			</s:HGroup>
 			<s:HGroup width="479">
-				<s:Image x="287" y="189" width="128" height="88" source="@Embed(source='assets/ear.png')"/>
+				<s:Image source="assets/ear.png"/>
 				<s:TextArea id="problemsEar" width="214" height="51" keyUp="setProblemsEar(event)"/>
 			</s:HGroup>
 			
 			<s:HGroup width="478">
-				<s:Image x="499" y="191" width="113" height="73" source="@Embed(source='assets/nose.png')"/>
-				<s:TextArea id="problemsSpeak" width="214" height="51" keyUp="setProblemsSpeak(event)"/>
-			</s:HGroup>
-			
-			<s:HGroup width="478">
+				<s:Image source="assets/hand.png"/>
 				<s:TextArea id="problemsHand" width="214" height="51" keyUp="setProblemsHand(event)"/>
 			</s:HGroup>
 			
 			<s:HGroup width="478">
+				<s:Image includeIn="problems" source="assets/pencil.png"/>
 				<s:TextArea id="problemsPencil" width="214" height="51" keyUp="setProblemsPencil(event)"/>
 			</s:HGroup>
 		</s:VGroup>
@@ -165,70 +171,95 @@
 	<s:Group includeIn="ressourcen" x="0" y="0" width="100%" height="663">
 		
 		<s:Group x="40" y="121" width="671" height="509">
-			<s:VGroup x="33" y="10" width="63" height="73">
-				<s:CheckBox click="checkEye(event)" id="check_eye"/>
-				<s:Image width="61" height="42" source="@Embed(source='assets/eye.png')"/>
-			</s:VGroup>
-			<s:VGroup x="33" y="110" height="90">
-				<s:CheckBox click="checkSpeak(event)" id="check_speak"/>
-				<s:Image x="499" y="191" width="68" height="54" source="@Embed(source='assets/nose.png')"/>
-			</s:VGroup>
-			<s:VGroup x="33" y="208" height="104">
+			<s:HGroup x="0" y="153" width="671" height="42">
+				<s:Spacer width="200" height="10"/>
 				<s:CheckBox click="checkEar(event)" id="check_ear"/>
-				<s:Image x="287" y="189" width="79" height="63" source="@Embed(source='assets/ear.png')"/>
-			</s:VGroup>
-			<s:CheckBox id="check_hand" x="33" y="320" label="hand" click="checkHand(event)"/>
-			<s:CheckBox id="check_pencil" x="37" y="401" label="pencil" click="checkPencil(event)"/>
+				<s:Spacer width="200" height="10"/>
+				<s:Image source="assets/ear.png"/>
+			</s:HGroup>
+			<s:HGroup x="0" y="79" width="671" height="36">
+				<s:Spacer width="200" height="10"/>
+				<s:CheckBox click="checkSpeak(event)" id="check_speak"/>
+				<s:Spacer width="200" height="10"/>
+				<s:Image source="assets/mouth.png"/>
+			</s:HGroup>
+			<s:HGroup x="0" y="-1" width="671" height="35">
+				<s:Spacer width="200" height="10"/>
+				<s:CheckBox click="checkEye(event)" id="check_eye"/>
+				<s:Spacer width="200" height="10"/>
+				<s:Image source="assets/eye.png"/>
+			</s:HGroup>
+			<s:HGroup x="0" y="232" width="671" height="39">
+				<s:Spacer width="200" height="10"/>
+				<s:CheckBox id="check_hand" click="checkHand(event)"/>
+				<s:Spacer width="200" height="10"/>
+				<s:Image source="assets/hand.png"/>
+			</s:HGroup>
+			<s:HGroup x="0" y="308" width="671" height="39">
+				<s:Spacer width="200" height="10"/>
+				<s:CheckBox id="check_pencil" click="checkPencil(event)"/>
+				<s:Spacer width="200" height="10"/>
+				<s:Image source="assets/pencil.png"/>
+			</s:HGroup>
 		</s:Group>
 		
 	</s:Group>
 	
 	<s:VGroup includeIn="solutions" x="16" y="132" width="478">
 		<s:HGroup width="479">
-			<s:Image width="156" height="103" source="@Embed(source='assets/eye.png')"/>
+			<s:Image source="assets/eye.png"/>
 			<s:TextArea id="solutionEye" width="214" height="55"/>
 		</s:HGroup>
 		
 		<s:HGroup width="479">
-			<s:Image x="287" y="189" width="128" height="88" source="@Embed(source='assets/ear.png')"/>
+			<s:Image source="assets/mouth.png"/>
 			<s:TextArea id="solutionEar" width="214" height="51"/>
 		</s:HGroup>
 		
 		<s:HGroup width="478">
-			<s:Image x="499" y="191" width="113" height="73" source="@Embed(source='assets/nose.png')"/>
+			<s:Image source="assets/ear.png"/>
 			<s:TextArea id="solutionSpeak" width="214" height="51"/>
 		</s:HGroup>
 		
 		<s:HGroup width="478">
+			<s:Image source="assets/hand.png"/>
 			<s:TextArea id="solutionHand" width="214" height="51"/>
 		</s:HGroup>
 		
 		<s:HGroup width="478">
+			<s:Image source="assets/pencil.png"/>
 			<s:TextArea id="solutionPencil" width="214" height="51"/>
 		</s:HGroup>
 	</s:VGroup>
 	
-	<s:VGroup includeIn="tools" x="16" y="132" width="478">
-		<s:HGroup width="479">
-			<s:Image width="156" height="103" source="@Embed(source='assets/eye.png')"/>
-			<s:TextArea id="toolsEye" width="214" height="55"/>
+	<s:VGroup includeIn="tools" x="16" y="132" width="733">
+		<s:HGroup width="732">
+			<s:Image source="assets/eye.png"/>
+			<s:Spacer width="79" height="10"/>
+			<s:TextArea id="toolsEye" width="610" height="55"/>
 		</s:HGroup>
 		
-		<s:HGroup width="479">
-			<s:Image x="287" y="189" width="128" height="88" source="@Embed(source='assets/ear.png')"/>
+		<s:HGroup width="733">
+			<s:Image source="assets/mouth.png"/>
+			<s:Spacer width="95" height="10"/>
 			<s:TextArea id="toolsEar" width="214" height="51"/>
 		</s:HGroup>
 		
-		<s:HGroup width="478">
-			<s:Image x="499" y="191" width="113" height="73" source="@Embed(source='assets/nose.png')"/>
+		<s:HGroup width="732">
+			<s:Image source="assets/ear.png"/>
+			<s:Spacer width="106" height="10"/>
 			<s:TextArea id="toolsSpeak" width="214" height="51"/>
 		</s:HGroup>
 		
-		<s:HGroup width="478">
+		<s:HGroup width="733">
+			<s:Image source="assets/hand.png"/>
+			<s:Spacer width="98" height="10"/>
 			<s:TextArea id="toolsHand" width="214" height="51"/>
 		</s:HGroup>
 		
-		<s:HGroup width="478">
+		<s:HGroup width="734">
+			<s:Image source="assets/pencil.png"/>
+			<s:Spacer width="98" height="10"/>
 			<s:TextArea id="toolsPencil" width="214" height="51"/>
 		</s:HGroup>
 	</s:VGroup>

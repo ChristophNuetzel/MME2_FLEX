@@ -55,3 +55,7 @@ global
 	content-background-color: #FFFFFF;
 	color: #000000;
 }
+
+s|TextArea {
+	fontSize: 20;	
+}
