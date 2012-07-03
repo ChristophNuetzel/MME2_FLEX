@@ -114,10 +114,11 @@
 		<s:State name="problems" id="problems" enterState="initProblemTextFields(event)"/>
 		<s:State name="solutions" id="solutions" enterState="initSolutionTextFields(event)"/>
 		<s:State name="tools" id="tools" enterState="initToolTextFields(event)"/>
-		
 	</s:states>
 	
-	<s:HGroup y="78" width="550" height="26">
+	<s:HGroup y="78" width="550" height="26"
+			  x.problems="85" y.problems="77"
+			  y.ressourcen="53" width.ressourcen="584" height.ressourcen="51">
 		<s:Label fontSize="30" text=" Ressourcen "
 				 click="currentState='ressourcen'" textDecoration.ressourcen="underline" />
 		
@@ -132,24 +133,28 @@
 
 	<s:Group includeIn="ressourcen" x="0" y="0" width="100%" height="100%">
 		
-		<s:VGroup x="62" y="112" width="63" height="73">
-			<s:CheckBox click="checkEye(event)" id="check_eye"/>
-			<s:Image width="61" height="42" source="@Embed(source='assets/eye.png')"/>
-		</s:VGroup>	
-		
-		<s:VGroup x="61" y="292" height="104">
-			<s:CheckBox click="checkEar(event)" id="check_ear"/>
-			<s:Image x="287" y="189" width="79" height="63" source="@Embed(source='assets/ear.png')"/>
-		</s:VGroup>
-		
-		<s:VGroup x="62" y="198" height="90">
-			<s:CheckBox click="checkSpeak(event)" id="check_speak"/>
-			<s:Image x="499" y="191" width="68" height="54" source="@Embed(source='assets/nose.png')"/>
-		</s:VGroup>
-		<s:CheckBox id="check_hand" x="71" y="431" label="hand" click="checkHand(event)"/>
-		<s:CheckBox id="check_pencil" x="67" y="488" label="pencil" click="checkPencil(event)"/>
+		<s:Group x="40" y="121" width="671" height="583">
+			<s:VGroup x="33" y="10" width="63" height="73">
+				<s:CheckBox click="checkEye(event)" id="check_eye"/>
+				<s:Image width="61" height="42" source="@Embed(source='assets/eye.png')"/>
+			</s:VGroup>
+			<s:VGroup x="33" y="110" height="90">
+				<s:CheckBox click="checkSpeak(event)" id="check_speak"/>
+				<s:Image x="499" y="191" width="68" height="54" source="@Embed(source='assets/nose.png')"/>
+			</s:VGroup>
+			<s:VGroup x="33" y="208" height="104">
+				<s:CheckBox click="checkEar(event)" id="check_ear"/>
+				<s:Image x="287" y="189" width="79" height="63" source="@Embed(source='assets/ear.png')"/>
+			</s:VGroup>
+			<s:CheckBox id="check_hand" x="33" y="320" label="hand" click="checkHand(event)"/>
+			<s:CheckBox id="check_pencil" x="37" y="401" label="pencil" click="checkPencil(event)"/>
+		</s:Group>
 		
 	</s:Group>
+	
+	<s:TextInput >
+		
+	</s:TextInput>
 	
 	<s:VGroup includeIn="problems" x="16" y="132" width="690">
 		<s:HGroup width="669">

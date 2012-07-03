@@ -68,4 +68,6 @@
 	<s:Label includeIn="religion" x="55" y="36" text="religion"/>
 	<s:Label includeIn="sozialize" x="55" y="36" text="sozialize"/>
 	
+	
+	
 </s:View>

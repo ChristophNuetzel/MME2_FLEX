@@ -27,7 +27,6 @@
 			}
 			
 			public function fireMVCLog():void {
-				trace("LoginView() ClickEvent - dispatchEvent : CLICKED - TRYLOGIN");
 				dispatchEvent( new Event( CLICKED ) );
 			}
 			
@@ -76,21 +75,21 @@
 				<s:VGroup>
 					<s:HGroup>
 						<s:filters>
-							<s:DropShadowFilter angle="30" strength="0.2" color="#000000"/>
+							<s:DropShadowFilter angle="45" strength="1.0" color="#000000" blurX="0" blurY="0" distance="2"/>
 						</s:filters>
-						<s:Label id="errorText" text="name" color="#FFFFFF"/>
+						<s:Label id="errorText" text="name" color="#c4c4c4"/>
 						<s:BusyIndicator id="busyIndicatorLogin" rotationInterval="50" symbolColor="black"
 										 width="21" height="21" visible="false" />
 					</s:HGroup>					
-					<s:TextInput id="nurseName" left="50%" width="230" color="#000000"  />
+					<s:TextInput id="nurseName" left="50%" width="230" color="#c4c4c4"  />
 					<s:Group>
 						<s:filters>
-							<s:DropShadowFilter angle="30" strength="0.2" color="#000000"/>
+							<s:DropShadowFilter angle="45" strength="1.0" color="#000000" blurX="0" blurY="0" distance="2"/>
 						</s:filters>
-						<s:Label text="password" color="#FFFFFF"/>
+						<s:Label text="password" color="#c4c4c4" />
 					</s:Group>
 					<s:Group height="40">
-						<s:TextInput id="nursePass" width="230" height="35" displayAsPassword="true" color="#000000"/>
+						<s:TextInput id="nursePass" width="230" height="35" displayAsPassword="true" color="#c4c4c4"/>
 					</s:Group>
 					
 					<s:VGroup width="230">
@@ -115,7 +114,7 @@
 	
 	<s:VGroup width="1024" x="0" y="60">
 		
-		<s:Label id="welcome" text="Mobile Nurse" textAlign="center" width="100%" color="#CCCCCC"/>
+		<s:Label id="welcome" text="Mobile Nurse" textAlign="center" width="100%" color="#CCCCCC" />
 		<s:Label id="welcome2" x="45" y="139" width="100%" height="58" fontSize="21" color="#FFFFFF"
 				 text="Eine Software zur Ersterfassung und Aufnahme von Patientendaten."
 				 textAlign="center"/>

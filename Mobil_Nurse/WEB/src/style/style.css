@@ -3,6 +3,7 @@
 s|ActionBar{
 	defaultButtonAppearance: beveled;
 	skinClass: ClassReference("skins.CustomActionBarSkin");
+	chromeColor: #70431b;
 }
 
 s|ActionBar #titleDisplay {
@@ -16,6 +17,11 @@ s|ActionBar #titleGroup {
 }
 .picture{
 	shadowColor:  "0xDDDDDD";
+}
+
+s|TextInput {
+	borderVisible: true;
+	contentBackgroundColor: #202020;
 }
 
 #errorText{
@@ -38,7 +44,6 @@ s|ActionBar #titleGroup {
 	textAlign: center;
 	paddingTop: 25px;
 }
-
 
 global
 {
