@@ -34,15 +34,15 @@
 	
 	<s:Group id="navigationGroup" 
 			 left="12" 
-			 verticalCenter="0"/>
+			 verticalCenter="-3"/>
 	
 	<s:Group id="actionGroup" 
 			 right="12"
-			 verticalCenter="0"/>
+			 verticalCenter="-3"/>
 	
 	<s:Label id="titleDisplay"
 			 horizontalCenter="0"
-			 verticalCenter="0"/>
+			 verticalCenter="-3"/>
 	
 	<!-- SkinParts
 	name=titleGroup, type=spark.components.Group, required=false

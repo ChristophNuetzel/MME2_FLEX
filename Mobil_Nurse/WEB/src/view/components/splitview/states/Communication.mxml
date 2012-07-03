@@ -2,7 +2,6 @@
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		xmlns:assets="assets.*"
-		backgroundColor="#E3F2F2" 
 		creationComplete="register()" 
 		title="Communication"
 		xmlns:mx="http://www.adobe.com/2009/mxml">
@@ -36,6 +35,8 @@
 			private function register():void {
 				AppFacade.getInstance().removeMediator( CommunicationMediator.NAME );
 				AppFacade.getInstance().registerMediator( new CommunicationMediator(this) );
+				backgroundImage.visible = true;
+				this.setElementIndex(back, 0);
 			}
 			
 			
@@ -105,7 +106,6 @@
 			{
 				dispatchEvent( new StateTextFieldEvent( SET_PROBLEMS_PENCIL, this.problemsPencil));
 			}
-			
 		]]>
 	</fx:Script>
 	
@@ -116,24 +116,55 @@
 		<s:State name="tools" id="tools" enterState="initToolTextFields(event)"/>
 	</s:states>
 	
-	<s:HGroup y="78" width="550" height="26"
-			  x.problems="85" y.problems="77"
-			  y.ressourcen="53" width.ressourcen="584" height.ressourcen="51">
-		<s:Label fontSize="30" text=" Ressourcen "
-				 click="currentState='ressourcen'" textDecoration.ressourcen="underline" />
+	<s:Group id="back"
+			 height.problems="660"
+			 height.ressourcen="660"
+			 height.solutions="660"
+			 height.tools="660">
+		<s:BitmapImage id="backgroundImage" visible="false" left="0" right="0" top="0" bottom="0"
+					   depth="0" smooth="true" source="@Embed('assets/ruledpaperwithheader.png')"/>
+		<s:VGroup includeIn="problems" x="-1" y="134" width="690" contentBackgroundAlpha="0">
+			<s:HGroup width="669">
+				<s:Image width="156" height="103" source="@Embed(source='assets/eye.png')"/>
+				<s:TextArea id="problemsEye" width="294" height="55" keyUp="setProblemsEye(event)"/>
+			</s:HGroup>
+			
+			<s:HGroup width="479">
+				<s:Image x="287" y="189" width="128" height="88" source="@Embed(source='assets/ear.png')"/>
+				<s:TextArea id="problemsEar" width="214" height="51" keyUp="setProblemsEar(event)"/>
+			</s:HGroup>
+			
+			<s:HGroup width="478">
+				<s:Image x="499" y="191" width="113" height="73" source="@Embed(source='assets/nose.png')"/>
+				<s:TextArea id="problemsSpeak" width="214" height="51" keyUp="setProblemsSpeak(event)"/>
+			</s:HGroup>
+			
+			<s:HGroup width="478">
+				<s:TextArea id="problemsHand" width="214" height="51" keyUp="setProblemsHand(event)"/>
+			</s:HGroup>
+			
+			<s:HGroup width="478">
+				<s:TextArea id="problemsPencil" width="214" height="51" keyUp="setProblemsPencil(event)"/>
+			</s:HGroup>
+		</s:VGroup>
+	</s:Group>
+	
+	<s:HGroup y="25" width="550" height="26" x="35" horizontalCenter="-90">
+		<s:Label fontSize="22" text="Ressourcen" paddingLeft="10" paddingRight="10"
+				 click="currentState='ressourcen'" backgroundColor.ressourcen="#EFEFEF"/>
 		
-		<s:Label fontSize="30" text=" Problems "
-				 click="currentState='problems'" textDecoration.problems="underline" />
+		<s:Label fontSize="22" text="Problems" paddingLeft="10" paddingRight="10"
+				 click="currentState='problems'" backgroundColor.problems="#EFEFEF" />
 		
-		<s:Label fontSize="30" text=" Solutions "
-				 click="currentState='solutions'" textDecoration.solutions="underline"/>
-		<s:Label fontSize="30" text=" Tools "
-				 click="currentState='tools'" textDecoration.tools="underline"/>
+		<s:Label fontSize="22" text="Solutions" paddingLeft="10" paddingRight="10"
+				 click="currentState='solutions'" backgroundColor.solutions="#EFEFEF"/>
+		<s:Label fontSize="22" text="Tools" paddingLeft="10" paddingRight="10"
+				 click="currentState='tools'" backgroundColor.tools="#EFEFEF"/>
 	</s:HGroup>
 
-	<s:Group includeIn="ressourcen" x="0" y="0" width="100%" height="100%">
+	<s:Group includeIn="ressourcen" x="0" y="0" width="100%" height="663">
 		
-		<s:Group x="40" y="121" width="671" height="583">
+		<s:Group x="40" y="121" width="671" height="509">
 			<s:VGroup x="33" y="10" width="63" height="73">
 				<s:CheckBox click="checkEye(event)" id="check_eye"/>
 				<s:Image width="61" height="42" source="@Embed(source='assets/eye.png')"/>
@@ -151,35 +182,6 @@
 		</s:Group>
 		
 	</s:Group>
-	
-	<s:TextInput >
-		
-	</s:TextInput>
-	
-	<s:VGroup includeIn="problems" x="16" y="132" width="690">
-		<s:HGroup width="669">
-			<s:Image width="156" height="103" source="@Embed(source='assets/eye.png')"/>
-			<s:TextArea id="problemsEye" width="294" height="55" keyUp="setProblemsEye(event)"/>
-		</s:HGroup>
-		
-		<s:HGroup width="479">
-			<s:Image x="287" y="189" width="128" height="88" source="@Embed(source='assets/ear.png')"/>
-			<s:TextArea id="problemsEar" width="214" height="51" keyUp="setProblemsEar(event)"/>
-		</s:HGroup>
-		
-		<s:HGroup width="478">
-			<s:Image x="499" y="191" width="113" height="73" source="@Embed(source='assets/nose.png')"/>
-			<s:TextArea id="problemsSpeak" width="214" height="51" keyUp="setProblemsSpeak(event)"/>
-		</s:HGroup>
-		
-		<s:HGroup width="478">
-			<s:TextArea id="problemsHand" width="214" height="51" keyUp="setProblemsHand(event)"/>
-		</s:HGroup>
-		
-		<s:HGroup width="478">
-			<s:TextArea id="problemsPencil" width="214" height="51" keyUp="setProblemsPencil(event)"/>
-		</s:HGroup>
-	</s:VGroup>
 	
 	<s:VGroup includeIn="solutions" x="16" y="132" width="478">
 		<s:HGroup width="479">

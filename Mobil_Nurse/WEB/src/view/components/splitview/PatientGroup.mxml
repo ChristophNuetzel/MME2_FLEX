@@ -51,9 +51,9 @@
 	</s:actionContent>
 	
 	<s:SplitViewNavigator id="splitNavigator" x="0" y="0" width="100%" height="100%">
-		<s:ViewNavigator id="leftNav" width="20%" height="100%"
+		<s:ViewNavigator id="leftNav" width="30%" height="100%"
 						 firstView="view.components.splitview.list.PatientList"/>
-		<s:ViewNavigator id="rightNav" width="80%" height="100%"
+		<s:ViewNavigator id="rightNav" width="70%" height="100%"
 						 firstView="view.components.splitview.details.PatientDetails"/>
 			
 	</s:SplitViewNavigator>
@@ -61,5 +61,6 @@
 	<s:navigationContent>
 		<s:Button click="fireMVCgoBack(event)" label="Back"/>
 	</s:navigationContent>
+		
 	
 </s:View>

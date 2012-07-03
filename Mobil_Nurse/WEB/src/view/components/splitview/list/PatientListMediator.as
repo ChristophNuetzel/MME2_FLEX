@@ -39,7 +39,8 @@ package view.components.splitview.list
 		
 		protected function getSelectedState(event:Event):void
 		{
-			var state:String = event.currentTarget.list.selectedItem.id;
+			var state:String = event.currentTarget.list.selectedItem.label;
+			trace(state);
 			sendNotification(AppFacade.CHANGE_STATE, state);
 		}
 	}

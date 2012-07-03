@@ -22,7 +22,6 @@ package view.components.splitview.details
 
 	public class PatientDetailsMediator extends Mediator implements IMediator
 	{
-		
 		public static const NAME:String = "PatientAtlDetailsMediator";
 		private var patientAtlDetails:PatientDetails;
 		private var patient:Patient;
@@ -38,30 +37,19 @@ package view.components.splitview.details
 		
 		override public function onRegister():void {
 			patientAtlDetails.addEventListener( PatientDetails.SET_SELECTED_PATIENT , setSelectedPatient );
-			
 		}
 		
 		protected function setSelectedPatient(event:Event):void
 		{
 			patientAtlDetails.patientSelected.setPatient(patient);
 			patientsRemoteProxy.setPicture(patient.picture as ByteArray);
-			
-			//patientAtlDetails.communicationATL.addEventListener( CommunicationATL.VERIFY , verify );
 		}
-		
-		private function verify():void
-		{
-			
-			trace("VERIFY VERIFY VERIFY VERIFY");
-		}		
-		
 		
 		override public function listNotificationInterests():Array {
 			return [ AppFacade.CHANGE_STATE , AppFacade.SEND_PATIENT_PICTURE ];
 		}
 		
 		private function setState(stateName:String):void{
-			
 			patientAtlDetails.currentState = stateName;
 		}
 		

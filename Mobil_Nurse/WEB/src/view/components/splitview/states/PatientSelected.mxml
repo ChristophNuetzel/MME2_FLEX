@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark"
-		backgroundColor="#E3F2F2"
 		title="Please check the Patient Data"
 		creationComplete="view1_creationCompleteHandler(event)">
 	<fx:Script>
@@ -13,6 +12,8 @@
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
 				this.actionBarVisible = false;
+				backgroundImage.visible = true;
+				this.setElementIndex(back, 0);	
 			}
 			
 			public function setPatient(pat:Patient):void{
@@ -37,14 +38,15 @@
 	<fx:Declarations>
 	</fx:Declarations>
 	
-	<s:VGroup width="276" height="276" horizontalCenter="-337" verticalCenter="-126">
+	<s:VGroup width="276" height="276" horizontalCenter="-367" verticalCenter="-223">
 		<s:Image id="patient_picture" maxHeight="300" maxWidth="300" styleName="picture">
 			<s:filters>
 				<s:DropShadowFilter distance="6" quality="4"/>
 			</s:filters>
 		</s:Image>
 	</s:VGroup>
-	<s:Form x="383" width="370" height="514" styleName="checkData" verticalCenter="-9"  backgroundColor="0xEEEEEE">
+	<s:Form right="330" width="370" height="514" backgroundColor="0xEEEEEE" styleName="checkData"
+			verticalCenter="-103">
 		
 		<s:FormItem width="350" label="Patientennumber:" fontSize="20" fontStyle="normal"
 					textAlign="center" backgroundColor="0xEEEEEE">
@@ -88,4 +90,9 @@
 						text="{data.history}" textAlign="right"/>
 		</s:FormItem>
 	</s:Form>
+	
+	<s:Group id="back">
+		<s:BitmapImage id="backgroundImage" visible="false" left="0" right="0" top="0" bottom="0"
+					   depth="0" smooth="true" source="@Embed('assets/background.png')"/>
+	</s:Group>
 </s:View>

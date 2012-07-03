@@ -4,7 +4,6 @@
 		creationComplete="creationCompleteHandler(event)"
 		initialize="view1_initializeHandler(event)" 
 		xmlns:components="view.components.*"
-		backgroundColor="#E3F2F2" 
 		xmlns:auto="model.vo.auto.*" 
 		xmlns:splitview="view.components.atl.splitview.*" 
 		xmlns:mediators="view.mediators.*" 
@@ -32,6 +31,8 @@
 			{
 				this.actionBarVisible = false;
 				dispatchEvent( new Event( SET_SELECTED_PATIENT ) );
+				backgroundImage.visible = true;
+				this.setElementIndex(back, 0);
 			}
 			
 		]]>
@@ -39,35 +40,40 @@
 	<fx:Declarations>
 	</fx:Declarations>
 	
+	
 		<s:states>
-			<s:State name="patient"/>
-			<s:State name="communication"/>
-			<s:State name="mov"/>
-			<s:State name="vital"/>
-			<s:State name="feeding"/>
-			<s:State name="excrements"/>
-			<s:State name="dressUp"/>
-			<s:State name="hygiene"/>
-			<s:State name="safety"/>
-			<s:State name="religion"/>
-			<s:State name="sozialize"/>
+			<s:State name="Patient"/>
+			<s:State name="Communication"/>
+			<s:State name="Move"/>
+			<s:State name="Vital"/>
+			<s:State name="Feeding"/>
+			<s:State name="Excrements"/>
+			<s:State name="DressUp"/>
+			<s:State name="Hygiene"/>
+			<s:State name="Safety"/>
+			<s:State name="Religion"/>
+			<s:State name="Sozial"/>
 		</s:states>
 	
-	<states:PatientSelected id="patientSelected" includeIn="patient" x="0" y="-47" width="1024"
+	<s:Group id="back">
+		<s:BitmapImage id="backgroundImage" visible="false" left="0" right="0" top="0" bottom="0"
+					   depth="0" smooth="true" source="@Embed('assets/background.png')"/>
+	</s:Group>
+	
+	<states:PatientSelected id="patientSelected" includeIn="Patient" x="0" y="0" width="1024"
 								height="750"/>
 	
-	<states:Communication includeIn="communication" x="0" y="-45" id="communicationATL" width="1024" height="748"/>
+	<states:Communication includeIn="Communication" x="3" y="10" id="communicationATL" width="1024" height="508"/>
 	
-	<s:Label includeIn="mov" x="55" y="36" text="move"/>
-	<s:Label includeIn="vital" x="55" y="36" text="vital"/>
-	<s:Label includeIn="feeding" x="55" y="36" text="feeding"/>
-	<s:Label includeIn="excrements" x="55" y="36" text="excrements"/>
-	<s:Label includeIn="dressUp" x="55" y="36" text="dressUp"/>
-	<s:Label includeIn="hygiene" x="55" y="36" text="hygiene"/>
-	<s:Label includeIn="safety" x="55" y="36" text="safety"/>
-	<s:Label includeIn="religion" x="55" y="36" text="religion"/>
-	<s:Label includeIn="sozialize" x="55" y="36" text="sozialize"/>
-	
+	<s:Label includeIn="Move" x="55" y="36" text="Move - Comming Soon" color="#FFFFFF"/>
+	<s:Label includeIn="Vital" x="55" y="36" text="Vital - Comming Soon" color="#FFFFFF"/>
+	<s:Label includeIn="Feeding" x="55" y="36" text="Feeding - Comming Soon" color="#FFFFFF"/>
+	<s:Label includeIn="Excrements" x="55" y="36" text="Excrements - Comming Soon" color="#FFFFFF"/>
+	<s:Label includeIn="DressUp" x="55" y="36" text="DressUp - Comming Soon" color="#FFFFFF"/>
+	<s:Label includeIn="Hygiene" x="55" y="36" text="Hygiene - Comming Soon" color="#FFFFFF"/>
+	<s:Label includeIn="Safety" x="55" y="36" text="Safety - Comming Soon" color="#FFFFFF"/>
+	<s:Label includeIn="Religion" x="55" y="36" text="Religion - Comming Soon" color="#FFFFFF"/>
+	<s:Label includeIn="Sozial" x="55" y="36" text="Sozialize - Comming Soon" color="#FFFFFF"/>
 	
 	
 </s:View>

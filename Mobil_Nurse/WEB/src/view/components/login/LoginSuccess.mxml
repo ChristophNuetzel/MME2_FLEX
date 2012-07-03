@@ -3,7 +3,8 @@
 		xmlns:s="library://ns.adobe.com/flex/spark" 
 		creationComplete="init()"
 		initialize="onInitialization(event)" 
-		title="Please check your personal Data" xmlns:styles="com.adobe.fiber.styles.*" >
+		title="Please check your personal Data" 
+		xmlns:styles="com.adobe.fiber.styles.*" >
 	
 	<fx:Declarations>
 		<!-- Platzieren Sie nichtvisuelle Elemente (z. B. Dienste, Wertobjekte) hier -->

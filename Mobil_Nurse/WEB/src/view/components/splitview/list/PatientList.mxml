@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark" 
-		title="ATS"
 		creationComplete="creationCompleteHandler(event)"
-		initialize="initializeHandler(event)"
-		backgroundColor="#E3F2F2">
+		initialize="initializeHandler(event)">
 	
 	<fx:Script>
 		<![CDATA[
@@ -23,6 +21,8 @@
 			protected function creationCompleteHandler(event:FlexEvent):void
 			{
 				this.actionBarVisible = false;
+				backgroundImage.visible = true;
+				this.setElementIndex(back, 0);
 			}
 			
 			protected function initializeHandler(event:FlexEvent):void
@@ -37,24 +37,29 @@
 	<fx:Declarations>
 	</fx:Declarations>
 	
-	<s:List id="list" width="100%" height="100%" click="changeState(event);" 
-			contentBackgroundColor="#E3F2F2" alternatingItemColors="[0xEEEEEE, 0xFFFFFF]">
+	<s:Group id="back">
+		<s:BitmapImage id="backgroundImage" visible="false" left="0" right="0" top="0" bottom="0"
+					   depth="0" smooth="true" source="@Embed('assets/background.png')"/>
+	</s:Group>
+	
+	<s:List id="list" width="90%" height="573" x="20" y="15" click="changeState(event);" contentBackgroundAlpha="0"
+			alternatingItemColors="[0xEEEEEE, 0xFFFFFF]" itemRenderer="skins.ItemRenderer">
+		
 		<s:dataProvider>
 			<s:ArrayCollection>
-				<s:Label id="patient" text="Patient" />
-				<s:Label id="communication" text="Communication" />
-				<s:Label id="mov" text="Move"/>
-				<s:Label id="vital" text="Hygiene"/>
-				<s:Label id="feeding" text="Feeding"/>
-				<s:Label id="excrements" text="Exrements"/>
-				<s:Label id="dressUp" text="Dress Up"/>
-				<s:Label id="hygiene" text="Hygiene"/>
-				<s:Label id="safety" text="Safety"/>
-				<s:Label id="religion" text="Religion"/>
-				<s:Label id="sozialize" text="Sozial"/>
-				
+				<fx:Object id="patient" label="Patient" starred="true"/>
+				<fx:Object id="com" label="Communication" chat="true"/>
+				<fx:Object id="mov" label="Move" />
+				<fx:Object id="vital" label="Vital" />
+				<fx:Object id="feeding" label="Feeding"/>
+				<fx:Object id="excrements" label="Excrements"/>
+				<fx:Object id="dressUp" label="DressUp"/>
+				<fx:Object id="hygiene" label="Hygiene"/>
+				<fx:Object id="safety" label="Safety"/>
+				<fx:Object id="religion" label="Religion"/>
+				<fx:Object id="sozialize" label="Sozial"/>
 			</s:ArrayCollection>
 		</s:dataProvider>
 	</s:List>
-	
+	<s:Button x="20" y="596" width="275" height="68" label="Save Patient"/>
 </s:View>
