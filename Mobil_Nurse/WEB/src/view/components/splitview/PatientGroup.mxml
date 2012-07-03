@@ -18,7 +18,6 @@
 			
 			public static const NAME:String = 'PatientGroup';
 			public static const CLICKED:String = NAME + "Clicked";
-			public static const UPDATE:String = NAME + "Update";
 
 			protected function fireMVCgoBack(event:MouseEvent):void
 			{
@@ -34,22 +33,12 @@
 				this.id = NAME;		
 			}
 			
-			
-			protected function savePatient(event:MouseEvent):void
-			{
-				dispatchEvent( new Event( UPDATE ) );
-				
-			}
-			
 		]]>
 	</fx:Script>
 	
 	<fx:Declarations>
 	</fx:Declarations>
-	<s:actionContent>
-		<s:Button x="-45" width="137" label="Save Patient" click="savePatient(event)"/>
-	</s:actionContent>
-	
+
 	<s:SplitViewNavigator id="splitNavigator" x="0" y="0" width="100%" height="100%">
 		<s:ViewNavigator id="leftNav" width="30%" height="100%"
 						 firstView="view.components.splitview.list.PatientList"/>

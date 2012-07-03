@@ -23,7 +23,7 @@ package view.components.splitview.list
 	{
 		public static const NAME:String = "PatientsAtlListMediator";
 		private var patientsAtlList:PatientList;
-		
+		private var patientRemProx:PatientRemoteProxy;
 		private var patientDetail:PatientDetails = new PatientDetails;
 		
 		
@@ -31,16 +31,26 @@ package view.components.splitview.list
 		{
 			super(NAME);
 			this.patientsAtlList = myView as PatientList;
+			patientRemProx = new PatientRemoteProxy(facade.retrieveProxy(PatientRemoteProxy.NAME));
 		}
 		
 		override public function onRegister():void {
 			patientsAtlList.addEventListener(PatientList.CHANGE_STATE, getSelectedState);
+			patientsAtlList.addEventListener(PatientList.UPDATE, updatePatient);
+		}
+		
+		
+		protected function updatePatient(event:Event):void
+		{
+			patientRemProx.updatePatientDatabase();
 		}
 		
 		protected function getSelectedState(event:Event):void
 		{
 			var state:String = event.currentTarget.list.selectedItem.label;
-			trace(state);
+			if(state == "Communication"){
+				patientsAtlList.saveButtonGroup.visible = true;
+			}
 			sendNotification(AppFacade.CHANGE_STATE, state);
 		}
 	}

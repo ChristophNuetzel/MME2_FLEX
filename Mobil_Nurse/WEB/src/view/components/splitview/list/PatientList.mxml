@@ -11,7 +11,7 @@
 			import spark.components.ViewNavigator;
 			
 			public static const NAME:String = 'PatientsAtlList';
-			
+			public static const UPDATE:String = NAME + "Update";
 			public static const CHANGE_STATE:String = NAME + "ChangeState";
 			
 			public function changeState(event:Event):void{
@@ -29,12 +29,24 @@
 			{
 				this.id = NAME;
 			}
+			
+			protected function savePatient(event:MouseEvent):void
+			{
+				dispatchEvent( new Event( UPDATE ) );
+				content.visible = true;
+				textFadeOut();
+			}
+			
+			private function textFadeOut():void{
+				fadeOut.play([content]);
+			}
 
 			
 		]]>
 	</fx:Script>
 	
 	<fx:Declarations>
+		<s:Fade id="fadeOut" alphaFrom="1.0" alphaTo="0.0" duration="2000"/>
 	</fx:Declarations>
 	
 	<s:Group id="back">
@@ -61,5 +73,11 @@
 			</s:ArrayCollection>
 		</s:dataProvider>
 	</s:List>
-	<s:Button x="20" y="596" width="275" height="68" label="Save Patient"/>
+	
+	<s:VGroup id="saveButtonGroup" x="20" y="558" visible="false">
+		<s:Label id="content" width="100%" color="#FFFFFF" fontSize="20" paddingBottom="15"
+				 text="Patient Saved" textAlign="center" visible="false"/>
+		<s:Button x="20" y="596" width="275" height="68" label="Save Patient" click="savePatient(event);"/>
+	</s:VGroup>
+	
 </s:View>

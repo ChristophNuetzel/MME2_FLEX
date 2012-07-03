@@ -24,13 +24,11 @@ package view.components.splitview
 		public static const NAME:String = "PatientGroupMediator";
 		private var patientGroup:PatientGroup;
 		private var patientLIst:PatientList;
-		private var patientRemProx:PatientRemoteProxy;
 		
 		public function PatientGroupMediator(myView:View)
 		{
 			super(NAME);
 			this.patientGroup = myView as PatientGroup;
-			patientRemProx = new PatientRemoteProxy(facade.retrieveProxy(PatientRemoteProxy.NAME));
 		}
 
 		override public function onRegister():void {
@@ -42,12 +40,6 @@ package view.components.splitview
 			facade.removeMediator(RightSplitViewMediator.NAME);
 			facade.registerMediator(new RightSplitViewMediator(patientGroup.rightNav , patientGroup.data as Patient));
 			
-			patientGroup.addEventListener(PatientGroup.UPDATE, updatePatient);
-		}
-		
-		protected function updatePatient(event:Event):void
-		{
-			patientRemProx.updatePatientDatabase();
 			
 		}
 		
