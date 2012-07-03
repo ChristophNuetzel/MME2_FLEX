@@ -185,38 +185,101 @@
 			 height.solutions="660"
 			 height.tools="660">
 		<s:BitmapImage id="backgroundImage" visible="false" left="0" right="0" top="0" bottom="0"
-					   depth="0" smooth="true" source="@Embed('assets/ruledpaperwithheader.png')"/>
-		<s:VGroup includeIn="problems" x="30" y="116" width="690" height="356"
+					   depth="0" smooth="true" source="@Embed('assets/ruledpaperwithheader.png')"
+					   left.solutions="0" right.solutions="0" top.solutions="0" bottom.solutions="0"/>
+		<s:VGroup id="problemGroup" includeIn="problems" x="44" y="116" width="609" height="416"
 				  contentBackgroundAlpha="0">
 			<s:HGroup width="690">
 				<s:Image source="assets/eye.png"/>
 				<s:Spacer width="70" height="10"/>
 				<s:TextArea
-					verticalCenter="0" horizontalCenter="0" verticalAlign="top"
-					id="problemsEye" width="573" height="78" keyUp="setProblemsEye(event)" skinClass="skins.CustomTextAreaSkin" 
-							/>
+					id="problemsEye" width="478" height="78" keyUp="setProblemsEye(event)" skinClass="skins.CustomTextAreaSkin" />
 			</s:HGroup>
 			
-			<s:HGroup width="478">
+			<s:HGroup width="624">
 				<s:Image source="assets/mouth.png"/>
-				<s:TextArea id="problemsSpeak" width="214" height="51" keyUp="setProblemsSpeak(event)"/>
+				<s:Spacer width="87" height="10"/>
+				<s:TextArea id="problemsSpeak" width="480" height="78" keyUp="setProblemsSpeak(event)" skinClass="skins.CustomTextAreaSkin"/>
 			</s:HGroup>
-			<s:HGroup width="479">
+			<s:HGroup width="623">
 				<s:Image source="assets/ear.png"/>
-				<s:TextArea id="problemsEar" width="214" height="51" keyUp="setProblemsEar(event)"/>
+				<s:Spacer width="100" height="10"/>
+				<s:TextArea id="problemsEar" width="479" height="78" keyUp="setProblemsEar(event)" skinClass="skins.CustomTextAreaSkin"/>
 			</s:HGroup>
 			
-			<s:HGroup width="478">
+			<s:HGroup width="623">
 				<s:Image source="assets/hand.png"/>
-				<s:TextArea id="problemsHand" width="214" height="51" keyUp="setProblemsHand(event)"/>
+				<s:Spacer width="90" height="10"/>
+				<s:TextArea id="problemsHand" width="479" height="78" keyUp="setProblemsHand(event)" skinClass="skins.CustomTextAreaSkin"/>
 			</s:HGroup>
 			
-			<s:HGroup width="478">
+			<s:HGroup width="622">
 				<s:Image includeIn="problems" source="assets/pencil.png"/>
-				<s:TextArea id="problemsPencil" width="214" height="51" keyUp="setProblemsPencil(event)"/>
+				<s:Spacer width="90" height="10"/>
+				<s:TextArea id="problemsPencil" width="480" height="78" keyUp="setProblemsPencil(event)" skinClass="skins.CustomTextAreaSkin"/>
+			</s:HGroup>
+		</s:VGroup>
+		
+		<s:VGroup id="solutionsGroup" includeIn="solutions" x="44" y="116" width="609" height="416">
+			<s:HGroup x="10" y="27" width="479">
+				<s:Image source="assets/eye.png"/>
+				<s:Spacer width="70" height="10"/>
+				<s:TextArea id="solutionEye" width="478" height="78" keyUp="setSolutionsEye(event)" skinClass="skins.CustomTextAreaSkin"/>
+			</s:HGroup>
+			<s:HGroup x="41" y="90" width="479">
+				<s:Image source="assets/mouth.png"/>
+				<s:Spacer width="87" height="10"/>
+				<s:TextArea id="solutionEar" width="480" height="78"  keyUp="setSolutionsEar(event)" skinClass="skins.CustomTextAreaSkin"/>
+			</s:HGroup>
+			<s:HGroup x="143" y="136" width="478">
+				<s:Image source="assets/ear.png"/>
+				<s:Spacer width="100" height="10"/>
+				<s:TextArea id="solutionSpeak" width="479" height="78"  keyUp="setSolutionsSpeak(event)" skinClass="skins.CustomTextAreaSkin"/>
+			</s:HGroup>
+			<s:HGroup x="36" y="176" width="478">
+				<s:Image source="assets/hand.png"/>
+				<s:Spacer width="90" height="10"/>
+				<s:TextArea id="solutionHand" width="479" height="78" keyUp="setSolutionsHand(event)" skinClass="skins.CustomTextAreaSkin"/>
+			</s:HGroup>
+			<s:HGroup x="39" y="252" width="478">
+				<s:Image source="assets/pencil.png"/>
+				<s:Spacer width="90" height="10"/>
+				<s:TextArea id="solutionPencil" width="480" height="78" keyUp="setSolutionsPencil(event)" skinClass="skins.CustomTextAreaSkin"/>
 			</s:HGroup>
 		</s:VGroup>
 	</s:Group>
+	
+	<s:VGroup includeIn="tools" x="44" y="116" width="609" height="416">
+		<s:HGroup width="732">
+			<s:Image source="assets/eye.png"/>
+			<s:Spacer width="70" height="10"/>
+			<s:TextArea id="toolsEye" width="478" height="78" keyUp="setToolsEye(event)" skinClass="skins.CustomTextAreaSkin"/>
+		</s:HGroup>
+		
+		<s:HGroup width="733">
+			<s:Image source="assets/mouth.png"/>
+			<s:Spacer width="87" height="10"/>
+			<s:TextArea id="toolsEar" width="479" height="78"  keyUp="setToolsEar(event)" skinClass="skins.CustomTextAreaSkin" />
+		</s:HGroup>
+		
+		<s:HGroup width="732">
+			<s:Image source="assets/ear.png"/>
+			<s:Spacer width="100" height="10"/>
+			<s:TextArea id="toolsSpeak" width="480" height="78" keyUp="setToolsSpeak(event)" skinClass="skins.CustomTextAreaSkin"/>
+		</s:HGroup>
+		
+		<s:HGroup width="733">
+			<s:Image source="assets/hand.png"/>
+			<s:Spacer width="90" height="10"/>
+			<s:TextArea id="toolsHand" width="479" height="78" keyUp="setToolsHand(event)" skinClass="skins.CustomTextAreaSkin" />
+		</s:HGroup>
+		
+		<s:HGroup width="734">
+			<s:Image source="assets/pencil.png"/>
+			<s:Spacer width="90" height="10"/>
+			<s:TextArea id="toolsPencil" width="480" height="78" keyUp="setToolsPencil(event)" skinClass="skins.CustomTextAreaSkin"/>
+		</s:HGroup>
+	</s:VGroup>
 	
 	<s:HGroup y="25" width="550" height="26" x="35" horizontalCenter="-90">
 		<s:Label fontSize="22" text="Ressourcen" paddingLeft="10" paddingRight="10"
@@ -233,7 +296,7 @@
 
 	<s:Group includeIn="ressourcen" x="0" y="0" width="100%" height="663">
 		
-		<s:Group x="40" y="121" width="671" height="509">
+		<s:Group x="44" y="116" width="609" height="416">
 			<s:HGroup x="0" y="153" width="671" height="42">
 				<s:Spacer width="200" height="10"/>
 				<s:CheckBox click="checkEar(event)" id="check_ear"/>
@@ -268,64 +331,4 @@
 		
 	</s:Group>
 	
-	<s:VGroup includeIn="solutions" x="16" y="132" width="478">
-		<s:HGroup width="479">
-			<s:Image source="assets/eye.png"/>
-			<s:TextArea id="solutionEye" width="214" height="55" keyUp="setSolutionsEye(event)"/>
-		</s:HGroup>
-		
-		<s:HGroup width="479">
-			<s:Image source="assets/mouth.png"/>
-			<s:TextArea id="solutionEar" width="214" height="51"  keyUp="setSolutionsEar(event)"/>
-		</s:HGroup>
-		
-		<s:HGroup width="478">
-			<s:Image source="assets/ear.png"/>
-			<s:TextArea id="solutionSpeak" width="214" height="51"  keyUp="setSolutionsSpeak(event)"/>
-		</s:HGroup>
-		
-		<s:HGroup width="478">
-			<s:Image source="assets/hand.png"/>
-			<s:TextArea id="solutionHand" width="214" height="51" keyUp="setSolutionsHand(event)"/>
-		</s:HGroup>
-		
-		<s:HGroup width="478">
-			<s:Image source="assets/pencil.png"/>
-			<s:TextArea id="solutionPencil" width="214" height="51" keyUp="setSolutionsPencil(event)"/>
-		</s:HGroup>
-	</s:VGroup>
-	
-	<s:VGroup includeIn="tools" x="16" y="132" width="733">
-		<s:HGroup width="732">
-			<s:Image source="assets/eye.png"/>
-			<s:Spacer width="79" height="10"/>
-			<s:TextArea id="toolsEye" width="610" height="55" keyUp="setToolsEye(event)"/>
-		</s:HGroup>
-		
-		<s:HGroup width="733">
-			<s:Image source="assets/mouth.png"/>
-			<s:Spacer width="95" height="10"/>
-			<s:TextArea id="toolsEar" width="214" height="51"  keyUp="setToolsEar(event)"/>
-		</s:HGroup>
-		
-		<s:HGroup width="732">
-			<s:Image source="assets/ear.png"/>
-			<s:Spacer width="106" height="10"/>
-			<s:TextArea id="toolsSpeak" width="214" height="51" keyUp="setToolsSpeak(event)"/>
-		</s:HGroup>
-		
-		<s:HGroup width="733">
-			<s:Image source="assets/hand.png"/>
-			<s:Spacer width="98" height="10"/>
-			<s:TextArea id="toolsHand" width="214" height="51" keyUp="setToolsHand(event)"/>
-		</s:HGroup>
-		
-		<s:HGroup width="734">
-			<s:Image source="assets/pencil.png"/>
-			<s:Spacer width="98" height="10"/>
-			<s:TextArea id="toolsPencil" width="214" height="51" keyUp="setToolsPencil(event)"/>
-		</s:HGroup>
-	</s:VGroup>
-	
-
 </s:View>

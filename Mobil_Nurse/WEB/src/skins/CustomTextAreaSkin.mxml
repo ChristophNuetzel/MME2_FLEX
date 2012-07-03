@@ -57,23 +57,17 @@
 			
 			protected function handleMouse(event:MouseEvent):void
 			{
-				// TODO Auto-generated method stub
-				trace("jetzt wurde aufs textfield geklickt");
 				currentState = 'focused';
 			}
 			
 			protected function handleFocusIn(event:FocusEvent):void
 			{
-				// TODO Auto-generated method stub
-				trace("jetzt wurde der focus gesetzt") ;
 				currentState = 'focused';
 				
 			}
 			
 			protected function handlerFocusOut(event:FocusEvent):void
 			{
-				// TODO Auto-generated method stub
-				trace("jetzt hat uns der focus verlassen" );
 				currentState = "normal";
 			}
 			
@@ -120,7 +114,10 @@
         <s:RichEditableText id="textDisplay" heightInLines="10" widthInChars="15"
 							backgroundColor.focused="#F4F0F0"
 							verticalAlign.normal="top"
-							verticalAlign.focused="top"/>
+							verticalAlign.focused="top"
+							paddingBottom.normal="10" paddingLeft.normal="10" paddingRight.normal="10" paddingTop.normal="10"
+							paddingBottom.focused="10" paddingLeft.focused="10" paddingRight.focused="10" paddingTop.focused="10"
+							color="#3399FF"/>
     </s:Scroller>
     
     <!--- Defines the Label that is used for prompt text. The includeInLayout property is false so the prompt text does not affect measurement. -->
