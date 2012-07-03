@@ -112,7 +112,7 @@
 		<s:Label height="36" text="Search Patients by: " verticalAlign="middle" color="#FFFFFF"/>
 		<s:RadioButton id="Firstname" label="Firstname" width="126" color="#FFFFFF"/>
 		<s:RadioButton id="Name" label="Name" selected="true" color="#FFFFFF"/>
-		<s:TextInput id="searchString" width="355" change="filterDemo()" color="#000000"/>
+		<s:TextInput id="searchString" width="355" change="filterDemo()" color="#c4c4c4"/>
 	</s:HGroup>
 
 	<s:Group id="back">
