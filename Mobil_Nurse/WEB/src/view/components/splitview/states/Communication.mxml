@@ -28,6 +28,18 @@
 			public static const SET_PROBLEMS_HAND:String = "SetProbemsHand";
 			public static const SET_PROBLEMS_PENCIL:String = "SetProbemsPencil";
 			
+			public static const SET_SOLUTIONS_EYE:String = "SetSolutionsEye";
+			public static const SET_SOLUTIONS_EAR:String = "SetSolutionsEar";
+			public static const SET_SOLUTIONS_SPEAK:String = "SetSolutionsSpeak";
+			public static const SET_SOLUTIONS_HAND:String = "SetSolutionsHand";
+			public static const SET_SOLUTIONS_PENCIL:String = "SetSolutionsPencil";
+			
+			public static const SET_TOOLS_EYE:String = "SetToolsEye";
+			public static const SET_TOOLS_EAR:String = "SetToolsEar";
+			public static const SET_TOOLS_SPEAK:String = "SetToolsSpeak";
+			public static const SET_TOOLS_HAND:String = "SetToolsHand";
+			public static const SET_TOOLS_PENCIL:String = "SetToolsPencil";
+			
 			public static const GET_PROBLEM_FIELDS:String = "GetProblemFields";
 			public static const GET_SOLUTION_FIELDS:String = "GetSolutionFields";
 			public static const GET_TOOL_FIELDS:String = "GetToolFields";
@@ -106,6 +118,57 @@
 			{
 				dispatchEvent( new StateTextFieldEvent( SET_PROBLEMS_PENCIL, this.problemsPencil));
 			}
+			
+			protected function setSolutionsEye(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_SOLUTIONS_EYE, this.solutionEye));
+			}
+			
+			protected function setSolutionsSpeak(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_SOLUTIONS_SPEAK, this.solutionSpeak));
+			}
+			
+			protected function setSolutionsEar(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_SOLUTIONS_EAR, this.solutionEar));
+			}
+			
+			protected function setSolutionsHand(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_SOLUTIONS_HAND, this.solutionHand));
+			}
+			
+			protected function setSolutionsPencil(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_SOLUTIONS_PENCIL, this.solutionPencil));
+			}
+			
+			protected function setToolsEye(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_TOOLS_EYE, this.toolsEye));
+			}
+			
+			protected function setToolsSpeak(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_TOOLS_SPEAK, this.toolsSpeak));
+			}
+			
+			protected function setToolsEar(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_TOOLS_EAR, this.toolsEar));
+			}
+			
+			protected function setToolsHand(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_TOOLS_HAND, this.toolsHand));
+			}
+			
+			protected function setToolsPencil(event:KeyboardEvent):void
+			{
+				dispatchEvent( new StateTextFieldEvent( SET_TOOLS_PENCIL, this.toolsPencil));
+			}
+			
 		]]>
 	</fx:Script>
 	
@@ -208,27 +271,27 @@
 	<s:VGroup includeIn="solutions" x="16" y="132" width="478">
 		<s:HGroup width="479">
 			<s:Image source="assets/eye.png"/>
-			<s:TextArea id="solutionEye" width="214" height="55"/>
+			<s:TextArea id="solutionEye" width="214" height="55" keyUp="setSolutionsEye(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="479">
 			<s:Image source="assets/mouth.png"/>
-			<s:TextArea id="solutionEar" width="214" height="51"/>
+			<s:TextArea id="solutionEar" width="214" height="51" keyUp="setSolutionsSpeak(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="478">
 			<s:Image source="assets/ear.png"/>
-			<s:TextArea id="solutionSpeak" width="214" height="51"/>
+			<s:TextArea id="solutionSpeak" width="214" height="51" keyUp="setSolutionsEar(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="478">
 			<s:Image source="assets/hand.png"/>
-			<s:TextArea id="solutionHand" width="214" height="51"/>
+			<s:TextArea id="solutionHand" width="214" height="51" keyUp="setSolutionsHand(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="478">
 			<s:Image source="assets/pencil.png"/>
-			<s:TextArea id="solutionPencil" width="214" height="51"/>
+			<s:TextArea id="solutionPencil" width="214" height="51" keyUp="setSolutionsPencil(event)"/>
 		</s:HGroup>
 	</s:VGroup>
 	
@@ -236,31 +299,31 @@
 		<s:HGroup width="732">
 			<s:Image source="assets/eye.png"/>
 			<s:Spacer width="79" height="10"/>
-			<s:TextArea id="toolsEye" width="610" height="55"/>
+			<s:TextArea id="toolsEye" width="610" height="55" keyUp="setToolsEye(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="733">
 			<s:Image source="assets/mouth.png"/>
 			<s:Spacer width="95" height="10"/>
-			<s:TextArea id="toolsEar" width="214" height="51"/>
+			<s:TextArea id="toolsEar" width="214" height="51" keyUp="setToolsSpeak(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="732">
 			<s:Image source="assets/ear.png"/>
 			<s:Spacer width="106" height="10"/>
-			<s:TextArea id="toolsSpeak" width="214" height="51"/>
+			<s:TextArea id="toolsSpeak" width="214" height="51" keyUp="setToolsEar(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="733">
 			<s:Image source="assets/hand.png"/>
 			<s:Spacer width="98" height="10"/>
-			<s:TextArea id="toolsHand" width="214" height="51"/>
+			<s:TextArea id="toolsHand" width="214" height="51" keyUp="setToolsHand(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="734">
 			<s:Image source="assets/pencil.png"/>
 			<s:Spacer width="98" height="10"/>
-			<s:TextArea id="toolsPencil" width="214" height="51"/>
+			<s:TextArea id="toolsPencil" width="214" height="51" keyUp="setToolsPencil(event)"/>
 		</s:HGroup>
 	</s:VGroup>
 	
