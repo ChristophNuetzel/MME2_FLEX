@@ -276,12 +276,12 @@
 		
 		<s:HGroup width="479">
 			<s:Image source="assets/mouth.png"/>
-			<s:TextArea id="solutionEar" width="214" height="51" keyUp="setSolutionsSpeak(event)"/>
+			<s:TextArea id="solutionEar" width="214" height="51"  keyUp="setSolutionsEar(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="478">
 			<s:Image source="assets/ear.png"/>
-			<s:TextArea id="solutionSpeak" width="214" height="51" keyUp="setSolutionsEar(event)"/>
+			<s:TextArea id="solutionSpeak" width="214" height="51"  keyUp="setSolutionsSpeak(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="478">
@@ -305,13 +305,13 @@
 		<s:HGroup width="733">
 			<s:Image source="assets/mouth.png"/>
 			<s:Spacer width="95" height="10"/>
-			<s:TextArea id="toolsEar" width="214" height="51" keyUp="setToolsSpeak(event)"/>
+			<s:TextArea id="toolsEar" width="214" height="51"  keyUp="setToolsEar(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="732">
 			<s:Image source="assets/ear.png"/>
 			<s:Spacer width="106" height="10"/>
-			<s:TextArea id="toolsSpeak" width="214" height="51" keyUp="setToolsEar(event)"/>
+			<s:TextArea id="toolsSpeak" width="214" height="51" keyUp="setToolsSpeak(event)"/>
 		</s:HGroup>
 		
 		<s:HGroup width="733">

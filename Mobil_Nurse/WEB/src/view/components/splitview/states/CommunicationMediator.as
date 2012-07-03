@@ -52,6 +52,18 @@ package view.components.splitview.states
 			communicationATL.addEventListener( Communication.SET_PROBLEMS_HAND, setProblemsHand);
 			communicationATL.addEventListener( Communication.SET_PROBLEMS_PENCIL, setProblemsPencil);
 			
+			communicationATL.addEventListener( Communication.SET_SOLUTIONS_EYE, setSolutionsEye);
+			communicationATL.addEventListener( Communication.SET_SOLUTIONS_EAR, setSolutionsEar);
+			communicationATL.addEventListener( Communication.SET_SOLUTIONS_SPEAK, setSolutionsSpeak);
+			communicationATL.addEventListener( Communication.SET_SOLUTIONS_HAND, setSolutionsHand);
+			communicationATL.addEventListener( Communication.SET_SOLUTIONS_PENCIL, setSolutionsPencil);
+			
+			communicationATL.addEventListener( Communication.SET_TOOLS_EYE , setToolsEye);
+			communicationATL.addEventListener( Communication.SET_TOOLS_EAR , setToolsEar);
+			communicationATL.addEventListener( Communication.SET_TOOLS_SPEAK , setToolsSpeak);
+			communicationATL.addEventListener( Communication.SET_TOOLS_HAND , setToolsHand);
+			communicationATL.addEventListener( Communication.SET_TOOLS_PENCIL , setToolsPencil);
+			
 			communicationATL.addEventListener( Communication.GET_PROBLEM_FIELDS , getProblemFields );
 			communicationATL.addEventListener( Communication.GET_SOLUTION_FIELDS, getSolutionFields );
 			communicationATL.addEventListener( Communication.GET_TOOL_FIELDS, getToolFields );
@@ -137,9 +149,67 @@ package view.components.splitview.states
 			PatientLocalProxy.patient.communication.communicationProblems.pencil = event.data;
 		}
 		
-		protected function verify(event:ATLEvent):void
+		//tools
+		
+		protected function setToolsPencil(event:StateTextFieldEvent):void
 		{
-			persistprox.persistCommunicationATL(event.data);
+			PatientLocalProxy.patient.communication.communicationProblems.toolsPencil = event.data.text;
+			
+		}
+		
+		protected function setToolsHand(event:StateTextFieldEvent):void
+		{
+			PatientLocalProxy.patient.communication.communicationProblems.toolsHand = event.data.text;
+			
+		}
+		
+		protected function setToolsSpeak(event:StateTextFieldEvent):void
+		{
+			PatientLocalProxy.patient.communication.communicationProblems.toolsSpeak = event.data.text;
+			
+		}
+		
+		protected function setToolsEar(event:StateTextFieldEvent):void
+		{
+			PatientLocalProxy.patient.communication.communicationProblems.toolsEar = event.data.text;
+			
+		}
+		
+		protected function setToolsEye(event:StateTextFieldEvent):void
+		{
+			PatientLocalProxy.patient.communication.communicationProblems.toolsSee = event.data.text;
+			
+		}
+		
+		// solutions
+		protected function setSolutionsPencil(event:StateTextFieldEvent):void
+		{
+			PatientLocalProxy.patient.communication.communicationProblems.solutionPencil= event.data.text;
+			
+		}
+		
+		protected function setSolutionsHand(event:StateTextFieldEvent):void
+		{
+			PatientLocalProxy.patient.communication.communicationProblems.solutionHand = event.data.text;
+			
+		}
+		
+		protected function setSolutionsSpeak(event:StateTextFieldEvent):void
+		{
+			PatientLocalProxy.patient.communication.communicationProblems.solutionSpeak = event.data.text;
+			
+		}
+		
+		protected function setSolutionsEar(event:StateTextFieldEvent):void
+		{
+			PatientLocalProxy.patient.communication.communicationProblems.solutionEar = event.data.text;
+			
+		}
+		
+		protected function setSolutionsEye(event:StateTextFieldEvent):void
+		{
+			PatientLocalProxy.patient.communication.communicationProblems.solutionsSee = event.data.text;
+			
 		}
 	}
 }
